@@ -32,19 +32,36 @@
 
 <body>
   <!-- header section -->
-  <header class="header bg-white shadow fixed w-full">
-    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
-      <a href="#">
-        <img src="images/Khateeb and Yaya.png" alt="Logo" class="w-16">
-      </a>
-      <nav class="hidden md:flex space-x-8">
-        <a href="index.html" class="text-secondary hover:text-main">Home</a>
-        <a href="emails.html" class="text-secondary hover:text-primary">Emails</a>
-        <a href="materials.html" class="text-secondary hover:text-secondary-100">Materials</a>
-      </nav>
-      <div class="flex items-center space-x-2 text-secondary-color">
-        <span class="material-symbols-outlined">dark_mode</span>
-        <span class="material-symbols-outlined user">account_circle</span>
+  <header class="header bg-white fixed shadow w-full">
+    <div class="container mx-auto">
+      <div class="wrap flex justify-between items-center">
+        <div class="social flex gap-4 text-2xl">
+          <a href=""><i class="fa-brands fa-facebook text-secondary"></i></a>
+          <a href=""><i class="fa-brands fa-youtube text-secondary"></i></a>
+          <a href=""><i class="fa-brands fa-linkedin text-secondary"></i></a>
+          <a href=""><i class="fa-brands fa-github text-secondary"></i></a>
+        </div>
+        <div class="logo">
+          <img src="../images/Khateeb and Yaya.png" alt="" class="w-16">
+        </div>
+        <span class="material-symbols-outlined text-secondary">
+          account_circle
+        </span>
+      </div>
+      <div class="wrap flex justify-center items-center">
+        <nav class="capitalize w-fit flex items-center gap-20 font-bold text-lg py-6">
+          <a href="index.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">home</a>
+          <a href="location.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">location</a>
+          <a href="materials.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">materials</a>
+          <a href="emails.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">emails</a>
+          <button type="button"
+            class="text-white bg focus:outline-none bg-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-secondary transition duration-300">
+            login</button>
+        </nav>
       </div>
     </div>
   </header>
