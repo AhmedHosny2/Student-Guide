@@ -36,7 +36,7 @@ exports.signupUser = async (req, res) => {
     }
 };
 
-exports.loginUser = async (req, res) => {
+exports.getLogin = async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await userModel.findOne({ email });
@@ -47,6 +47,9 @@ exports.loginUser = async (req, res) => {
         if (!match) {
             return res.status(400).json({ message: "Password is incorrect" });
         }
+        req.session.isLoggedIn = true;
+        req.session.user = user;
+        console.log(req.session);
         res.status(200).json({ message: "Login Successful" });
     } catch (err) {
         console.error(err);
