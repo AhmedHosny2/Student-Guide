@@ -7,7 +7,7 @@
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
-    "build": "npx tailwindcss -i ./src/input.css -o ./styles/output.css --watch"
+    "start": "npx tailwindcss -i ./src/input.css -o ./styles/output.css --watch"
   },
   "name": "student-guide",
   "version": "1.0.0",
