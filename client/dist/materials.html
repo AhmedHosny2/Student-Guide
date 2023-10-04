@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>guide</title>
   <!-- css files -->
-  <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../style/materials.css"> -->
   <!-- tailwind link -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
   <!-- normalize-file -->
@@ -25,38 +25,68 @@
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- text editor script -->
-  <script src="https://cdn.tiny.cloud/1/ank2fut30cnlw7namsybl8jmik28e49tk7g6oufe36zhd8xv/tinymce/6/tinymce.min.js"
+  <script src="https://cdn.tiny.cloud/1/enep75onznwz79126jx5fzc7m5eaemm86drfwr2rx64hvprv/tinymce/6/tinymce.min.js"
     referrerpolicy="origin"></script>
 </head>
+<link href="../styles/output.css" rel="stylesheet">
 
 <body>
   <!-- header section -->
-  <header class="header">
-    <div class="container">
-      <nav class="nav">
+  <header class="header bg-white shadow">
+    <div class="container mx-auto">
+      <div class="wrap flex justify-between items-center border-b pb-4">
+        <div class="social flex gap-4 text-2xl">
+          <a href=""><i class="fa-brands fa-facebook text-secondary"></i></a>
+          <a href=""><i class="fa-brands fa-youtube text-secondary"></i></a>
+          <a href=""><i class="fa-brands fa-linkedin text-secondary"></i></a>
+          <a href=""><i class="fa-brands fa-github text-secondary"></i></a>
+        </div>
         <div class="logo">
-          <img src="images/Khateeb and Yaya.png" alt="">
+          <img src="../images/Khateeb and Yaya.png" alt="" class="w-16">
         </div>
-        <ul class="links">
-          <li><a href="index.html">home</a></li>
-          <li><a href="location.html">location</a></li>
-          <li><a href="emails.html">emails</a></li>
-          <li><a href="materials.html">materials</a></li>
-        </ul>
-        <div class="user-darkMode">
-          <span class="material-symbols-outlined">
-            dark_mode
-          </span>
-          <span class="material-symbols-outlined user">
-            account_circle
-          </span>
-        </div>
-      </nav>
+        <span class="material-symbols-outlined text-secondary">
+          account_circle
+        </span>
+      </div>
+      <div class="wrap flex justify-center items-center">
+        <nav class="capitalize w-fit flex items-center gap-20 font-bold text-lg py-6">
+          <a href="index.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">home</a>
+          <a href="location.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">location</a>
+          <a href="materials.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">materials</a>
+          <a href="emails.html"
+            class="text-secondary relative before:content-[''] before:bg-secondary before:absolute before:w-0 before:hover:w-full before:transition-all before:h-1 before:block before:bottom-[-31px]">emails</a>
+          <button type="button"
+            class="text-white bg focus:outline-none bg-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-secondary transition-all">
+            login</button>
+        </nav>
+      </div>
     </div>
   </header>
   <!-- end header -->
   <main>
-
+    <!-- start text box -->
+    <section class="text-box h-full w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden">
+      <textarea>
+        Welcome to TinyMCE!
+      </textarea>
+    </section>
+    <div class="button-wrap fixed bottom-5 right-5">
+      <button class="text-edit text-white bg-primary text-main-color text-3xl w-16 h-16 rounded-full focus:outline-none hover:bg-third-color transition duration-300">
+        <span class="material-symbols-outlined">
+          edit
+        </span>
+      </button>
+      <button class="submit text-white bg-primary text-main-color text-3xl w-16 h-16 rounded-full focus:outline-none hover:bg-third-color transition duration-300 hidden">
+        <span class="material-symbols-outlined">
+          check
+        </span>
+      </button>
+    </div>
+    <!-- end text box -->
+    <div id="contentDisplay"></div>
   </main>
   <script src="../js/main.js"></script>
 </body>
