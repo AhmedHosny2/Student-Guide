@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./styles/output.css --watch"
+  },
+  "name": "student-guide",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
