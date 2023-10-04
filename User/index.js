@@ -13,16 +13,16 @@ const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: "sessions",
 });
-
-app.use("/user", router);
 app.use(
-  session({
-    secret: "my secret",
-    resave: false,
-    saveUninitialized: false,
-    store: store,
-  })
-);
+    session({
+      secret: "my secret",
+      resave: false,
+      saveUninitialized: true,
+          store: store,
+    })
+  );
+app.use("/user", router);
+
 
 const PORT = process.env.PORT || 5001;
 const mongooseOptions = {
