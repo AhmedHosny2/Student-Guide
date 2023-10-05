@@ -1,8 +1,8 @@
 /* Start Variables */
 :root {
-  --main-color: #64CCC5;
-  --secondary-color: #04364A;
-  --third-color: #176B87;
+  --main-color: #04364A;
+  --secondary-color: #176B87;
+  --third-color: #64CCC5;
   --section-background: #ebeced;
   --main-transition-duration: 0.3s;
   --content-color: #fafafa;
@@ -37,7 +37,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--third-color);
+  background-color: var(--main-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -123,22 +123,11 @@ html {
 .header .nav .links li::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  width: 0%;
-  height: 200%;
-  background-color: var(--main-color);
-  z-index: -1;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  bottom: -37px;
+  left: 0;
+  background-color: var(--secondary-color);
+  height: 3px;
+  width: 0;
   -webkit-transition: var(--main-transition-duration);
   -moz-transition: var(--main-transition-duration);
   -ms-transition: var(--main-transition-duration);
@@ -147,13 +136,13 @@ html {
 }
 
 .header .nav .links li:hover::before {
-  width: 170%;
+  width: 100%;
 }
 
 .header .nav .links li a {
   text-transform: capitalize;
   font-weight: bold;
-  color: var(--secondary-color);
+  color: var(--text-color);
   -webkit-transition: var(--main-transition-duration);
   -moz-transition: var(--main-transition-duration);
   -ms-transition: var(--main-transition-duration);
@@ -168,7 +157,7 @@ html {
 }
 
 .header .nav .user-darkMode {
-  color: var(--secondary-color);
+  color: var(--main-color);
   cursor: pointer;
   display: flex;
   gap: 10px;
@@ -177,11 +166,11 @@ html {
 .header .nav .user-darkMode .user {
   border-left: 2px solid var(--secondary-color);
   padding-left: 10px;
-  transition: var(--main-transition-duration);
   -webkit-transition: var(--main-transition-duration);
   -moz-transition: var(--main-transition-duration);
   -ms-transition: var(--main-transition-duration);
   -o-transition: var(--main-transition-duration);
+  transition: var(--main-transition-duration);
 }
 
 .header .nav .user-darkMode .user:hover {

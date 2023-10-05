@@ -42,3 +42,4 @@ document.addEventListener("DOMContentLoaded", function () {
     submit.classList.toggle("show");
   });
 });
+console.log("helllo bitxch");
