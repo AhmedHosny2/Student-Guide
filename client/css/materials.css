@@ -4,15 +4,16 @@ body {
 
 .button-wrap {
   position: fixed;
-  bottom: 35px;
-  right: 35px;
+  bottom: 50px;
+  right: 50px;
 }
 
 .button-wrap .submit {
   display: none;
 }
 
-.button-wrap .text-edit, .button-wrap .submit {
+.button-wrap .text-edit,
+.button-wrap .submit {
   background-color: var(--main-color);
   color: var(--third-color);
   border: 0;
