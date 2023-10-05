@@ -174,7 +174,7 @@ html {
 }
 
 .header .nav .user-darkMode .user:hover {
-  color: var(--main-color);
+  color: var(--secondary-color);
 }
 
 /* end header */
