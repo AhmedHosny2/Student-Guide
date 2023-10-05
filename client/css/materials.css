@@ -1,14 +1,8 @@
-:root {
-  --main-color: #64CCC5;
-  --secondary-color: #04364A;
-  --third-color: #176B87;
-  --section-background: #ebeced;
-  --main-transition-duration: 0.3s;
-  --content-color: #fafafa;
-  --text-color: #171717;
+body {
+  height: 5000px;
 }
 
-/* .button-wrap {
+.button-wrap {
   position: fixed;
   bottom: 35px;
   right: 35px;
@@ -19,8 +13,8 @@
 }
 
 .button-wrap .text-edit, .button-wrap .submit {
-  background-color: var(--secondary-color);
-  color: var(--main-color);
+  background-color: var(--main-color);
+  color: var(--secondary-color);
   border: 0;
   width: 50px;
   height: 50px;
@@ -61,15 +55,18 @@
 
 .text-box.show {
   display: block;
-} */
+}
 
-/* .overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
   backdrop-filter: blur(6px);
-  z-index: 10000;
-} */
+  /* Apply a blur effect to the background */
+  z-index: 999;
+  /* Ensure the overlay is on top of other elements */
+}

@@ -5,13 +5,9 @@ const textarea = document.querySelector(".text-box");
 const contentDisplay = document.getElementById("contentDisplay");
 
 editBtn.addEventListener("click", () => {
-  if (textarea.style.display == "block") {
-    textarea.style.display = "none";
-    submit.style.display = "none";
-  } else {
-    textarea.style.display = "block";
-    submit.style.display = "inline-block";
-  }
+  document.body.classList.toggle("overlay");
+  textarea.classList.toggle("show");
+  submit.classList.toggle("show");
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -41,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Event listener for the button click
   submit.addEventListener("click", function () {
     displayContent();
+    document.body.classList.toggle("overlay");
     textarea.classList.toggle("show");
     submit.classList.toggle("show");
   });
