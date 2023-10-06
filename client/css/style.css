@@ -196,7 +196,6 @@ html {
   align-items: flex-end;
   cursor: pointer;
   display: none;
-  z-index: 10000000;
 }
 
 .header .container .burger-menu span {

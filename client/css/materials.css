@@ -2,6 +2,95 @@ body {
   height: 5000px;
 }
 
+/* start writer section */
+.writer {}
+
+.writer .container {}
+
+.writer .container .writer-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 1.125rem;
+}
+
+.writer .container .writer-info img {
+  width: 35px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.writer .container .writer-info span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: var(--third-color);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.writer .container .writer-info .user-name {
+  color: #1c1c1c;
+}
+
+.writer .container .writer-info p {
+  color: #3c3c3c;
+}
+
+/* end writer section */
+/* start participants */
+.participants {
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e7e7;
+  width: max-content;
+  padding: 5px 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  -webkit-transition: var(--main-transition-duration);
+  -moz-transition: var(--main-transition-duration);
+  -ms-transition: var(--main-transition-duration);
+  -o-transition: var(--main-transition-duration);
+  transition: var(--main-transition-duration);
+}
+
+.participants:hover {
+  background-color: #bdbdbd;
+}
+
+.participants i {
+  margin-right: 10px;
+}
+
+.participants img {
+  width: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  margin-right: -10px;
+}
+
+
+/* end participants */
+
+
+/* start text box customization */
 .button-wrap {
   position: fixed;
   bottom: 50px;
@@ -65,9 +154,29 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  /* Semi-transparent background */
   backdrop-filter: blur(6px);
-  /* Apply a blur effect to the background */
   z-index: 999;
-  /* Ensure the overlay is on top of other elements */
 }
+
+/* end text box customization */
+
+/* start content display */
+.contentDisplay .container {
+  display: grid;
+  place-items: center;
+}
+
+.contentDisplay .container p {
+  padding: 20px 0;
+  line-height: 1.8;
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+@media (min-width: 1200px) {
+  .contentDisplay .container p {
+    width: 800px;
+  }
+}
+
+/* end content display */

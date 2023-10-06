@@ -2,7 +2,7 @@
 const editBtn = document.querySelector(".text-edit");
 const submit = document.querySelector(".submit");
 const textarea = document.querySelector(".text-box");
-const contentDisplay = document.getElementById("contentDisplay");
+const contentDisplay = document.querySelector(".contentDisplay .container p");
 
 editBtn.addEventListener("click", () => {
   document.body.classList.toggle("overlay");
