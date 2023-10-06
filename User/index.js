@@ -1,57 +1,44 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-require("dotenv").config();
-const app = express();
-const router = require("./routes/user");
-app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
+const passport = require("passport");
+const db = require("./config/database.js");
+const router = require("./routes/user");
+require("dotenv").config();
+
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// use the session
 const MONGODB_URI = process.env.CONNECTION_URL;
 const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: "sessions",
 });
-const mongooseOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
 
-// use the session 
 app.use(
-    session({
-      secret: "my secret",
-      resave: false,
-      saveUninitialized: true,
-          store: store,
-    })
-  );
-
-
-
-
-
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: store,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // for 14 day
+    },
+  })
+)
+require("./config/passport");
+app.use(passport.initialize());
+app.use(passport.session());
 app.use("/user", router);
 
-
-
-
 const PORT = process.env.PORT || 5001;
-const handleServerStartup = () => {
+
+db.once('open', () => {
   app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
-};
+});
 
-
-async function main() {
-  await mongoose.set("strictQuery", true);
-  await mongoose
-    .connect(MONGODB_URI, mongooseOptions)
-    .then((result) => {
-      handleServerStartup();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-main();
+db.on('error', (err) => {
+  console.error('MongoDB error:', err);
+});
