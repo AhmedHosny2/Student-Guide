@@ -42,3 +42,25 @@ document.addEventListener("DOMContentLoaded", function () {
     submit.classList.toggle("show");
   });
 });
+//add person
+const addPerson = document.querySelector(".button-wrap .add-person");
+const image_url = document.querySelector(".image-box input");
+const subBtn = document.querySelector(".image-box .submit-btn");
+const imgBox = document.querySelector(".image-box .container");
+const avatarBox = document.querySelector(".participants");
+
+addPerson.addEventListener("click", () => {
+  imgBox.classList.toggle("active");
+});
+
+subBtn.addEventListener("click", () => {
+  let val = image_url.value;
+  console.log(val);
+  //reset the value of text box
+  image_url.value = "";
+  //adding image to the avatar box
+  let newAvatar = document.createElement("img");
+  newAvatar.src = val;
+  console.log(newAvatar);
+  avatarBox.appendChild(newAvatar);
+});
