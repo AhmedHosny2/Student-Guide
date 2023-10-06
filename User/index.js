@@ -13,6 +13,12 @@ const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: "sessions",
 });
+const mongooseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+// use the session 
 app.use(
     session({
       secret: "my secret",
@@ -21,17 +27,22 @@ app.use(
           store: store,
     })
   );
+
+
+
+
+
 app.use("/user", router);
 
 
+
+
 const PORT = process.env.PORT || 5001;
-const mongooseOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
 const handleServerStartup = () => {
   app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 };
+
+
 async function main() {
   await mongoose.set("strictQuery", true);
   await mongoose
