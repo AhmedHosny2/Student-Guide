@@ -80,4 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Fetch error:", error);
       });
   });
+  document.getElementById("google-login-button").addEventListener("click", function() {
+    window.location.href = "http://localhost:5001/auth/google";
+});
 });
