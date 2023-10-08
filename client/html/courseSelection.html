@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Content</title>
+    <link rel="stylesheet" href="../css/courseSelection.css">
+</head>
+<body>
+    <h1>Course Content Viewer</h1>
+    <form id="course-form">
+        <label for="semester">Select Semester:</label>
+        <input type="number" id="semester" name="semester" min="1" max="6" required>
+        
+        <label for="course">Select Course:</label>
+        <select id="course" name="course" required>
+            <option value="" disabled selected>Select a Course</option>
+        </select>
+        
+        <button type="submit">View Content</button>
+    </form>
+    <div class="contentDisplay">
+        <div class="container">
+            <p id="content"></p>
+        </div>
+    </div>
+    <script src="../js/courseSelection.js"></script>
+</body>
+</html>
