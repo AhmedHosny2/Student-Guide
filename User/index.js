@@ -2,6 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const cors = require("cors");
+var cookies = require("cookie-parser");
 require("dotenv").config();
 
 const passport = require("passport");
@@ -15,8 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: 'http://127.0.0.1:5500',
-  }),
+    origin: "http://127.0.0.1:5500",
+  })
 );
 
 // use the session
@@ -25,6 +26,7 @@ const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: "sessions",
 });
+app.use(cookies());
 app.set("trust proxy", 1);
 app.use(
   session({
@@ -50,9 +52,6 @@ app.use(
 // });
 
 // routes
-app.post("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
-});
 
 app.use("/user", router);
 

@@ -26,6 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.status !==200) {
           throw new Error("Network response was not ok");
         }
+        const cookies = document.cookie.split(';');
+        for (const cookie of cookies) {
+          const [name, value] = cookie.trim().split('=');
+          if (name === 'myCookie') {
+            const data = JSON.parse(decodeURIComponent(value));
+            console.log("the cookie " + data); // This will log the data from the cookie
+            break;
+          }
+        }
         return response.json();
       })
       .then((data) => {

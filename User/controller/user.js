@@ -1,7 +1,8 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const userModel = require("../model/user");
+const cookieParser = require('cookie-parser')
 
+const userModel = require("../model/user");
 const saltRounds = 10;
 exports.signupUser = async (req, res) => {
   const {
@@ -53,17 +54,19 @@ exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     if (!(email && password)) {
-      res.status(400).send("All input is required");
+      return res.status(400).json({ message: "All input is required" });
     }
 
     const user = await userModel.findOne({ email });
     if (!user) {
       return res.status(400).json({ message: "Email does not exist" });
     }
+
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
       return res.status(400).json({ message: "Password is incorrect" });
     }
+
     const token = jwt.sign(
       { user_id: user._id, email },
       process.env.ACCESS_TOKEN_SECRET,
@@ -74,11 +77,11 @@ exports.loginUser = async (req, res) => {
 
     // save user token
     user.token = token;
-
-    // user 
-    res.status(200).json(user);
+    res.cookie('authcookie',token,{maxAge:900000,httpOnly:true,secure:true,sameSite:'none'}) 
+    // Set the cookie with your data
+    res.status(200).json({ message: "Login successful", user });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: err });
+    res.status(500).json({ message: "Internal server error" });
   }
 };

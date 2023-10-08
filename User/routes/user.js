@@ -3,7 +3,7 @@ const { loginUser, signupUser } = require("../controller/user");
 const router = express.Router();
 const isAuth = require("./authMiddleware").isAuth;
 const isAdmin = require("./authMiddleware").isAdmin;
-
+const verifyToken = require("../middleware/auth").verifyToken;
 router.post("/signup", signupUser);
 router.post("/login", loginUser);
 // for testing =============================================================
@@ -16,8 +16,14 @@ router.get("/register", (req, res, next) => {
 
   res.send(form);
 });
-router.get("/protected-route", isAuth, (req, res, next) => {
+router.get("/protected-route", verifyToken, (req, res, next) => {
   res.send("You made it to the route.");
+});
+router.get("/api", verifyToken, (req, res,next) => {
+  /*if checkToken function succeed, api reach this block
+   */
+  console.log("yeah \n\n\n\n\n\n");
+  next();
 });
 
 router.get("/admin-route", isAdmin, (req, res, next) => {
