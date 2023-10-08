@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const cookieParser = require('cookie-parser')
 
 const userModel = require("../model/user");
 const saltRounds = 10;
@@ -74,7 +73,7 @@ exports.loginUser = async (req, res) => {
         expiresIn: "2h",
       }
     );
-
+console.log("logged in ");
     // save user token
     user.token = token;
     res.cookie('authcookie',token,{maxAge:900000,httpOnly:true,secure:true,sameSite:'none'}) 

@@ -5,10 +5,8 @@ const cors = require("cors");
 var cookies = require("cookie-parser");
 require("dotenv").config();
 
-const passport = require("passport");
 const db = require("./config/database.js");
 const router = require("./routes/user");
-const auth = require("./middleware/auth");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -20,39 +18,10 @@ app.use(
   })
 );
 
-// use the session
 const MONGODB_URI = process.env.CONNECTION_URL;
-const store = new MongoDBStore({
-  uri: MONGODB_URI,
-  collection: "sessions",
-});
 app.use(cookies());
-app.set("trust proxy", 1);
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    store: store,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24, // for 1 day
-      sameSite: "none",
-      secure: true,
-    },
-  })
-);
-// require("./config/passport");
-// app.use(passport.initialize());
-// app.use(passport.session());
 
-// app.use((req, res, next) => {
-//   console.log(req.session);
-
-//   next();
-// });
-
-// routes
-
+//routes 
 app.use("/user", router);
 
 const PORT = process.env.PORT || 5001;
