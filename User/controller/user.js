@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
 
 const saltRounds = 10;
@@ -6,7 +7,7 @@ exports.signupUser = async (req, res) => {
   const {
     firstName,
     lastName,
-    userName,
+    username,
     email,
     password,
     semester,
@@ -23,7 +24,7 @@ exports.signupUser = async (req, res) => {
     const newUser = new userModel({
       firstName,
       lastName,
-      userName,
+      username,
       email,
       password: hashedPassword,
       semester,
@@ -32,11 +33,32 @@ exports.signupUser = async (req, res) => {
       whatsapp,
     });
     await newUser.save();
+  console.log("sign up done");
     res.status(200).json({ message: "User created successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
-
+exports.loginUser = async (req, res) => {
+  // authenticate user
+  const { username, password } = req.body;
+  try {
+    console.log();
+      const user = await userModel.findOne({ username });
+      if (!user) {
+          return res.status(400).json({ message: "Email does not exist" });
+      }
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+          return res.status(400).json({ message: "Password is incorrect" });
+      }
+      const user_id ={user_id :  user._id};
+        // USE jwt 
+     const accessToken =  jwt.sign(user_id,process.env.ACCESS_TOKEN_SECRET)
+      res.status(200).json({accessToken:accessToken});
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: err});
+  }
+};

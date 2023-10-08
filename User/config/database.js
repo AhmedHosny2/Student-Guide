@@ -16,5 +16,4 @@ mongoose.connect(MONGODB_URI, mongooseOptions)
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
-
 module.exports = mongoose.connection;
