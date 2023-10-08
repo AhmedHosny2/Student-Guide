@@ -7,7 +7,7 @@ require("dotenv").config();
 const passport = require("passport");
 const db = require("./config/database.js");
 const router = require("./routes/user");
-
+const auth = require("./middleware/auth");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -50,6 +50,10 @@ app.use(
 // });
 
 // routes
+app.post("/welcome", auth, (req, res) => {
+  res.status(200).send("Welcome 🙌 ");
+});
+
 app.use("/user", router);
 
 const PORT = process.env.PORT || 5001;

@@ -41,9 +41,10 @@ const userSchema = new Schema(
     whatsapp: {
       type: Number,
     },
+    token: { type: String },
   },
   {
     strict: true,
   }
 );
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("user", userSchema);
