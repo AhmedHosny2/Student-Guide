@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const userSchema = new Schema({
+const courseSchema = new Schema({
   courseName: {
     type: String,
     required: true,
@@ -14,13 +14,13 @@ const userSchema = new Schema({
     type: String,
   },
   courseCredits: {
-    type: Integer,
+    type: Number,
   },
   semester: {
-    type: Integer,
+    type: Number,
   },
   contributors: {
     type: Array,
   },
 });
-module.exports = mongoose.model("material", materialSchema);
+module.exports = mongoose.model("course", courseSchema);
