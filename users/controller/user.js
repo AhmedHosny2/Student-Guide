@@ -4,17 +4,7 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
 const saltRounds = 10;
 exports.signupUser = async (req, res) => {
-  const {
-    firstName,
-    lastName,
-    username,
-    email,
-    password,
-    semester,
-    github,
-    linkedin,
-    whatsapp,
-  } = req.body;
+  const { userName, email, password } = req.body;
   try {
     const user = await userModel.findOne({ email });
     if (user) {
@@ -22,15 +12,9 @@ exports.signupUser = async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = await userModel.create({
-      firstName,
-      lastName,
-      username,
+      userName,
       email: email.toLowerCase(),
       password: hashedPassword,
-      semester,
-      github,
-      linkedin,
-      whatsapp,
     });
     // Create token
     const token = jwt.sign(
@@ -73,14 +57,33 @@ exports.loginUser = async (req, res) => {
         expiresIn: "2h",
       }
     );
-console.log("logged in ");
+    console.log("logged in ");
     // save user token
     user.token = token;
-    res.cookie('authcookie',token,{maxAge:900000,httpOnly:true,secure:true,sameSite:'none'}) 
+    res.cookie("authcookie", token, {
+      maxAge: 1000 * 60 * 60 * 24,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
     // Set the cookie with your data
     res.status(200).json({ message: "Login successful", user });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
+};
+exports.getUser = async (req, res) => {
+  const user_id = req.params.userId;
+  console.log(req.params);
+  const user = await userModel.findOne({ _id: user_id });
+  if (!user) {
+    return res.status(400).json({ message: "user does not exist" });
+  }
+  console.log(user);
+  res.status(200).json(user);
+};
+exports.logoutUser = async (req, res) => {
+  res.clearCookie("authcookie");
+  res.status(200).json({ message: "logout successful" });
 };

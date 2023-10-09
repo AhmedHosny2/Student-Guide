@@ -2,15 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const userSchema = new Schema(
   {
-    firstName: {
-      type: String,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
-    },
-    username: {
+    userName: {
       type: String,
       required: true,
     },
@@ -30,16 +22,6 @@ const userSchema = new Schema(
     isAdmin: {
       type: Boolean,
       default: false,
-    },
-
-    github: {
-      type: String,
-    },
-    linkedin: {
-      type: String,
-    },
-    whatsapp: {
-      type: Number,
     },
     token: { type: String },
   },

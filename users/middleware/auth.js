@@ -3,6 +3,7 @@ const userModel = require("../model/user");
 const config = process.env;
 module.exports.verifyToken = (req, res, next) => {
   const authcookie = req.cookies.authcookie;
+  console.log(req.cookies);
   if (!authcookie) {
     return res.status(403).send("A token is required for authentication");
   }
