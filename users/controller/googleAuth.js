@@ -1,6 +1,8 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-
+const { BASE_URL } = require("../services/BaseURLs");
+//get dotenv
+require("dotenv").config();
 // router.get('/success', (req, res) => {
 //   res.render('pages/success', {user: userProfile});
 // });
@@ -19,7 +21,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:5001/auth/google/callback",
+      callbackURL: `${BASE_URL}/auth/google/callback`,
     },
     function (accessToken, refreshToken, profile, done) {
       userProfile = profile;
@@ -46,5 +48,5 @@ exports.googleCallback = (req, res) => {
   console.log(`Last Name: ${lastName}`);
   console.log(`Email: ${email}`);
 
-  res.redirect("http://127.0.0.1:5500/client/html/home.html");
+  res.redirect(`${process.env.CLIENT_URL}/client/html/home.html`);
 };
