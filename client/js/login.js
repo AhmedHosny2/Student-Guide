@@ -83,4 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("google-login-button").addEventListener("click", function() {
     window.location.href = "http://localhost:5001/auth/google";
 });
+
+
 });
