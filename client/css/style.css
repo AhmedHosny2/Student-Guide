@@ -4,7 +4,7 @@
   --secondary-color: #176B87;
   --third-color: #64CCC5;
   --section-background: #ebeced;
-  --main-transition-duration: 0.3s;
+  --main-transition-duration: all 0.3s ease-in-out;
   --content-color: #fafafa;
   --text-color: #171717;
 }

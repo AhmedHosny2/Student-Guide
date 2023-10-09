@@ -1,41 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>guide</title>
+    <!-- css files -->
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- normalize-file -->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- google icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    
-    <div class="container">
-        <h1>Login</h1>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">email:</label>
-                <input type="text" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-    <button id="protected-route-button">Fetch Protected Route</button>
-    <button id="admin-route-button">Fetch Admin Route</button>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
-    <button type="button" class="login-with-google-btn" id="google-login-button">
-        Sign in with Google
-    </button>
-    
-      
-      <button type="button" class="login-with-google-btn"  disabled>
-        Sign in with Google
-      </button>
-      
+<body>
+    <main>
+        <section class="container">
+            <div class="wrapper">
+                <div class="signUp-box form-container">
+                    <form class="signup-form">
+                        <h1>create acount</h1>
+                        <input type="text" id="username" name="username" placeholder="username" required />
+
+                        <input type="email" id="email" name="email" placeholder="Email" required />
+
+                        <input type="password" id="password" name="password" placeholder="Password" required />
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+                <div class="signIn-box form-container">
+                    <form class="login-form">
+                        <h1>sign in</h1>
+                        <input type="text" id="email" name="email" placeholder="Email" required />
+                        <input type="password" id="password" name="password" placeholder="Password" required />
+                        <div class="button-wrap">
+                            <button type="submit">Login</button>
+                            <button type="button" class="login-with-google-btn" id="google-login-button">
+                                <i class="fa-brands fa-google"></i> continue with Google
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1 class="head-txt">Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <button class="ghost" id="signIn">Sign In</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1 class="head-txt">Hello</h1>
+                            <p>Enter your personal details and start journey with us</p>
+                            <button class="ghost" id="signUp">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="../images/study2.svg" alt="" class="study">
+        </section>
+        <!-- <button id="protected-route-button">Fetch Protected Route</button>
+            <button id="admin-route-button">Fetch Admin Route</button> -->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    </main>
     <script src="../js/login.js"></script>
-    
 </body>
+
 </html>
