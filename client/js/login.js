@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-
     const formData = new FormData(loginForm);
     const formDataObject = {};
     formData.forEach((value, key) => {

@@ -63,8 +63,6 @@ exports.loginUser = async (req, res) => {
     res.cookie("authcookie", token, {
       maxAge: 1000 * 60 * 60 * 24,
       httpOnly: true,
-      secure: true,
-      sameSite: "none",
     });
     // Set the cookie with your data
     res.status(200).json({ message: "Login successful", user });

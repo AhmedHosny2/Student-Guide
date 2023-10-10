@@ -26,7 +26,6 @@ exports.addCourse = async (req, res) => {
 
 exports.getCourse = async (req, res) => {
   const { courseName } = req.params;
-  console.log(courseName);
   try {
     const course = await courseModel.findOne({ courseName });
     console.log(course);
