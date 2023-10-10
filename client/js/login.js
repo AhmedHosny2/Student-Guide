@@ -100,3 +100,16 @@ signUpButton.addEventListener("click", () => {
 signInButton.addEventListener("click", () => {
   wrapper.classList.remove("right-panel-active");
 });
+
+//responsive login page
+const signUpSwitch = document.querySelector(".signIn-box .signUp-switch");
+const signInSwitch = document.querySelector(".signUp-box .signIn-switch");
+const signUp_box = document.querySelector(".wrapper .signUp-box");
+
+signUpSwitch.addEventListener("click", () => {
+  signUp_box.classList.add("active");
+});
+
+signInSwitch.addEventListener("click", () => {
+  signUp_box.classList.remove("active");
+})

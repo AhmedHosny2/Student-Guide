@@ -26,6 +26,7 @@ p {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  flex-direction: column;
 }
 
 .wrapper {
@@ -153,6 +154,16 @@ form {
   z-index: 2;
 }
 
+.signIn-box .signUp-switch,
+.signUp-box .signIn-switch {
+  margin: 20px 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  text-transform: capitalize;
+}
+
 .wrapper.right-panel-active .signIn-box {
   transform: translateX(100%);
 }
@@ -250,9 +261,35 @@ main .study {
   right: 60px;
 }
 
+/* start responsive */
 @media (max-width:1199px) {
   main .study {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .overlay-container {
+    display: none;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  .signIn-box .signUp-switch,
+  .signUp-box .signIn-switch {
+    display: block;
+  }
+
+  .signUp-box .signIn-switch {
+    margin: 0;
+  }
+
+  .signUp-box.active {
+    z-index: 100;
+    opacity: 1;
   }
 }
 
