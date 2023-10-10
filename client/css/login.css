@@ -254,16 +254,25 @@ form {
   transform: translateX(20%);
 }
 
-main .study {
+main .img-right {
   width: 400px;
-  position: absolute;
+  position: fixed;
   bottom: 20px;
-  right: 60px;
+  right: 20px;
+}
+
+main .img-left {
+  width: 400px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
 }
 
 /* start responsive */
 @media (max-width:1199px) {
-  main .study {
+
+  main .img-right,
+  main .img-left {
     display: none;
   }
 }
