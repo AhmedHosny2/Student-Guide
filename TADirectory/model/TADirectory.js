@@ -9,8 +9,9 @@ const TADirectorySchema = new Schema({
     type: String,
     required: true,
   },
-  courses: {
+  course: {
     type: String,
+    required: true,
   },
   officeHours: {
     type: String,
