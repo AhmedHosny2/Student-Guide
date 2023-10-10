@@ -21,16 +21,19 @@ exports.updateCampusIcon = async (req, res) => {
   const updatedFields = req.body;
   const { name } = req.params;
   try {
-    const updatedUniversity = await CampusIconsSchema.findByIdAndUpdate(name, updatedFields, { new: true });
+    const isAvailable = await CampusIconsSchema.findOne({ name });
 
-    if (!updatedUniversity) {
-      return res.status(404).json({ message: 'University not found' });
+    if (!isAvailable) {
+      return res.status(404).json({ message: "University not found" });
     }
-
-    return res.json({ message: 'University updated successfully', university: updatedUniversity });
+   const updatedIcon=  await CampusIconsSchema.updateOne({ name }, updatedFields);
+    return res.json({
+      message: "University updated successfully",
+      
+    });
   } catch (error) {
-    console.error('Error updating university:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    console.error("Error updating university:", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 exports.getAllCampusIcons = async (req, res) => {
@@ -41,15 +44,16 @@ exports.getAllCampusIcons = async (req, res) => {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
-}
+};
 exports.getCampusIcon = async (req, res) => {
   const { name } = req.params;
   try {
     const campusIcon = await CampusIconsSchema.findOne({ name });
-    if (!campusIcon) return res.status(404).json({ message: "Campus Icon not found" });
+    if (!campusIcon)
+      return res.status(404).json({ message: "Campus Icon not found" });
     res.status(200).json({ campusIcon });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
-}
+};

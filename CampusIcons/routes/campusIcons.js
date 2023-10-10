@@ -14,3 +14,4 @@ router.get("/:name", getCampusIcon);
 router.use(verifyRole);
 router.post("/", addCampusIcon);
 router.put("/:name", updateCampusIcon);
+module.exports = router;

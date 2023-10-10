@@ -5,7 +5,7 @@ var cookies = require("cookie-parser");
 require("dotenv").config();
 
 const db = require("./config/database.js");
-// const Router = require("./routes/TADirectory.js");
+const Router = require("./routes/campusIcons.js");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,7 +25,7 @@ app.use(
 app.use(cookies());
 
 //routes
-// app.use("/TADirectory", Router);
+app.use("/campusIcons", Router);
 
 
 const PORT = process.env.PORT || 5004;
