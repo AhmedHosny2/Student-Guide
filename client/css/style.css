@@ -96,6 +96,7 @@ html {
   top: 0;
   width: 100%;
   position: relative;
+  background-color: var(--content-color);
 }
 
 .header .container {

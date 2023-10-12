@@ -17,14 +17,19 @@ function displayCourses() {
 
   // Clear the existing course list
   courseList.innerHTML = "";
-
-  // Display the courses for the selected semester as buttons
+  // Display the courses for the selected semester as div
   if (selectedCourses) {
     selectedCourses.forEach((course) => {
-      const button = document.createElement("button");
-      button.className = "course-button";
-      button.textContent = course;
-      button.addEventListener("click", async function () {
+      //create a course card
+      const courseCard = document.createElement("div");
+      courseCard.className = "course-card";
+      
+      //create course name paragraph
+      const courseName = document.createElement("p");
+      courseName.textContent = course;
+      courseCard.appendChild(courseName);
+
+      courseCard.addEventListener("click", async function () {
         try {
           const apiUrl = `http://localhost:5002/course/${course}`; // Replace with your API URL
           fetch(apiUrl, {
@@ -48,12 +53,12 @@ function displayCourses() {
               console.error("Fetch error:", error);
             });
 
-          courseList.appendChild(button);
+          courseList.appendChild(courseCard);
         } catch (err) {
           console.error(err);
         }
       });
-      courseList.appendChild(button);
+      courseList.appendChild(courseCard);
     });
   } else {
     courseList.textContent = "No courses available for this semester.";

@@ -62,20 +62,17 @@
         <!-- start course selection -->
         <div class="courses-selection">
             <div class="container">
-                <h1>select your semester</h1>
-                <div class="courses-card">
-                    <form>
-                        <!-- <label for="semester">Select Semester:</label> -->
-                        <select id="semester" name="semester">
-                            <option value="1">Semester 1</option>
-                            <option value="2">Semester 2</option>
-                            <option value="3">Semester 3</option>
-                            <option value="4">Semester 4</option>
-                        </select>
-                    </form>
-                    <!-- course will be displayed here -->
-                    <div id="course-list"></div>
-                </div>
+                <form>
+                    <label for="semester">select your semester: </label>
+                    <select id="semester" name="semester">
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                        <option value="3">Semester 3</option>
+                        <option value="4">Semester 4</option>
+                    </select>
+                </form>
+                <!-- course will be displayed here -->
+                <div id="course-list" class="courses-wrap"></div>
             </div>
         </div>
         <!-- end course selection -->
