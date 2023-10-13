@@ -4,15 +4,6 @@
   animation-timing-function: linear;
 } */
 
-body {
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(-45deg, var(--secondary-color), var(--third-color));
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  position: relative;
-}
-
 .courses-selection {
   text-transform: capitalize;
 }
@@ -30,7 +21,7 @@ body {
 .courses-selection .container form label {
   font-size: 30px;
   font-weight: bold;
-  color: var(--content-color);
+  color: var(--main-color);
 }
 
 .courses-selection .container form select {
@@ -107,7 +98,7 @@ body {
   right: 0px;
 }
 
-.courses-selection .container .courses-wrap{
+.courses-selection .container .courses-wrap {
   margin-bottom: 50px;
 }
 
@@ -117,24 +108,29 @@ body {
   }
 }
 
+.re-direct {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  padding: 10px 12px;
+  background-color: var(--third-color);
+  border: 0;
+  color: white;
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.re-direct:hover {
+  background-color: var(--secondary-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 /* end course card */
-/*start Animations */
-@keyframes bg-scrolling-reverse {
-  100% {
-    background-position: 50px 50px;
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
