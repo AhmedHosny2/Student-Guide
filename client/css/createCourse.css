@@ -99,11 +99,11 @@ h1 {
   width: 20%;
   font-size: 20px;
   cursor: pointer;
-  transition: var(--main-transition-duration);
   -webkit-transition: var(--main-transition-duration);
   -moz-transition: var(--main-transition-duration);
   -ms-transition: var(--main-transition-duration);
   -o-transition: var(--main-transition-duration);
+  transition: var(--main-transition-duration);
 }
 
 #submit-button:hover {

@@ -61,11 +61,11 @@
   border-radius: 5px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   position: relative;
-  transition: var(--main-transition-duration);
   -webkit-transition: var(--main-transition-duration);
   -moz-transition: var(--main-transition-duration);
   -ms-transition: var(--main-transition-duration);
   -o-transition: var(--main-transition-duration);
+  transition: var(--main-transition-duration);
 }
 
 .courses-selection .container .courses-wrap .course-card:nth-child(even) {
