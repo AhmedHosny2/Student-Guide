@@ -14,7 +14,7 @@ const courseList = document.getElementById("course-list");
 function displayCourses() {
   const selectedSemester = semesterSelect.value;
   const selectedCourses = courses[selectedSemester];
-
+  
   // Clear the existing course list
   courseList.innerHTML = "";
   // Display the courses for the selected semester as div
@@ -23,7 +23,7 @@ function displayCourses() {
       //create a course card
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
-      
+
       //create course name paragraph
       const courseName = document.createElement("p");
       courseName.textContent = course;
@@ -64,9 +64,5 @@ function displayCourses() {
     courseList.textContent = "No courses available for this semester.";
   }
 }
-
-// Initially display courses for the selected semester
-displayCourses();
-
 // Add an event listener to update the course list when the user selects a different semester
 semesterSelect.addEventListener("change", displayCourses);
