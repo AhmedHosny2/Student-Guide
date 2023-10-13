@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("course-form");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-
+console.log("create courese started ");
     const formData = new FormData(form);
     const formDataObject = {};
 
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     try {
-      const apiUrl = `https://student-guide-course.vercel.app`; // Replace with your API URL
+      const apiUrl = `https://student-guide-course.vercel.app/course`; // Replace with your API URL
       fetch(apiUrl, {
         method: "POST",
         headers: {

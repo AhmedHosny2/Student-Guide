@@ -9,19 +9,14 @@ const Router = require("./routes/courseRoutes.js");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.CLIENT_URL,
-  })
-);
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
-  })
-);
+app.use(cors());
+// app.use(
+//   session({
+//     resave: false,
+//     saveUninitialized: true,
+//     secret: process.env.SESSION_SECRET,
+//   })
+// );
 app.use(cookies());
 
 //routes
