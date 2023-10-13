@@ -97,7 +97,7 @@ html {
   width: 100%;
   position: relative;
   background-color: var(--content-color);
-  
+
 }
 
 .header .container {
@@ -178,6 +178,7 @@ html {
 }
 
 .header .nav .user-darkMode .user {
+  color: var(--main-color);
   border-left: 2px solid var(--secondary-color);
   padding-left: 10px;
   -webkit-transition: var(--main-transition-duration);
@@ -319,6 +320,7 @@ html {
   .header .nav.active {
     width: 100%;
     height: 100vh;
+    z-index: 1000;
   }
 }
 
