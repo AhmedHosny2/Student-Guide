@@ -1,0 +1,118 @@
+h1 {
+  color: var(--main-color);
+  width: max-content;
+  font-style: italic;
+  padding: 10px 0;
+  border-bottom: 3px groove var(--third-color);
+}
+
+.createCourse {
+  margin: 20px 0;
+}
+
+.createCourse .container {
+  display: grid;
+  place-items: center;
+  justify-items: start;
+}
+
+.createCourse .container .wrap {
+  margin: 50px 0;
+}
+
+.createCourse .container .wrap form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.createCourse .container .wrap form .box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .createCourse .container .wrap form .box {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.createCourse .container .wrap form .box .inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.createCourse .container .wrap form .inputBox .textareaLabel {
+  font-family: 'Gochi Hand', cursive;
+  line-height: 1.5;
+  width: max-content;
+  background-image: linear-gradient(transparent 50%, #e1fffe 50%, var(--third-color) 85%, transparent 85%, transparent 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  margin: 30px 0;
+  padding: 10px 0;
+  font-style: italic;
+  -webkit-animation: animatedBackground 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
+  animation: animatedBackground 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
+}
+
+.createCourse .container .wrap form label {
+  font-weight: bold;
+  font-style: italic;
+  color: var(--main-color);
+}
+
+.createCourse .container .wrap form input {
+  border: 2px solid var(--third-color);
+  padding: 10px 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  width: 15rem;
+  min-width: 10rem;
+  background-color: hsla(0, 0%, 100%, 0.808);
+}
+
+.createCourse .container .wrap form input:focus {
+  outline: 0;
+}
+
+#submit-button {
+  background-color: var(--third-color);
+  color: var(--content-color);
+  border: 0;
+  padding: 10px 15px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  width: 20%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: var(--main-transition-duration);
+  -webkit-transition: var(--main-transition-duration);
+  -moz-transition: var(--main-transition-duration);
+  -ms-transition: var(--main-transition-duration);
+  -o-transition: var(--main-transition-duration);
+}
+
+#submit-button:hover {
+  background-color: #3a736f;
+}
+
+/* start animation */
+@keyframes animatedBackground {
+  to {
+    background-size: 100% 100%;
+  }
+}

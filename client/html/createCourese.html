@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>create new course</title>
+  <!-- css files -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/createCourse.css">
+  <!-- normalize-file -->
+  <link rel="stylesheet" href="../css/normalize.css">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <!-- google icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- adding script for text editor -->
+  <script src="https://cdn.tiny.cloud/1/enep75onznwz79126jx5fzc7m5eaemm86drfwr2rx64hvprv/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+</head>
+
+<body>
+  <!-- header section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="../images/Khateeb and Yaya.png" alt="">
+      </div>
+      <nav class="nav">
+        <ul class="links">
+          <li><a href="../html/index.html">home</a></li>
+          <li><a href="../location.html">location</a></li>
+          <li><a href="../emails.html">emails</a></li>
+          <li><a href="../html/selectCourse.html">Courses</a></li>
+          <li class="login"><a href="">login</a> </li>
+        </ul>
+        <div class="user-darkMode">
+          <span class="material-symbols-outlined dark-mode">
+            dark_mode
+          </span>
+          <span class="material-symbols-outlined user">
+            account_circle
+          </span>
+        </div>
+      </nav>
+      <div class="burger-menu">
+        <span class="top"></span>
+        <span class="mid"></span>
+        <span class="btm"></span>
+      </div>
+    </div>
+  </header>
+  <!-- end header -->
+  <main>
+    <div class="createCourse">
+      <div class="container">
+        <h1>Create New Course</h1>
+        <div class="wrap">
+          <form id="course-form">
+            <div class="box">
+              <div class="inputBox">
+                <label for="courseName" class="courseName">Course Name</label>
+                <input type="text" id="courseName" name="courseName" required>
+              </div>
+
+              <div class="inputBox">
+                <label for="courseCode">Course Code</label>
+                <input type="text" id="courseCode" name="courseCode" required>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="inputBox">
+                <label for="courseCredits">Course Credits</label>
+                <input type="number" id="courseCredits" name="courseCredits" required>
+              </div>
+
+              <div class="inputBox">
+                <label for="semester">Semester</label>
+                <input type="number" id="semester" name="semester" required>
+              </div>
+            </div>
+
+            <div class="inputBox">
+              <h2 class="textareaLabel">get full power of creating course content</h2>
+              <textarea id="content" name="content" required></textarea>
+            </div>
+
+            <button type="submit" id="submit-button">Submit</button>
+          </form>
+
+          <div id="output">
+            <!-- Course information will be displayed here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/createCourse.js"></script>
+</body>
+
+</html>
