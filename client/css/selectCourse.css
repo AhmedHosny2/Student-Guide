@@ -52,8 +52,7 @@ body {
 /* start course card */
 .courses-selection .container .courses-wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 40px;
   margin: 50px;
   position: relative;
@@ -62,7 +61,7 @@ body {
 .courses-selection .container .courses-wrap .course-card {
   height: 200px;
   background: url(../images/course1.jpg) no-repeat;
-  background-position: 0 -150px;
+  background-position: 0 -140px;
   background-size: cover;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -106,6 +105,16 @@ body {
   position: absolute;
   bottom: 0px;
   right: 0px;
+}
+
+.courses-selection .container .courses-wrap{
+  margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .courses-selection .container form {
+    flex-direction: column;
+  }
 }
 
 /* end course card */
