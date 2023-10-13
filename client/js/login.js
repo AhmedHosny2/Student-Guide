@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
 
-    const apiUrl = "https://student-guide-users.vercel.app/login"; // Replace with your API URL
+    const apiUrl = "https://student-guide-users.vercel.app/user/login"; // Replace with your API URL
 
     fetch(apiUrl, {
       method: "POST",
