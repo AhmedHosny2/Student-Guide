@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
 
-    const apiUrl = "http://localhost:5001/user/login"; // Replace with your API URL
+    const apiUrl = "https://student-guide-users.vercel.app/login"; // Replace with your API URL
 
     fetch(apiUrl, {
       method: "POST",
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("google-login-button")
     .addEventListener("click", function () {
-      window.location.href = "http://localhost:5001/auth/google";
+      window.location.href = "https://student-guide-users.vercel.app/auth/google";
     });
 });
 //start login styling animation

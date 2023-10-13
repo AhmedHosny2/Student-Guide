@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     try {
-      const apiUrl = `http://localhost:5002/course`; // Replace with your API URL
+      const apiUrl = `https://student-guide-course.vercel.app`; // Replace with your API URL
       fetch(apiUrl, {
         method: "POST",
         headers: {

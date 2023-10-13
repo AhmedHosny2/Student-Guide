@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formDataObject[key] = value;
       });
       console.log(formDataObject);
-      const apiUrl = 'http://localhost:5001/user/signup'; // Replace with your API URL
+      const apiUrl = 'https://student-guide-users.vercel.app/user/signup'; // Replace with your API URL
       
       fetch(apiUrl, {
         method: 'POST',
