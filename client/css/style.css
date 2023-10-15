@@ -111,7 +111,7 @@ html {
 }
 
 .header .logo img {
-  width: 4rem;
+  width: 2.5rem;
 }
 
 .header .nav {
@@ -133,7 +133,7 @@ html {
   .header .nav .links li::before {
     content: "";
     position: absolute;
-    bottom: -37px;
+    bottom: -20px;
     left: 0;
     background-color: var(--secondary-color);
     height: 3px;
@@ -152,13 +152,15 @@ html {
 
 .header .nav .links li a {
   text-transform: capitalize;
-  font-weight: bold;
+  font-weight: 500;
   color: var(--text-color);
   -webkit-transition: var(--main-transition-duration);
   -moz-transition: var(--main-transition-duration);
   -ms-transition: var(--main-transition-duration);
   -o-transition: var(--main-transition-duration);
   transition: var(--main-transition-duration);
+  padding: 15px;
+  font-size: 15px;
 }
 
 
@@ -171,14 +173,14 @@ html {
 }
 
 .header .nav .user-darkMode {
-  color: var(--main-color);
+
   cursor: pointer;
   display: flex;
   gap: 10px;
 }
 
 .header .nav .user-darkMode .user {
-  color: var(--main-color);
+  color: var(--text-color);
   border-left: 2px solid var(--secondary-color);
   padding-left: 10px;
   -webkit-transition: var(--main-transition-duration);
@@ -186,6 +188,8 @@ html {
   -ms-transition: var(--main-transition-duration);
   -o-transition: var(--main-transition-duration);
   transition: var(--main-transition-duration);
+  display: flex;
+  align-items: center;
 }
 
 .header .nav .user-darkMode .user:hover {
