@@ -152,7 +152,7 @@ html {
 
 .header .nav .links li a {
   text-transform: capitalize;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-color);
   -webkit-transition: var(--main-transition-duration);
   -moz-transition: var(--main-transition-duration);
