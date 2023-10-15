@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: "https://ahmedhosny2.github.io/Student-Guide",
+    origin: process.env.CLIENT_URL,
   })
 );
 app.use(
