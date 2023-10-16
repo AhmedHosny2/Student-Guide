@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   protectedRouteButton.addEventListener("click", () => {
-    const protectedApiUrl = "http://localhost:5001/user/protected-route"; // Replace with your protected API URL
+    const protectedApiUrl = "https://student-guide-users.vercel.app/user/protected-route"; // Replace with your protected API URL
 
     fetch(protectedApiUrl, {
       method: "GET",
