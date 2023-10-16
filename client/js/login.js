@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
 
-    const apiUrl = "http://student-guide-users.ahmed-yehia.me/user/login"; // Replace with your API URL
+    const apiUrl = "https://student-guide-users.ahmed-yehia.me/user/login"; // Replace with your API URL
 
     fetch(apiUrl, {
       method: "POST",
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   protectedRouteButton.addEventListener("click", () => {
-    const protectedApiUrl = "http://student-guide-users.ahmed-yehia.me/user/protected-route"; // Replace with your protected API URL
+    const protectedApiUrl = "https://student-guide-users.ahmed-yehia.me/user/protected-route"; // Replace with your protected API URL
 
     fetch(protectedApiUrl, {
       method: "GET",
