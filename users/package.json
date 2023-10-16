@@ -16,6 +16,7 @@
     "connect-mongo": "^5.0.0",
     "connect-mongodb-session": "^3.1.1",
     "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^16.3.1",

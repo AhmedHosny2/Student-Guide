@@ -1,5 +1,5 @@
 const express = require("express");
-const session = require("express-session");
+var session = require('cookie-session');
 const cors = require("cors");
 const cookieParser = require("cookie-parser"); // Correct the variable name
 const passport = require("passport");
