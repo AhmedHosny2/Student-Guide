@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("course-form");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-console.log("create courese started ");
+
+    console.log("create courese started ");
     const formData = new FormData(form);
     const formDataObject = {};
 
