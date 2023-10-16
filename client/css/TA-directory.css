@@ -2,15 +2,60 @@
   margin: 40px 0;
 }
 
-.taDirectory .container {
-
-}
+.taDirectory .container {}
 
 .taDirectory .container .card-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
   margin: 50px 0;
+}
+
+.taDirectory .container .search-bar {
+  margin-left: auto;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.taDirectory .container .search-bar label {
+  text-transform: capitalize;
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.taDirectory .container .search-bar {
+  position: relative;
+}
+
+.taDirectory .container .search-bar input {
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.taDirectory .container .search-bar input:focus {
+  outline: none;
+}
+
+.taDirectory .container .search-bar::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f002";
+  color: var(--secondary-color);
+  position: absolute;
+  right: 10px;
+}
+
+.taDirectory .container .search-bar span {
+  color: var(--secondary-color);
 }
 
 .taDirectory .container .card {
@@ -38,16 +83,11 @@
   transform: translateY(-10px);
 }
 
-.taDirectory .container .card .head {
-  text-transform: capitalize;
+.hide {
+  display: none;
 }
 
-.taDirectory .container .card .head h4 {
-  margin: 10px 0;
-  font-style: italic;
-}
-
-.taDirectory .container .card .head .course {
+.taDirectory .container .card .course {
   font-size: 0.7em;
   background-color: rgb(164, 189, 183, 0.5);
   width: max-content;
@@ -58,6 +98,7 @@
   display: block;
   margin: 0 auto 10px;
   font-size: 15px;
+  text-transform: capitalize;
 }
 
 .taDirectory .container .card .box {
