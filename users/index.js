@@ -22,7 +22,10 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
-app.use(cookieParser()); // Corrected middleware name
+app.use(cookieParser("your-secret-key", {
+  domain: ".ahmed-yehia.me" // Include the dot before the domain
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
