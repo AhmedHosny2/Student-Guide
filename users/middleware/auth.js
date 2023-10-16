@@ -1,19 +1,16 @@
 const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
+const getEntriesFromCookie = require("../utils/cookies").getEntriesFromCookie;
+
 const config = process.env;
 module.exports.verifyToken = (req, res, next) => {
-  const authcookie = req.cookies.authcookie;
-  console.log(req.cookies);
-  if (!authcookie) {
+  const email = getEntriesFromCookie(req).email;
+  console.log(email);
+
+  if (!email) {
     return res.status(403).send("A token is required for authentication");
   }
-  try {
-    const decoded = jwt.verify(authcookie, config.ACCESS_TOKEN_SECRET);
-    req.user = decoded;
-    console.log(decoded);
-  } catch (err) {
-    return res.status(401).send("Invalid Token");
-  }
+
   return next();
 };
 module.exports.verifyRole = (req, res, next) => {
@@ -33,13 +30,13 @@ module.exports.verifyRole = (req, res, next) => {
       }
     });
   } catch (err) {
-    return res.status(401).send("Invalid Token"); 
+    return res.status(401).send("Invalid Token");
   }
 };
 module.exports.testVerifyToken = (req, res, next) => {
   console.log(" you made it to the protected route");
   res.status(200).send("You made it to the route.");
-}
+};
 
 module.exports.testVerifyRole = (req, res, next) => {
   console.log(" you made it to the admin route");
