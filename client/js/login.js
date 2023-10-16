@@ -60,27 +60,27 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  adminRouteButton.addEventListener("click", () => {
-    const adminApiUrl = "http://localhost:5001/user/admin-route"; // Replace with your admin API URL
+  // adminRouteButton.addEventListener("click", () => {
+  //   const adminApiUrl = "http://localhost:5001/user/admin-route"; // Replace with your admin API URL
 
-    fetch(adminApiUrl, {
-      method: "GET",
-      credentials: "include",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.text();
-      })
-      .then((data) => {
-        console.log("Response from Admin API Route:", data);
-        // Handle the response data as needed
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
-  });
+  //   fetch(adminApiUrl, {
+  //     method: "GET",
+  //     credentials: "include",
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return response.text();
+  //     })
+  //     .then((data) => {
+  //       console.log("Response from Admin API Route:", data);
+  //       // Handle the response data as needed
+  //     })
+  //     .catch((error) => {
+  //       console.error("Fetch error:", error);
+  //     });
+  // });
   document
     .getElementById("google-login-button")
     .addEventListener("click", function () {
