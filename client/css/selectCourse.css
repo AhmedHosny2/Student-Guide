@@ -118,7 +118,7 @@
   background-color: var(--third-color);
   border: 0;
   color: white;
-  position: absolute;
+  position: fixed;
   bottom: 60px;
   right: 60px;
   -webkit-transition: 0.3s;
