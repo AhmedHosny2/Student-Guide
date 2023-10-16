@@ -34,6 +34,7 @@ module.exports.verifyRole = (req, res, next) => {
   }
 };
 module.exports.testVerifyToken = (req, res, next) => {
+  console.log(req.headers);
   console.log(" you made it to the protected route");
   res.status(200).send("You made it to the route.");
 };
