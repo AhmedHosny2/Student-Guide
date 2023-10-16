@@ -24,9 +24,7 @@ app.use("/auth", googleRouter);
 app.use("/user", userRouter);
 
 const PORT = process.env.PORT || 5001;
-store.on("error", (error) => {
-  console.error("MongoDB Session Store Error:", error);
-});
+
 db.once("open", () => {
   app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 });
