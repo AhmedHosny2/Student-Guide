@@ -18,13 +18,13 @@ app.use(
     origin: process.env.CLIENT_URL,
   })
 );
-// app.use(
-//   session({
-//     resave: false,
-//     saveUninitialized: true,
-//     secret: process.env.SESSION_SECRET,
-//   })
-// );
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+  })
+);
 app.use(cookies());
 // habd  ============================
 app.use(passport.initialize());
