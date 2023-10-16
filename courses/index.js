@@ -1,7 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
-var cookies = require("cookie-parser");
+const cookieParser = require("cookie-parser"); // Use const for middleware variable
 require("dotenv").config();
 
 const db = require("./config/database.js");
@@ -22,9 +22,9 @@ app.use(
     secret: process.env.SESSION_SECRET,
   })
 );
-app.use(cookies());
+app.use(cookieParser()); // Use const for middleware variable
 
-//routes
+// Routes
 app.use("/course", Router);
 
 const PORT = process.env.PORT || 5002;
