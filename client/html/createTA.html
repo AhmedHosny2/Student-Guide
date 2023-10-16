@@ -72,30 +72,39 @@
               <div class="box">
                 <div class="inputBox">
                   <label for="taName" class="taName">Name</label>
-                  <input type="text" id="taName" name="taName" required>
+                  <input type="text" id="taName" name="taName">
                 </div>
 
                 <div class="inputBox">
                   <label for="officeHour">office hours</label>
-                  <input type="text" id="officeHour" name="officeHour" required>
+                  <input type="text" id="officeHour" name="officeHour">
                 </div>
               </div>
 
               <div class="box">
                 <div class="inputBox">
                   <label for="officeLocation">office location</label>
-                  <input type="text" id="officeLocation" name="officeLocation" required>
-                </div>
-
-                <div class="inputBox">
-                  <label for="tutorials">tutorials</label>
-                  <input type="text" id="tutorials" name="tutorials" required>
+                  <input type="text" id="officeLocation" name="officeLocation">
                 </div>
 
                 <div class="inputBox">
                   <label for="email">email</label>
-                  <input type="email" id="email" name="email" required>
+                  <input type="email" id="email" name="email">
                 </div>
+              </div>
+              <div class="inputBox tutorials">
+                <label for="tutorials">tutorials</label>
+                <div class="input-btn-wrap">
+                  <input type="text" id="tutorials-value" name="tutorials">
+
+                  <button class="addTutorials" id="addTutorials">
+                    <span class="material-symbols-outlined">
+                      add
+                    </span>
+                  </button>
+
+                </div>
+                <div class="listOfTutorials" id="listOfTutorials"></div>
               </div>
               <button type="submit" id="submit-button">add</button>
             </form>
@@ -105,7 +114,7 @@
     </div>
   </main>
   <script src="../js/navbar.js"></script>
-  <script src="../js/TA-directory.js"></script>
+  <script src="../js/createTA.js"></script>
 </body>
 
 </html>

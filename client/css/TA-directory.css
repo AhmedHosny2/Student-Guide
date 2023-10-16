@@ -3,9 +3,14 @@
 }
 
 .taDirectory .container {
+
+}
+
+.taDirectory .container .card-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
+  margin: 50px 0;
 }
 
 .taDirectory .container .card {
