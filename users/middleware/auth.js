@@ -38,8 +38,7 @@ module.exports.verifyRole = (req, res, next) => {
 };
 module.exports.testVerifyToken = (req, res, next) => {
   console.log(" you made it to the protected route");
-  res.send("You made it to the route.");
-  next();
+  res.status(200).send("You made it to the route.");
 }
 
 module.exports.testVerifyRole = (req, res, next) => {
