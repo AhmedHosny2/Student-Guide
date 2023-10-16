@@ -83,3 +83,18 @@
   font-style: italic;
   margin: 10px;
 }
+
+.taDirectory .container .addTaBtn {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  padding: 10px 12px;
+  background-color: var(--third-color);
+  border: 0;
+  color: white;
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
+}

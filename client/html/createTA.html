@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TA directory</title>
+  <title>create new TA</title>
   <!-- css files -->
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/TA-directory.css">
-  <link rel="stylesheet" type="text/css" href="../css/selectCourse.scss">
+  <link rel="stylesheet" href="../css/createTA.css">
   <!-- normalize-file -->
   <link rel="stylesheet" href="../css/normalize.css">
   <!-- google fonts -->
@@ -24,6 +23,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- adding script for text editor -->
+  <script src="https://cdn.tiny.cloud/1/gxzgebpfex5iq0k3asrt31ihi7s4yhegnqcdmyurjo3gv0mq/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -61,47 +63,49 @@
   </header>
   <!-- end header -->
   <main>
-    <!-- start search bar -->
-    <div class="taDirectory">
+    <div class="taCreation">
       <div class="container">
-        <section class="card">
-          <div class="head">
-            <div class="course">data structure and algorithm</div>
+        <div class="container">
+          <h1>add New TA</h1>
+          <div class="wrap">
+            <form id="course-form">
+              <div class="box">
+                <div class="inputBox">
+                  <label for="taName" class="taName">Name</label>
+                  <input type="text" id="taName" name="taName" required>
+                </div>
+
+                <div class="inputBox">
+                  <label for="officeHour">office hours</label>
+                  <input type="text" id="officeHour" name="officeHour" required>
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="inputBox">
+                  <label for="officeLocation">office location</label>
+                  <input type="text" id="officeLocation" name="officeLocation" required>
+                </div>
+
+                <div class="inputBox">
+                  <label for="tutorials">tutorials</label>
+                  <input type="text" id="tutorials" name="tutorials" required>
+                </div>
+
+                <div class="inputBox">
+                  <label for="email">email</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+              </div>
+              <button type="submit" id="submit-button">add</button>
+            </form>
           </div>
-          <div class="box">
-            <div class="wrap">
-              <p>name</p>
-              <span>donia mohamed</span>
-            </div>
-            <div class="wrap">
-              <p>office hour</p>
-              <span>12:30 to 18:40 wednesday</span>
-            </div>
-            <div class="wrap">
-              <p>office location</p>
-              <span>A222</span>
-            </div>
-            <div class="wrap">
-              <p>tutorials</p>
-              <span>0,3,7,5000</span>
-            </div>
-            <div class="wrap">
-              <p>email</p>
-              <span>donai.ali@giu-uni.de</span>
-            </div>
-          </div>
-        </section>
-        <a href="../html/createTA.html" class="addTaBtn">
-          <span class="material-symbols-outlined">
-            person_add
-          </span>
-        </a>
+        </div>
       </div>
     </div>
-    <!-- end search bar -->
   </main>
-  <script src="../js/TA-directory.js"></script>
   <script src="../js/navbar.js"></script>
+  <script src="../js/TA-directory.js"></script>
 </body>
 
 </html>
