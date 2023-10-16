@@ -48,6 +48,70 @@ h1 {
   gap: 10px;
 }
 
+.taCreation .container .inputBox.tutorials .input-btn-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.taCreation .container .inputBox.tutorials .input-btn-wrap button {
+  background-color: var(--third-color);
+  color: white;
+  letter-spacing: 1px;
+  border: 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  padding: 5px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.taCreation .container .inputBox.tutorials .input-btn-wrap button:hover {
+  background-color: var(--secondary-color);
+}
+
+.taCreation .container .inputBox.tutorials .listOfTutorials {
+  margin: 20px 0;
+  display: grid;
+  gap: 30px;
+}
+
+
+.taCreation .container .inputBox.tutorials .listOfTutorials .tut {
+  padding: 20px;
+  background-color: var(--secondary-color);
+  color: var(--content-color);
+  font-size: 14px;
+  letter-spacing: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taCreation .container .inputBox.tutorials .listOfTutorials .tut .del {
+  background-color: var(--third-color);
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .taCreation .container .wrap form .inputBox .textareaLabel {
   font-family: 'Gochi Hand', cursive;
   line-height: 1.5;
@@ -76,8 +140,6 @@ h1 {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  width: 15rem;
-  min-width: 10rem;
   background-color: hsla(0, 0%, 100%, 0.808);
 }
 
@@ -98,13 +160,13 @@ h1 {
   width: 20%;
   font-size: 20px;
   cursor: pointer;
-  -webkit-transition: var(--main-transition-duration);
-  -moz-transition: var(--main-transition-duration);
-  -ms-transition: var(--main-transition-duration);
-  -o-transition: var(--main-transition-duration);
-  transition: var(--main-transition-duration);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 #submit-button:hover {
-  background-color: #3a736f;
+  background-color: var(--secondary-color);
 }
