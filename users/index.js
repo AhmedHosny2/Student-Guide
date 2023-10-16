@@ -1,7 +1,7 @@
 const express = require("express");
-const session = require("express-session");
+var session = require('cookie-session');
 const cors = require("cors");
-var cookies = require("cookie-parser");
+const cookieParser = require("cookie-parser"); // Correct the variable name
 const passport = require("passport");
 require("dotenv").config();
 
@@ -18,20 +18,18 @@ app.use(
     origin: process.env.CLIENT_URL,
   })
 );
-// app.use(
-//   session({
-//     resave: false,
-//     saveUninitialized: true,
-//     secret: process.env.SESSION_SECRET,
-//   })
-// );
-app.use(cookies());
-// habd  ============================
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+  })
+);
+app.use(cookieParser()); // Corrected middleware name
 app.use(passport.initialize());
 app.use(passport.session());
 
-//=======================================================
-//routes
+// Routes
 app.use("/auth", googleRouter);
 app.use("/user", userRouter);
 
