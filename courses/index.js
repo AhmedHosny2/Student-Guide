@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+
 const CONNECTION_URL = process.env.CONNECTION_URL;
 // console.log(CONNECTION_URL);
 const store = new MongoDBStore({

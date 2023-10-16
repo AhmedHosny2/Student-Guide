@@ -4,7 +4,7 @@ exports.addCourse = async (req, res) => {
   const { courseName, content, courseCode, courseCredits, semester } = req.body;
 
   const email = req.session.email;
-console.log(email);
+  console.log(email);
   const isCreted = await courseModel.findOne({ courseName });
   if (isCreted) {
     return res.status(400).json({ message: "course already exist" });
