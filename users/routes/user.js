@@ -13,7 +13,7 @@ const {
   testVerifyRole,
   testVerifyToken,
 } = require("../middleware/auth");
-router.post("/logout", logoutUser);
+// router.post("/logout", logoutUser);
 router.post("/signup", signupUser);
 router.post("/login", loginUser);
 // router.use(verifyToken);

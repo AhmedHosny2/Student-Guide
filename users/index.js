@@ -1,9 +1,9 @@
 const express = require("express");
 const session = require("express-session");
 const cors = require("cors");
-const cookieParser = require("cookie-parser"); // Correct the variable name
 const passport = require("passport");
 require("dotenv").config();
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 const db = require("./config/database.js");
 const googleRouter = require("./routes/googleAuth.js");
@@ -13,15 +13,25 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
-app.use(session({
-  secret: process.env.SESSION_SECRET, // Replace with your secret key
-  resave: false,
-  saveUninitialized: true,
-}));
+//session
 
-app.use(cookieParser("your-secret-key", {
-  domain: ".ahmed-yehia.me" // Include the dot before the domain
-}));
+const CONNECTION_URL = process.env.CONNECTION_URL;
+// console.log(CONNECTION_URL);
+const store = new MongoDBStore({
+  uri: CONNECTION_URL,
+  collection: "sessions", // Name of the sessions collection
+});
+
+// Use express-session middleware with the MongoDB store
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET, // Replace with your secret key
+    resave: false,
+    saveUninitialized: true,
+    store: store,
+  })
+);
+
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -1,10 +1,9 @@
 const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
-const getEntriesFromCookie = require("../utils/cookies").getEntriesFromCookie;
 
 const config = process.env;
 module.exports.verifyToken = (req, res, next) => {
-  const email = getEntriesFromCookie(req).email;
+  const email = req.session.email;
   console.log(email);
 
   if (!email) {

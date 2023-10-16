@@ -62,11 +62,7 @@ exports.loginUser = async (req, res) => {
     user.token = token;
     req.session.email = email; // Store the email in the session
     console.log(req.session.email);
-    res.cookie("authcookie", token, {
-      maxAge: 1000 * 60 * 60 * 24,
-      httpOnly: true,
-    });
-    // Set the cookie with your data
+    
     res.status(200).json({ message: "Login successful", user });
   } catch (err) {
     console.error(err);
@@ -83,7 +79,7 @@ exports.getUser = async (req, res) => {
   console.log(user);
   res.status(200).json(user);
 };
-exports.logoutUser = async (req, res) => {
-  res.clearCookie("authcookie");
-  res.status(200).json({ message: "logout successful" });
-};
+// exports.logoutUser = async (req, res) => {
+//   res.clearCookie("authcookie");
+//   res.status(200).json({ message: "logout successful" });
+// };
