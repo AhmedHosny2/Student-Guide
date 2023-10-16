@@ -60,9 +60,8 @@ exports.loginUser = async (req, res) => {
     console.log("logged in ");
     // save user token
     user.token = token;
-    req.session.email = email; // Store the email in the session
-    console.log(req.session.email);
-    
+    res.cookie("userEmail", email, { httpOnly: true });
+
     res.status(200).json({ message: "Login successful", user });
   } catch (err) {
     console.error(err);
