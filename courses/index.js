@@ -1,5 +1,5 @@
 const express = require("express");
-var session = require('cookie-session');
+var cookieSession = require('cookie-session');
 const cors = require("cors");
 const cookieParser = require("cookie-parser"); // Use const for middleware variable
 require("dotenv").config();
@@ -15,13 +15,15 @@ app.use(
     origin: process.env.CLIENT_URL,
   })
 );
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
-  })
-);
+
+app.use(cookieSession({
+  name: 'session',
+  keys: process.env.SESSION_SECRET,
+
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
+
 app.use(cookieParser()); // Use const for middleware variable
 
 // Routes

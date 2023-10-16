@@ -1,14 +1,17 @@
 const courseModel = require("../model/courseModel");
+const getEntriesFromCookie = require("../utils/cookies").getEntriesFromCookie;
+
 exports.addCourse = async (req, res) => {
   const { courseName, content, courseCode, courseCredits, semester } = req.body;
-  const email = req.user.email;
-  console.log("the user\n"+req.user);
+
+  const email = getEntriesFromCookie(req).email;
+console.log(email);
   const isCreted = await courseModel.findOne({ courseName });
   if (isCreted) {
     return res.status(400).json({ message: "course already exist" });
   }
   try {
-     await courseModel.create({
+    await courseModel.create({
       courseName,
       content,
       courseCode,

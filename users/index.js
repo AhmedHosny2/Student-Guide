@@ -1,5 +1,5 @@
 const express = require("express");
-var session = require('cookie-session');
+var cookieSession = require("cookie-session");
 const cors = require("cors");
 const cookieParser = require("cookie-parser"); // Correct the variable name
 const passport = require("passport");
@@ -19,10 +19,12 @@ app.use(
   })
 );
 app.use(
-  session({
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
+  cookieSession({
+    name: "session",
+    keys: process.env.SESSION_SECRET,
+
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
 app.use(cookieParser()); // Corrected middleware name
