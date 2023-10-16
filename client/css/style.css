@@ -279,7 +279,6 @@ html {
   }
 
   .header .nav .links li {
-    padding: 20px;
     text-align: center;
   }
 
@@ -293,7 +292,10 @@ html {
 
   .header .nav .links li a {
     color: #fafafa;
-    font-weight: 200;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 20px;
+    display: block;
   }
 
   .header .nav .links .login {
