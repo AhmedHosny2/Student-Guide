@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     try {
-      const apiUrl = `https://student-guide-course.vercel.app/course`; // Replace with your API URL
+      const apiUrl = `https://student-guide-course.ahmed-yehia.me/course`; // Replace with your API URL
       fetch(apiUrl, {
         method: "POST",
         headers: {
