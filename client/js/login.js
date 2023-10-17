@@ -27,7 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json();
+        // the response used .send in backend 
+
+        return response.text();
       })
       .then((data) => {
         console.log("Response from the API:", data);
