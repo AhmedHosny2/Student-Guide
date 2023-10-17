@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then((data) => {
         console.log("Response from the API:", data);
+        //once user logged in switch to the home https://www.ahmed-yehia.me/index.html 
+
+        window.location.href = "https://www.ahmed-yehia.me/index.html";
+
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
