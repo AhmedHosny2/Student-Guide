@@ -1,9 +1,9 @@
 const courseModel = require("../model/courseModel");
-
+const getCookie = require("../utils/cookies").getEntriesFromCookie
 exports.addCourse = async (req, res) => {
   const { courseName, content, courseCode, courseCredits, semester } = req.body;
 
-  const email = req.session.email;
+  const email =getCookie(req).email;
   console.log(email);
   const isCreted = await courseModel.findOne({ courseName });
   if (isCreted) {
