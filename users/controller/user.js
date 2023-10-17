@@ -61,9 +61,20 @@ exports.loginUser = async (req, res) => {
     // save user token
     user.token = token;
     const currentDateTime = new Date();
-    const expiresAt = new Date(+currentDateTime + 18000000); // expire in 3 minutes
+    // make it expries after 3 hours 
+    const currentTime = new Date();
+
+    // Calculate the new time after adding 5 hours
+    const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
+    const newTime = new Date(currentTime.getTime() + fiveHoursInMilliseconds);
+    
+    // Print the current time and the new time
+    console.log("Current Time: " + currentTime.toISOString());
+    console.log("New Time (after 5 hours): " + newTime.toISOString());
+const expiresAt = new Date(currentDateTime+ 3*60*60*1000);
+    // console.log(expiresAt);
     return res
-      .cookie("authcookie", token, { expires: expiresAt  })
+      .cookie("authcookie", token, { expires: newTime, httpOnly: true } , {sameSite: 'none'}, {secure: true})
       .status(200)
       .send("login successful");
   } catch (err) {
