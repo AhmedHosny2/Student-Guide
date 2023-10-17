@@ -35,8 +35,45 @@ addBtn.onclick = (event) => {
   //for testing
   console.log(arrOfTutorials);
 };
+if (clearBtn) {
+  clearBtn.onclick = (event) => {
+    event.preventDefault();
+    // Remove all tutorials from the list and clear the array
+    listOfTutorials.innerHTML = "";
+    arrOfTutorials = [];
+  };
+}
 
-clearBtn.onclick = (event) => {
-  event.preventDefault();
-  tutorialsVal.value = "";
-};
+// Get references to the form element
+// Get references to the form and input elements
+const courseForm = document.getElementById("TA-form");
+const taNameInput = document.getElementById("taName");
+const officeHourInput = document.getElementById("officeHour");
+const officeLocationInput = document.getElementById("officeLocation");
+const emailInput = document.getElementById("email");
+
+// Event handler for the form submission
+courseForm.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Retrieve the values from the input fields
+  const taName = taNameInput.value;
+  const officeHour = officeHourInput.value;
+  const officeLocation = officeLocationInput.value;
+  const email = emailInput.value;
+  const tutorials = arrOfTutorials.sort();
+
+  // Print the retrieved values to the console
+  console.log("TA Name: " + taName);
+  console.log("Office Hour: " + officeHour);
+  console.log("Office Location: " + officeLocation);
+  console.log("Email: " + email);
+  console.log("Tutorials: " + tutorials);
+
+  // You can perform further actions with the retrieved values here
+
+  // Reset the form after submission if needed
+  courseForm.reset();
+  arrOfTutorials.length = 0;
+  listOfTutorials.innerHTML = "";
+});
