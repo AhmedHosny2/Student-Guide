@@ -60,8 +60,10 @@ exports.loginUser = async (req, res) => {
     console.log("logged in ");
     // save user token
     user.token = token;
+    const currentDateTime = new Date();
+    const expiresAt = new Date(+currentDateTime + 180000); // expire in 3 minutes
     return res
-      .cookie("authcookie", token, { expires: 1000 * 60 * 60 * 24 })
+      .cookie("authcookie", token, { expires: expiresAt  })
       .status(200)
       .send("login successful");
   } catch (err) {
