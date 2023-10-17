@@ -61,7 +61,7 @@ exports.loginUser = async (req, res) => {
     // save user token
     user.token = token;
     const currentDateTime = new Date();
-    const expiresAt = new Date(+currentDateTime + 180000); // expire in 3 minutes
+    const expiresAt = new Date(+currentDateTime + 18000000); // expire in 3 minutes
     return res
       .cookie("authcookie", token, { expires: expiresAt  })
       .status(200)
