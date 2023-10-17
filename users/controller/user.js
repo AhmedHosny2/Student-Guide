@@ -74,8 +74,8 @@ exports.loginUser = async (req, res) => {
 const expiresAt = new Date(currentDateTime+ 3*60*60*1000);
     // console.log(expiresAt);
     return res
-      .cookie("authcookie", token, { expires: newTime, httpOnly: true } , {sameSite: 'none'}, {secure: true})
-      .status(200)
+    .cookie("authcookie", token, { expires: newTime, httpOnly: true, sameSite: 'none', secure: true, domain: '.ahmed-yehia.me', path: '/' })
+    .status(200)
       .send("login successful");
   } catch (err) {
     console.error(err);
