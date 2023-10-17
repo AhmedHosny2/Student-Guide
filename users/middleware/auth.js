@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
-
+const getCookie = require("../utils/cookies").getEntriesFromCookie
 const config = process.env;
 module.exports.verifyToken = (req, res, next) => {
-  const email = req.session.email;
+  const email = getCookie(req);
   console.log(email);
 
   if (!email) {
@@ -33,7 +33,7 @@ module.exports.verifyRole = (req, res, next) => {
   }
 };
 module.exports.testVerifyToken = (req, res, next) => {
-  const userEmail = req.cookies.userEmail; // Retrieve the user's email from the cookie
+  const userEmail = getCookie(req); // Retrieve the user's email from the cookie
   console.log(userEmail);
   console.log(" you made it to the protected route");
   res.status(200).send("You made it to the route.");
