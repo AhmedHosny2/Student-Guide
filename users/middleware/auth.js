@@ -32,15 +32,15 @@ module.exports.verifyRole = (req, res, next) => {
     return res.status(401).send("Invalid Token");
   }
 };
-module.exports.testVerifyToken = (req, res, next) => {
-  const userEmail = getCookie(req); // Retrieve the user's email from the cookie
-  console.log(userEmail);
-  console.log(" you made it to the protected route");
-  res.status(200).send("You made it to the route.");
-};
+// module.exports.testVerifyToken = (req, res, next) => {
+//   const userEmail = getCookie(req); // Retrieve the user's email from the cookie
+//   console.log(userEmail);
+//   console.log(" you made it to the protected route");
+//   res.status(200).send("You made it to the route.");
+// };
 
-module.exports.testVerifyRole = (req, res, next) => {
-  console.log(" you made it to the admin route");
-  res.send("You made it to the route.");
-  next();
-};
+// module.exports.testVerifyRole = (req, res, next) => {
+//   console.log(" you made it to the admin route");
+//   res.send("You made it to the route.");
+//   next();
+// };

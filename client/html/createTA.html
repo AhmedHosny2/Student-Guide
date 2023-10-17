@@ -1,120 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create new TA</title>
+    <!-- css files -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/createTA.css" />
+    <!-- normalize-file -->
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- adding script for text editor -->
+    <script
+      src="https://cdn.tiny.cloud/1/gxzgebpfex5iq0k3asrt31ihi7s4yhegnqcdmyurjo3gv0mq/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>create new TA</title>
-  <!-- css files -->
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/createTA.css">
-  <!-- normalize-file -->
-  <link rel="stylesheet" href="../css/normalize.css">
-  <!-- google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet">
-  <!-- google icons -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- adding script for text editor -->
-  <script src="https://cdn.tiny.cloud/1/gxzgebpfex5iq0k3asrt31ihi7s4yhegnqcdmyurjo3gv0mq/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"></script>
-</head>
-
-<body>
-  <!-- header section -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <img src="../images/Khateeb and Yaya.png" alt="">
-      </div>
-      <nav class="nav">
-        <ul class="links">
-          <li><a href="/client/index.html">home</a></li>
-          <li><a href="../location.html">location</a></li>
-          <li><a href="../html/TA-directory.html">TA directory</a></li>
-          <li><a href="../html/selectCourse.html">Courses</a></li>
-          <li class="login"><a href="../html/login.html">login</a></li>
-        </ul>
-        <div class="user-darkMode">
-          <span class="material-symbols-outlined dark-mode">
-            dark_mode
-          </span>
-          <a href="../html/login.html" class="user">
-            <span class="material-symbols-outlined ">
-              account_circle
-            </span>
-          </a>
-        </div>
-      </nav>
-      <div class="burger-menu">
-        <span class="top"></span>
-        <span class="mid"></span>
-        <span class="btm"></span>
-      </div>
-    </div>
-  </header>
-  <!-- end header -->
-  <main>
-    <div class="taCreation">
+  <body>
+    <!-- header section -->
+    <header class="header">
       <div class="container">
+        <div class="logo">
+          <img src="../images/Khateeb and Yaya.png" alt="" />
+        </div>
+        <nav class="nav">
+          <ul class="links">
+            <li><a href="/client/index.html">home</a></li>
+            <li><a href="../location.html">location</a></li>
+            <li><a href="../html/TA-directory.html">TA directory</a></li>
+            <li><a href="../html/selectCourse.html">Courses</a></li>
+            <li class="login"><a href="../html/login.html">login</a></li>
+          </ul>
+          <div class="user-darkMode">
+            <span class="material-symbols-outlined dark-mode"> dark_mode </span>
+            <a href="../html/login.html" class="user">
+              <span class="material-symbols-outlined"> account_circle </span>
+            </a>
+          </div>
+        </nav>
+        <div class="burger-menu">
+          <span class="top"></span>
+          <span class="mid"></span>
+          <span class="btm"></span>
+        </div>
+      </div>
+    </header>
+    <!-- end header -->
+    <main>
+      <div class="taCreation">
         <div class="container">
-          <h1>add New TA</h1>
-          <div class="wrap">
-            <form id="TA-form">
-              <div class="box">
-                <div class="inputBox">
-                  <label for="taName" class="taName">Name</label>
-                  <input type="text" id="taName" name="taName">
+          <div class="container">
+            <h1>add New TA</h1>
+            <div class="wrap">
+              <form id="TA-form">
+                <div class="box">
+                  <div class="inputBox">
+                    <label for="taName" class="taName">Name</label>
+                    <input type="text" id="taName" name="taName" />
+                  </div>
+
+                  <div class="inputBox">
+                    <label for="officeHour">office hours</label>
+                    <input type="text" id="officeHour" name="officeHour" />
+                  </div>
                 </div>
 
-                <div class="inputBox">
-                  <label for="officeHour">office hours</label>
-                  <input type="text" id="officeHour" name="officeHour">
-                </div>
-              </div>
+                <div class="box">
+                  <div class="inputBox">
+                    <label for="officeLocation">office location</label>
+                    <input
+                      type="text"
+                      id="officeLocation"
+                      name="officeLocation"
+                    />
+                  </div>
 
-              <div class="box">
-                <div class="inputBox">
-                  <label for="officeLocation">office location</label>
-                  <input type="text" id="officeLocation" name="officeLocation">
+                  <div class="inputBox">
+                    <label for="email">email</label>
+                    <input type="email" id="email" name="email" />
+                  </div>
+                  <div class="inputBox">
+                    <label for="courseName">courseName</label>
+                    <input type="text" id="courseName" name="courseName" />
+                  </div>
                 </div>
-
-                <div class="inputBox">
-                  <label for="email">email</label>
-                  <input type="email" id="email" name="email">
+                <div class="inputBox tutorials">
+                  <label for="tutorials">tutorials</label>
+                  <div class="input-btn-wrap">
+                    <input type="text" id="tutorials-value" name="tutorials">
+  
+                    <button class="addTutorials" id="addTutorials">
+                      <span class="material-symbols-outlined">
+                        add
+                      </span>
+                    </button>
+  
+                  </div>
+                  <div class="listOfTutorials" id="listOfTutorials"></div>
                 </div>
-              </div>
-              <div class="inputBox tutorials">
-                <label for="tutorials">tutorials</label>
-                <div class="input-btn-wrap">
-                  <input type="text" id="tutorials-value" name="tutorials">
-
-                  <button class="addTutorials" type ="button" id="addTutorials">
-                    <span class="material-symbols-outlined">
-                      add
-                    </span>
-                  </button>
-
+                  <div class="listOfTutorials" id="listOfTutorials"></div>
                 </div>
-                <div class="listOfTutorials" id="listOfTutorials"></div>
-              </div>
-              <button type="submit" id="submit-button">add</button>
-            </form>
+                <button type="submit" id="submit-button">add</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
-  <script src="../js/navbar.js"></script>
-  <script src="../js/createTA.js"></script>
-</body>
-
+    </main>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/createTA.js"></script>
+  </body>
 </html>
