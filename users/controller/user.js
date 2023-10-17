@@ -60,11 +60,10 @@ exports.loginUser = async (req, res) => {
     console.log("logged in ");
     // save user token
     user.token = token;
-    res.cookie("authcookie", token, {
-      maxAge: 1000 * 60 * 60 * 24,
-    });
-    // Set the cookie with your data
-    res.status(200).json({ message: "Login successful", user });
+    return res
+      .cookie("authcookie", token, { expires: 1000 * 60 * 60 * 24 })
+      .status(200)
+      .send("login successful");
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
 
-    const apiUrl = "http://localhost:5001/user/login"; // Replace with your API URL
+    const apiUrl = "https://student-guide-users.ahmed-yehia.me/user/login"; // Replace with your API URL
 
     fetch(apiUrl, {
       method: "POST",
@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   protectedRouteButton.addEventListener("click", () => {
-    const protectedApiUrl = "http://localhost:5001/user/protected-route"; // Replace with your protected API URL
+    const protectedApiUrl =
+      "https://student-guide-users.ahmed-yehia.me/user/protected-route"; // Replace with your protected API URL
 
     fetch(protectedApiUrl, {
       method: "GET",
@@ -84,7 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("google-login-button")
     .addEventListener("click", function () {
-      window.location.href = "https://student-guide-users.vercel.app/auth/google";
+      window.location.href =
+        "https://student-guide-users.vercel.app/auth/google";
     });
 });
 //start login styling animation
@@ -111,4 +113,4 @@ signUpSwitch.addEventListener("click", () => {
 
 signInSwitch.addEventListener("click", () => {
   signUp_box.classList.remove("active");
-})
+});
