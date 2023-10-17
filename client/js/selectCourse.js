@@ -31,7 +31,7 @@ function displayCourses() {
 
       courseCard.addEventListener("click", async function () {
         try {
-          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`; // Replace with your API URL
+          const apiUrl = `http://localhost:5002/course/${course}`; // Replace with your API URL here
           fetch(apiUrl, {
             method: "GET",
             headers: {

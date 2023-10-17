@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
 
-    const apiUrl = "https://student-guide-users.ahmed-yehia.me/user/login"; // Replace with your API URL
+    const apiUrl = "http://localhost:5001/user/login"; // Replace with your API URL here
 
     fetch(apiUrl, {
       method: "POST",
@@ -27,16 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        // the response used .send in backend 
+        // the response used .send in backend
 
         return response.text();
       })
       .then((data) => {
         console.log("Response from the API:", data);
-        //once user logged in switch to the home https://www.ahmed-yehia.me/index.html 
-
-        window.location.href = "https://www.ahmed-yehia.me/index.html";
-
+        //once user logged in switch to the home https://www.ahmed-yehia.me/index.html
+        // here
+        // window.location.href = "https://www.ahmed-yehia.me/index.html";
+        window.location.href = "http://127.0.0.1:5500/client/index.html";
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
@@ -44,50 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  protectedRouteButton.addEventListener("click", () => {
-    const protectedApiUrl =
-      "https://student-guide-users.ahmed-yehia.me/user/protected-route"; // Replace with your protected API URL
-
-    fetch(protectedApiUrl, {
-      method: "GET",
-      credentials: "include",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.text();
-      })
-      .then((data) => {
-        console.log("Response from Protected API Route:", data);
-        // Handle the response data as needed
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
-  });
-
-  // adminRouteButton.addEventListener("click", () => {
-  //   const adminApiUrl = "http://localhost:5001/user/admin-route"; // Replace with your admin API URL
-
-  //   fetch(adminApiUrl, {
-  //     method: "GET",
-  //     credentials: "include",
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return response.text();
-  //     })
-  //     .then((data) => {
-  //       console.log("Response from Admin API Route:", data);
-  //       // Handle the response data as needed
-  //     })
-  //     .catch((error) => {
-  //       console.error("Fetch error:", error);
-  //     });
-  // });
   document
     .getElementById("google-login-button")
     .addEventListener("click", function () {
@@ -120,3 +76,48 @@ signUpSwitch.addEventListener("click", () => {
 signInSwitch.addEventListener("click", () => {
   signUp_box.classList.remove("active");
 });
+
+// protectedRouteButton.addEventListener("click", () => {
+//   const protectedApiUrl =
+//     "http://localhost:5001/user/protected-route"; // Replace with your protected API URL here
+
+//   fetch(protectedApiUrl, {
+//     method: "GET",
+//     credentials: "include",
+//   })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Network response was not ok");
+//       }
+//       return response.text();
+//     })
+//     .then((data) => {
+//       console.log("Response from Protected API Route:", data);
+//       // Handle the response data as needed
+//     })
+//     .catch((error) => {
+//       console.error("Fetch error:", error);
+//     });
+// });
+
+// adminRouteButton.addEventListener("click", () => {
+//   const adminApiUrl = "http://localhost:5001/user/admin-route"; // Replace with your admin API URL
+
+//   fetch(adminApiUrl, {
+//     method: "GET",
+//     credentials: "include",
+//   })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Network response was not ok");
+//       }
+//       return response.text();
+//     })
+//     .then((data) => {
+//       console.log("Response from Admin API Route:", data);
+//       // Handle the response data as needed
+//     })
+//     .catch((error) => {
+//       console.error("Fetch error:", error);
+//     });
+// });

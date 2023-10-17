@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     try {
-      const apiUrl = `https://student-guide-course.ahmed-yehia.me/course`; // Replace with your API URL
+      const apiUrl = `http://localhost:5002/course`; // Replace with your API URL here
       fetch(apiUrl, {
         method: "POST",
         headers: {
