@@ -7,4 +7,4 @@ function getEntriesFromCookie(req) {
   console.log(decoded);
   return decoded;
   }
-  exports.getEntriesFromCookie = getEntriesFromCookie;
+  exports.getEntriesFromCookie = getEntriesFromCookie; 

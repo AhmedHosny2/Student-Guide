@@ -22,3 +22,4 @@ router.get("/admin-route", verifyRole, testVerifyRole);
 router.get("/:userId", getUser);
 
 module.exports = router;
+ 
