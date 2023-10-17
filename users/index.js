@@ -1,7 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const passport = require("passport");
+// const passport = require("passport");
 require("dotenv").config();
 
 const db = require("./config/database.js");
