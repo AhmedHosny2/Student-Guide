@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formDataObject),
         credentials: "include",
+        body: JSON.stringify(formDataObject),
       })
         .then((response) => {
           if (!response.ok) {
