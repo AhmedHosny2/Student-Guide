@@ -31,11 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to hide the editor and display the content in the div
   function displayContent() {
     const editorContent = tinymce.activeEditor.getContent();
+    console.log(editorContent);
     contentDisplay.innerHTML = editorContent;
   }
 
   // Event listener for the button click
-  submit.addEventListener("click", function () {
+  submit.addEventListener("input", function () {
     displayContent();
     document.body.classList.toggle("overlay");
     textarea.classList.toggle("show");

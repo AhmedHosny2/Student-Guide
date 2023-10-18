@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
     const formDataObject = {};
 
+    const editorContent = tiny.activeEditor.getContent();
+    //  console.log(editorContent);
+    formDataObject[content] = editorContent;
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
@@ -41,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 //add text area api
+let tiny = "";
 document.addEventListener("DOMContentLoaded", function () {
   tinymce.init({
     selector: "textarea",
@@ -59,4 +63,5 @@ document.addEventListener("DOMContentLoaded", function () {
         Promise.reject("See docs to implement AI Assistant")
       ),
   });
+  tiny = tinymce;
 });

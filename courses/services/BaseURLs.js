@@ -1,3 +1,3 @@
 module.exports = {
-    USER_BASE_URL: 'https://student-guide-users.vercel.app',
-  };
+  USER_BASE_URL: "https://student-guide-users.ahmed-yehia.me/user",
+};

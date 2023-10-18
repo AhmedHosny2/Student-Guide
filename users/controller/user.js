@@ -16,7 +16,7 @@ exports.signupUser = async (req, res) => {
       email: email.toLowerCase(),
       password: hashedPassword,
     });
-    
+
     // Create token
     const token = jwt.sign(
       { user_id: newUser._id, email },
@@ -91,9 +91,9 @@ exports.loginUser = async (req, res) => {
   }
 };
 exports.getUser = async (req, res) => {
-  const user_id = req.params.userId;
+  const user_email = req.params.userEmail;
   console.log(req.params);
-  const user = await userModel.findOne({ _id: user_id });
+  const user = await userModel.findOne({ email: user_email });
   if (!user) {
     return res.status(400).json({ message: "user does not exist" });
   }
@@ -104,4 +104,18 @@ exports.logoutUser = async (req, res) => {
   console.log("loged out");
   res.clearCookie("authcookie"); // Clear the token cookie
   res.json({ message: "Logout successful" });
+};
+exports.updateUserPoints = async (req, res) => {
+  const { userEmail, points } = req.body;
+  userModel.findOneAndUpdate(
+    { email: userEmail },
+    { contributionPoints: points },
+    (err, doc) => {
+      if (err) {
+        console.log("Something wrong when updating data!");
+      }
+      console.log(doc);
+    }
+  );
+  res.status(200).json({ message: "user updated" });
 };
