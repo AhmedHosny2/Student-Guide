@@ -78,6 +78,7 @@ exports.loginUser = async (req, res) => {
       ".ahmed-yehia.me",
       "student-guide-ta.vercel.app",
       ".student-guide-ta.vercel.app",
+      ".student-guide-ta.vercel.app/TADirectory",
       "localhost",
     ];
     return res
