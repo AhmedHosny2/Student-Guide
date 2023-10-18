@@ -1,7 +1,7 @@
 const addBtn = document.getElementById("addTutorials");
 const clearBtn = document.getElementById("clear");
 const tutorialsVal = document.getElementById("tutorials-value");
-
+const listOfTutorials = document.getElementById("listOfTutorials");
 let arrOfTutorials = [];
 
 addBtn.onclick = (event) => {
@@ -87,6 +87,9 @@ courseForm.addEventListener("submit", function (event) {
       .then((data) => {
         sucAlert("TA added successfully!", 3000);
         console.log("Response from the API:", data);
+        courseForm.reset();
+        arrOfTutorials.length = 0;
+        listOfTutorials.innerHTML = "";
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
@@ -97,10 +100,6 @@ courseForm.addEventListener("submit", function (event) {
   } catch (err) {
     console.error(err);
   }
-
-  courseForm.reset();
-  arrOfTutorials.length = 0;
-  listOfTutorials.innerHTML = "";
 });
 
 //alerts
