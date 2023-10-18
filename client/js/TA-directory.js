@@ -8,7 +8,6 @@ cardsNames.forEach((ele) => {
 
 const searchBar = document.getElementById("searchBar");
 searchBar.addEventListener("input", (e) => {
-  console.log(e);
   const value = e.target.value.toLowerCase();
   arrOfSubjects.forEach((e, i) => {
     const isVisible = e.toLowerCase().includes(value);
