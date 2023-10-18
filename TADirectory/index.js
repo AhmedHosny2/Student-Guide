@@ -14,7 +14,9 @@ app.use(cookieParser()); // Add cookie parser middleware
 
 //routes
 app.use("/TADirectory", Router);
-
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 const PORT = process.env.PORT || 5003;
 
 db.once("open", () => {
