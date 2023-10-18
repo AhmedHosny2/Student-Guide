@@ -3,13 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    console.log("create courese started ");
+    console.log("create course started");
     const formData = new FormData(form);
     const formDataObject = {};
 
     const editorContent = tiny.activeEditor.getContent();
-    //  console.log(editorContent);
-    formDataObject[content] = editorContent;
+    // console.log(editorContent);
+    formDataObject["content"] = editorContent; // Use "content" as the key
+
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
@@ -43,15 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-//add text area api
+
+// Add the code for initializing the TinyMCE editor below this comment
 let tiny = "";
 document.addEventListener("DOMContentLoaded", function () {
   tinymce.init({
     selector: "textarea",
-    plugins:
-      "ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
-    toolbar:
-      "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+    plugins: "ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
+    toolbar: "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
     tinycomments_mode: "embedded",
     tinycomments_author: "Author name",
     mergetags_list: [
