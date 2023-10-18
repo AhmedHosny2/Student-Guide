@@ -3,6 +3,15 @@ const jwt = require("jsonwebtoken");
 
 const userModel = require("../model/user");
 const saltRounds = 10;
+
+// Refresh token function
+function refreshToken(user, expiresAt) {
+  const { user_id, email, isAdmin } = user;
+  return jwt.sign({ user_id, email, isAdmin }, process.env.ACCESS_TOKEN_SECRET, {
+    expiresIn: expiresAt,
+  });
+}
+
 exports.signupUser = async (req, res) => {
   const { userName, email, password } = req.body;
   try {
@@ -33,8 +42,8 @@ exports.signupUser = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 exports.loginUser = async (req, res) => {
-  // authenticate user
   const { email, password } = req.body;
   try {
     if (!(email && password)) {
@@ -58,51 +67,42 @@ exports.loginUser = async (req, res) => {
         expiresIn: "2h",
       }
     );
-    console.log("logged in ");
-    // save user token
-    user.token = token;
-    const currentDateTime = new Date();
-    // make it expries after 3 hours
-    const currentTime = new Date();
 
     // Calculate the new time after adding 5 hours
     const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
-    const newTime = new Date(currentTime.getTime() + fiveHoursInMilliseconds);
+    const newTime = new Date(Date.now() + fiveHoursInMilliseconds);
 
-    // Print the current time and the new time
-    console.log("Current Time: " + currentTime.toISOString());
-    console.log("New Time (after 5 hours): " + newTime.toISOString());
-    const expiresAt = new Date(currentDateTime + 3 * 60 * 60 * 1000);
-    // console.log(expiresAt);
-    const domains = [
-      ".ahmed-yehia.me",
-      "https://student-guide-ta.vercel.app",
-      "student-guide-ta.vercel.app",
-      ".student-guide-ta.vercel.app",
-      ".student-guide-ta.vercel.app/TADirectory",
-      ".vercel.app",
-      "vercel.app",
-      ".app",
-      ".vercel.app/TADirectory",
-      ".app/TADirectory",
-      "localhost",
-    ];
-    return res
-      .cookie("authcookie", token, {
+    const domains = [".ahmed-yehia.me", "localhost"];
+
+    // Set cookies for each domain
+    domains.forEach((domain) => {
+      const refreshToken = refreshToken(user, newTime);
+      res.cookie("authcookie", token, {
         expires: newTime,
         httpOnly: true,
         sameSite: "none",
         secure: true,
-        domains,
+        domain: domain,
         path: "/",
-      })
-      .status(200)
-      .send("login successful");
+      });
+      res.cookie("refreshToken", refreshToken, {
+        expires: newTime,
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+        domain: domain,
+        path: "/",
+      });
+    });
+
+    console.log("logged in ");
+    res.status(200).send("login successful");
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 exports.getUser = async (req, res) => {
   const user_email = req.params.userEmail;
   console.log(req.params);
@@ -113,11 +113,14 @@ exports.getUser = async (req, res) => {
   console.log(user);
   res.status(200).json(user);
 };
+
 exports.logoutUser = async (req, res) => {
-  console.log("loged out");
-  res.clearCookie("authcookie"); // Clear the token cookie
+  console.log("logged out");
+  res.clearCookie("authcookie");
+  res.clearCookie("refreshToken"); // Clear both the access and refresh tokens
   res.json({ message: "Logout successful" });
 };
+
 exports.updateUserPoints = async (req, res) => {
   const { userEmail, points } = req.body;
   userModel.findOneAndUpdate(
