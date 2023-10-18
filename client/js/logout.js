@@ -2,7 +2,9 @@ const logoutButton = document.getElementById('logout-button');
 
 logoutButton.addEventListener('click', async function () {
     try {
-        const response = await fetch('http://localhost:5001/user/logout', {
+        // const apiUrl = 'http://localhost:5001/user/logout'; // Replace with your API URL here
+        const apiUrl = 'https://student-guide-users.ahmed-yehia.me/user/logout'; // Replace with your API URL here
+        const response = await fetch(apiUrl, { //here
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

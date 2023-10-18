@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
     console.log(formDataObject);
-    const apiUrl = "http://localhost:5001/user/signup"; // Replace with your API URL here
+    const apiUrl = "https://student-guide-users.ahmed-yehia.me/user/signup"; // Replace with your API URL here
+    // const apiUrl = "http://localhost:5001/user/signup"; // Replace with your API URL here
 
     fetch(apiUrl, {
       method: "POST",
