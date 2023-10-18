@@ -37,7 +37,7 @@ function displayCourses() {
       courseCard.addEventListener("click", async function () {
         try {
           // const apiUrl = `http://localhost:5002/course/${course}`; // Replace with your API URL here
-          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`; // Replace with your API URL here
+          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${courseName}`; // Replace with your API URL here
           fetch(apiUrl, {
             method: "GET",
             headers: {
@@ -58,6 +58,8 @@ function displayCourses() {
               document.body.classList.toggle("overlay");
               textarea.classList.toggle("show");
               submit.classList.toggle("show");
+
+              // 
               // Handle the response data from the API (e.g., show a success message)
             })
             .catch((error) => {

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const editorContent = tiny.activeEditor.getContent();
     // console.log(editorContent);
-    formDataObject["content"] = editorContent; // Use "content" as the key
+    // formDataObject["content"] = editorContent; // Use "content" as the key
 
     formData.forEach((value, key) => {
       formDataObject[key] = value;

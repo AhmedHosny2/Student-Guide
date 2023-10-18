@@ -3,7 +3,7 @@ const courseModel = require("../model/courseModel");
 const getCookie = require("../utils/cookies").getEntriesFromCookie;
 const userURL = require("../services/BaseURLs").USER_BASE_URL;
 exports.addCourse = async (req, res) => {
-  const { courseName, content, courseCode, courseCredits, semester } = req.body;
+  const { courseName,  courseCode, courseCredits, semester } = req.body;
 
   const email = getCookie(req).email;
   console.log(email);
@@ -14,7 +14,6 @@ exports.addCourse = async (req, res) => {
   try {
     await courseModel.create({
       courseName,
-      content,
       courseCode,
       courseCredits,
       semester,
