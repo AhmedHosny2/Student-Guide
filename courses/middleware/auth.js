@@ -13,7 +13,7 @@ module.exports.verifyToken = (req, res, next) => {
   return next();
 };
 module.exports.verifyRole = async (req, res, next) => {
-  const authcookie = getCookie(req).email;
+  const authcookie = getCookie(req);
   console.log(authcookie);
   if (!authcookie) {
     return res.status(403).send("A token is required for authentication");
