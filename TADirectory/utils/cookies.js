@@ -1,16 +1,32 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const secret = process.env.ACCESS_TOKEN_SECRET;
-function getEntriesFromCookie(req) {
-  console.log("auth cooki 12 \n\n\n"+req.headers.cookie);
-  let authcookie=(decodeURIComponent(req.headers.cookie).split("=")[1])
-  console.log("auth cooki 11 \n\n\n"+authcookie);
+
+exports.getEntriesFromCookie = function (req) {
+  console.log("auth cookie 12 \n\n\n" + req.headers.cookie);
+  let authcookie = decodeURIComponent(req.headers.cookie).split("=")[1];
+  console.log("auth cookie 11 \n\n\n" + authcookie);
   // authcookie =JSON.parse(authcookie);
   // authcookie = authcookie.token;
-console.log("auth cooki \n\n\nn\n"+authcookie);
-
-  const decoded = jwt.verify(authcookie, secret);
-  // The 'decoded' variable now contains the payload data
-  console.log(decoded); 
-  return decoded;
+  console.log("auth cookie \n\n\nn\n" + authcookie);
+  try {
+    const decoded = jwt.verify(authcookie, secret);
+    return decoded;
+  } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      // Token has expired, try refreshing it
+      try {
+        const refreshedToken = refreshToken(token, refreshedToken);
+        const decoded = jwt.verify(refreshedToken, secret);
+        return decoded;
+      } catch (refreshError) {
+        // Handle refresh error
+        console.error("Refresh token error:", refreshError);
+        throw refreshError;
+      }
+    } else {
+      // Handle other token verification errors
+      console.error("Token verification error:", error);
+      throw error;
+    }
   }
-  exports.getEntriesFromCookie = getEntriesFromCookie; 
+};
