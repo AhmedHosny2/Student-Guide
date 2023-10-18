@@ -54,7 +54,9 @@ function displayCourses() {
             })
             .then((data) => {
               console.log("Response from the API:", data);
-              chosenCourse = data;
+              // window.courseData = data;
+              localStorage.setItem("courseData", data.content);
+              localStorage.setItem("courseName", data.courseName);
               displayContent();
               document.body.classList.toggle("overlay");
               textarea.classList.toggle("show");
