@@ -91,7 +91,7 @@ html {
 
 /* start header */
 .header {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
   position: fixed;
   top: 0;
   width: 100%;
@@ -111,7 +111,8 @@ html {
 }
 
 .header .logo img {
-  width: 2.5rem;
+  width: 5rem;
+  margin-top: 10px;
 }
 
 .header .nav {

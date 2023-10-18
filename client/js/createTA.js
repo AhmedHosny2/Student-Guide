@@ -10,11 +10,13 @@ addBtn.onclick = (event) => {
   const tutorialValue = tutorialsVal.value;
   if (tutorialValue.trim() !== "") {
     arrOfTutorials.push(tutorialValue);
+    
     //create tutorial element in page
     const tutorial = document.createElement("div");
     tutorial.className = "tut";
     tutorial.innerHTML = tutorialValue;
     listOfTutorials.appendChild(tutorial);
+
     //create delete button to remove elements from page
     const delBtn = document.createElement("span");
     delBtn.textContent = "delete";
