@@ -1,13 +1,18 @@
 const jwt = require("jsonwebtoken");
 const getCookie = require("../utils/cookies").getEntriesFromCookie;
 module.exports.verifyToken = (req, res, next) => {
-  const cookie = getCookie(req);
-  console.log(cookie);
-
-  if (!cookie.email) {
+  const authcookie = req.header.cookies;
+  console.log(req.header.cookies);
+  if (!authcookie) {
     return res.status(403).send("A token is required for authentication");
   }
-
+  try {
+    const decoded = jwt.verify(authcookie, config.ACCESS_TOKEN_SECRET);
+    req.user = decoded;
+    console.log(decoded);
+  } catch (err) {
+    return res.status(401).send("Invalid Token");
+  }
   return next();
 };
 module.exports.verifyRole = (req, res, next) => {

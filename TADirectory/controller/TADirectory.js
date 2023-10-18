@@ -1,8 +1,11 @@
 const TADirectorySchema = require("../model/TADirectory");
+const getCookie = require("../utils/cookies").getEntriesFromCookie
 
 exports.addTa = async (req, res) => {
   const { name, email, course, officeHours, officeLocation, tutorials } =
     req.body;
+    const email22 =getCookie(req).email;
+    console.log(email22);
   const isCreated = await TADirectorySchema.findOne({ email, course });
   if (isCreated) return res.status(400).json({ message: "TA already exist" });
   try {

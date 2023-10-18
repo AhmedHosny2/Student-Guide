@@ -51,7 +51,7 @@ exports.loginUser = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { user_id: user._id, email , isAdmin: user.isAdmin},
+      { user_id: user._id, email, isAdmin: user.isAdmin },
       process.env.ACCESS_TOKEN_SECRET,
       {
         expiresIn: "2h",
@@ -61,21 +61,28 @@ exports.loginUser = async (req, res) => {
     // save user token
     user.token = token;
     const currentDateTime = new Date();
-    // make it expries after 3 hours 
+    // make it expries after 3 hours
     const currentTime = new Date();
 
     // Calculate the new time after adding 5 hours
     const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
     const newTime = new Date(currentTime.getTime() + fiveHoursInMilliseconds);
-    
+
     // Print the current time and the new time
     console.log("Current Time: " + currentTime.toISOString());
     console.log("New Time (after 5 hours): " + newTime.toISOString());
-const expiresAt = new Date(currentDateTime+ 3*60*60*1000);
+    const expiresAt = new Date(currentDateTime + 3 * 60 * 60 * 1000);
     // console.log(expiresAt);
     return res
-    .cookie("authcookie", token, { expires: newTime, httpOnly: true, sameSite: 'none', secure: true, domain: '.ahmed-yehia.me', path: '/' })
-    .status(200)
+      .cookie("authcookie", token, {
+        expires: newTime,
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+        domain: ".ahmed-yehia.me",
+        path: "/",
+      })
+      .status(200)
       .send("login successful");
   } catch (err) {
     console.error(err);
@@ -92,7 +99,8 @@ exports.getUser = async (req, res) => {
   console.log(user);
   res.status(200).json(user);
 };
-// exports.logoutUser = async (req, res) => {
-//   res.clearCookie("authcookie");
-//   res.status(200).json({ message: "logout successful" });
-// };
+exports.logoutUser = async (req, res) => {
+  console.log("loged out");
+  res.clearCookie("authcookie"); // Clear the token cookie
+  res.json({ message: "Logout successful" });
+};
