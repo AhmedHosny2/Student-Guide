@@ -61,7 +61,7 @@ courseForm.addEventListener("submit", function (event) {
   const course = courseNameInput.value;
   try {
     // const apiUrl = `http://localhost:5003/TADirectory`; // Replace with your API URL here
-    const apiUrl = `https://student-guide-ta.vercel.app/TADirectory`; // Replace with your API URL here
+    const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
     fetch(apiUrl, {
       method: "POST",
       headers: {

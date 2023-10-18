@@ -17,7 +17,7 @@ searchBar.addEventListener("input", (e) => {
 
 // yaya
 function fetchTAData() {
-  const apiUrl = `https://student-guide-ta.vercel.app/TADirectory`; // Replace with your API URL here
+  const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
   fetch(apiUrl, {
     method: "GET",
     headers: {
