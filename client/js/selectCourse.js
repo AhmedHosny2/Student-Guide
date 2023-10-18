@@ -5,16 +5,10 @@ const courses = {
   3: ["CPP", "OS", "DSA", "DB", "Math 3"],
   4: ["SE", "DS", "IT", "DIS", "Media", "Math 4"],
 };
-let chosenCourse = "";
 
 // Get the select element
 const semesterSelect = document.getElementById("semester");
 const courseList = document.getElementById("course-list");
-//other
-const editBtn = document.querySelector(".text-edit");
-const submit = document.querySelector(".submit");
-const textarea = document.querySelector(".text-box");
-const contentDisplay = document.querySelector(".contentDisplay .container p");
 
 // Function to display courses for the selected semester
 function displayCourses() {
@@ -26,7 +20,6 @@ function displayCourses() {
   // Display the courses for the selected semester as div
   if (selectedCourses) {
     selectedCourses.forEach((course) => {
-      console.log(course);
       //create a course card
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
@@ -35,6 +28,7 @@ function displayCourses() {
       const courseName = document.createElement("p");
       courseName.textContent = course;
       courseCard.appendChild(courseName);
+
       courseCard.addEventListener("click", async function () {
         try {
           // const apiUrl = `http://localhost:5002/course/${course}`; // Replace with your API URL here
@@ -53,23 +47,16 @@ function displayCourses() {
               return response.json();
             })
             .then((data) => {
-              console.log("Response from the API:", data);
-              // window.courseData = data;
               localStorage.setItem("courseData", data.content);
               localStorage.setItem("courseName", data.courseName);
-              displayContent();
-              document.body.classList.toggle("overlay");
-              textarea.classList.toggle("show");
-              submit.classList.toggle("show");
-
-              // 
+              console.log("Response from the API:", data);
+              //widow ref to this url https://www.ahmed-yehia.me/html/materials.html
+              window.location.href = "https://www.ahmed-yehia.me/html/materials.html";
               // Handle the response data from the API (e.g., show a success message)
             })
             .catch((error) => {
               console.error("Fetch error:", error);
             });
-
-          courseList.appendChild(courseCard);
         } catch (err) {
           console.error(err);
         }
@@ -82,14 +69,4 @@ function displayCourses() {
 }
 // Add an event listener to update the course list when the user selects a different semester
 semesterSelect.addEventListener("change", displayCourses);
-
-function displayContent() {
-  const editorContent = chosenCourse;
-  console.log(editorContent);
-  contentDisplay.innerHTML = editorContent;
-}
-
-// Event listener for the button click
-// submit.addEventListener("input", function () {
-
-// });
+displayCourses();
