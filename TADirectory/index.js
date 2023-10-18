@@ -12,12 +12,9 @@ app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 //session
 app.use(cookieParser()); // Add cookie parser middleware
 
-//routes
 app.use("/TADirectory", Router);
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-const PORT = process.env.PORT || 5003;
+
+const PORT = process.env.PORT || 5004;
 
 db.once("open", () => {
   app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
