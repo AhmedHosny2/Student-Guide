@@ -1,11 +1,11 @@
 const TADirectorySchema = require("../model/TADirectory");
-const getCookie = require("../utils/cookies").getEntriesFromCookie
+const getCookie = require("../utils/cookies").getEntriesFromCookie;
 
 exports.addTa = async (req, res) => {
   const { name, email, course, officeHours, officeLocation, tutorials } =
     req.body;
-    const email22 =getCookie(req).email;
-    console.log(email22);
+  const email22 = getCookie(req).email;
+  console.log(email22);
   const isCreated = await TADirectorySchema.findOne({ email, course });
   if (isCreated) return res.status(400).json({ message: "TA already exist" });
   try {
@@ -22,20 +22,6 @@ exports.addTa = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
   res.status(200).json({ message: "TA created" });
-};
-exports.getTa = async (req, res) => {
-  const { email } = req.params;
-  const isAvilabale = TADirectorySchema.findOne({ email });
-  if (!isAvilabale)
-    return res.status(400).json({ message: "TA does not exist" });
-  try {
-    const TA = await TADirectorySchema.find({ email });
-    console.log(TA);
-    res.status(200).json(TA);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Internal server error" });
-  }
 };
 
 exports.getAllTas = async (req, res) => {
