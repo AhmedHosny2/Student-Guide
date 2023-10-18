@@ -76,6 +76,7 @@ exports.loginUser = async (req, res) => {
     // console.log(expiresAt);
     const domains = [
       ".ahmed-yehia.me",
+      "https://student-guide-ta.vercel.app",
       "student-guide-ta.vercel.app",
       ".student-guide-ta.vercel.app",
       ".student-guide-ta.vercel.app/TADirectory",
