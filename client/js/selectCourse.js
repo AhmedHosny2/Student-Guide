@@ -5,7 +5,7 @@ const courses = {
   3: ["CPP", "OS", "DSA", "DB", "Math 3"],
   4: ["SE", "DS", "IT", "DIS", "Media", "Math 4"],
 };
-let course = "";
+let chosenCourse = "";
 
 // Get the select element
 const semesterSelect = document.getElementById("semester");
@@ -26,6 +26,7 @@ function displayCourses() {
   // Display the courses for the selected semester as div
   if (selectedCourses) {
     selectedCourses.forEach((course) => {
+      console.log(course);
       //create a course card
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
@@ -37,7 +38,7 @@ function displayCourses() {
       courseCard.addEventListener("click", async function () {
         try {
           // const apiUrl = `http://localhost:5002/course/${course}`; // Replace with your API URL here
-          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${courseName}`; // Replace with your API URL here
+          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`; // Replace with your API URL here
           fetch(apiUrl, {
             method: "GET",
             headers: {
@@ -53,7 +54,7 @@ function displayCourses() {
             })
             .then((data) => {
               console.log("Response from the API:", data);
-              course = data;
+              chosenCourse = data;
               displayContent();
               document.body.classList.toggle("overlay");
               textarea.classList.toggle("show");
@@ -81,7 +82,7 @@ function displayCourses() {
 semesterSelect.addEventListener("change", displayCourses);
 
 function displayContent() {
-  const editorContent = course;
+  const editorContent = chosenCourse;
   console.log(editorContent);
   contentDisplay.innerHTML = editorContent;
 }
