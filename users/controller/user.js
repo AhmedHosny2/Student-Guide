@@ -16,6 +16,7 @@ exports.signupUser = async (req, res) => {
       email: email.toLowerCase(),
       password: hashedPassword,
     });
+
     // Create token
     const token = jwt.sign(
       { user_id: newUser._id, email },
@@ -51,7 +52,7 @@ exports.loginUser = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { user_id: user._id, email },
+      { user_id: user._id, email, isAdmin: user.isAdmin },
       process.env.ACCESS_TOKEN_SECRET,
       {
         expiresIn: "2h",
@@ -60,8 +61,41 @@ exports.loginUser = async (req, res) => {
     console.log("logged in ");
     // save user token
     user.token = token;
+    const currentDateTime = new Date();
+    // make it expries after 3 hours
+    const currentTime = new Date();
+
+    // Calculate the new time after adding 5 hours
+    const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
+    const newTime = new Date(currentTime.getTime() + fiveHoursInMilliseconds);
+
+    // Print the current time and the new time
+    console.log("Current Time: " + currentTime.toISOString());
+    console.log("New Time (after 5 hours): " + newTime.toISOString());
+    const expiresAt = new Date(currentDateTime + 3 * 60 * 60 * 1000);
+    // console.log(expiresAt);
+    const domains = [
+      ".ahmed-yehia.me",
+      "https://student-guide-ta.vercel.app",
+      "student-guide-ta.vercel.app",
+      ".student-guide-ta.vercel.app",
+      ".student-guide-ta.vercel.app/TADirectory",
+      ".vercel.app",
+      "vercel.app",
+      ".app",
+      ".vercel.app/TADirectory",
+      ".app/TADirectory",
+      "localhost",
+    ];
     return res
-      .cookie("authcookie", token, { expires: 1000 * 60 * 60 * 24 })
+      .cookie("authcookie", token, {
+        expires: newTime,
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+        domains,
+        path: "/",
+      })
       .status(200)
       .send("login successful");
   } catch (err) {
@@ -70,16 +104,31 @@ exports.loginUser = async (req, res) => {
   }
 };
 exports.getUser = async (req, res) => {
-  const user_id = req.params.userId;
+  const user_email = req.params.userEmail;
   console.log(req.params);
-  const user = await userModel.findOne({ _id: user_id });
+  const user = await userModel.findOne({ email: user_email });
   if (!user) {
     return res.status(400).json({ message: "user does not exist" });
   }
   console.log(user);
   res.status(200).json(user);
 };
-// exports.logoutUser = async (req, res) => {
-//   res.clearCookie("authcookie");
-//   res.status(200).json({ message: "logout successful" });
-// };
+exports.logoutUser = async (req, res) => {
+  console.log("loged out");
+  res.clearCookie("authcookie"); // Clear the token cookie
+  res.json({ message: "Logout successful" });
+};
+exports.updateUserPoints = async (req, res) => {
+  const { userEmail, points } = req.body;
+  userModel.findOneAndUpdate(
+    { email: userEmail },
+    { contributionPoints: points },
+    (err, doc) => {
+      if (err) {
+        console.log("Something wrong when updating data!");
+      }
+      console.log(doc);
+    }
+  );
+  res.status(200).json({ message: "user updated" });
+};

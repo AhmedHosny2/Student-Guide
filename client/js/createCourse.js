@@ -3,35 +3,47 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    console.log("create courese started ");
+    console.log("create course started");
     const formData = new FormData(form);
     const formDataObject = {};
+
+    const editorContent = tiny.activeEditor.getContent();
+    // console.log(editorContent);
+    // formDataObject["content"] = editorContent; // Use "content" as the key
 
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
 
     try {
-      const apiUrl = `https://student-guide-course.ahmed-yehia.me/course`; // Replace with your API URL
+      // const apiUrl = `http://localhost:5002/course`; // Replace with your API URL here
+      const apiUrl = `https://student-guide-course.ahmed-yehia.me/course`; // Replace with your API URL here
       fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formDataObject),
         credentials: "include",
+        body: JSON.stringify(formDataObject),
       })
         .then((response) => {
           if (!response.ok) {
+            animateFailureAlert("Course creation failed", 3000);
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
         .then((data) => {
+          animateAlert("Course created successfully", 3000);
           console.log("Response from the API:", data);
           // Handle the response data from the API (e.g., show a success message)
         })
         .catch((error) => {
+          animateFailureAlert(
+            "This course name or code was created before !",
+            3000
+          );
+
           console.error("Fetch error:", error);
         });
     } catch (err) {
@@ -39,7 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-//add text area api
+
+// Add the code for initializing the TinyMCE editor below this comment
+let tiny = "";
 document.addEventListener("DOMContentLoaded", function () {
   tinymce.init({
     selector: "textarea",
@@ -58,4 +72,65 @@ document.addEventListener("DOMContentLoaded", function () {
         Promise.reject("See docs to implement AI Assistant")
       ),
   });
+  tiny = tinymce;
 });
+
+function animateAlert(message, duration) {
+  const alertDiv = document.createElement("div");
+  alertDiv.textContent = message;
+  alertDiv.style.position = "fixed";
+  alertDiv.style.top = "10px";
+  alertDiv.style.left = "50%";
+  alertDiv.style.transform = "translateX(-50%)";
+  alertDiv.style.backgroundColor = "lightgreen"; // Green background
+  alertDiv.style.color = "green"; // Green text color
+  alertDiv.style.padding = "10px";
+  alertDiv.style.border = "1px solid #008000"; // Green border
+  alertDiv.style.borderRadius = "5px";
+  alertDiv.style.textAlign = "center";
+  alertDiv.style.opacity = 0;
+  alertDiv.style.transition = "opacity 0.5s ease-in-out";
+
+  document.body.appendChild(alertDiv);
+
+  setTimeout(function () {
+    alertDiv.style.opacity = 1;
+  }, 10); // Delay for a smooth appearance
+
+  setTimeout(function () {
+    alertDiv.style.opacity = 0;
+    setTimeout(function () {
+      document.body.removeChild(alertDiv);
+    }, 500); // Remove the alert after the fade-out animation
+  }, duration);
+}
+
+function animateFailureAlert(message, duration) {
+  const alertDiv = document.createElement("div");
+  alertDiv.textContent = message;
+  alertDiv.style.position = "fixed";
+  alertDiv.style.top = "10px";
+  alertDiv.style.left = "50%";
+  alertDiv.style.transform = "translateX(-50%)";
+  alertDiv.style.backgroundColor = "lightcoral"; // Red background
+  alertDiv.style.color = "red"; // Red text color
+  alertDiv.style.padding = "10px";
+  alertDiv.style.border = "1px solid #FF0000"; // Red border
+  alertDiv.style.borderRadius = "5px";
+  alertDiv.style.textAlign = "center";
+  alertDiv.style.opacity = 0;
+  alertDiv.style.transition = "opacity 0.5s ease-in-out";
+
+  document.body.appendChild(alertDiv);
+
+  setTimeout(function () {
+    alertDiv.style.opacity = 1;
+  }, 10); // Delay for a smooth appearance
+
+  setTimeout(function () {
+    alertDiv.style.opacity = 0;
+    setTimeout(function () {
+      document.body.removeChild(alertDiv);
+    }, 500); // Remove the alert after the fade-out animation
+  }, duration);
+}

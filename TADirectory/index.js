@@ -1,7 +1,6 @@
 const express = require("express");
-const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
-var cookies = require("cookie-parser");
 require("dotenv").config();
 
 const db = require("./config/database.js");
@@ -9,24 +8,11 @@ const Router = require("./routes/TADirectory.js");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.CLIENT_URL,
-  })
-);
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
-  })
-);
-app.use(cookies());
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+//session
+app.use(cookieParser()); // Add cookie parser middleware
 
-//routes
 app.use("/TADirectory", Router);
-
 
 const PORT = process.env.PORT || 5003;
 

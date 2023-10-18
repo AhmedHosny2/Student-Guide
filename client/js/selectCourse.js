@@ -14,7 +14,7 @@ const courseList = document.getElementById("course-list");
 function displayCourses() {
   const selectedSemester = semesterSelect.value;
   const selectedCourses = courses[selectedSemester];
-  
+
   // Clear the existing course list
   courseList.innerHTML = "";
   // Display the courses for the selected semester as div
@@ -31,7 +31,8 @@ function displayCourses() {
 
       courseCard.addEventListener("click", async function () {
         try {
-          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`; // Replace with your API URL
+          // const apiUrl = `http://localhost:5002/course/${course}`; // Replace with your API URL here
+          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`; // Replace with your API URL here
           fetch(apiUrl, {
             method: "GET",
             headers: {
@@ -46,14 +47,16 @@ function displayCourses() {
               return response.json();
             })
             .then((data) => {
+              localStorage.setItem("courseData", data.content);
+              localStorage.setItem("courseName", data.courseName);
               console.log("Response from the API:", data);
+              //widow ref to this url https://www.ahmed-yehia.me/html/materials.html
+              window.location.href = "https://www.ahmed-yehia.me/html/materials.html";
               // Handle the response data from the API (e.g., show a success message)
             })
             .catch((error) => {
               console.error("Fetch error:", error);
             });
-
-          courseList.appendChild(courseCard);
         } catch (err) {
           console.error(err);
         }
@@ -66,3 +69,4 @@ function displayCourses() {
 }
 // Add an event listener to update the course list when the user selects a different semester
 semesterSelect.addEventListener("change", displayCourses);
+displayCourses();

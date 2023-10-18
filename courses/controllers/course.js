@@ -1,9 +1,11 @@
+const axios = require("axios");
 const courseModel = require("../model/courseModel");
-
+const getCookie = require("../utils/cookies").getEntriesFromCookie;
+const userURL = require("../services/BaseURLs").USER_BASE_URL;
 exports.addCourse = async (req, res) => {
-  const { courseName, content, courseCode, courseCredits, semester } = req.body;
+  const { courseName,  courseCode, courseCredits, semester } = req.body;
 
-  const email = req.session.email;
+  const email = getCookie(req).email;
   console.log(email);
   const isCreted = await courseModel.findOne({ courseName });
   if (isCreted) {
@@ -12,12 +14,12 @@ exports.addCourse = async (req, res) => {
   try {
     await courseModel.create({
       courseName,
-      content,
       courseCode,
       courseCredits,
       semester,
       contributors: [email],
     });
+    updateUserPoints(email);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
@@ -60,3 +62,17 @@ exports.updateCourse = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+// Function to update user points in the Course microservice
+async function updateUserPoints(userEmail) {
+  try {
+    const response = await axios.put(`${userURL}/updatePoints`, {
+      userEmail,
+      points: 10,
+    });
+
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error updating user points:", error.message);
+  }
+}

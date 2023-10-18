@@ -6,6 +6,7 @@ const {
   signupUser,
   getUser,
   logoutUser,
+  updateUserPoints
 } = require("../controller/user");
 const {
   verifyToken,
@@ -17,9 +18,9 @@ const {
 router.post("/signup", signupUser);
 router.post("/login", loginUser);
 router.use(verifyToken);
-router.get("/protected-route", testVerifyToken);
-router.get("/admin-route", verifyRole, testVerifyRole);
-router.get("/:userId", getUser);
-
+// router.get("/protected-route", testVerifyToken);
+// router.get("/admin-route", verifyRole, testVerifyRole);
+router.get("/:userEmail", getUser);
+router.post("/logout", logoutUser);
+router.post("/updatePoints", updateUserPoints);
 module.exports = router;
- 
