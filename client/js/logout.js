@@ -2,7 +2,7 @@ const logoutButton = document.getElementById('logout-button');
 
 logoutButton.addEventListener('click', async function () {
     try {
-        const response = await fetch('http://localhost:5001/user', {
+        const response = await fetch('http://localhost:5001/user/logout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
