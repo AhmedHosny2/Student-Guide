@@ -14,7 +14,7 @@ app.use(cookieParser()); // Add cookie parser middleware
 
 app.use("/TADirectory", Router);
 
-const PORT = process.env.PORT || 5004;
+const PORT = process.env.PORT || 5003;
 
 db.once("open", () => {
   app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

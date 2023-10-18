@@ -74,13 +74,19 @@ exports.loginUser = async (req, res) => {
     console.log("New Time (after 5 hours): " + newTime.toISOString());
     const expiresAt = new Date(currentDateTime + 3 * 60 * 60 * 1000);
     // console.log(expiresAt);
+    const domains = [
+      ".ahmed-yehia.me",
+      "student-guide-ta.vercel.app",
+      ".student-guide-ta.vercel.app",
+      "localhost",
+    ];
     return res
       .cookie("authcookie", token, {
         expires: newTime,
         httpOnly: true,
         sameSite: "none",
         secure: true,
-        domain: ".ahmed-yehia.me",
+        domains,
         path: "/",
       })
       .status(200)
