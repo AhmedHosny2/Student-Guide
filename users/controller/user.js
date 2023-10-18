@@ -16,6 +16,7 @@ exports.signupUser = async (req, res) => {
       email: email.toLowerCase(),
       password: hashedPassword,
     });
+    
     // Create token
     const token = jwt.sign(
       { user_id: newUser._id, email },
