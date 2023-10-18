@@ -4,7 +4,11 @@ const refreshSecret = process.env.REFRESH_TOKEN_SECRET;
 
 function getEntriesFromCookie(req) {
   const authCookie = req.headers.cookie.split("=")[1].split(";")[0];
-  const refreshTokenCookie = req.headers.cookie.split("refreshToken=")[1].split(";")[0];
+  let refreshToken = "";
+
+  if (req.headers.cookie.includes("refreshToken")) {
+    refreshToken = req.headers.cookie.split("refreshToken=")[1].split(";")[0];
+  }
 
   try {
     // Verify the access token
@@ -17,7 +21,7 @@ function getEntriesFromCookie(req) {
     // Access token has expired or is invalid, let's try to use the refresh token
     try {
       // Verify the refresh token
-      const decodedRefreshToken = jwt.verify(refreshTokenCookie, refreshSecret);
+      const decodedRefreshToken = jwt.verify(refreshToken, refreshSecret);
 
       // Generate a new access token with the same payload data
       const newAccessToken = jwt.sign(decodedRefreshToken, secret, {
