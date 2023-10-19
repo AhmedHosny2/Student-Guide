@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
-
+const getCookies = require("../utils/cookies").getEntriesFromCookie;
 const saltRounds = 10;
 const domain = process.env.DOMAIN;
 
@@ -131,8 +131,7 @@ exports.loginUser = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-  const user_email = req.params.userEmail;
-  console.log(req.params);
+  const email = getCookies(req).email;
   const user = await userModel.findOne({ email: user_email });
 
   if (!user) {
@@ -140,7 +139,7 @@ exports.getUser = async (req, res) => {
   }
 
   console.log(user);
-  res.status(200).json(user);
+  res.status(200).json({ email: user.email, user_name: user.userName });
 };
 
 exports.logoutUser = async (req, res) => {
