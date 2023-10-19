@@ -3,13 +3,17 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
 
 const saltRounds = 10;
+const domain = process.env.DOMAIN;
 
 // Refresh token function
-function generateRefreshToken(user, expiresAt) {
-  const { user_id, email, isAdmin } = user;
+function generateRefreshToken(user, expiresAt, isrefresh) {
+  console.log(user);
+  const { email, isAdmin } = user;
   return jwt.sign(
-    { user_id, email, isAdmin },
-    process.env.ACCESS_TOKEN_SECRET,
+    { email, isAdmin },
+    isrefresh
+      ? process.env.REFRESH_TOKEN_SECRET
+      : process.env.ACCESS_TOKEN_SECRET,
     {
       expiresIn: expiresAt,
     }
@@ -33,13 +37,34 @@ exports.signupUser = async (req, res) => {
     });
 
     // Create an access token
-    const token = jwt.sign(
-      { user_id: newUser._id, email },
-      process.env.ACCESS_TOKEN_SECRET,
-      {
-        expiresIn: 7200, // 2 hours in seconds
-      }
+    const jwtExpirationMinutes = 5 * 60000; // JWT token expiration time in minutes
+    const refreshToken = generateRefreshToken(newUser, "1825d", true);
+    const token = generateRefreshToken(newUser, jwtExpirationMinutes, false);
+    const currentTime = new Date();
+    const cookieExpiration = new Date(
+      currentTime.getTime() + jwtExpirationMinutes
     );
+    res.cookie("authcookie", token, {
+      expires: cookieExpiration,
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+      domain,
+      path: "/",
+    });
+    const refreshTokenExpirationYears = 5; // Refresh token expiration time in years
+    const refreshTokenExpiration = new Date(
+      currentTime.getTime() +
+        refreshTokenExpirationYears * 365 * 24 * 60 * 60 * 1000
+    );
+    res.cookie("refreshToken", refreshToken, {
+      expires: refreshTokenExpiration,
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+      domain,
+      path: "/",
+    });
 
     newUser.token = token;
     console.log("Sign up done");
@@ -73,17 +98,11 @@ exports.loginUser = async (req, res) => {
     const newTime = new Date(Date.now() + fiveHoursInMilliseconds);
 
     // const domains = [".ahmed-yehia.me", "localhost"];
-    const domain = ".ahmed-yehia.me";
+    // const domain = ".ahmed-yehia.me";
 
     // Set cookies for each domain
-    const refreshToken = await generateRefreshToken(user, "5h"); // 5 hours as a string
-    const token = jwt.sign(
-      { user_id: user._id, email, isAdmin: user.isAdmin },
-      process.env.ACCESS_TOKEN_SECRET,
-      {
-        expiresIn: 7200, // 2 hours in seconds
-      }
-    );
+    const refreshToken = generateRefreshToken(user, "1825d", true);
+    const token = generateRefreshToken(user, "1", false);
 
     res.cookie("authcookie", token, {
       expires: newTime,

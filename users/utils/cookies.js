@@ -1,10 +1,14 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
+const user = require("../../users/model/user");
 const secret = process.env.ACCESS_TOKEN_SECRET;
 const refreshSecret = process.env.REFRESH_TOKEN_SECRET;
 
 function getEntriesFromCookie(req) {
-  const authCookie = req.headers.cookie.split("=")[1].split(";")[0];
+  let authCookie = "";
   let refreshToken = "";
+  if (req.headers.cookie.includes("authcookie")) {
+    authCookie = req.headers.cookie.split("authcookie=")[1].split(";")[0];
+  }
 
   if (req.headers.cookie.includes("refreshToken")) {
     refreshToken = req.headers.cookie.split("refreshToken=")[1].split(";")[0];
@@ -22,14 +26,17 @@ function getEntriesFromCookie(req) {
     try {
       // Verify the refresh token
       const decodedRefreshToken = jwt.verify(refreshToken, refreshSecret);
-
-      // Generate a new access token with the same payload data
-      const newAccessToken = jwt.sign(decodedRefreshToken, secret, {
-        expiresIn: "2h", // Set the expiration time for the new access token
+      const { email, isAdmin } = decodedRefreshToken;
+      console.log("the tokens = " + " " + email + " " + isAdmin + "\n\n\n");
+      const newAccessToken = jwt.sign({ email, isAdmin }, secret, {
+        expiresIn: "2h",
       });
+      // Generate a new access token with the same payload data as the one we just decoded
+      //decode it
+      const newDecodedToken = jwt.verify(newAccessToken, secret);
 
-      console.log("New access token:", newAccessToken);
-      return newAccessToken;
+      console.log("New access token:", newDecodedToken);
+      return newDecodedToken;
     } catch (refreshError) {
       // Both access and refresh tokens are invalid, handle the error
       console.error("Token verification error:", refreshError);

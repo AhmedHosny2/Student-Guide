@@ -6,7 +6,7 @@ const config = process.env;
 module.exports.verifyToken = (req, res, next) => {
   const authcookie = getCookie(req).email;
   console.log("token verfied");
-  console.log(authcookie);
+  console.log("the cookieee "+ getCookie(req));
   if (!authcookie) {
     return res.status(403).send("A token is required for authentication");
   }
