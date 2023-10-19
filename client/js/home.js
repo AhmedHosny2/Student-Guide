@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loadingScreen = document.getElementById("loading-screen");
+  const loadingScreen = document.getElementById("loading-screen");
   // Function to get the current user and add their name to local storage
   const getCurrentUser = async () => {
     const apiUrl = "https://student-guide-users.ahmed-yehia.me/user"; //here
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (error) {
       console.error("Fetch error:", error);
-        window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+      window.location.href = "https://www.ahmed-yehia.me/html/login.html";
     }
   };
 

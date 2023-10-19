@@ -132,7 +132,7 @@ exports.loginUser = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   const email = getCookies(req).email;
-  const user = await userModel.findOne({ email: user_email });
+  const user = await userModel.findOne({ email });
 
   if (!user) {
     return res.status(400).json({ message: "User does not exist" });
