@@ -21,7 +21,7 @@ router.use(verifyToken);
 // router.get("/protected-route", testVerifyToken);
 // router.get("/admin-route", verifyRole, testVerifyRole);
 router.post("/logout", logoutUser);
-router.post("/updatePoints", updateUserPoints);
+router.put("/updatePoints", updateUserPoints);
 router.get("/", getUser);
 
 module.exports = router;

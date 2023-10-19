@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (error) {
       console.error("Fetch error:", error);
-      //   window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+        window.location.href = "https://www.ahmed-yehia.me/html/login.html";
     }
   };
 

@@ -151,16 +151,13 @@ exports.logoutUser = async (req, res) => {
 
 exports.updateUserPoints = async (req, res) => {
   const { userEmail, points } = req.body;
-  userModel.findOneAndUpdate(
+  const curUser = await userModel.findOne({ email: userEmail });
+  const newPoints = curUser.contributionPoints + points;
+  console.log(newPoints);
+  const updatedUser = await userModel.findOneAndUpdate(
     { email: userEmail },
-    { contributionPoints: points },
-    (err, doc) => {
-      if (err) {
-        console.log("Something wrong when updating data!");
-      }
-      console.log(doc);
-    }
+    { contributionPoints: newPoints }
   );
-
+  console.log(updatedUser);
   res.status(200).json({ message: "User updated" });
 };

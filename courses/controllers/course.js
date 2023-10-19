@@ -2,8 +2,11 @@ const axios = require("axios");
 const courseModel = require("../model/courseModel");
 const getCookie = require("../utils/cookies").getEntriesFromCookie;
 const userURL = require("../services/BaseURLs").USER_BASE_URL;
+const updateUserPoints = require("../utils/addPoints").updateUserPoints;
+
+
 exports.addCourse = async (req, res) => {
-  const { courseName,  courseCode, courseCredits, semester } = req.body;
+  const { courseName, courseCode, courseCredits, semester } = req.body;
 
   const email = getCookie(req).email;
   console.log(email);
@@ -63,16 +66,3 @@ exports.updateCourse = async (req, res) => {
   }
 };
 
-// Function to update user points in the Course microservice
-async function updateUserPoints(userEmail) {
-  try {
-    const response = await axios.put(`${userURL}/updatePoints`, {
-      userEmail,
-      points: 10,
-    });
-
-    console.log(response.data);
-  } catch (error) {
-    console.error("Error updating user points:", error.message);
-  }
-}
