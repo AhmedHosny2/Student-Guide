@@ -20,6 +20,7 @@ function displayCourses() {
   // Display the courses for the selected semester as div
   if (selectedCourses) {
     selectedCourses.forEach((course) => {
+      course = course.toLowerCase();
       //create a course card
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
@@ -51,7 +52,8 @@ function displayCourses() {
               localStorage.setItem("courseName", data.courseName);
               console.log("Response from the API:", data);
               //widow ref to this url https://www.ahmed-yehia.me/html/materials.html
-              window.location.href = "https://www.ahmed-yehia.me/html/getCourse.html";
+              window.location.href =
+                "https://www.ahmed-yehia.me/html/getCourse.html";
               // Handle the response data from the API (e.g., show a success message)
             })
             .catch((error) => {
