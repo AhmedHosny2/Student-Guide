@@ -97,6 +97,10 @@ addPerson.addEventListener("click", () => {
   imgBox.classList.toggle("active");
 });
 
+
+
+
+
 subBtn.addEventListener("click", () => {
   let val = image_url.value;
   console.log(val);

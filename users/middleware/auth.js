@@ -1,8 +1,4 @@
-const jwt = require("jsonwebtoken");
-const axios = require("axios"); // For making HTTP requests
-const { USER_BASE_URL } = require("../services/BaseURLs");
 const getCookie = require("../utils/cookies").getEntriesFromCookie;
-const config = process.env;
 module.exports.verifyToken = (req, res, next) => {
   const authcookie = getCookie(req).email;
   console.log("token verfied");
