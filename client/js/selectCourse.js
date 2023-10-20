@@ -1,29 +1,56 @@
-// Define the courses for each semester
+
 const courses = {
-  1: ["Math1", "Physics", "Techn", "CS1"],
-  2: ["Math2", "OOP", "Network", "Micro", "Theo"],
-  3: ["CPP", "OS", "DSA", "DB", "Math3"],
-  4: ["SE", "DS", "IT", "DIS", "Media", "Math4"],
+  1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
+  2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
+  3: ["CPP", "OS", "DSA", "DB", "Math 3"],
+  4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4"],
 };
 
-// Get the select element
+
+const courseImages = {
+  "math 1": "../images/math1.jpg",
+  "physics": "../images/physics.jpg",
+  "technical foundation": "../images/technicalFoundation.jpg",
+  "cs1": "../images/cs1.jpg",
+  "math2 ": "../images/math2.jpg",
+  "oop": "../images/oop.jpg",
+  "network": "../images/networks.jpg",
+  "micro computer": "../images/micro.jpg",
+  "theoretical": "../images/theor.jpg",
+  "cpp": "../images/cpp.png",
+  "os": "../images/os.jpeg",
+  "dsa": " ../images/dsa.png",
+  "db": "../images/db.jpg",
+  "math 3": "  ../images/math3.jpg",
+  "se": " ../images/se.jpg",
+  "ds": " ../images/ds.jpg",
+  "it": " ../images/it.jpg",
+  "distributed": " ../images/dis.jpg",
+  "media": "  ../images/media.jpg",
+  "math 4": " ../images/math4.jpg",
+};
+
+
 const semesterSelect = document.getElementById("semester");
 const courseList = document.getElementById("course-list");
 
-// Function to display courses for the selected semester
+
 function displayCourses() {
   const selectedSemester = semesterSelect.value;
   const selectedCourses = courses[selectedSemester];
 
-  // Clear the existing course list
+ 
   courseList.innerHTML = "";
-  // Display the courses for the selected semester as div
+  
   if (selectedCourses) {
     selectedCourses.forEach((course) => {
-      course = course.toLowerCase();
-      //create a course card
+      const courseNameLowerCase = course.toLowerCase();
+      const imageUrl = courseImages[courseNameLowerCase];
+
+      
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
+      courseCard.style.backgroundImage = `url(${imageUrl})`;
 
       //create course name paragraph
       const courseName = document.createElement("p");
@@ -32,8 +59,7 @@ function displayCourses() {
 
       courseCard.addEventListener("click", async function () {
         try {
-          // const apiUrl = `http://localhost:5002/course/${course}`; // Replace with your API URL here
-          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`; // Replace with your API URL here
+          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`; 
           fetch(apiUrl, {
             method: "GET",
             headers: {
@@ -51,10 +77,7 @@ function displayCourses() {
               localStorage.setItem("courseData", data.content);
               localStorage.setItem("courseName", data.courseName);
               console.log("Response from the API:", data);
-              //widow ref to this url https://www.ahmed-yehia.me/html/materials.html
-              window.location.href =
-                "https://www.ahmed-yehia.me/html/getCourse.html";
-              // Handle the response data from the API (e.g., show a success message)
+              window.location.href = "https://www.ahmed-yehia.me/html/getCourse.html";
             })
             .catch((error) => {
               console.error("Fetch error:", error);
@@ -69,6 +92,6 @@ function displayCourses() {
     courseList.textContent = "No courses available for this semester.";
   }
 }
-// Add an event listener to update the course list when the user selects a different semester
+
 semesterSelect.addEventListener("change", displayCourses);
 displayCourses();
