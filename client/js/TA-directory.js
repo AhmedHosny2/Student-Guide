@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   function fetchTAData() {
-    const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
+    // const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
+    const apiUrl = `http://localhost:5003/TADirectory`; // Replace with your API URL here
     fetch(apiUrl, {
       method: "GET",
       headers: {
