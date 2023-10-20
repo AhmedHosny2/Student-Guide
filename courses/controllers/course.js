@@ -4,9 +4,8 @@ const getCookie = require("../utils/cookies").getEntriesFromCookie;
 const userURL = require("../services/BaseURLs").USER_BASE_URL;
 const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 
-
 exports.addCourse = async (req, res) => {
-  const { courseName, courseCode, courseCredits, semester,content } = req.body;
+  const { courseName, courseCode, courseCredits, semester, content } = req.body;
 
   const email = getCookie(req).email;
   console.log(email);
@@ -24,7 +23,7 @@ exports.addCourse = async (req, res) => {
       content,
       contributors: [email],
     });
-    updateUserPoints(email);
+    updateUserPoints(email, 30);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
@@ -67,4 +66,3 @@ exports.updateCourse = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
