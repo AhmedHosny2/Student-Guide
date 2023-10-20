@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  let arr = [];
   function fetchTAData() {
-    // const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
-    const apiUrl = `http://localhost:5003/TADirectory`; // Replace with your API URL here
+    const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
+    // const apiUrl = `http://localhost:5003/TADirectory`; // Replace with your API URL here
     fetch(apiUrl, {
       method: "GET",
       headers: {
@@ -51,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         wrap.appendChild(p);
         wrap.appendChild(span);
-
         return wrap;
       }
 
@@ -73,27 +73,26 @@ document.addEventListener("DOMContentLoaded", function () {
       card.appendChild(box);
 
       cardContainer.appendChild(card);
+      arr.push(card);
     });
   }
-
-  // Call the function to generate and append the cards
   fetchTAData();
 
-  // Add an input event listener to the search bar
   const card = document.querySelectorAll(".card");
   const searchBar = document.getElementById("searchBar");
   searchBar.addEventListener("input", (e) => {
     const searchValue = e.target.value.toLowerCase();
-
     // Loop through all the cards
-    card.forEach((card) => {
+    arr.forEach((card) => {
       const courseName = card
         .querySelector(".course")
         .textContent.toLowerCase();
       const isVisible = courseName.includes(searchValue);
-      console.log(isVisible);
       card.classList.toggle("hide", !isVisible);
-      console.log(card);
     });
   });
 });
+
+// Call the function to generate and append the cards
+
+// Add an input event listener to the search bar
