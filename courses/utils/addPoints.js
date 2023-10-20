@@ -6,7 +6,7 @@ exports.updateUserPoints = async (userEmail) => {
       headers: {
         "Content-Type": "application/json",
       },
-      // credentials: "include",
+      credentials: "include", 
       body: JSON.stringify({
         userEmail,
         points: 10,

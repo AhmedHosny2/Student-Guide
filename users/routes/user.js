@@ -17,11 +17,11 @@ const {
 // router.post("/logout", logoutUser);
 router.post("/signup", signupUser);
 router.post("/login", loginUser);
+router.put("/updatePoints", updateUserPoints);
 router.use(verifyToken);
 // router.get("/protected-route", testVerifyToken);
 // router.get("/admin-route", verifyRole, testVerifyRole);
 router.post("/logout", logoutUser);
-router.put("/updatePoints", updateUserPoints);
 router.get("/", getUser);
 
 module.exports = router;
