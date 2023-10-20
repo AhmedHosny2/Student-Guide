@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const user = require("../../users/model/user");
 const secret = process.env.ACCESS_TOKEN_SECRET;
 const refreshSecret = process.env.REFRESH_TOKEN_SECRET;
 
