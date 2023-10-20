@@ -24,8 +24,10 @@ exports.signupUser = async (req, res) => {
   const { userName, email, password } = req.body;
 
   try {
-    const user = await userModel.findOne({ email });
-    if (user) {
+    const checkEmail = await userModel.findOne({ email });
+    const checkuserName = await userModel.findOne({ userName });
+
+    if (checkEmail||checkuserName) {
       return res.status(400).json({ message: "User already exists" });
     }
 
@@ -76,16 +78,16 @@ exports.signupUser = async (req, res) => {
 };
 
 exports.loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { userName, password } = req.body;
 
   try {
-    if (!(email && password)) {
+    if (!(userName && password)) {
       return res.status(400).json({ message: "All input is required" });
     }
 
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findOne({ userName });
     if (!user) {
-      return res.status(400).json({ message: "Email does not exist" });
+      return res.status(400).json({ message: "userName does not exist" });
     }
 
     const match = await bcrypt.compare(password, user.password);
