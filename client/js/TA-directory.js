@@ -21,6 +21,7 @@ function fetchTAData() {
       console.error("Fetch error:", error);
     });
 }
+
 // Your existing code for generating cards
 function generateTACards(taData) {
   const cardContainer = document.querySelector(".card-wrap");
@@ -78,13 +79,13 @@ function generateTACards(taData) {
 fetchTAData();
 
 // Add an input event listener to the search bar
-const card = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".card"); // Use a distinct variable name
 const searchBar = document.getElementById("searchBar");
 searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value.toLowerCase();
 
   // Loop through all the cards
-  card.forEach((card) => {
+  cards.forEach((card) => {
     const courseName = card.querySelector(".course").textContent.toLowerCase();
     const isVisible = courseName.includes(searchValue);
     console.log(isVisible);
