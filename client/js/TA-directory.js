@@ -73,6 +73,8 @@ function generateTACards(taData) {
     cardContainer.appendChild(card);
   });
 }
+// Call the function to generate and append the cards
+fetchTAData();
 
 // Add an input event listener to the search bar
 const card = document.querySelectorAll(".card");
@@ -88,5 +90,3 @@ searchBar.addEventListener("input", (e) => {
     console.log(card);
   });
 });
-// Call the function to generate and append the cards
-fetchTAData();
