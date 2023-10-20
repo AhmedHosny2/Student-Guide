@@ -51,7 +51,7 @@
 
 .courses-selection .container .courses-wrap .course-card {
   height: 200px;
-  background: url(../images/course1.jpg) no-repeat;
+  background: url() no-repeat;
   background-position: 0 -140px;
   background-size: cover;
   -webkit-border-radius: 5px;
@@ -68,8 +68,8 @@
   transition: var(--main-transition-duration);
 }
 
-.courses-selection .container .courses-wrap .course-card:nth-child(even) {
-  background: url(../images/course2.jpg);
+.courses-selection .container .courses-wrap .course-card {
+  background: url(../images/SE.jpg);
   background-size: cover;
 }
 
