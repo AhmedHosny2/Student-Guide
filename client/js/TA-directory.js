@@ -89,4 +89,4 @@ searchBar.addEventListener("input", (e) => {
   });
 });
 // Call the function to generate and append the cards
-// fetchTAData();
+fetchTAData();
