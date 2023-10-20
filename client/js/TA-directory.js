@@ -84,7 +84,7 @@ function generateTACards(taData) {
     const emailLink = document.createElement("a");
     emailLink.href = `mailto:${ta.email}`;
     emailLink.textContent = ta.email;
-
+    emailLink.style.color = "gray";
     emailWrap.appendChild(emailLink);
     box.appendChild(emailWrap);
 
