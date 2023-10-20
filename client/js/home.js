@@ -15,12 +15,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data.email) {
         localStorage.setItem("userEmail", data.email);
         localStorage.setItem("userName", data.userName);
+        localStorage.setItem("isAdmin", data.isAdmin);
         // Check if the user is logged in and display a message
-        const userGreeting = document.getElementById("userGreeting");
+        //create the user greeting
+        const userGreeting = document.querySelector(".greetingUser");
+
         if (userGreeting) {
-          userGreeting.textContent = `Hello, ${data.userName}`;
+          const greeting = document.createElement("h1");
+          greeting.textContent = `Welcome ${data.userName}!`;
+          greeting.style.textAlign = "center";
+          userGreeting.appendChild(greeting);
+
+          loadingScreen.style.display = "none";
+        } else {
+          console.log("Element with class 'greetingUser' not found.");
         }
-        loadingScreen.style.display = "none";
       } else {
         // Redirect to the login page if no user is logged in
         window.location.href = "https://www.ahmed-yehia.me/html/login.html";
