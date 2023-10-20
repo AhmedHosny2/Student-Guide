@@ -1,80 +1,26 @@
-// function fetchTAData() {
-//   const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
-//   fetch(apiUrl, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     credentials: "include",
-//   })
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Network response was not ok");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       generateTACards(data);
-//       console.log("Response from the API:", data);
-//     })
-//     .catch((error) => {
-//       console.error("Fetch error:", error);
-//     });
-// }
-const ta = [
-  {
-    _id: "652552af8c1396cc6305db08",
-    name: "donia",
-    email: "doni.ail@giu-uni.de",
-    course: "se",
-    officeHours: "3 till 5 sat",
-    officeLocation: "a230",
-    tutorials: [11, 12, 13],
-    __v: 0,
-  },
-  {
-    _id: "652552b88c1396cc6305db0b",
-    name: "donia",
-    email: "doni.ail@giu-uni.de",
-    course: "oop",
-    officeHours: "3 till 5 sat",
-    officeLocation: "a230",
-    tutorials: [11, 12, 13],
-    __v: 0,
-  },
-  {
-    _id: "652552bd8c1396cc6305db0e",
-    name: "donia",
-    email: "doni.ail@giu-uni.de",
-    course: "cs1",
-    officeHours: "3 till 5 sat",
-    officeLocation: "a230",
-    tutorials: [11, 12, 13],
-    __v: 0,
-  },
-  {
-    _id: "652552c68c1396cc6305db11",
-    name: "yaya",
-    email: "yaya.ail@giu-uni.de",
-    course: "cs1",
-    officeHours: "3 till 5 sat",
-    officeLocation: "a230",
-    tutorials: [11, 12, 13],
-    __v: 0,
-  },
-  {
-    _id: "65317b8e9cc46b36bedd8da9",
-    name: "donjklia",
-    email: "donihh.ail@giu-uni.de",
-    course: "cs1",
-    officeHours: "3 till 5 sat",
-    officeLocation: "a230",
-    tutorials: [11, 12, 13],
-    __v: 0,
-  },
-];
-let arr = [];
-generateTACards(ta);
+function fetchTAData() {
+  const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
+  fetch(apiUrl, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      generateTACards(data);
+      console.log("Response from the API:", data);
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}
 // Your existing code for generating cards
 function generateTACards(taData) {
   const cardContainer = document.querySelector(".card-wrap");
@@ -125,20 +71,21 @@ function generateTACards(taData) {
     card.appendChild(box);
 
     cardContainer.appendChild(card);
-    arr.push(card);
   });
 }
-console.log(arr);
+
 // Add an input event listener to the search bar
+const card = document.querySelectorAll(".card");
 searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value.toLowerCase();
 
   // Loop through all the cards
-  arr.forEach((card) => {
-    console.log("hi");
+  card.forEach((card) => {
     const courseName = card.querySelector(".course").textContent.toLowerCase();
     const isVisible = courseName.includes(searchValue);
-    card.classList.add("hide", isVisible);
+    console.log(isVisible);
+    card.classList.toggle("hide", !isVisible);
+    console.log(card);
   });
 });
 // Call the function to generate and append the cards
