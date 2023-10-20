@@ -52,7 +52,7 @@ function generateTACards(taData) {
 
     const courseName = document.createElement("div");
     courseName.classList.add("course");
-    courseName.textContent = taData[0].courseName; // Replace with the actual course name
+    courseName.textContent = taData[0].course; // Replace with the actual course name
 
     const box = document.createElement("div");
     box.classList.add("box");
@@ -75,7 +75,7 @@ function generateTACards(taData) {
     }
 
     box.appendChild(createCardWrap("name", ta.name));
-    box.appendChild(createCardWrap("office hour", ta.officeHour));
+    box.appendChild(createCardWrap("office hour", ta.officeHours));
     box.appendChild(createCardWrap("office location", ta.officeLocation));
     box.appendChild(createCardWrap("tutorials", ta.tutorials));
     box.appendChild(createCardWrap("email", ta.email));
