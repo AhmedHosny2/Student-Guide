@@ -1,9 +1,9 @@
 // Define the courses for each semester
 const courses = {
-  1: ["Math 1", "Physics", "Techn", "CS 1"],
-  2: ["Math 2", "OOP", "Network", "Micro", "Theo"],
-  3: ["CPP", "OS", "DSA", "DB", "Math 3"],
-  4: ["SE", "DS", "IT", "DIS", "Media", "Math 4"],
+  1: ["Math1", "Physics", "Techn", "CS1"],
+  2: ["Math2", "OOP", "Network", "Micro", "Theo"],
+  3: ["CPP", "OS", "DSA", "DB", "Math3"],
+  4: ["SE", "DS", "IT", "DIS", "Media", "Math4"],
 };
 
 // Get the select element
@@ -51,7 +51,7 @@ function displayCourses() {
               localStorage.setItem("courseName", data.courseName);
               console.log("Response from the API:", data);
               //widow ref to this url https://www.ahmed-yehia.me/html/materials.html
-              window.location.href = "https://www.ahmed-yehia.me/html/materials.html";
+              window.location.href = "https://www.ahmed-yehia.me/html/getCourse.html";
               // Handle the response data from the API (e.g., show a success message)
             })
             .catch((error) => {

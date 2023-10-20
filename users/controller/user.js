@@ -139,7 +139,11 @@ exports.getUser = async (req, res) => {
   }
 
   console.log(user);
-  res.status(200).json({ email: user.email, user_name: user.userName });
+  res.status(200).json({
+    email: user.email,
+    userName: user.userName,
+    isAdmin: user.isAdmin,
+  });
 };
 
 exports.logoutUser = async (req, res) => {
