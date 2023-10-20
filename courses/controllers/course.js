@@ -6,7 +6,7 @@ const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 
 
 exports.addCourse = async (req, res) => {
-  const { courseName, courseCode, courseCredits, semester } = req.body;
+  const { courseName, courseCode, courseCredits, semester,content } = req.body;
 
   const email = getCookie(req).email;
   console.log(email);
@@ -15,11 +15,13 @@ exports.addCourse = async (req, res) => {
     return res.status(400).json({ message: "course already exist" });
   }
   try {
+    console.log(content);
     await courseModel.create({
       courseName,
       courseCode,
       courseCredits,
       semester,
+      content,
       contributors: [email],
     });
     updateUserPoints(email);
