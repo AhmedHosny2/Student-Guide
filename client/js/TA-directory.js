@@ -73,11 +73,13 @@ function generateTACards(taData) {
     cardContainer.appendChild(card);
   });
 }
+
 // Call the function to generate and append the cards
 fetchTAData();
 
 // Add an input event listener to the search bar
 const card = document.querySelectorAll(".card");
+const searchBar = document.getElementById("searchBar");
 searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value.toLowerCase();
 
