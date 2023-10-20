@@ -88,7 +88,7 @@ searchBar.addEventListener("input", (e) => {
     const courseName = card.querySelector(".course").textContent.toLowerCase();
     const isVisible = courseName.includes(searchValue);
     console.log(isVisible);
-    card.classList.toggle("hide", !isVisible);
+    card.style.display = isVisible ? "block" : "none";
     console.log(card);
   });
 });
