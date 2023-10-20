@@ -9,7 +9,7 @@ editBtn.addEventListener("click", () => {
   textarea.classList.toggle("show");
   submit.classList.toggle("show");
 });
-
+let tiny;
 document.addEventListener("DOMContentLoaded", function () {
   tinymce.init({
     selector: "textarea",
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         Promise.reject("See docs to implement AI Assistant")
       ),
   });
+  tiny = tinymce;
   // localStorage.setItem("courseData", `<h1><span style="color: rgb(241, 196, 15);"><strong><span style="font-family: 'arial black', sans-serif;">cool</span></strong></span></h1>`);
   if (localStorage.getItem("courseData")) {
     contentDisplay.innerHTML = localStorage.getItem("courseData");
@@ -62,6 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
 const updateCourse = async () => {
   const courseName = localStorage.getItem("courseName");
   const content = localStorage.getItem("courseData");
+  const newContent = tiny.activeEditor.getContent();
+  if (newContent) {
+    localStorage.setItem("courseData", newContent);
+  }
   const url = `https://student-guide-course.ahmed-yehia.me/course/${courseName}`; //here
   fetch(url, {
     method: "PUT",
@@ -96,10 +101,6 @@ const avatarBox = document.querySelector(".participants");
 addPerson.addEventListener("click", () => {
   imgBox.classList.toggle("active");
 });
-
-
-
-
 
 subBtn.addEventListener("click", () => {
   let val = image_url.value;
