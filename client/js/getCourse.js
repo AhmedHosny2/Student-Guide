@@ -62,11 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const updateCourse = async () => {
   const courseName = localStorage.getItem("courseName");
-  const content = localStorage.getItem("courseData");
   const newContent = tiny.activeEditor.getContent();
   if (newContent) {
     localStorage.setItem("courseData", newContent);
   }
+  const content = localStorage.getItem("courseData");
+
   const url = `https://student-guide-course.ahmed-yehia.me/course/${courseName}`; //here
   fetch(url, {
     method: "PUT",
