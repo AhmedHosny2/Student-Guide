@@ -1,0 +1,84 @@
+/* style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+}
+.carousel-indicators {
+  pointer-events: none;
+}
+.header {
+  background: #f4f4f4;
+  color: #333;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  transition: 200ms opacity  ease-in-out;
+}
+
+.carousel-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  
+}
+
+.carousel-caption {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  bottom: 0;
+  left: 10;
+  right: 10;
+  
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.carousel-caption p {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+p {
+  text-align: center;
+  margin-top: 10px;
+}
+
