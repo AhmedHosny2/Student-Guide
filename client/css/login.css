@@ -1,7 +1,7 @@
 main {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(-45deg, var(--secondary-color), var(--third-color));
+  background: linear-gradient(-45deg, var(--main-color), var(--secondary-color), var(--third-color), var(--fourth-color));
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;
@@ -192,7 +192,6 @@ form {
 }
 
 .overlay {
-  background: #FF416C;
   background: var(--secondary-color);
   background-repeat: no-repeat;
   background-size: cover;
@@ -326,7 +325,7 @@ main .img-left {
     -ms-transform: translateY(0px);
     -o-transform: translateY(0px);
     transform: translateY(0px);
-}
+  }
 
   50% {
     -webkit-transform: translateY(10px);
@@ -334,12 +333,13 @@ main .img-left {
     -ms-transform: translateY(10px);
     -o-transform: translateY(10px);
     transform: translateY(10px);
-}
-100% {
-  -webkit-transform: translateY(0px);
-  -moz-transform: translateY(0px);
-  -ms-transform: translateY(0px);
-  -o-transform: translateY(0px);
-  transform: translateY(0px);
-}
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px);
+  }
 }
