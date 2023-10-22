@@ -89,7 +89,6 @@
 
 .taDirectory .container .card .course {
   font-size: 0.7em;
-  background-color: rgb(164, 189, 183, 0.5);
   width: max-content;
   padding: 3px;
   border-radius: 5px;
@@ -99,6 +98,7 @@
   margin: 0 auto 10px;
   font-size: 15px;
   text-transform: capitalize;
+  background: var(--fourth-color);
 }
 
 .taDirectory .container .card .box {
