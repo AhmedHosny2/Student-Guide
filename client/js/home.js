@@ -69,4 +69,4 @@ setInterval(() => {
   }, 1000);
 }, 2000);
 
-animate css transform
+// animate css transform
