@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const emailLink = document.createElement("a");
       emailLink.href = `mailto:${ta.email}`;
       emailLink.textContent = ta.email;
-      emailLink.style.color = "gray";
+      emailLink.style.color = "white";
       emailWrap.appendChild(emailLink);
       box.appendChild(emailWrap);
 
