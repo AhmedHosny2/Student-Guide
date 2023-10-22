@@ -98,7 +98,8 @@
   margin: 0 auto 10px;
   font-size: 15px;
   text-transform: capitalize;
-  background: var(--fourth-color);
+  background: var(--third-color);
+  color: white;
 }
 
 .taDirectory .container .card .box {
