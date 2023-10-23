@@ -98,7 +98,8 @@ exports.loginUser = async (req, res) => {
     // Calculate the new time after adding 5 hours
     const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
     const newTime = new Date(Date.now() + fiveHoursInMilliseconds);
-
+// expires after 399 days
+const newTimeForRefresh = new Date(Date.now() + 399 * 24 * 60 * 60 * 1000);
     // const domains = [".ahmed-yehia.me", "localhost"];
     // const domain = ".ahmed-yehia.me";
 
@@ -116,7 +117,7 @@ exports.loginUser = async (req, res) => {
     });
 
     res.cookie("refreshToken", refreshToken, {
-      expires: newTime,
+      expires: newTimeForRefresh,
       httpOnly: true,
       sameSite: "none",
       secure: true,
