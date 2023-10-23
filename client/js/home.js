@@ -18,22 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("isAdmin", data.isAdmin);
         // Check if the user is logged in and display a message
         //create the user greeting
-        const userGreeting = document.querySelector(".greetingUser");
 
-        if (userGreeting) {
-          const greeting = document.createElement("h1");
-          greeting.textContent = `Welcome ${data.userName}!`;
-          greeting.style.textAlign = "center";
-          userGreeting.appendChild(greeting);
-          const loginButton = document.querySelector(".login");
-          loginButton.style.display = "none";
-          loadingScreen.style.display = "none";
-        } else {
-          console.log("Element with class 'greetingUser' not found.");
-        }
-      } else {
-        // Redirect to the login page if no user is logged in
-        window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+        const loginButton = document.querySelector(".login");
+        loginButton.style.display = "none";
+        loadingScreen.style.display = "none";
       }
     } catch (error) {
       console.error("Fetch error:", error);
