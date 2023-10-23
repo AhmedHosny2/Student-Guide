@@ -3,7 +3,14 @@ const editBtn = document.querySelector(".text-edit");
 const submit = document.querySelector(".submit");
 const textarea = document.querySelector(".text-box");
 const contentDisplay = document.querySelector(".contentDisplay .container p");
-
+if (localStorage.getItem("userName") == null)
+window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else {
+const loginButton = document.querySelectorAll(".login");
+loginButton.forEach((button) => {
+  button.style.display = "none";
+});
+}
 editBtn.addEventListener("click", () => {
   document.body.classList.toggle("overlay");
   textarea.classList.toggle("show");

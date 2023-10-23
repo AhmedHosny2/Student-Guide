@@ -6,8 +6,6 @@ exports.addTa = async (req, res) => {
     req.body;
   const userEmail = getCookie(req).email;
   console.log(userEmail);
-  const isCreated = await TADirectorySchema.findOne({ email, course });
-  if (isCreated) return res.status(400).json({ message: "TA already exist" });
   try {
     await TADirectorySchema.create({
       name,

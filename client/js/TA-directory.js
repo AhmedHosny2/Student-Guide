@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("userName") == null)
+  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else {
+  const loginButton = document.querySelectorAll(".login");
+  loginButton.forEach((button) => {
+    button.style.display = "none";
+  });
+}
   let arr = [];
   function fetchTAData() {
     const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here

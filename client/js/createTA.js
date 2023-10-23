@@ -3,7 +3,14 @@ const clearBtn = document.getElementById("clear");
 const tutorialsVal = document.getElementById("tutorials-value");
 const listOfTutorials = document.getElementById("listOfTutorials");
 let arrOfTutorials = [];
-
+if (localStorage.getItem("userName") == null)
+window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else {
+const loginButton = document.querySelectorAll(".login");
+loginButton.forEach((button) => {
+  button.style.display = "none";
+});
+}
 addBtn.onclick = (event) => {
   event.preventDefault();
 
@@ -79,7 +86,7 @@ courseForm.addEventListener("submit", function (event) {
     })
       .then((response) => {
         if (!response.ok) {
-          failAlert("TA was Added before", 3000);
+          failAlert("Something went wrong please infrom the Admin!", 3000);
           throw new Error("Network response was not ok");
         }
         return response.json();
