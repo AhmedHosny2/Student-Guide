@@ -31,10 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Call the getCurrentUser function to check if the user is logged in
-  getCurrentUser();
-});
 
+});
+  getCurrentUser();
 // start sout animation
 const arrOfGreetings = [
   "Hello World!",
