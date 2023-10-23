@@ -69,3 +69,5 @@ setInterval(() => {
     currentIndex = (currentIndex + 1) % arrOfGreetings.length;
   }, 1000);
 }, 2000);
+
+// animate css transform
