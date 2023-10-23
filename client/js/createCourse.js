@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+  
+if (localStorage.getItem("userName") == null)  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else 
+{
+        const loginButton = document.querySelector(".login");
+        loginButton.style.display = "none";
+
+}
+
   const form = document.getElementById("course-form");
   form.addEventListener("submit", function (event) {
     event.preventDefault();

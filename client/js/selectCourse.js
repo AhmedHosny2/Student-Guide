@@ -34,6 +34,13 @@ const courseImages = {
 const semesterSelect = document.getElementById("semester");
 const courseList = document.getElementById("course-list");
 
+if (localStorage.getItem("userName") == null)  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else 
+{
+        const loginButton = document.querySelector(".login");
+        loginButton.style.display = "none";
+
+}
 
 function displayCourses() {
   const selectedSemester = semesterSelect.value;

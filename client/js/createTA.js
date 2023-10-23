@@ -4,6 +4,13 @@ const tutorialsVal = document.getElementById("tutorials-value");
 const listOfTutorials = document.getElementById("listOfTutorials");
 let arrOfTutorials = [];
 
+if (localStorage.getItem("userName") == null)  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else 
+{
+        const loginButton = document.querySelector(".login");
+        loginButton.style.display = "none";
+
+}
 addBtn.onclick = (event) => {
   event.preventDefault();
 
