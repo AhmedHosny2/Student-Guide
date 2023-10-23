@@ -28,7 +28,7 @@ function getEntriesFromCookie(req) {
       const { email, isAdmin } = decodedRefreshToken;
       console.log("the tokens = " + " " + email + " " + isAdmin + "\n\n\n");
       const newAccessToken = jwt.sign({ email, isAdmin }, secret, {
-        expiresIn: "2h",
+        expiresIn: "1825d",
       });
       // Generate a new access token with the same payload data as the one we just decoded
       //decode it
