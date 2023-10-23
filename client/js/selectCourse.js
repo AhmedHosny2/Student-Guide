@@ -33,13 +33,13 @@ const courseImages = {
 
 const semesterSelect = document.getElementById("semester");
 const courseList = document.getElementById("course-list");
-
-if (localStorage.getItem("userName") == null)  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
-else 
-{
-        const loginButton = document.querySelector(".login");
-        loginButton.style.display = "none";
-
+if (localStorage.getItem("userName") == null)
+window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else {
+const loginButton = document.querySelectorAll(".login");
+loginButton.forEach((button) => {
+  button.style.display = "none";
+});
 }
 
 function displayCourses() {

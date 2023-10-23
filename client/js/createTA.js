@@ -3,13 +3,13 @@ const clearBtn = document.getElementById("clear");
 const tutorialsVal = document.getElementById("tutorials-value");
 const listOfTutorials = document.getElementById("listOfTutorials");
 let arrOfTutorials = [];
-
-if (localStorage.getItem("userName") == null)  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
-else 
-{
-        const loginButton = document.querySelector(".login");
-        loginButton.style.display = "none";
-
+if (localStorage.getItem("userName") == null)
+window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+else {
+const loginButton = document.querySelectorAll(".login");
+loginButton.forEach((button) => {
+  button.style.display = "none";
+});
 }
 addBtn.onclick = (event) => {
   event.preventDefault();
