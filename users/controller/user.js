@@ -125,7 +125,7 @@ exports.loginUser = async (req, res) => {
     });
 
     console.log("Logged in");
-    return res.status(200).send({
+    return res.status(200).json({
       userName: user.userName,
       email: user.email,
       isAdmin: user.isAdmin,

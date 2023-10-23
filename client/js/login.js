@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.text();
       })
       .then((data) => {
+        data = JSON.parse(data);
         console.log("Response from the API:", data);
         //once user logged in switch to the home https://www.ahmed-yehia.me/index.html
         // here
