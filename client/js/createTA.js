@@ -86,7 +86,7 @@ courseForm.addEventListener("submit", function (event) {
     })
       .then((response) => {
         if (!response.ok) {
-          failAlert("TA was Added before", 3000);
+          failAlert("Something went wrong please infrom the Admin!", 3000);
           throw new Error("Network response was not ok");
         }
         return response.json();
