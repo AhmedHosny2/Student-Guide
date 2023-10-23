@@ -5,13 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const adminRouteButton = document.getElementById("admin-route-button");
 
-  if (localStorage.getItem("userName") == null)  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
-  else 
-  {
-          const loginButton = document.querySelector(".login");
-          loginButton.style.display = "none";
   
-  }
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(loginForm);
