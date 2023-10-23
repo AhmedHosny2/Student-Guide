@@ -19,7 +19,62 @@ function generateRefreshToken(user, expiresAt, isrefresh) {
     }
   );
 }
+exports.loginUser = async (req, res) => {
+  const { userName, password } = req.body;
 
+  try {
+    if (!(userName && password)) {
+      return res.status(400).json({ message: "All input is required" });
+    }
+
+    const user = await userModel.findOne({ userName });
+    if (!user) {
+      return res.status(400).json({ message: "userName does not exist" });
+    }
+
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) {
+      return res.status(400).json({ message: "Password is incorrect" });
+    }
+
+    // Calculate the new time after adding 5 hours
+    const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
+    const newTime = new Date(Date.now() + fiveHoursInMilliseconds);
+    // expires after 399 days
+    const maxAgeInMilliseconds = 399 * 24 * 60 * 60 * 1000; // 399 days in milliseconds
+    const newTimeForRefresh = new Date(Date.now() + maxAgeInMilliseconds);
+    // const domains = [".ahmed-yehia.me", "localhost"];
+    // const domain = ".ahmed-yehia.me";
+
+    // Set cookies for each domain
+    const refreshToken = generateRefreshToken(user, "1825d", true);
+    const token = generateRefreshToken(user, "1", false);
+
+    res.cookie("authcookie", token, {
+      expires: newTime,
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+      domain: domain,
+      path: "/",
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      expires: newTimeForRefresh,
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+      domain: domain,
+      path: "/",
+    });
+
+    console.log("Logged in");
+    return res.status(200).send("Login successful");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
 exports.signupUser = async (req, res) => {
   const { userName, email, password } = req.body;
 
@@ -27,7 +82,7 @@ exports.signupUser = async (req, res) => {
     const checkEmail = await userModel.findOne({ email });
     const checkuserName = await userModel.findOne({ userName });
 
-    if (checkEmail||checkuserName) {
+    if (checkEmail || checkuserName) {
       return res.status(400).json({ message: "User already exists" });
     }
 
@@ -74,62 +129,6 @@ exports.signupUser = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
-  }
-};
-
-exports.loginUser = async (req, res) => {
-  const { userName, password } = req.body;
-
-  try {
-    if (!(userName && password)) {
-      return res.status(400).json({ message: "All input is required" });
-    }
-
-    const user = await userModel.findOne({ userName });
-    if (!user) {
-      return res.status(400).json({ message: "userName does not exist" });
-    }
-
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return res.status(400).json({ message: "Password is incorrect" });
-    }
-
-    // Calculate the new time after adding 5 hours
-    const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
-    const newTime = new Date(Date.now() + fiveHoursInMilliseconds);
-// expires after 399 days
-const newTimeForRefresh = new Date(Date.now() + 399 * 24 * 60 * 60 * 1000);
-    // const domains = [".ahmed-yehia.me", "localhost"];
-    // const domain = ".ahmed-yehia.me";
-
-    // Set cookies for each domain
-    const refreshToken = generateRefreshToken(user, "1825d", true);
-    const token = generateRefreshToken(user, "1", false);
-
-    res.cookie("authcookie", token, {
-      expires: newTime,
-      httpOnly: true,
-      sameSite: "none",
-      secure: true,
-      domain: domain,
-      path: "/",
-    });
-
-    res.cookie("refreshToken", refreshToken, {
-      expires: newTimeForRefresh,
-      httpOnly: true,
-      sameSite: "none",
-      secure: true,
-      domain: domain,
-      path: "/",
-    });
-
-    console.log("Logged in");
-    return res.status(200).send("Login successful");
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
