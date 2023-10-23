@@ -1,3 +1,6 @@
+
+if (localStorage.getItem("userName") == null)  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+
 // start sout animation
 const arrOfGreetings = [
   "Hello World!",
@@ -23,39 +26,3 @@ setInterval(() => {
   }, 1000);
 }, 2000);
 
-// animate css transform
-document.addEventListener("DOMContentLoaded", () => {
-  const loadingScreen = document.getElementById("loading-screen");
-  // Function to get the current user and add their name to local storage
-  const getCurrentUser = async () => {
-    const apiUrl = "https://student-guide-users.ahmed-yehia.me/user"; //here
-    try {
-      const response = await fetch(apiUrl, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const data = await response.json();
-      if (data.email) {
-        localStorage.setItem("userEmail", data.email);
-        localStorage.setItem("userName", data.userName);
-        localStorage.setItem("isAdmin", data.isAdmin);
-        // Check if the user is logged in and display a message
-        //create the user greeting
-
-        const loginButton = document.querySelector(".login");
-        loginButton.style.display = "none";
-        loadingScreen.style.display = "none";
-      } else {
-        window.location.href = "https://www.ahmed-yehia.me/html/login.html";
-      }
-    } catch (error) {
-      console.error("Fetch error:", error);
-      window.location.href = "https://www.ahmed-yehia.me/html/login.html";
-    }
-  };
-
-  if (localStorage.getItem("userName") == null) getCurrentUser();
-});

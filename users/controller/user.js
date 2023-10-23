@@ -27,7 +27,7 @@ exports.signupUser = async (req, res) => {
     const checkEmail = await userModel.findOne({ email });
     const checkuserName = await userModel.findOne({ userName });
 
-    if (checkEmail||checkuserName) {
+    if (checkEmail || checkuserName) {
       return res.status(400).json({ message: "User already exists" });
     }
 
@@ -125,7 +125,11 @@ exports.loginUser = async (req, res) => {
     });
 
     console.log("Logged in");
-    return res.status(200).send("Login successful");
+    return res.status(200).send({
+      userName: user.userName,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ message: "Internal server error" });
