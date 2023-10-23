@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const loginButton = document.querySelector(".login");
         loginButton.style.display = "none";
         loadingScreen.style.display = "none";
+      } else {
+        window.location.href = "https://www.ahmed-yehia.me/html/login.html";
       }
     } catch (error) {
       console.error("Fetch error:", error);
