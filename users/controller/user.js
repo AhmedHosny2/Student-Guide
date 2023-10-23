@@ -54,7 +54,7 @@ exports.signupUser = async (req, res) => {
       domain,
       path: "/",
     });
-    const refreshTokenExpirationYears = 5; // Refresh token expiration time in years
+    const refreshTokenExpirationYears = 1; // Refresh token expiration time in years
     const refreshTokenExpiration = new Date(
       currentTime.getTime() +
         refreshTokenExpirationYears * 365 * 24 * 60 * 60 * 1000
@@ -101,6 +101,7 @@ exports.loginUser = async (req, res) => {
 
     // const domains = [".ahmed-yehia.me", "localhost"];
     // const domain = ".ahmed-yehia.me";
+    const newTimeRefresh = new Date(Date.now() + 1000*60*60*24*399);
 
     // Set cookies for each domain
     const refreshToken = generateRefreshToken(user, "1825d", true);
@@ -116,7 +117,7 @@ exports.loginUser = async (req, res) => {
     });
 
     res.cookie("refreshToken", refreshToken, {
-      expires: newTime,
+      expires: newTimeRefresh,
       httpOnly: true,
       sameSite: "none",
       secure: true,
