@@ -319,7 +319,7 @@ html {
   display: none;
 }
 
-.header .container .avatar.show i {
+.header .container .avatar i.show {
   color: white;
   background-color: var(--fourth-color);
   padding: 8px 10px;

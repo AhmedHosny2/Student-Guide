@@ -1,13 +1,15 @@
 if (localStorage.getItem("userName") == null)
-window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
 else {
-const loginButton = document.querySelectorAll(".login");
-const avatar = document.querySelector(".avatar");
-loginButton.forEach((button) => {
-  button.style.display = "none";
-});
-avatar.classList.add("show");
+  const loginButton = document.querySelectorAll(".login");
+  const avatar = document.querySelector(".avatar");
+  avatar.classList.add("show");
+  loginButton.forEach((button) => {
+    button.style.display = "none";
+  });
+  avatar.classList.add("show");
 }
+
 // // start sout animation
 const arrOfGreetings = [
   "Hello World!",
@@ -32,4 +34,3 @@ setInterval(() => {
     currentIndex = (currentIndex + 1) % arrOfGreetings.length;
   }, 1000);
 }, 2000);
-
