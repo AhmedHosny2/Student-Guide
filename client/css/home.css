@@ -35,7 +35,7 @@ main {
 }
 
 .welcome {
-  /* margin: 250px 0; */
+  margin: 250px 0;
 }
 
 .welcome .container {
@@ -106,6 +106,7 @@ main {
 
 @media (max-width: 767px) {
   .welcome {
+    margin: 0;
     height: 91vh;
     background-color: #f3f5f8;
     opacity: 1;
