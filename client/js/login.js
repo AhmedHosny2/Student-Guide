@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("userName", data.userName);
         localStorage.setItem("isAdmin", data.isAdmin);
         window.location.href = "https://www.ahmed-yehia.me/index.html";
-        // window.location.href = "http://127.0.0.1:5500/client/index.html";  //here 
+        // window.location.href = "http://127.0.0.1:5500/client/index.html"; //here 
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {

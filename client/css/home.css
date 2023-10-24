@@ -11,9 +11,9 @@
   align-items: center;
 }
 
-.welcome .container .text {
+.welcome .container .text h1 {
   color: var(--secondary-color);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .welcome .container .img {
@@ -73,15 +73,24 @@
     margin: 0;
   }
 
+.welcome .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
   .welcome .container .img img {
     display: none;
   }
 
-  .welcome .container .text {
-    font-size: 15px;
+  .welcome .container .text h1 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 10px 0;
   }
 
-  .welcome .container .sout {
-    font-size: 10px;
+  .welcome .container .sout h1 {
+    font-size: 1rem;
   }
 }
