@@ -27,7 +27,7 @@ exports.signupUser = async (req, res) => {
     const checkEmail = await userModel.findOne({ email });
     const checkuserName = await userModel.findOne({ userName });
 
-    if (checkEmail||checkuserName) {
+    if (checkEmail || checkuserName) {
       return res.status(400).json({ message: "User already exists" });
     }
 
@@ -54,7 +54,7 @@ exports.signupUser = async (req, res) => {
       domain,
       path: "/",
     });
-    const refreshTokenExpirationYears = 5; // Refresh token expiration time in years
+    const refreshTokenExpirationYears = 1; // Refresh token expiration time in years
     const refreshTokenExpiration = new Date(
       currentTime.getTime() +
         refreshTokenExpirationYears * 365 * 24 * 60 * 60 * 1000
@@ -101,6 +101,7 @@ exports.loginUser = async (req, res) => {
 
     // const domains = [".ahmed-yehia.me", "localhost"];
     // const domain = ".ahmed-yehia.me";
+    const newTimeRefresh = new Date(Date.now() + 1000*60*60*24*399);
 
     // Set cookies for each domain
     const refreshToken = generateRefreshToken(user, "1825d", true);
@@ -116,7 +117,7 @@ exports.loginUser = async (req, res) => {
     });
 
     res.cookie("refreshToken", refreshToken, {
-      expires: newTime,
+      expires: newTimeRefresh,
       httpOnly: true,
       sameSite: "none",
       secure: true,
@@ -125,7 +126,11 @@ exports.loginUser = async (req, res) => {
     });
 
     console.log("Logged in");
-    return res.status(200).send("Login successful");
+    return res.status(200).json({
+      userName: user.userName,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ message: "Internal server error" });
