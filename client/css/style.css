@@ -315,19 +315,23 @@ html {
   }
 }
 
-/* end header */
-
-
-/* .loading-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: #f0f0f0;
+.header .container .avatar i {
+  display: none;
 }
 
-.loading-image {
-  width: 55%;
-  height: 100%;
-} */
+.header .container .avatar.show i {
+  color: white;
+  background-color: var(--fourth-color);
+  padding: 8px 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  border: 10px solid var(--main-color);
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+}
+
+/* end header */

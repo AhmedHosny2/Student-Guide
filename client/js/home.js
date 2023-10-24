@@ -1,13 +1,14 @@
-
 if (localStorage.getItem("userName") == null)
 window.location.href = "https://www.ahmed-yehia.me/html/login.html";
 else {
 const loginButton = document.querySelectorAll(".login");
+const avatar = document.querySelector(".avatar");
 loginButton.forEach((button) => {
   button.style.display = "none";
 });
+avatar.classList.add("show");
 }
-// start sout animation
+// // start sout animation
 const arrOfGreetings = [
   "Hello World!",
   "¡Hola Mundo!",
