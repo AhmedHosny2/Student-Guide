@@ -2,8 +2,7 @@ if (localStorage.getItem("userName") == null)
   window.location.href = "https://www.ahmed-yehia.me/html/login.html";
 else {
   const loginButton = document.querySelectorAll(".login");
-  const avatar = document.querySelector(".avatar");
-  avatar.classList.add("show");
+  const avatar = document.querySelector(".avatar i");
   loginButton.forEach((button) => {
     button.style.display = "none";
   });
