@@ -108,7 +108,7 @@ html {
 .header .logo h4 {
   cursor: pointer;
   color: var(--secondary-color);
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
@@ -306,6 +306,10 @@ html {
 @media (max-width: 767px) {
   .header .nav {
     inset: 0;
+  }
+
+  .header .logo h4 {
+    font-size: 0.75rem;
   }
 
   .header .nav.active {
