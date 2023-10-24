@@ -3,13 +3,13 @@ if (localStorage.getItem("userName") == null)
 else {
   const loginButton = document.querySelectorAll(".login");
   const avatar = document.querySelector(".avatar i");
-  loginButton.forEach((button) => {
+  avatar.classList.add("show");
+  loginButton.forEach((button) => { 
     button.style.display = "none";
   });
-  avatar.classList.add("show");
 }
 
-// // start sout animation
+// start sout animation
 const arrOfGreetings = [
   "Hello World!",
   "¡Hola Mundo!",
