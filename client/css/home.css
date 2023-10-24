@@ -1,6 +1,7 @@
 main {
   position: relative;
 }
+
 /* global values */
 .heading {
   font-size: 28px;
@@ -116,7 +117,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
   .welcome .container {
     display: block;
@@ -128,13 +129,13 @@ main {
 
   .welcome .container .text h1 {
     color: var(--secondary-color);
-    font-size: 1.3rem;
+    font-size: 1.9rem;
     margin: 0;
     padding: 10px 0;
   }
 
   .welcome .container .sout h1 {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
   }
 }
 
