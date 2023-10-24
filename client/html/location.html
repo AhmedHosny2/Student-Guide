@@ -40,7 +40,6 @@
 
 <body>
   <!-- header section -->
-  
   <header class="header">
     <div class="container">
       <div class="logo">
@@ -55,11 +54,9 @@
           <li class="login"><a href="../html/login.html">login</a></li>
         </ul>
       </nav>
-      <button class="login">
-        <a href="../html/login.html">
-          login
-        </a>
-      </button>
+      <a href="../html/login.html" class="login">
+        login
+      </a>
       <div class="burger-menu">
         <span class="top"></span>
         <span class="mid"></span>
@@ -132,32 +129,33 @@
       </ol>
 
 
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="../images/clinic.jpg" alt="Second slide" style="transition: 200ms opacity  ease-in-out;">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Clinic</h5>
-              <span style="font-size: medium"><strong>M1.105</strong></span>
-              <p>The college clinic serves as a nurturing haven, equipped with modern facilities and a compassionate
-                staff,
-                ensuring students' well-being and health are well taken care of. With its abundant rooms for
-                consultations and treatments,
-                it provides a supportive environment for students to prioritize their physical and mental wellness.</p>
-            </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="../images/clinic.jpg" alt="Second slide"
+            style="transition: 200ms opacity  ease-in-out;">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Clinic</h5>
+            <span style="font-size: medium"><strong>M1.105</strong></span>
+            <p>The college clinic serves as a nurturing haven, equipped with modern facilities and a compassionate
+              staff,
+              ensuring students' well-being and health are well taken care of. With its abundant rooms for
+              consultations and treatments,
+              it provides a supportive environment for students to prioritize their physical and mental wellness.</p>
           </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="../images/clinic2.jpg" alt="Second slide"
-              style="transition: 200ms opacity  ease-in-out;">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Clinic</h5>
-              <span style="font-size: medium"><strong>M1.105</strong></span>
-              <p>he college clinic serves as a nurturing haven, equipped with modern facilities and a compassionate
-                staff,
-                ensuring students' well-being and health are well taken care of. With its abundant rooms for
-                consultations and treatments,
-                it provides a supportive environment for students to prioritize their physical and mental wellness.</p>
-            </div>
-         </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="../images/clinic2.jpg" alt="Second slide"
+            style="transition: 200ms opacity  ease-in-out;">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Clinic</h5>
+            <span style="font-size: medium"><strong>M1.105</strong></span>
+            <p>he college clinic serves as a nurturing haven, equipped with modern facilities and a compassionate
+              staff,
+              ensuring students' well-being and health are well taken care of. With its abundant rooms for
+              consultations and treatments,
+              it provides a supportive environment for students to prioritize their physical and mental wellness.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -179,8 +177,9 @@
             <span style="font-size: medium"><strong>Beside S Building</strong></span>
             <p>The college mosque is a peaceful space with ample room for prayer and reflection.
               It warmly accommodates both male and female students,
-               fostering a welcoming environment for spiritual connection and community within the heart of the campus.</p>
-               
+              fostering a welcoming environment for spiritual connection and community within the heart of the campus.
+            </p>
+
           </div>
         </div>
 
@@ -192,7 +191,8 @@
             <span style="font-size: medium"><strong>Beside S Building</strong></span>
             <p>The college mosque is a peaceful space with ample room for prayer and reflection.
               It warmly accommodates both male and female students,
-               fostering a welcoming environment for spiritual connection and community within the heart of the campus.</p>
+              fostering a welcoming environment for spiritual connection and community within the heart of the campus.
+            </p>
           </div>
         </div>
 
@@ -204,8 +204,9 @@
             <h5>GIU Mosque</h5>
             <span style="font-size: medium"><strong>Beside S Building</strong></span>
             <p>The college mosque is a peaceful space with ample room for prayer and reflection.
-               It warmly accommodates both male and female students,
-                fostering a welcoming environment for spiritual connection and community within the heart of the campus.</p>
+              It warmly accommodates both male and female students,
+              fostering a welcoming environment for spiritual connection and community within the heart of the campus.
+            </p>
           </div>
         </div>
 
@@ -214,116 +215,116 @@
       </div>
     </div>
   </div>
- 
 
 
 
-   <script>
-                // Slideshow script
-                let slideIndex1 = 0;
-                let slideIndex2 = 0;
-                let slideIndex3 = 0;
-                carousel1();
-                carousel2();
-                carousel3();
 
-                function carousel1() {
-                  let x = document.getElementById("location1Carousel").getElementsByClassName("carousel-item");
-                  let indicators = document.querySelectorAll("#location1Carousel .carousel-indicators li");
-                  for (let i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                    indicators[i].classList.remove("active");
-                  }
-                  slideIndex1++;
-                  if (slideIndex1 > x.length) {
-                    slideIndex1 = 1;
-                  }
-                  x[slideIndex1 - 1].style.display = "block";
-                  indicators[slideIndex1 - 1].classList.add("active");
-                  setTimeout(carousel1, 3000);
-                }
+  <script>
+    // Slideshow script
+    let slideIndex1 = 0;
+    let slideIndex2 = 0;
+    let slideIndex3 = 0;
+    carousel1();
+    carousel2();
+    carousel3();
 
-                function carousel2() {
-                  let x = document.getElementById("location2Carousel").getElementsByClassName("carousel-item");
-                  let indicators = document.querySelectorAll("#location2Carousel .carousel-indicators li");
-                  for (let i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                    indicators[i].classList.remove("active");
-                  }
-                  slideIndex2++;
-                  if (slideIndex2 > x.length) {
-                    slideIndex2 = 1;
-                  }
-                  x[slideIndex2 - 1].style.display = "block";
-                  indicators[slideIndex2 - 1].classList.add("active");
-                  setTimeout(carousel2, 3000);
-                }
+    function carousel1() {
+      let x = document.getElementById("location1Carousel").getElementsByClassName("carousel-item");
+      let indicators = document.querySelectorAll("#location1Carousel .carousel-indicators li");
+      for (let i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        indicators[i].classList.remove("active");
+      }
+      slideIndex1++;
+      if (slideIndex1 > x.length) {
+        slideIndex1 = 1;
+      }
+      x[slideIndex1 - 1].style.display = "block";
+      indicators[slideIndex1 - 1].classList.add("active");
+      setTimeout(carousel1, 3000);
+    }
 
-                function carousel3() {
-                  let x = document.getElementById("location3Carousel").getElementsByClassName("carousel-item");
-                  let indicators = document.querySelectorAll("#location3Carousel .carousel-indicators li");
-                  for (let i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                    indicators[i].classList.remove("active");
-                  }
-                  slideIndex3++;
-                  if (slideIndex3 > x.length) {
-                    slideIndex3 = 1;
-                  }
-                  x[slideIndex3 - 1].style.display = "block";
-                  indicators[slideIndex3 - 1].classList.add("active");
-                  setTimeout(carousel3, 3000);
-                }
+    function carousel2() {
+      let x = document.getElementById("location2Carousel").getElementsByClassName("carousel-item");
+      let indicators = document.querySelectorAll("#location2Carousel .carousel-indicators li");
+      for (let i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        indicators[i].classList.remove("active");
+      }
+      slideIndex2++;
+      if (slideIndex2 > x.length) {
+        slideIndex2 = 1;
+      }
+      x[slideIndex2 - 1].style.display = "block";
+      indicators[slideIndex2 - 1].classList.add("active");
+      setTimeout(carousel2, 3000);
+    }
 
-                // Carousel control script
-                document.getElementById("location1Carousel").addEventListener('click', function (e) {
-                  if (e.target.classList.contains('carousel-control-prev') || e.target.parentNode.classList.contains('carousel-control-prev')) {
-                    slideIndex1--;
-                    if (slideIndex1 < 1) {
-                      slideIndex1 = document.getElementById("location1Carousel").getElementsByClassName("carousel-item").length;
-                    }
-                    carousel1();
-                  } else if (e.target.classList.contains('carousel-control-next') || e.target.parentNode.classList.contains('carousel-control-next')) {
-                    slideIndex1++;
-                    if (slideIndex1 > document.getElementById("location1Carousel").getElementsByClassName("carousel-item").length) {
-                      slideIndex1 = 1;
-                    }
-                    carousel1();
-                  }
-                });
+    function carousel3() {
+      let x = document.getElementById("location3Carousel").getElementsByClassName("carousel-item");
+      let indicators = document.querySelectorAll("#location3Carousel .carousel-indicators li");
+      for (let i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        indicators[i].classList.remove("active");
+      }
+      slideIndex3++;
+      if (slideIndex3 > x.length) {
+        slideIndex3 = 1;
+      }
+      x[slideIndex3 - 1].style.display = "block";
+      indicators[slideIndex3 - 1].classList.add("active");
+      setTimeout(carousel3, 3000);
+    }
 
-                document.getElementById("location2Carousel").addEventListener('click', function (e) {
-                  if (e.target.classList.contains('carousel-control-prev') || e.target.parentNode.classList.contains('carousel-control-prev')) {
-                    slideIndex2--;
-                    if (slideIndex2 < 1) {
-                      slideIndex2 = document.getElementById("location2Carousel").getElementsByClassName("carousel-item").length;
-                    }
-                    carousel2();
-                  } else if (e.target.classList.contains('carousel-control-next') || e.target.parentNode.classList.contains('carousel-control-next')) {
-                    slideIndex2++;
-                    if (slideIndex2 > document.getElementById("location2Carousel").getElementsByClassName("carousel-item").length) {
-                      slideIndex2 = 1;
-                    }
-                    carousel2();
-                  }
-                });
+    // Carousel control script
+    document.getElementById("location1Carousel").addEventListener('click', function (e) {
+      if (e.target.classList.contains('carousel-control-prev') || e.target.parentNode.classList.contains('carousel-control-prev')) {
+        slideIndex1--;
+        if (slideIndex1 < 1) {
+          slideIndex1 = document.getElementById("location1Carousel").getElementsByClassName("carousel-item").length;
+        }
+        carousel1();
+      } else if (e.target.classList.contains('carousel-control-next') || e.target.parentNode.classList.contains('carousel-control-next')) {
+        slideIndex1++;
+        if (slideIndex1 > document.getElementById("location1Carousel").getElementsByClassName("carousel-item").length) {
+          slideIndex1 = 1;
+        }
+        carousel1();
+      }
+    });
 
-                document.getElementById("location3Carousel").addEventListener('click', function (e) {
-                  if (e.target.classList.contains('carousel-control-prev') || e.target.parentNode.classList.contains('carousel-control-prev')) {
-                    slideIndex3--;
-                    if (slideIndex3 < 1) {
-                      slideIndex3 = document.getElementById("location3Carousel").getElementsByClassName("carousel-item").length;
-                    }
-                    carousel3();
-                  } else if (e.target.classList.contains('carousel-control-next') || e.target.parentNode.classList.contains('carousel-control-next')) {
-                    slideIndex3++;
-                    if (slideIndex3 > document.getElementById("location3Carousel").getElementsByClassName("carousel-item").length) {
-                      slideIndex3 = 1;
-                    }
-                    carousel3();
-                  }
-                });
-   </script>
+    document.getElementById("location2Carousel").addEventListener('click', function (e) {
+      if (e.target.classList.contains('carousel-control-prev') || e.target.parentNode.classList.contains('carousel-control-prev')) {
+        slideIndex2--;
+        if (slideIndex2 < 1) {
+          slideIndex2 = document.getElementById("location2Carousel").getElementsByClassName("carousel-item").length;
+        }
+        carousel2();
+      } else if (e.target.classList.contains('carousel-control-next') || e.target.parentNode.classList.contains('carousel-control-next')) {
+        slideIndex2++;
+        if (slideIndex2 > document.getElementById("location2Carousel").getElementsByClassName("carousel-item").length) {
+          slideIndex2 = 1;
+        }
+        carousel2();
+      }
+    });
+
+    document.getElementById("location3Carousel").addEventListener('click', function (e) {
+      if (e.target.classList.contains('carousel-control-prev') || e.target.parentNode.classList.contains('carousel-control-prev')) {
+        slideIndex3--;
+        if (slideIndex3 < 1) {
+          slideIndex3 = document.getElementById("location3Carousel").getElementsByClassName("carousel-item").length;
+        }
+        carousel3();
+      } else if (e.target.classList.contains('carousel-control-next') || e.target.parentNode.classList.contains('carousel-control-next')) {
+        slideIndex3++;
+        if (slideIndex3 > document.getElementById("location3Carousel").getElementsByClassName("carousel-item").length) {
+          slideIndex3 = 1;
+        }
+        carousel3();
+      }
+    });
+  </script>
 
 
 

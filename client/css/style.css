@@ -151,7 +151,7 @@ html {
   display: none;
 }
 
-.header .container button.login {
+.header .container a.login {
   background-color: var(--secondary-color);
   border: 0;
   padding: 0.75rem 2rem;
@@ -161,6 +161,7 @@ html {
   -o-border-radius: 22px;
   border-radius: 22px;
   font-size: 1rem;
+  color: white;
 }
 
 .header .container button.login {
