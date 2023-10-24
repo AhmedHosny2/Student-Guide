@@ -322,16 +322,17 @@ html {
 .header .container .avatar i.show {
   color: white;
   background-color: var(--fourth-color);
-  padding: 8px 10px;
+  padding: 5px 6px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  border: 10px solid var(--main-color);
+  border: 6px solid var(--main-color);
   cursor: pointer;
   font-weight: bold;
   display: block;
+  font-size: 10px;
 }
 
 /* end header */
