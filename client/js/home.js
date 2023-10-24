@@ -3,6 +3,7 @@ if (localStorage.getItem("userName") == null)
 else {
   const avatar = document.querySelector(".avatar i");
   avatar.classList.add("show");
+  console.log("am here");
   const loginButton = document.querySelectorAll(".login");
   loginButton.forEach((button) => {
     button.style.display = "none";
