@@ -340,3 +340,12 @@ html {
 }
 
 /* end header */
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: 80px;
+  background-color: var(--secondary-color);
+  color: var(--fourth-color);
+  text-transform: capitalize;
+}
