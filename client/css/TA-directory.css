@@ -39,6 +39,16 @@
   padding: 10px;
 }
 
+@media (max-width: 767px) {
+  .taDirectory .container .search-bar label {
+    display: none;
+  }
+
+  .taDirectory .container .search-bar input {
+    width: calc(100vw - 20px);
+  }
+}
+
 .taDirectory .container .search-bar input:focus {
   outline: none;
 }
