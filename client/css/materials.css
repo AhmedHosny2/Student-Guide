@@ -162,20 +162,20 @@ body {
 .contentDisplay .container {
   display: grid;
   place-items: center;
-}
-
-.contentDisplay .container p {
-  padding: 20px 0;
   line-height: 1.8;
   font-size: 1.125rem;
-  margin: 0;
 }
 
-@media (min-width: 1200px) {
-  .contentDisplay .container p {
+.contentDisplay .container ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* @media (min-width: 1200px) {
+  .contentDisplay .container {
     width: 800px;
   }
-}
+} */
 
 /* end content display */
 /* start image box url */
