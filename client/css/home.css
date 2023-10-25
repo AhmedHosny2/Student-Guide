@@ -76,6 +76,7 @@ main {
   padding: 0;
   margin: 0;
   color: var(--third-color);
+  font-size: 1.25rem;
 }
 
 .welcome .container .sout h1 .dot {
