@@ -143,6 +143,12 @@ main {
   margin: 60px 0;
 }
 
+.section-global {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .section-global .container {
   display: flex;
   align-items: center;
@@ -202,6 +208,34 @@ main {
   background-color: white;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   color: var(--third-color);
+}
+
+.section-global .redir-btn {
+  background-color: var(--third-color);
+  color: white;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-global .redir-btn:hover {
+  box-shadow: hsla(228, 43%, 54%, 0.4) 5px 5px,
+    hsla(228, 43%, 54%, 0.3) 10px 10px,
+    hsla(228, 43%, 54%, 0.2) 15px 15px,
+    hsla(228, 43%, 54%, 0.1) 20px 20px,
+    hsla(228, 43%, 54%, 0.05) 25px 25px;
 }
 
 @media (max-width: 1199px) {
