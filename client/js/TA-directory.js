@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("userName") == null)
     window.location.href = "https://www.ahmed-yehia.me/html/login.html";
   else {
+    const avatar = document.querySelector(".avatar i");
+    avatar.classList.add("show");
     const loginButton = document.querySelectorAll(".login");
     loginButton.forEach((button) => {
       button.style.display = "none";

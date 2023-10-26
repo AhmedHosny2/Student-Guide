@@ -4,12 +4,14 @@ const submit = document.querySelector(".submit");
 const textarea = document.querySelector(".text-box");
 const contentDisplay = document.querySelector(".contentDisplay .container");
 if (localStorage.getItem("userName") == null)
-window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
 else {
-const loginButton = document.querySelectorAll(".login");
-loginButton.forEach((button) => {
-  button.style.display = "none";
-});
+  const avatar = document.querySelector(".avatar i");
+  avatar.classList.add("show");
+  const loginButton = document.querySelectorAll(".login");
+  loginButton.forEach((button) => {
+    button.style.display = "none";
+  });
 }
 editBtn.addEventListener("click", () => {
   document.body.classList.toggle("overlay");
