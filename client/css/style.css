@@ -333,12 +333,15 @@ html {
     justify-content: space-around;
     font-size: 25px;
     background-color: var(--content-color);
-    padding: 10px;
-    color: var(--main-color);
   }
 
   .header .container .mobile-nav a {
-    color: var(--main-color);
+    color: var(--secondary-color);
+    padding: 15px;
+  }
+
+  .header .container .mobile-nav a.active {
+    border-bottom: 4px solid var(--fourth-color);
   }
 }
 
