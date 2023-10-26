@@ -106,6 +106,14 @@
   .courses-selection .container form {
     flex-direction: column;
   }
+
+  .courses-selection .container form label {
+    font-size: 22px;
+  }
+
+  .courses-selection .container .courses-wrap {
+    margin: 50px 0 100px;
+  }
 }
 
 .re-direct {
