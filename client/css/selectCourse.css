@@ -127,8 +127,8 @@
   border: 0;
   color: white;
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 60px;
+  right: 60px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -138,8 +138,9 @@
 
 @media (max-width:767px) {
   .re-direct {
-    bottom: 60px;
-    right: 60px;
+
+    bottom: 80px;
+    right: 20px;
   }
 }
 
