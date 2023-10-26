@@ -136,6 +136,13 @@
   transition: 0.3s;
 }
 
+@media (max-width:767px) {
+  .re-direct {
+    bottom: 60px;
+    right: 60px;
+  }
+}
+
 .re-direct:hover {
   background-color: var(--secondary-color);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

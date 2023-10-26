@@ -153,6 +153,13 @@
   border: 0;
   color: white;
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 60px;
+  right: 60px;
+}
+
+@media (max-width: 767px) {
+  .taDirectory .container .addTaBtn {
+    bottom: 80px;
+    right: 20px;
+  }
 }
