@@ -14,18 +14,20 @@
   width: max-content;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
-.taDirectory .container .search-bar label {
+/* .taDirectory .container .search-bar label {
   text-transform: capitalize;
   color: var(--secondary-color);
   font-weight: bold;
   font-size: 2rem;
-}
+} */
 
 .taDirectory .container .search-bar {
   position: relative;
+  width: 100%;
 }
 
 .taDirectory .container .search-bar input {
@@ -37,15 +39,16 @@
   -o-border-radius: 6px;
   border-radius: 6px;
   padding: 10px;
+  width: 60%;
 }
 
 @media (max-width: 767px) {
-  .taDirectory .container .search-bar label {
-    display: none;
-  }
 
+  /* .taDirectory .container .search-bar label {
+    display: none;
+  } */
   .taDirectory .container .search-bar input {
-    width: calc(100vw - 20px);
+    width: 100%;
   }
 }
 
@@ -53,14 +56,14 @@
   outline: none;
 }
 
-.taDirectory .container .search-bar::before {
+/* .taDirectory .container .search-bar::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f002";
   color: var(--secondary-color);
   position: absolute;
-  right: 10px;
-}
+  right: 0;
+} */
 
 .taDirectory .container .search-bar span {
   color: var(--secondary-color);
