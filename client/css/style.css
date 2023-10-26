@@ -301,6 +301,10 @@ html {
   }
 }
 
+.header .container .mobile-nav {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .header .nav {
     inset: 0;
@@ -314,6 +318,27 @@ html {
     width: 100%;
     height: 100vh;
     z-index: 1000;
+  }
+
+  .header .container .burger-menu {
+    display: none;
+  }
+
+  .header .container .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 25px;
+    background-color: var(--content-color);
+    padding: 10px;
+    color: var(--main-color);
+  }
+
+  .header .container .mobile-nav a {
+    color: var(--main-color);
   }
 }
 
