@@ -183,11 +183,14 @@ main {
 @media (max-width: 767px) {
   .welcome {
     margin: 0;
-    height: 91vh;
+    height: 86vh;
     background-color: #f3f5f8;
     opacity: 1;
-    background-image: radial-gradient(#576CBC 1.3px, #f3f5f8 1.3px);
-    background-size: 26px 26px;
+    /* background-image: radial-gradient(#576CBC 1.3px, #f3f5f8 1.3px);
+    background-size: 26px 26px; */
+    background: url("../images/background.png") repeat;
+    animation: bg-scrolling-reverse 0.92s infinite;
+    animation-timing-function: linear;
     text-align: center;
     display: flex;
     align-items: center;
@@ -375,10 +378,11 @@ main {
 
 @media (max-width:767px) {
   .welcome .direct {
-    inset: auto auto 60px;
+    display: none;
   }
 }
 
+/* start animation */
 @keyframes up-down {
   0% {
     -webkit-transform: translateY(0%);
@@ -402,5 +406,11 @@ main {
     -ms-transform: translateY(0%);
     -o-transform: translateY(0%);
     transform: translateY(0%);
+  }
+}
+
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
   }
 }
