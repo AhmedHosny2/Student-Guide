@@ -34,9 +34,11 @@ body {
 
 .carousel-item {
   position: relative;
-  margin: 0;
-  padding: 0;
-  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
 }
 
 .carousel-item::before {
@@ -51,19 +53,41 @@ body {
   
 }
 
-.carousel-caption {
-  position: absolute;
-  z-index: 2;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  bottom: 0;
-  left: 10;
-  right: 10;
+.caption {
+  max-width: 100%;
+    z-index: 1;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    bottom: 50px;
   
+}
+
+.slides{
+
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+ }
+
+@media only screen and (max-width: 767px) {
+  
+  .slides{
+
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+   }
 }
 
 .carousel-caption h5 {
