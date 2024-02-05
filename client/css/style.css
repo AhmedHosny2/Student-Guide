@@ -334,6 +334,7 @@ html {
     font-size: 25px;
     background-color: var(--content-color);
   }
+  
 
   .header .container .mobile-nav a {
     color: var(--secondary-color);

@@ -1,7 +1,16 @@
 //start text editing
 const editBtn = document.querySelector(".text-edit");
+const editor = document.getElementById("editor");
 const submit = document.querySelector(".submit");
-const textarea = document.querySelector(".text-box");
+let myEditor;
+
+//  hide editor
+if (editor) {
+  // Set the 'hidden' attribute to true to hide the element
+  editor.hidden = true;
+} else {
+  console.error("Element with id 'editor' not found");
+}
 const contentDisplay = document.querySelector(".contentDisplay .container");
 import { coursesURL } from "../utils/env.js";
 if (localStorage.getItem("userName") == null)
@@ -14,42 +23,273 @@ else {
     button.style.display = "none";
   });
 }
+
 editBtn.addEventListener("click", () => {
   document.body.classList.toggle("overlay");
-  textarea.classList.toggle("show");
+  editor.classList.toggle("show");
   submit.classList.toggle("show");
 });
-let tiny;
+
+
 document.addEventListener("DOMContentLoaded", function () {
-  tinymce.init({
-    selector: "textarea",
-    setup: function (editor) {
-      editor.on("init", function (e) {
-        editor.setContent(localStorage.getItem("courseData"));
-      });
+  editor.style.display = "none";
+  CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
+    // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
+    toolbar: {
+      items: [
+        "bold",
+        "italic",
+        "strikethrough",
+        "underline",
+        "code",
+        "subscript",
+        "superscript",
+        "removeFormat",
+        "|",
+        "bulletedList",
+        "numberedList",
+        "todoList",
+        "|",
+        "outdent",
+        "indent",
+        "|",
+        "findAndReplace",
+        "selectAll",
+        "|",
+        "heading",
+        "|",
+
+        "undo",
+        "redo",
+        "-",
+        "fontSize",
+        "fontFamily",
+        "fontColor",
+        "fontBackgroundColor",
+        "highlight",
+        "|",
+        "alignment",
+        "|",
+        "link",
+        "uploadImage",
+        "blockQuote",
+        "insertTable",
+        "mediaEmbed",
+        "codeBlock",
+        "|",
+        "specialCharacters",
+        "horizontalLine",
+        "pageBreak",
+        "|",
+
+        "sourceEditing",
+      ],
+      shouldNotGroupWhenFull: true,
     },
-    plugins:
-      "ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
-    toolbar:
-      "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
-    tinycomments_mode: "embedded",
-    tinycomments_author: "Author name",
-    mergetags_list: [
-      { value: "First.Name", title: "First Name" },
-      { value: "Email", title: "Email" },
+    // Changing the language of the interface requires loading the language file using the <script> tag.
+    // language: 'es',
+    list: {
+      properties: {
+        styles: true,
+        startIndex: true,
+        reversed: true,
+      },
+    },
+    // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
+    heading: {
+      options: [
+        {
+          model: "paragraph",
+          title: "Paragraph",
+          class: "ck-heading_paragraph",
+        },
+        {
+          model: "heading1",
+          view: "h1",
+          title: "Heading 1",
+          class: "ck-heading_heading1",
+        },
+        {
+          model: "heading2",
+          view: "h2",
+          title: "Heading 2",
+          class: "ck-heading_heading2",
+        },
+        {
+          model: "heading3",
+          view: "h3",
+          title: "Heading 3",
+          class: "ck-heading_heading3",
+        },
+        {
+          model: "heading4",
+          view: "h4",
+          title: "Heading 4",
+          class: "ck-heading_heading4",
+        },
+        {
+          model: "heading5",
+          view: "h5",
+          title: "Heading 5",
+          class: "ck-heading_heading5",
+        },
+        {
+          model: "heading6",
+          view: "h6",
+          title: "Heading 6",
+          class: "ck-heading_heading6",
+        },
+      ],
+    },
+    // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
+    placeholder: "Welcome to CKEditor 5!",
+    // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
+    fontFamily: {
+      options: [
+        "default",
+        "Arial, Helvetica, sans-serif",
+        "Courier New, Courier, monospace",
+        "Georgia, serif",
+        "Lucida Sans Unicode, Lucida Grande, sans-serif",
+        "Tahoma, Geneva, sans-serif",
+        "Times New Roman, Times, serif",
+        "Trebuchet MS, Helvetica, sans-serif",
+        "Verdana, Geneva, sans-serif",
+      ],
+      supportAllValues: true,
+    },
+    // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature
+    fontSize: {
+      options: [10, 12, 14, "default", 18, 20, 22],
+      supportAllValues: true,
+    },
+    // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
+    // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
+    htmlSupport: {
+      allow: [
+        {
+          name: /.*/,
+          attributes: true,
+          classes: true,
+          styles: true,
+        },
+      ],
+    },
+    // Be careful with enabling previews
+    // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
+    htmlEmbed: {
+      showPreviews: true,
+    },
+    // https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators
+    link: {
+      decorators: {
+        addTargetToExternalLinks: true,
+        defaultProtocol: "https://",
+        toggleDownloadable: {
+          mode: "manual",
+          label: "Downloadable",
+          attributes: {
+            download: "file",
+          },
+        },
+      },
+    },
+    // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
+    mention: {
+      feeds: [
+        {
+          marker: "@",
+          feed: [
+            "@apple",
+            "@bears",
+            "@brownie",
+            "@cake",
+            "@cake",
+            "@candy",
+            "@canes",
+            "@chocolate",
+            "@cookie",
+            "@cotton",
+            "@cream",
+            "@cupcake",
+            "@danish",
+            "@donut",
+            "@dragée",
+            "@fruitcake",
+            "@gingerbread",
+            "@gummi",
+            "@ice",
+            "@jelly-o",
+            "@liquorice",
+            "@macaroon",
+            "@marzipan",
+            "@oat",
+            "@pie",
+            "@plum",
+            "@pudding",
+            "@sesame",
+            "@snaps",
+            "@soufflé",
+            "@sugar",
+            "@sweet",
+            "@topping",
+            "@wafer",
+          ],
+          minimumCharacters: 1,
+        },
+      ],
+    },
+    // The "superbuild" contains more premium features that require additional configuration, disable them below.
+    // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
+    removePlugins: [
+      // These two are commercial, but you can try them out without registering to a trial.
+      // 'ExportPdf',
+      // 'ExportWord',
+      "AIAssistant",
+      "CKBox",
+      "CKFinder",
+      "EasyImage",
+      // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
+      // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
+      // Storing images as Base64 is usually a very bad idea.
+      // Replace it on production website with other solutions:
+      // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
+      // 'Base64UploadAdapter',
+      "RealTimeCollaborativeComments",
+      "RealTimeCollaborativeTrackChanges",
+      "RealTimeCollaborativeRevisionHistory",
+      "PresenceList",
+      "Comments",
+      "TrackChanges",
+      "TrackChangesData",
+      "RevisionHistory",
+      "Pagination",
+      "WProofreader",
+      // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
+      // from a local file system (file://) - load this site via HTTP server if you enable MathType.
+      "MathType",
+      // The following features are part of the Productivity Pack and require additional license.
+      "SlashCommand",
+      "Template",
+      "DocumentOutline",
+      "FormatPainter",
+      "TableOfContents",
+      "PasteFromOfficeEnhanced",
+      "CaseChange",
     ],
-    ai_request: (request, respondWith) =>
-      respondWith.string(() =>
-        Promise.reject("See docs to implement AI Assistant")
-      ),
+  }).then((editor) => {
+    editor.setData(localStorage.getItem("courseData"));
+    myEditor = editor;
   });
-  tiny = tinymce;
+
+  // ===================================================
+
   // localStorage.setItem("courseData", `<h1><span style="color: rgb(241, 196, 15);"><strong><span style="font-family: 'arial black', sans-serif;">cool</span></strong></span></h1>`);
   if (localStorage.getItem("courseData")) {
     contentDisplay.innerHTML = localStorage.getItem("courseData");
   }
   function displayContent() {
-    const editorContent = tinymce.activeEditor.getContent();
+    const editorContent = myEditor.getData();
     if (editorContent !== "") {
       localStorage.setItem("courseData", editorContent);
     }
@@ -72,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const updateCourse = async () => {
   const courseName = localStorage.getItem("courseName");
-  const newContent = tiny.activeEditor.getContent();
+  const newContent = myEditor.getData();
   if (newContent) {
     localStorage.setItem("courseData", newContent);
   }

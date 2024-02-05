@@ -1,4 +1,4 @@
-import  {coursesURL}  from "../utils/env.js";
+import { getCourseURL , coursesURL} from "../utils/env.js";
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
   2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
@@ -82,8 +82,7 @@ function displayCourses() {
               localStorage.setItem("courseData", data.content);
               localStorage.setItem("courseName", data.courseName);
               console.log("Response from the API:", data);
-              window.location.href =
-                "https://www.ahmed-yehia.me/html/getCourse.html";
+              window.location.href = getCourseURL;
             })
             .catch((error) => {
               console.error("Fetch error:", error);
