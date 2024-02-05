@@ -9,18 +9,37 @@ const TADirectorySchema = new Schema({
     type: String,
     required: true,
   },
-  course: {
+
+  officeLocation: {
     type: String,
     required: true,
+  },
+});
+const TaCourseSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+
+  officeLocation: {
+    type: String,
+  },
+  courseName: {
+    type: String,
+    required: true,
+  },
+  tutorials: {
+    type: [String],
   },
   officeHours: {
     type: String,
   },
-  officeLocation: {
-    type: String,
-  },
-  tutorials: {
-    type: Array,
-  },
 });
-module.exports = mongoose.model("TADirectory", TADirectorySchema);
+
+const TaModel = mongoose.model("TADirectory", TADirectorySchema);
+const TaCourseModel = mongoose.model("TaCourse", TaCourseSchema);
+module.exports = { TaModel, TaCourseModel };
