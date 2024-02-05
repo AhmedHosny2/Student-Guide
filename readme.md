@@ -1,4 +1,4 @@
-Student Guide
+#Student Guide
 
 This microservice project consists of three services, each running on a designated port:
 
@@ -25,6 +25,11 @@ Usage
     User Microservice (Port 5001): Handle user-related operations.
     TADirectory Microservice (Port 5002): Manage Teaching Assistant information.
     Courses Microservice (Port 5003): Implement course-related functionalities.
+
+#how to run 
+```
+python runAll.py 
+```
 
 Contributing
 
