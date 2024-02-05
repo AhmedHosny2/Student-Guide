@@ -3,6 +3,7 @@ const editBtn = document.querySelector(".text-edit");
 const submit = document.querySelector(".submit");
 const textarea = document.querySelector(".text-box");
 const contentDisplay = document.querySelector(".contentDisplay .container");
+const {coursesURL}= require("../utils/env")
 if (localStorage.getItem("userName") == null)
   window.location.href = "https://www.ahmed-yehia.me/html/login.html";
 else {
@@ -77,7 +78,7 @@ const updateCourse = async () => {
   }
   const content = localStorage.getItem("courseData");
 
-  const url = `https://student-guide-course.ahmed-yehia.me/course/${courseName}`; //here
+  const url = `${coursesURL}/${courseName}`; //here
   fetch(url, {
     method: "PUT",
     headers: {

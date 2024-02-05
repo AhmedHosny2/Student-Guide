@@ -1,5 +1,5 @@
 if (localStorage.getItem("userName") == null)
-  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+  window.location.href = "guide.ahmed-yehia.me/html/login.html";
 else {
   const avatar = document.querySelector(".avatar i");
   avatar.classList.add("show");

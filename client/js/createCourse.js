@@ -27,9 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     try {
-      // const apiUrl = `http://localhost:5002/course`; // Replace with your API URL here
-      const apiUrl = `https://student-guide-course.ahmed-yehia.me/course`; // Replace with your API URL here
-      fetch(apiUrl, {
+      fetch(coursesURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
+const {coursesURL} = require("../utils/env")
 // Add the code for initializing the TinyMCE editor below this comment
 let tiny = "";
 document.addEventListener("DOMContentLoaded", function () {

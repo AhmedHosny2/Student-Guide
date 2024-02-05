@@ -1,3 +1,4 @@
+const {coursesURL} = require("../utils/env")
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
   2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
@@ -63,7 +64,7 @@ function displayCourses() {
 
       courseCard.addEventListener("click", async function () {
         try {
-          const apiUrl = `https://student-guide-course.ahmed-yehia.me/course/${course}`;
+          const apiUrl = `${coursesURL}/${course}`;
           fetch(apiUrl, {
             method: "GET",
             headers: {

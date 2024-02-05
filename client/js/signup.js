@@ -1,3 +1,4 @@
+const { userURL } = require("../utils/env");
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.querySelector(".signup-form");
 
@@ -11,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
     console.log(formDataObject);
-    const apiUrl = "https://student-guide-users.ahmed-yehia.me/user/signup"; // Replace with your API URL here
-    // const apiUrl = "http://localhost:5001/user/signup"; // Replace with your API URL here
+    const apiUrl = `${userURL}/signup`; 
 
     fetch(apiUrl, {
       method: "POST",
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
         animateAlert("Sign up successful! You can now log in", 3000);
         console.log("Response from the API:", data);
         setTimeout(function () {
-          window.location.href = "https://www.ahmed-yehia.me/html/login.html";  //here 
-          // window.location.href = "http://127.0.0.1:5500/client/html/login.html";  //here 
+          window.location.href = "https://www.ahmed-yehia.me/html/login.html"; //here
+          // window.location.href = "http://127.0.0.1:5500/client/html/login.html";  //here
         }, 2000);
         // Handle the response data from the API (e.g., show a success message)
       })

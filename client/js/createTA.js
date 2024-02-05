@@ -2,6 +2,7 @@ const addBtn = document.getElementById("addTutorials");
 const clearBtn = document.getElementById("clear");
 const tutorialsVal = document.getElementById("tutorials-value");
 const listOfTutorials = document.getElementById("listOfTutorials");
+const {taURL}= require("../utils/env")
 let arrOfTutorials = [];
 if (localStorage.getItem("userName") == null)
   window.location.href = "https://www.ahmed-yehia.me/html/login.html";
@@ -69,9 +70,7 @@ courseForm.addEventListener("submit", function (event) {
   const tutorials = arrOfTutorials.sort();
   const course = courseNameInput.value;
   try {
-    // const apiUrl = `http://localhost:5003/TADirectory`; // Replace with your API URL here
-    const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
-    fetch(apiUrl, {
+    fetch(taURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

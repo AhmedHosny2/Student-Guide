@@ -1,3 +1,4 @@
+const { taURL } = require("../utils/env");
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("userName") == null)
     window.location.href = "https://www.ahmed-yehia.me/html/login.html";
@@ -12,9 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let arr = [];
   function fetchTAData() {
-    const apiUrl = `https://ta.ahmed-yehia.me/TADirectory`; // Replace with your API URL here
-    // const apiUrl = `http://localhost:5003/TADirectory`; // Replace with your API URL here
-    fetch(apiUrl, {
+    fetch(taURL, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
