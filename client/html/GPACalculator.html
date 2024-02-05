@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Selection</title>
+</head>
+<body>
+    <h1>Subject Selection</h1>
+
+    <h3>All Subjects:</h3>
+    <form id="allSubjectsForm">
+        <!-- All subjects will be dynamically loaded here -->
+    </form>
+
+    <!-- Buttons to choose all subjects for each semester -->
+    <button onclick="selectAllSubjects(1)">Choose All Semester 1 Subjects</button>
+    <button onclick="selectAllSubjects(2)">Choose All Semester 2 Subjects</button>
+    <button onclick="selectAllSubjects(3)">Choose All Semester 3 Subjects</button>
+    <button onclick="selectAllSubjects(4)">Choose All Semester 4 Subjects</button>
+
+    <h2>Selected Subjects:</h2>
+    <form id="subjectForm">
+        <!-- Selected subjects will be dynamically loaded here -->
+    </form>
+
+    <button onclick="showSelectedSubjects()">Next</button>
+
+    <ul id="selectedSubjects"></ul>
+
+    <script src="../js/GPACalculator.js"></script>
+</body>
+</html>
