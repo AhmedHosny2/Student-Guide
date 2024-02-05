@@ -18,7 +18,6 @@ const TADirectorySchema = new Schema({
 const TaCourseSchema = new Schema({
   name: {
     type: String,
-    required: true,
   },
   email: {
     type: String,

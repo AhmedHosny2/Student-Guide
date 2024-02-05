@@ -39,14 +39,16 @@ exports.getAllTas = async (req, res) => {
 exports.assignTa = async (req, res) => {
   // TODO  get all tuts already exist for this course and compare with the new ones
   const { email, tutorials, courseName, officeHours } = req.body;
+  console.log(email, tutorials, courseName, officeHours);
   // const userEmail = getCookie(req).email;
-  const uniEmail = email + "@giu-uni.de";
-  const found = TaModel.find({ email: uniEmail });
-  console.log(found);
-  if (!found) {
+  let  found = await TaModel.find({ email : email});
+  if (found === null || found.length === 0) {
     return res.status(404).json({ message: "TA not found" });
   }
+  found = found[0];
   try {
+    console.log( found);
+
     await TaCourseModel.create({
       name: found.name,
       officeLocation: found.officeLocation,
@@ -55,6 +57,7 @@ exports.assignTa = async (req, res) => {
       courseName,
       officeHours,
     });
+    res.status(200).json({ message: "TA assigned" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
