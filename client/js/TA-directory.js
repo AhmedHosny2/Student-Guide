@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardContainer = document.querySelector(".card-wrap");
 
     taData.forEach((ta) => {
+      // create delete button 
+   
+
       const card = document.createElement("section");
       card.classList.add("card");
 
@@ -48,7 +51,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const box = document.createElement("div");
       box.classList.add("box");
-
+   const deleteButton = document.createElement("deleteButton");
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('delete-button');
+      deleteButton.style.color = "white";
+      deleteButton.addEventListener('click', function () {
+        fetch(taURL + "/deleteTACourse", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ _id: ta._id}),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              alert("TA not found");
+              throw new Error("Network response was not ok");
+            }
+            alert("TA deleted");
+            location.reload();
+            return response.json();
+          })
+          .catch((error) => {
+            console.error("Fetch error:", error);
+          });
+       
+      })      
       // Helper function to create a card wrap element
       function createCardWrap(label, value) {
         const wrap = document.createElement("div");
@@ -64,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         wrap.appendChild(span);
         return wrap;
       }
-
+      box.appendChild(deleteButton);
       box.appendChild(createCardWrap("name", ta.name));
       box.appendChild(createCardWrap("office hour", ta.officeHours));
       box.appendChild(createCardWrap("office location", ta.officeLocation));
