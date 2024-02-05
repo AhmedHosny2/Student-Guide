@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const courseName = document.createElement("div");
       courseName.classList.add("course");
-      courseName.textContent = ta.course; // Replace with the actual course name
+      courseName.textContent = ta.courseName; // Replace with the actual course name
 
       const box = document.createElement("div");
       box.classList.add("box");
