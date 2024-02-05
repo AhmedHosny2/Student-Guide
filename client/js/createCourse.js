@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-const {coursesURL} = require("../utils/env")
+import { coursesURL } from "../utils/env.js";
 // Add the code for initializing the TinyMCE editor below this comment
 let tiny = "";
 document.addEventListener("DOMContentLoaded", function () {

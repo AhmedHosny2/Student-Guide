@@ -1,4 +1,4 @@
-const { taURL } = require("../utils/env");
+import { taURL } from "../utils/env.js";
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("userName") == null)
     window.location.href = "https://www.ahmed-yehia.me/html/login.html";

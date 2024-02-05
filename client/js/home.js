@@ -1,5 +1,7 @@
+import { clientLoginURL } from "../utils/env.js";
+console.log(clientLoginURL);
 if (localStorage.getItem("userName") == null)
-  window.location.href = "https://guide.ahmed-yehia.me/html/login.html";
+  window.location.href = clientLoginURL;
 else {
   const avatar = document.querySelector(".avatar i");
   avatar.classList.add("show");
@@ -47,8 +49,6 @@ const observerOfSectionPoints = new IntersectionObserver(
   { threshold: 1 }
 );
 sectionPoints.forEach((el) => observerOfSectionPoints.observe(el));
-
-
 
 const welcomeText = document.querySelectorAll(".welcome .container .text h1");
 const soutText = document.querySelectorAll(".welcome .container .sout");

@@ -2,7 +2,7 @@ const addBtn = document.getElementById("addTutorials");
 const clearBtn = document.getElementById("clear");
 const tutorialsVal = document.getElementById("tutorials-value");
 const listOfTutorials = document.getElementById("listOfTutorials");
-const {taURL}= require("../utils/env")
+import { taURL } from "../utils/env.js";
 let arrOfTutorials = [];
 if (localStorage.getItem("userName") == null)
   window.location.href = "https://www.ahmed-yehia.me/html/login.html";

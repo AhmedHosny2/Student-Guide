@@ -12,15 +12,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+console.log(process.env.CLIENT_URL);
 //session
 app.use(cookieParser()); // Add cookie parser middleware
-
 
 // app.use(passport.initialize());
 // app.use(passport.session());
 
+// health check
+app.get("/health", (req, res) => {
+  res.status(200).send("Health check passed");
+});
 // Routes
-app.use("/auth", googleRouter);
 app.use("/user", userRouter);
 
 const PORT = process.env.PORT || 5001;

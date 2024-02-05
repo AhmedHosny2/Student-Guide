@@ -1,4 +1,4 @@
-const {coursesURL} = require("../utils/env")
+import  {coursesURL}  from "../utils/env.js";
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
   2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],

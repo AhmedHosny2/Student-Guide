@@ -1,4 +1,4 @@
-const {userURL}= require("../utils/env")
+import  {userURL, clientURL} from "../utils/env.js";
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".login-form");
   const protectedRouteButton = document.getElementById(
@@ -41,9 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("userEmail", data.email);
         localStorage.setItem("userName", data.userName);
         localStorage.setItem("isAdmin", data.isAdmin);
-        window.location.href = "https://www.ahmed-yehia.me/index.html";
-        // window.location.href = "http://127.0.0.1:5500/client/index.html"; //here 
-        // Handle the response data from the API (e.g., show a success message)
+        window.location.href = clientURL;
       })
       .catch((error) => {
         console.error("Fetch error:", error);

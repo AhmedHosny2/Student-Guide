@@ -1,4 +1,4 @@
-const { userURL } = require("../utils/env");
+import  { userURL } from "../utils/env.js";
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.querySelector(".signup-form");
 
