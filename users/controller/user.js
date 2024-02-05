@@ -21,9 +21,11 @@ function generateRefreshToken(user, expiresAt, isrefresh) {
 }
 
 exports.signupUser = async (req, res) => {
-  const { userName, email, password } = req.body;
+  let  { userName, email, password } = req.body;
 
   try {
+    userName = userName.toLowerCase();
+    email = email.toLowerCase();
     const checkEmail = await userModel.findOne({ email });
     const checkuserName = await userModel.findOne({ userName });
 
@@ -78,8 +80,8 @@ exports.signupUser = async (req, res) => {
 };
 
 exports.loginUser = async (req, res) => {
-  const { userName, password } = req.body;
-
+  let { userName, password } = req.body;
+  userName = userName.toLowerCase();
   try {
     if (!(userName && password)) {
       return res.status(400).json({ message: "All input is required" });
