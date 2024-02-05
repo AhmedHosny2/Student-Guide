@@ -64,7 +64,7 @@ function displayCourses() {
 
       courseCard.addEventListener("click", async function () {
         try {
-          const apiUrl = `${coursesURL}/${course}`;
+       const apiUrl = `${coursesURL}/${course}`;
           fetch(apiUrl, {
             method: "GET",
             headers: {
@@ -81,8 +81,9 @@ function displayCourses() {
             .then((data) => {
               localStorage.setItem("courseData", data.content);
               localStorage.setItem("courseName", data.courseName);
-              console.log("Response from the API:", data);
+              localStorage.setItem("readingTime",Math.floor( data.content.length/200));
               window.location.href = getCourseURL;
+
             })
             .catch((error) => {
               console.error("Fetch error:", error);

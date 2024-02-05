@@ -3,7 +3,10 @@ const editBtn = document.querySelector(".text-edit");
 const editor = document.getElementById("editor");
 const submit = document.querySelector(".submit");
 let myEditor;
+var readTimeElement = document.querySelector(".readTime");
 
+// Update the content of the element with the new reading time
+readTimeElement.innerHTML = '<i class="fa-solid fa-book-open-reader"></i> ' + localStorage.getItem("readingTime") + ' min read';
 //  hide editor
 if (editor) {
   // Set the 'hidden' attribute to true to hide the element
