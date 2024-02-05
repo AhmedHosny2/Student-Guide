@@ -6,7 +6,10 @@ let myEditor;
 var readTimeElement = document.querySelector(".readTime");
 
 // Update the content of the element with the new reading time
-readTimeElement.innerHTML = '<i class="fa-solid fa-book-open-reader"></i> ' + localStorage.getItem("readingTime") + ' min read';
+readTimeElement.innerHTML =
+  '<i class="fa-solid fa-book-open-reader"></i> ' +
+  localStorage.getItem("readingTime") +
+  " min read";
 //  hide editor
 if (editor) {
   // Set the 'hidden' attribute to true to hide the element
@@ -32,7 +35,6 @@ editBtn.addEventListener("click", () => {
   editor.classList.toggle("show");
   submit.classList.toggle("show");
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
   editor.style.display = "none";
@@ -304,6 +306,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for the button click
   submit.addEventListener("click", function () {
+    if (myEditor.getData() < localStorage.getItem("courseData").length * 0.7) {
+      alert("You have to write at least 70% of the content");
+      return;
+    }
     updateCourse();
     displayContent();
     document.body.classList.toggle("overlay");
