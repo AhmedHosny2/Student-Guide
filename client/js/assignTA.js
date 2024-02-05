@@ -77,7 +77,7 @@ const clearBtn = document.getElementById("clear");
 const tutorialsVal = document.getElementById("tutorials-value");
 const listOfTutorials = document.getElementById("listOfTutorials");
 let arrOfTutorials = [];
-
+if(addBtn)
 addBtn.onclick = (event) => {
   event.preventDefault();
 

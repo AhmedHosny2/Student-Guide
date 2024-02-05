@@ -41,13 +41,13 @@ exports.assignTa = async (req, res) => {
   const { email, tutorials, courseName, officeHours } = req.body;
   console.log(email, tutorials, courseName, officeHours);
   // const userEmail = getCookie(req).email;
-  let  found = await TaModel.find({ email : email});
+  let found = await TaModel.find({ email: email });
   if (found === null || found.length === 0) {
     return res.status(404).json({ message: "TA not found" });
   }
   found = found[0];
   try {
-    console.log( found);
+    console.log(found);
 
     await TaCourseModel.create({
       name: found.name,
@@ -58,6 +58,20 @@ exports.assignTa = async (req, res) => {
       officeHours,
     });
     res.status(200).json({ message: "TA assigned" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+exports.deleteTa = async (req, res) => {
+  const { email } = req.body;
+  console.log(email);
+  try {
+    await TaModel.deleteOne({ email });
+    res.status(200).json({ message: "TA deleted" });
+    await TaCourseModel.deleteMany({
+      email,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
