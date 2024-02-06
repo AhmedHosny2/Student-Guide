@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     console.log(formDataObject);
     const apiUrl = `${userURL}/signup`; 
-
+    console.log();
     fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -28,12 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((data) => {
-        animateAlert("Sign up successful! You can now log in", 3000);
-        console.log("Response from the API:", data);
-        setTimeout(function () {
-          window.location.href = "https://www.ahmed-yehia.me/html/login.html"; //here
-          // window.location.href = "http://127.0.0.1:5500/client/html/login.html";  //here
-        }, 2000);
+    
+        localStorage.setItem("userEmail", formDataObject.email);
+
+        window.location.href = "../html/verfiyEmail.html";
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {

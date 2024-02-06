@@ -29,6 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
+        if(response.status === 207){
+          localStorage.setItem("userEmail", formDataObject.email);
+          alert("verfiy your email first!");
+          window.location.href = "../html/verfiyEmail.html";
+          return;
+
+        }
         // the response used .send in backend
 
         return response.text();

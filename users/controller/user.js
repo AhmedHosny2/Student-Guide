@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
+const crypto = require("crypto");
 const getCookies = require("../utils/cookies").getEntriesFromCookie;
 const saltRounds = 10;
 const domain = process.env.DOMAIN;
@@ -24,6 +25,12 @@ const sendEmail = async (to, subject, text) => {
     });
 };
 
+function generateOTP() {
+  // Generate a random 6-digit number
+  const otp = crypto.randomInt(100000, 999999);
+  return otp;
+}
+
 // Refresh token function
 const generateRefreshToken = (user, expiresAt, isrefresh) => {
   console.log(user);
@@ -45,6 +52,7 @@ exports.signupUser = async (req, res) => {
   try {
     userName = userName.toLowerCase();
     email = email.toLowerCase();
+    console.log(email.slice(-19));
     const checkEmail = await userModel.findOne({ email });
     const checkuserName = await userModel.findOne({ userName });
     // check if the email is a GIU email by checking last 10 characters
@@ -75,37 +83,6 @@ exports.signupUser = async (req, res) => {
       "Welcome to The Guide",
       `Welcome to The Guide, ${userName}! We are excited to have you on board.`
     );
-    // Create an access token
-    const jwtExpirationMinutes = 5 * 60000; // JWT token expiration time in minutes
-    const refreshToken = generateRefreshToken(newUser, "1825d", true);
-    const token = generateRefreshToken(newUser, jwtExpirationMinutes, false);
-    const currentTime = new Date();
-    const cookieExpiration = new Date(
-      currentTime.getTime() + jwtExpirationMinutes
-    );
-    res.cookie("authcookie", token, {
-      expires: cookieExpiration,
-      httpOnly: true,
-      sameSite: "none",
-      secure: true,
-      domain,
-      path: "/",
-    });
-    const refreshTokenExpirationYears = 1; // Refresh token expiration time in years
-    const refreshTokenExpiration = new Date(
-      currentTime.getTime() +
-        refreshTokenExpirationYears * 365 * 24 * 60 * 60 * 1000
-    );
-    res.cookie("refreshToken", refreshToken, {
-      expires: refreshTokenExpiration,
-      httpOnly: true,
-      sameSite: "none",
-      secure: true,
-      domain,
-      path: "/",
-    });
-
-    newUser.token = token;
     console.log("Sign up done");
     res.status(200).json({ message: "User created" });
   } catch (err) {
@@ -131,7 +108,9 @@ exports.loginUser = async (req, res) => {
     if (!match) {
       return res.status(400).json({ message: "Password is incorrect" });
     }
-
+    if (!user.verifyed) {
+      return res.status(207).json({ message: "Email is not verified" });
+    }
     // Calculate the new time after adding 5 hours
     const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
     const newTime = new Date(Date.now() + fiveHoursInMilliseconds);
@@ -208,4 +187,30 @@ exports.updateUserPoints = async (req, res) => {
   );
   console.log(updatedUser);
   res.status(200).json({ message: "User updated" });
+};
+
+exports.sendOTP = async (req, res) => {
+  const email = req.body.userEmail;
+  const user = await userModel.findOne({ email });
+  const randomOTP = generateOTP();
+  await sendEmail(
+    email,
+    "OTP for email verification",
+    `Your OTP is ${randomOTP}`
+  );
+  user.OTP = randomOTP;
+  await user.save();
+  res.status(200).json({ message: "OTP sent" });
+};
+exports.verifyOTP = async (req, res) => {
+  const { OTP } = req.body;
+  const email = req.body.userEmail;
+  const user = await userModel.findOne({ email });
+  if (user.OTP === OTP) {
+    user.verifyed = true;
+    await user.save();
+    res.status(200).json({ message: "Email verified" });
+  } else {
+    res.status(400).json({ message: "OTP is incorrect" });
+  }
 };

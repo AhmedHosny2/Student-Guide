@@ -24,6 +24,13 @@ const userSchema = new Schema(
       type: Boolean,
       default:false,
     },
+    verifyed:{
+      type: Boolean,
+      default:false,
+    },
+    OTP: {
+      type: String,
+    },
     token: { type: String },
   },
   {

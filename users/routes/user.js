@@ -7,6 +7,9 @@ const {
   getUser,
   logoutUser,
   updateUserPoints,
+  verifyOTP,
+  sendOTP
+
 } = require("../controller/user");
 const {
   verifyToken,
@@ -15,9 +18,12 @@ const {
   testVerifyToken,
 } = require("../middleware/auth");
 // router.post("/logout", logoutUser);
+
 router.post("/signup", signupUser);
 router.post("/login", loginUser);
 router.put("/updatePoints", updateUserPoints);
+router.post("/sendOTP", sendOTP);
+router.put("/verifyOTP", verifyOTP);
 router.use(verifyToken);
 // router.get("/protected-route", testVerifyToken);
 // router.get("/admin-route", verifyRole, testVerifyRole);
