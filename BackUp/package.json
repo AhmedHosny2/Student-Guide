@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "nodemon backup.js"
+  },
+  "engines": {
+		"node": "18.x"
+	  },
+  "dependencies": {
+    "cloudinary": "^1.41.0",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "googleapis": "^128.0.0",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^3.0.1",
+    "toad-scheduler": "^3.0.0"
+  }
+}
