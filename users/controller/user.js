@@ -4,9 +4,28 @@ const userModel = require("../model/user");
 const getCookies = require("../utils/cookies").getEntriesFromCookie;
 const saltRounds = 10;
 const domain = process.env.DOMAIN;
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const sendEmail = async (to, subject, text) => {
+  const msg = {
+    to,
+    from: "the.guide.student@gmail.com", // Change to your verified sender
+    subject,
+    text,
+    html: `<strong>${text}</strong>`,
+  };
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log("Email sent");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
 // Refresh token function
-function generateRefreshToken(user, expiresAt, isrefresh) {
+const generateRefreshToken = (user, expiresAt, isrefresh) => {
   console.log(user);
   const { email, isAdmin } = user;
   return jwt.sign(
@@ -18,7 +37,7 @@ function generateRefreshToken(user, expiresAt, isrefresh) {
       expiresIn: expiresAt,
     }
   );
-}
+};
 
 exports.signupUser = async (req, res) => {
   let { userName, email, password } = req.body;
@@ -50,7 +69,12 @@ exports.signupUser = async (req, res) => {
       email: email,
       password: hashedPassword,
     });
-
+    // send welcome email
+    sendEmail(
+      email,
+      "Welcome to The Guide",
+      `Welcome to The Guide, ${userName}! We are excited to have you on board.`
+    );
     // Create an access token
     const jwtExpirationMinutes = 5 * 60000; // JWT token expiration time in minutes
     const refreshToken = generateRefreshToken(newUser, "1825d", true);
