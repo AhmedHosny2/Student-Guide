@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
         // the response used .send in backend
-
+          console.log(response.headers);
         return response.text();
       })
       .then((data) => {

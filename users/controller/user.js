@@ -131,7 +131,7 @@ exports.loginUser = async (req, res) => {
       domain: domain,
       path: "/",
     });
-
+    console.log(refreshToken);
     res.cookie("refreshToken", refreshToken, {
       expires: newTimeRefresh,
       httpOnly: true,

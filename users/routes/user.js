@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { limiter } = require("../utils/rateLimiter");
 const {
   loginUser,
   signupUser,
@@ -18,11 +17,11 @@ const {
 } = require("../middleware/auth");
 // router.post("/logout", logoutUser);
 
-router.post("/signup", limiter, signupUser);
-router.post("/login", limiter, loginUser);
+router.post("/signup",  signupUser);
+router.post("/login",  loginUser);
 router.put("/updatePoints", updateUserPoints);
-router.post("/sendOTP", limiter, sendOTP);
-router.put("/verifyOTP", limiter, verifyOTP);
+router.post("/sendOTP",  sendOTP);
+router.put("/verifyOTP",  verifyOTP);
 router.use(verifyToken);
 // router.get("/protected-route", testVerifyToken);
 // router.get("/admin-route", verifyRole, testVerifyRole);
