@@ -36,7 +36,9 @@ main {
 }
 
 .welcome {
-  margin: 250px 0;
+  height: 80vh;
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
@@ -355,7 +357,7 @@ main {
   border: 0;
   background-color: transparent;
   position: absolute;
-  bottom: -150px;
+  bottom: 40px;
   left: 50%;
 }
 
