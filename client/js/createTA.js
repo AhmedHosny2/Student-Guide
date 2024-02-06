@@ -1,6 +1,8 @@
-import { taURL } from "../utils/env.js";
+import { taURL, clientLoginURL } from "../utils/env.js";
+
+
 if (localStorage.getItem("userName") == null)
-  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+  window.location.href = clientLoginURL;
 else {
   const avatar = document.querySelector(".avatar i");
   avatar.classList.add("show");
@@ -9,6 +11,7 @@ else {
     button.style.display = "none";
   });
 }
+
 // on  submit button click
 
 // Get references to the form and input elements

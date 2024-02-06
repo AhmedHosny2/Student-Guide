@@ -18,9 +18,9 @@ if (editor) {
   console.error("Element with id 'editor' not found");
 }
 const contentDisplay = document.querySelector(".contentDisplay .container");
-import { coursesURL } from "../utils/env.js";
+import { coursesURL ,clientLoginURL } from "../utils/env.js";
 if (localStorage.getItem("userName") == null)
-  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+  window.location.href = clientLoginURL;
 else {
   const avatar = document.querySelector(".avatar i");
   avatar.classList.add("show");

@@ -1,4 +1,4 @@
-import { getCourseURL , coursesURL} from "../utils/env.js";
+import { getCourseURL , coursesURL ,clientLoginURL} from "../utils/env.js";
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
   2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
@@ -32,7 +32,7 @@ const courseImages = {
 const semesterSelect = document.getElementById("semester");
 const courseList = document.getElementById("course-list");
 if (localStorage.getItem("userName") == null)
-  window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+  window.location.href = clientLoginURL;
 else {
   const avatar = document.querySelector(".avatar i");
   avatar.classList.add("show");
@@ -41,7 +41,6 @@ else {
     button.style.display = "none";
   });
 }
-
 function displayCourses() {
   const selectedSemester = semesterSelect.value;
   const selectedCourses = courses[selectedSemester];

@@ -1,7 +1,7 @@
-import { taURL } from "../utils/env.js";
+import { taURL , clientLoginURL } from "../utils/env.js";
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("userName") == null)
-    window.location.href = "https://www.ahmed-yehia.me/html/login.html";
+    window.location.href = clientLoginURL;
   else {
     const avatar = document.querySelector(".avatar i");
     avatar.classList.add("show");
@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
       button.style.display = "none";
     });
   }
-
   let arr = [];
   function fetchTAData() {
     fetch(taURL, {
