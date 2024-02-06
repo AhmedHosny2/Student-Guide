@@ -125,18 +125,18 @@ exports.loginUser = async (req, res) => {
 
     res.cookie("authcookie", token, {
       expires: newTime,
-      // httpOnly: true,
+      httpOnly: true,
       sameSite: "none",
-      // secure: true,
+      secure: true,
       domain: domain,
       path: "/",
     });
 
     res.cookie("refreshToken", refreshToken, {
       expires: newTimeRefresh,
-      // httpOnly: true,
+      httpOnly: true,
       sameSite: "none",
-      // secure: true,
+      secure: true,
       domain: domain,
       path: "/",
     });
