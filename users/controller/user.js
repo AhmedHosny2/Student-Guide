@@ -21,16 +21,27 @@ function generateRefreshToken(user, expiresAt, isrefresh) {
 }
 
 exports.signupUser = async (req, res) => {
-  let  { userName, email, password } = req.body;
+  let { userName, email, password } = req.body;
 
   try {
     userName = userName.toLowerCase();
     email = email.toLowerCase();
     const checkEmail = await userModel.findOne({ email });
     const checkuserName = await userModel.findOne({ userName });
-
+    // check if the email is a GIU email by checking last 10 characters
+    if (
+      email.slice(-19) !== "@student.giu-uni.de" &&
+      email.slice(-11) !== "@giu-uni.de"
+    ) {
+      return res.status(400).json({ message: "Email should be a GIU email" });
+    }
     if (checkEmail || checkuserName) {
       return res.status(400).json({ message: "User already exists" });
+    }
+    if (password.length < 8) {
+      return res
+        .status(400)
+        .json({ message: "Password should be at least 8 characters" });
     }
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -72,7 +83,7 @@ exports.signupUser = async (req, res) => {
 
     newUser.token = token;
     console.log("Sign up done");
-    res.status(200).json(newUser);
+    res.status(200).json({ message: "User created" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
@@ -103,7 +114,7 @@ exports.loginUser = async (req, res) => {
 
     // const domains = [".ahmed-yehia.me", "localhost"];
     // const domain = ".ahmed-yehia.me";
-    const newTimeRefresh = new Date(Date.now() + 1000*60*60*24*399);
+    const newTimeRefresh = new Date(Date.now() + 1000 * 60 * 60 * 24 * 399);
 
     // Set cookies for each domain
     const refreshToken = generateRefreshToken(user, "1825d", true);
