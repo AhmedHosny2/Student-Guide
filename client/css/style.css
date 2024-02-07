@@ -1,9 +1,9 @@
 /* Start Variables */
 :root {
-  --main-color: #0B2447;
-  --secondary-color: #19376D;
-  --third-color: #576CBC;
-  --fourth-color: #A5D7E8;
+  --main-color: #0b2447;
+  --secondary-color: #19376d;
+  --third-color: #576cbc;
+  --fourth-color: #a5d7e8;
   --section-background: #ebeced;
   --main-transition-duration: all 0.3s ease-in-out;
   --content-color: #fafafa;
@@ -16,7 +16,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Figtree", sans-serif;
 }
 
 ul {
@@ -42,7 +42,6 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--secondary-color);
 }
-
 
 body {
   background-color: var(--content-color);
@@ -94,6 +93,9 @@ html {
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .header .container {
@@ -108,11 +110,19 @@ html {
   color: var(--secondary-color);
   font-size: 1.2rem;
   margin: 0;
+  font-weight: 100;
+  text-align: center;
+  font-family: "Bungee Shade", sans-serif;
+}
+
+.header .logo h4:hover {
+  font-weight: bold;
 }
 
 .header .logo h4 span {
   color: var(--fourth-color);
   display: block;
+  font-family: "Bungee Shade", sans-serif;
 }
 
 .header .nav {
@@ -143,6 +153,10 @@ html {
 
 .header .nav .links li a:hover {
   color: var(--fourth-color);
+}
+
+.header .nav .links li a.logout:hover {
+  color: rgb(224, 108, 117);
 }
 
 .header .nav .links .login {
@@ -334,7 +348,6 @@ html {
     font-size: 25px;
     background-color: var(--content-color);
   }
-  
 
   .header .container .mobile-nav a {
     color: var(--secondary-color);

@@ -1,4 +1,5 @@
-import { taURL , clientLoginURL } from "../utils/env.js";
+import { taURL, clientLoginURL } from "../utils/env.js";
+console.log(taURL);
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("userName") == null)
     window.location.href = clientLoginURL;
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     taData.forEach((ta) => {
       // create delete button 
-   
+
 
       const card = document.createElement("section");
       card.classList.add("card");
@@ -50,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const box = document.createElement("div");
       box.classList.add("box");
-   const deleteButton = document.createElement("deleteButton");
+
+      const deleteButton = document.createElement("deleteButton");
       deleteButton.textContent = 'Delete';
       deleteButton.classList.add('delete-button');
       deleteButton.style.color = "white";
@@ -61,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "Content-Type": "application/json",
           },
           credentials: "include",
-          body: JSON.stringify({ _id: ta._id}),
+          body: JSON.stringify({ _id: ta._id }),
         })
           .then((response) => {
             if (!response.ok) {
@@ -75,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
           .catch((error) => {
             console.error("Fetch error:", error);
           });
-       
-      })      
+
+      })
       // Helper function to create a card wrap element
       function createCardWrap(label, value) {
         const wrap = document.createElement("div");
@@ -103,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const emailLink = document.createElement("a");
       emailLink.href = `mailto:${ta.email}`;
       emailLink.textContent = ta.email;
-      emailLink.style.color = "white";
       emailWrap.appendChild(emailLink);
       box.appendChild(emailWrap);
 

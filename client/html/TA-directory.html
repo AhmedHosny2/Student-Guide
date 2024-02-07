@@ -1,105 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TA directory</title>
-    <!-- css files -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/TA-directory.css" />
-    <!-- normalize-file -->
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- google icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
 
-  <body>
-    <!-- header section -->
-    <header class="header">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TA directory</title>
+  <!-- css files -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/TA-directory.css" />
+  <!-- normalize-file -->
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- logo font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+  <!-- google icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- header section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h4>resource <span>hub</span></h4>
+      </div>
+      <nav class="nav" data-visibility="false">
+        <ul class="links">
+          <li><a href="../index.html">home</a></li>
+          <li><a href="../html/location.html">location</a></li>
+          <li><a href="../html/TA-directory.html">TA directory</a></li>
+          <li><a href="../html/selectCourse.html">Courses</a></li>
+          <li><a href="../html/GPACalculator.html">GPA calc</a></li>
+          <li><a href="" id="logout" class="logout">logout</a></li>
+
+          <li class="login"><a href="html/login.html">login</a></li>
+        </ul>
+      </nav>
+      <div class="avatar">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <a href="../html/login.html" class="login"> login </a>
+      <div class="burger-menu">
+        <span class="top"></span>
+        <span class="mid"></span>
+        <span class="btm"></span>
+      </div>
+      <div class="mobile-nav">
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <a href="../html/location.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </a>
+        <a href="../html/TA-directory.html" class="active">
+          <i class="fa-solid fa-person-chalkboard"></i>
+        </a>
+        <a href="../html/selectCourse.html">
+          <i class="fa-solid fa-book"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- end header -->
+  <main>
+    <!-- start search bar -->
+    <div class="taDirectory">
       <div class="container">
-        <div class="logo">
-          <h4>resource <span>hub</span></h4>
+        <div class="search-bar">
+          <!-- <label for="search">search</label> -->
+          <input type="text" name="search" id="searchBar" placeholder="enter course name" />
         </div>
-        <nav class="nav">
-          <ul class="links">
-            <li><a href="../index.html">home</a></li>
-            <li><a href="../html/location.html">location</a></li>
-            <li><a href="../html/TA-directory.html">TA directory</a></li>
-            <li><a href="../html/selectCourse.html">Courses</a></li>
-            <li class="login"><a href="../html/login.html">login</a></li>
-          </ul>
-        </nav>
-        <div class="avatar">
-          <i class="fa-regular fa-user"></i>
+        <div class="card-wrap">
+
         </div>
-        <a href="../html/login.html" class="login"> login </a>
-        <div class="burger-menu">
-          <span class="top"></span>
-          <span class="mid"></span>
-          <span class="btm"></span>
-        </div>
-        <div class="mobile-nav">
-          <a href="../index.html">
-            <i class="fa-solid fa-house"></i>
-          </a>
-          <a href="../html/location.html">
-            <i class="fa-solid fa-map-location-dot"></i>
-          </a>
-          <a href="../html/TA-directory.html" class="active">
-            <i class="fa-solid fa-person-chalkboard"></i>
-          </a>
-          <a href="../html/selectCourse.html">
-            <i class="fa-solid fa-book"></i>
-          </a>
-        </div>
+
+        <a href="../html/createTA.html" class="addTaBtn">
+          <span class="material-symbols-outlined"> person_add </span>
+        </a>
       </div>
-    </header>
-    <!-- end header -->
-    <main>
-      <!-- start search bar -->
-      <div class="taDirectory">
-        <div class="container">
-          <div class="search-bar">
-            <!-- <label for="search">search</label> -->
-            <input
-              type="text"
-              name="search"
-              id="searchBar"
-              placeholder="enter course name"
-            />
-          </div>
-      <div class="card-wrap"></div>
-        
-          <a href="../html/createTA.html" class="addTaBtn">
-            <span class="material-symbols-outlined"> person_add </span>
-          </a>
-        </div>
-      </div>
-      <!-- end search bar -->
-      <a href="../html/assignTA.html" class="addTaBtn" style="font-size: 2em;">
-        <span class="material-symbols-outlined" style="font-size: 10em;"> person_add </span>
+    </div>
+    <!-- end search bar -->
+    <a href="../html/assignTA.html" class="addTaBtn" style="font-size: 2em;">
+      <span class="material-symbols-outlined" style="font-size: 10em;"> person_add </span>
     </a>
-    
-    </main>
-    <script type="module" src="../js/TA-directory.js"></script>
-    <script type="module" src="../js/navbar.js"></script>
-  </body>
+
+  </main>
+  <script type="module" src="../js/TA-directory.js"></script>
+  <script type="module" src="../js/navbar.js"></script>
+</body>
+
 </html>

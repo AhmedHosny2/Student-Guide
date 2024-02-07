@@ -9,8 +9,6 @@
   margin: 50px 0;
 }
 
-
-
 .taDirectory .container .search-bar {
   margin-left: auto;
   width: max-content;
@@ -34,7 +32,9 @@
 
 .taDirectory .container .search-bar input {
   border: 0;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
@@ -45,7 +45,6 @@
 }
 
 @media (max-width: 767px) {
-
   /* .taDirectory .container .search-bar label {
     display: none;
   } */
@@ -78,7 +77,9 @@
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   padding: 20px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -88,12 +89,36 @@
   letter-spacing: 1px;
 }
 
-.taDirectory .container .card:hover {
+
+.taDirectory .container .card {
+  background-color: var(--White);
+  padding: 1.25rem;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+  -ms-border-radius: 1.25rem;
+  -o-border-radius: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid;
+  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  transition: 0.15s;
+  -webkit-transition: 0.15s;
+  -moz-transition: 0.15s;
+  -ms-transition: 0.15s;
+  -o-transition: 0.15s;
+  cursor: pointer;
+}
+
+
+/* .taDirectory .container .card:hover {
   -webkit-transform: translateY(-10px);
   -moz-transform: translateY(-10px);
   -ms-transform: translateY(-10px);
   -o-transform: translateY(-10px);
   transform: translateY(-10px);
+} */
+
+.taDirectory .container .card:hover {
+  box-shadow: 13px 13px 0px 3px var(--main-color);
 }
 
 .hide {
@@ -116,31 +141,27 @@
 }
 
 .taDirectory .container .card .box {
-  background-color: var(--secondary-color);
+  color: black;
   margin: 10px 0;
   border-radius: 6px;
 }
 
 .taDirectory .container .card .wrap {
   padding: 10px 0;
-  color: white;
 }
 
-.taDirectory .container .card .wrap:not(:last-child) {
-  border-bottom: 1px solid #fff;
+.taDirectory .container .card .wrap a {
+  color: black;
 }
 
 .taDirectory .container .card .wrap p {
   font-weight: bold;
-  font-style: italic;
   font-size: 16px;
   text-transform: capitalize;
   margin: 10px;
 }
 
 .taDirectory .container .card .wrap span {
-  color: rgba(255, 255, 255, 0.751);
-  font-style: italic;
   margin: 10px;
 }
 
@@ -153,7 +174,6 @@
   padding: 10px 12px;
   background-color: var(--third-color);
   border: 0;
-  color: white;
   position: fixed;
   bottom: 60px;
   right: 60px;

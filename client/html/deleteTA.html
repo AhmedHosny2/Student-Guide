@@ -24,7 +24,8 @@
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- adding script for text editor -->
-  <script type="module" src="https://cdn.tiny.cloud/1/gxzgebpfex5iq0k3asrt31ihi7s4yhegnqcdmyurjo3gv0mq/tinymce/6/tinymce.min.js"
+  <script type="module"
+    src="https://cdn.tiny.cloud/1/gxzgebpfex5iq0k3asrt31ihi7s4yhegnqcdmyurjo3gv0mq/tinymce/6/tinymce.min.js"
     referrerpolicy="origin"></script>
 </head>
 
@@ -41,8 +42,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
+  <!-- logo font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
   <!-- google icons -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -51,7 +56,8 @@
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- adding script for text editor -->
-  <script type="module" src="https://cdn.tiny.cloud/1/gxzgebpfex5iq0k3asrt31ihi7s4yhegnqcdmyurjo3gv0mq/tinymce/6/tinymce.min.js"
+  <script type="module"
+    src="https://cdn.tiny.cloud/1/gxzgebpfex5iq0k3asrt31ihi7s4yhegnqcdmyurjo3gv0mq/tinymce/6/tinymce.min.js"
     referrerpolicy="origin"></script>
 </head>
 
@@ -62,13 +68,16 @@
       <div class="logo">
         <h4>resource <span>hub</span></h4>
       </div>
-      <nav class="nav">
+      <nav class="nav" data-visibility="false">
         <ul class="links">
-          <li><a href="../index.html">home</a></li>
-          <li><a href="../html/location.html">location</a></li>
-          <li><a href="../html/TA-directory.html">TA directory</a></li>
-          <li><a href="../html/selectCourse.html">Courses</a></li>
-          <li class="login"><a href="../html/login.html">login</a></li>
+          <li><a href="index.html">home</a></li>
+          <li><a href="html/location.html">location</a></li>
+          <li><a href="html/TA-directory.html">TA directory</a></li>
+          <li><a href="html/selectCourse.html">Courses</a></li>
+          <li><a href="html/GPACalculator.html">GPA calc</a></li>
+          <li><a href="" id="logout" class="logout">logout</a></li>
+
+          <li class="login"><a href="html/login.html">login</a></li>
         </ul>
       </nav>
       <div class="avatar">
@@ -107,29 +116,28 @@
           <div class="wrap">
             <form id="TA-assign-form">
               <div class="box">
-          
+
                 <div class="inputBox">
-                    <label for="email">email</label>
-                    <input type="text" id="email" autocomplete="off">
-                                  </div>
+                  <label for="email">email</label>
+                  <input type="text" id="email" autocomplete="off">
+                </div>
 
-                
 
-        
-               
-               
 
-             
-              <div class="listOfTutorials" id="listOfTutorials"></div>
+
+
+
+
+
+                <div class="listOfTutorials" id="listOfTutorials"></div>
+              </div>
+              <button type="button" id="deleteTA">delete</button>
+            </form>
           </div>
-          <button type="button" id="deleteTA">delete</button>
-          </form>
         </div>
       </div>
     </div>
-    </div>
-    <div id="autocomplete-container"></div
-        >
+    <div id="autocomplete-container"></div>
   </main>
   <script type="module" src="../js/navbar.js"></script>
   <script type="module" src="../js/deleteTA.js"></script>
