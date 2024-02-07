@@ -10,9 +10,11 @@ export const getCourseURL = "https://guide.ahmed-yehia.me/html/getCourse.html";
 
 
 // for local version
+
+
 // export const userURL = "http://localhost:5001/user";
 // export const taURL = `http://localhost:5003/TADirectory`;
 // export const coursesURL = `http://localhost:5002/course`;
-// export const clientURL = "http://127.0.0.1:5501/client/";
-// export const clientLoginURL = "http://127.0.0.1:5501/client/html/login.html";
+// export const clientURL = "http://localhost:5501/client/";
+// export const clientLoginURL = "http://localhost:5501/client/html/login.html";
 // export const getCourseURL = "./getcourse.html";

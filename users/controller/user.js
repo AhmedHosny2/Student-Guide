@@ -128,7 +128,7 @@ exports.loginUser = async (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      domain: domain,
+      domain,
       path: "/",
     });
     console.log(refreshToken);
@@ -137,15 +137,16 @@ exports.loginUser = async (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      domain: domain,
+      domain, 
       path: "/",
     });
 
     console.log("Logged in");
-    return res.status(200).json({
+    return res.status(202).json({
       userName: user.userName,
       email: user.email,
       isAdmin: user.isAdmin,
+      token,
     });
   } catch (err) {
     console.error(err);

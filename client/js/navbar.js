@@ -7,6 +7,7 @@
 // });
 // }
 //nav bar responsive
+
 const hamburgerMenu = document.querySelector(".burger-menu");
 const navBar = document.querySelector(".header .nav");
 hamburgerMenu.addEventListener("click", () => {
@@ -19,4 +20,14 @@ hamburgerMenu.addEventListener("click", () => {
     hamburgerMenu.classList.remove("active");
   }
 });
+//logout
+const logoutButton = document.getElementById("logout");
+logoutButton.addEventListener("click", () => {
+  localStorage.clear();
+  // refersh 
+  window.location.href = "http://127.0.0.1:5501/client/html/login.html"
+  // TODO ===========================================================================
+} 
+);
+
 

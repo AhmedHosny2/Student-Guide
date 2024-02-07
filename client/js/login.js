@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
         // the response used .send in backend
-          console.log(response.headers);
         return response.text();
       })
       .then((data) => {
@@ -48,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("userEmail", data.email);
         localStorage.setItem("userName", data.userName);
         localStorage.setItem("isAdmin", data.isAdmin);
-        window.location.href = clientURL;
+        // window.location.href = clientURL;
       })
       .catch((error) => {
         console.error("Fetch error:", error);
