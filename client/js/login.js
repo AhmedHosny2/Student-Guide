@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("userEmail", data.email);
         localStorage.setItem("userName", data.userName);
         localStorage.setItem("isAdmin", data.isAdmin);
-        // window.location.href = clientURL;
+        window.location.href = clientURL;
       })
       .catch((error) => {
         console.error("Fetch error:", error);
