@@ -70,7 +70,7 @@
   color: var(--secondary-color);
 }
 
-.taDirectory .container .card {
+/* .taDirectory .container .card {
   background-color: #fff;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -87,12 +87,11 @@
   -o-transition: 0.3s;
   transition: 0.3s;
   letter-spacing: 1px;
-}
-
+} */
 
 .taDirectory .container .card {
   background-color: var(--White);
-  padding: 1.25rem;
+  padding: 0 1rem;
   -webkit-border-radius: 1.25rem;
   -moz-border-radius: 1.25rem;
   -ms-border-radius: 1.25rem;
@@ -107,7 +106,6 @@
   -o-transition: 0.15s;
   cursor: pointer;
 }
-
 
 /* .taDirectory .container .card:hover {
   -webkit-transform: translateY(-10px);
@@ -126,17 +124,17 @@
 }
 
 .taDirectory .container .card .course {
-  font-size: 0.7em;
-  width: max-content;
-  padding: 3px;
-  border-radius: 5px;
-  font-weight: bolder;
-  letter-spacing: 1px;
+  background-color: var(--secondary-color);
+  font-weight: 800;
+  padding: 8px 15px;
   display: block;
-  margin: 0 auto 10px;
-  font-size: 15px;
-  text-transform: capitalize;
-  background: var(--third-color);
+  width: max-content;
+  margin: 20px 0;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  border-radius: 0.25rem;
   color: white;
 }
 
@@ -144,10 +142,6 @@
   color: black;
   margin: 10px 0;
   border-radius: 6px;
-}
-
-.taDirectory .container .card .wrap {
-  padding: 10px 0;
 }
 
 .taDirectory .container .card .wrap a {
@@ -158,11 +152,11 @@
   font-weight: bold;
   font-size: 16px;
   text-transform: capitalize;
-  margin: 10px;
 }
 
-.taDirectory .container .card .wrap span {
-  margin: 10px;
+.taDirectory .container .card .wrap .answer {
+  margin: 0;
+  padding: 0;
 }
 
 .taDirectory .container .addTaBtn {

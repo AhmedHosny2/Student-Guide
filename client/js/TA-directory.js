@@ -1,5 +1,5 @@
 import { taURL, clientLoginURL } from "../utils/env.js";
-console.log(taURL);
+
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("userName") == null)
     window.location.href = clientLoginURL;
@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
       button.style.display = "none";
     });
   }
+
   let arr = [];
+
   function fetchTAData() {
     fetch(taURL, {
       method: "GET",
@@ -34,25 +36,19 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Fetch error:", error);
       });
   }
-  // Your existing code for generating cards
+
   function generateTACards(taData) {
     const cardContainer = document.querySelector(".card-wrap");
 
     taData.forEach((ta) => {
-      // create delete button 
-
-
       const card = document.createElement("section");
       card.classList.add("card");
 
       const courseName = document.createElement("div");
       courseName.classList.add("course");
-      courseName.textContent = ta.courseName; // Replace with the actual course name
+      courseName.textContent = ta.courseName;
 
-      const box = document.createElement("div");
-      box.classList.add("box");
-
-      const deleteButton = document.createElement("deleteButton");
+      const deleteButton = document.createElement("button"); // Corrected the element type
       deleteButton.textContent = 'Delete';
       deleteButton.classList.add('delete-button');
       deleteButton.style.color = "white";
@@ -78,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Fetch error:", error);
           });
 
-      })
-      // Helper function to create a card wrap element
+      });
+
       function createCardWrap(label, value) {
         const wrap = document.createElement("div");
         wrap.classList.add("wrap");
@@ -87,20 +83,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const p = document.createElement("p");
         p.textContent = label;
 
-        const span = document.createElement("span");
-        span.textContent = value;
+        const answer = document.createElement("p");
+        answer.textContent = value;
+        answer.classList.add("answer");
 
         wrap.appendChild(p);
-        wrap.appendChild(span);
+        wrap.appendChild(answer);
         return wrap;
       }
-      box.appendChild(deleteButton);
-      box.appendChild(createCardWrap("name", ta.name));
+
+      const box = document.createElement("div"); // Corrected variable name
+
       box.appendChild(createCardWrap("office hour", ta.officeHours));
       box.appendChild(createCardWrap("office location", ta.officeLocation));
       box.appendChild(createCardWrap("tutorials", ta.tutorials));
+      // box.appendChild(createCardWrap("name", ta.name));
 
-      // Create the email element with a clickable link
       const emailWrap = createCardWrap("email", "");
       const emailLink = document.createElement("a");
       emailLink.href = `mailto:${ta.email}`;
@@ -108,6 +106,12 @@ document.addEventListener("DOMContentLoaded", function () {
       emailWrap.appendChild(emailLink);
       box.appendChild(emailWrap);
 
+      //ta name
+      const taName = document.createElement("p");
+      taName.textContent = ta.name;
+      box.appendChild(taName)
+
+      card.appendChild(deleteButton);
       card.appendChild(courseName);
       card.appendChild(box);
 
@@ -115,13 +119,12 @@ document.addEventListener("DOMContentLoaded", function () {
       arr.push(card);
     });
   }
+
   fetchTAData();
 
-  const card = document.querySelectorAll(".card");
   const searchBar = document.getElementById("searchBar");
   searchBar.addEventListener("input", (e) => {
     const searchValue = e.target.value.toLowerCase();
-    // Loop through all the cards
     arr.forEach((card) => {
       const courseName = card
         .querySelector(".course")
@@ -131,7 +134,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-// Call the function to generate and append the cards
-
-// Add an input event listener to the search bar
