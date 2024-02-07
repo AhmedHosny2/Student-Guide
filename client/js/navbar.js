@@ -25,7 +25,7 @@ const logoutButton = document.getElementById("logout");
 logoutButton.addEventListener("click", () => {
   localStorage.clear();
   // refersh 
-  window.location.href = "http://127.0.0.1:5501/client/html/login.html"
+  window.location.href = "/client/index.html"
   // TODO ===========================================================================
 } 
 );
