@@ -5,11 +5,13 @@ This microservice project consists of three services, each running on a designat
     User Microservice
         Port: 5001
 
-    TADirectory Microservice
+    Courses Microservice
         Port: 5002
 
-    Courses Microservice
+    TADirectory Microservice
         Port: 5003
+
+
 
 
 bash
@@ -23,8 +25,8 @@ bash
 Usage
 
     User Microservice (Port 5001): Handle user-related operations.
-    TADirectory Microservice (Port 5002): Manage Teaching Assistant information.
-    Courses Microservice (Port 5003): Implement course-related functionalities.
+    TADirectory Microservice (Port 5003): Manage Teaching Assistant information.
+    Courses Microservice (Port 5002): Implement course-related functionalities.
 
 #how to run 
 ```
