@@ -108,6 +108,7 @@ main {
   -ms-transform: translateX(0px);
   -o-transform: translateX(0px);
   transform: translateX(0px);
+  width: 80%;
 }
 
 .welcome .container .sout {

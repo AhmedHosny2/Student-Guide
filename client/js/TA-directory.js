@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function generateTACards(taData) {
     const cardContainer = document.querySelector(".card-wrap");
+    cardContainer.innerHTML = ""; // Clear previous cards
 
     taData.forEach((ta) => {
       const card = document.createElement("section");
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const deleteButton = document.createElement("i");
       deleteButton.classList.add('delete-button', "fa-regular", "fa-trash-can");
-      
+
       deleteButton.addEventListener('click', function () {
         fetch(taURL + "/deleteTACourse", {
           method: "DELETE",
@@ -73,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Fetch error:", error);
           });
       });
-
 
       card.appendChild(deleteButton);
       card.appendChild(courseName);
@@ -134,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const courseName = card
         .querySelector(".course")
         .textContent.toLowerCase();
+        console.log(card);
       const isVisible = courseName.includes(searchValue);
       card.classList.toggle("hide", !isVisible);
     });

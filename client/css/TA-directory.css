@@ -8,23 +8,11 @@
   gap: 40px;
   margin: 50px 0;
 }
-
-.taDirectory .container .search-bar {
-  margin-left: auto;
-  width: max-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
+/* start search bar */
 
 .taDirectory .container .search-bar {
   position: relative;
   width: 100%;
-}
-
-.taDirectory .container .search-bar input {
-  border: 0;
   box-shadow:
     rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -33,14 +21,20 @@
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.taDirectory .container .search-bar input {
+  border: 0;
   padding: 10px;
-  width: 60%;
+  background-color: transparent;
+  padding: 15px;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
-  /* .taDirectory .container .search-bar label {
-    display: none;
-  } */
   .taDirectory .container .search-bar input {
     width: 100%;
   }
@@ -54,6 +48,29 @@
   color: var(--secondary-color);
 }
 
+.taDirectory .container .search-bar .search-text {
+  position: absolute;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--fourth-color);
+  color: white;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  padding: 18px;
+}
+.taDirectory .container .search-bar .search-text p {
+  padding: 0;
+  margin: 0;
+}
+
+/* end serach bar */
+
+/* start card */
 .taDirectory .container .card {
   padding: 0 1rem;
   -webkit-border-radius: 1.25rem;
@@ -101,14 +118,12 @@
   background-color: #e06c75;
 }
 
-.hide {
+.taDirectory .container .card.hide {
   display: none;
 }
 
 .taDirectory .container .card .course {
-  background-color: var(--third-color);
   font-weight: 800;
-  padding: 8px 15px;
   display: block;
   width: max-content;
   -webkit-border-radius: 0.25rem;
@@ -116,7 +131,10 @@
   -ms-border-radius: 0.25rem;
   -o-border-radius: 0.25rem;
   border-radius: 0.25rem;
-  color: white;
+  color: var(--third-color);
+  /* text-transform: capitalize; */
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .taDirectory .container .card .wrap-data .wrap {
@@ -150,21 +168,45 @@
 
 .taDirectory .container .card:hover .ta-name {
   color: var(--fourth-color);
-  box-shadow:
 }
 
+.taDirectory .container .admin-buttons {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+/* end card */
+/* start admin buttons */
 .taDirectory .container .addTaBtn {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+  border-radius: 0.65rem;
   padding: 10px 12px;
   background-color: var(--third-color);
-  border: 0;
+  /*border: 0;
   position: fixed;
   bottom: 60px;
   right: 60px;
+  */
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  color: white;
+  -webkit-border-radius: 0.65rem;
+  -moz-border-radius: 0.65rem;
+  -ms-border-radius: 0.65rem;
+  -o-border-radius: 0.65rem;
+  display: flex;
+  gap: 10px;
+}
+
+.taDirectory .container .addTaBtn:hover {
+  box-shadow:
+    hsla(228, 43%, 54%, 0.4) 5px 5px,
+    hsla(228, 43%, 54%, 0.3) 10px 10px,
+    hsla(228, 43%, 54%, 0.2) 15px 15px,
+    hsla(228, 43%, 54%, 0.1) 20px 20px,
+    hsla(228, 43%, 54%, 0.05) 25px 25px;
 }
 
 @media (max-width: 767px) {
@@ -173,3 +215,4 @@
     right: 20px;
   }
 }
+/* end admin buttons */

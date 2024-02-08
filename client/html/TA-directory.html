@@ -79,22 +79,28 @@
     <div class="taDirectory">
       <div class="container">
         <div class="search-bar">
-          <!-- <label for="search">search</label> -->
           <input type="search" name="search" id="searchBar" placeholder="enter course name" />
-        </div>
-        <div class="card-wrap">
 
+          <div class="search-text">
+            <p>looking for smth??!</p>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
         </div>
+        <div class="card-wrap"></div>
 
-        <a href="../html/createTA.html" class="addTaBtn">
-          <span class="material-symbols-outlined"> person_add </span>
-        </a>
+        <div class="admin-buttons">
+          <a href="../html/createTA.html" class="addTaBtn">
+            <i class="fa-solid fa-person-circle-plus"></i>
+            add assistant
+          </a>
+          <a href="../html/assignTA.html" class="addTaBtn">
+            <i class="fa-solid fa-address-card"></i>
+            assign assistant
+          </a>
+        </div>
       </div>
     </div>
     <!-- end search bar -->
-    <a href="../html/assignTA.html" class="addTaBtn" style="font-size: 2em;">
-      <span class="material-symbols-outlined" style="font-size: 10em;"> person_add </span>
-    </a>
 
   </main>
   <script type="module" src="../js/TA-directory.js"></script>
