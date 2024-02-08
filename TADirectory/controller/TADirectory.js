@@ -4,7 +4,6 @@ const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 const { TaCourseModel } = require("../model/TADirectory");
 exports.addTa = async (req, res) => {
   const { name, email, officeLocation } = req.body;
-  const userEmail = getCookie(req).email;
   const uniEmail = email + "@giu-uni.de";
   console.log(uniEmail);
   const found = await TaModel.find({ email: uniEmail });
