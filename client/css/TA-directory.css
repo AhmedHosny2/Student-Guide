@@ -18,13 +18,6 @@
   gap: 20px;
 }
 
-/* .taDirectory .container .search-bar label {
-  text-transform: capitalize;
-  color: var(--secondary-color);
-  font-weight: bold;
-  font-size: 2rem;
-} */
-
 .taDirectory .container .search-bar {
   position: relative;
   width: 100%;
@@ -57,40 +50,11 @@
   outline: none;
 }
 
-/* .taDirectory .container .search-bar::before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f002";
-  color: var(--secondary-color);
-  position: absolute;
-  right: 0;
-} */
-
 .taDirectory .container .search-bar span {
   color: var(--secondary-color);
 }
 
-/* .taDirectory .container .card {
-  background-color: #fff;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  padding: 20px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  letter-spacing: 1px;
-} */
-
 .taDirectory .container .card {
-  background-color: var(--White);
   padding: 0 1rem;
   -webkit-border-radius: 1.25rem;
   -moz-border-radius: 1.25rem;
@@ -105,18 +69,36 @@
   -ms-transition: 0.15s;
   -o-transition: 0.15s;
   cursor: pointer;
+  min-height: 500px;
+  display: grid;
+  align-items: center;
 }
-
-/* .taDirectory .container .card:hover {
-  -webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  -o-transform: translateY(-10px);
-  transform: translateY(-10px);
-} */
 
 .taDirectory .container .card:hover {
   box-shadow: 13px 13px 0px 3px var(--main-color);
+}
+
+.taDirectory .container .card .delete-button {
+  background-color: var(--fourth-color);
+  font-weight: 800;
+  padding: 8px 15px;
+  display: block;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  border-radius: 0.25rem;
+  color: white;
+  text-align: center;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.taDirectory .container .card .delete-button:hover {
+  background-color: #e06c75;
 }
 
 .hide {
@@ -124,12 +106,11 @@
 }
 
 .taDirectory .container .card .course {
-  background-color: var(--secondary-color);
+  background-color: var(--third-color);
   font-weight: 800;
   padding: 8px 15px;
   display: block;
   width: max-content;
-  margin: 20px 0;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
   -ms-border-radius: 0.25rem;
@@ -138,25 +119,38 @@
   color: white;
 }
 
-.taDirectory .container .card .box {
-  color: black;
+.taDirectory .container .card .wrap-data .wrap {
   margin: 10px 0;
-  border-radius: 6px;
-}
-
-.taDirectory .container .card .wrap a {
-  color: black;
 }
 
 .taDirectory .container .card .wrap p {
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
   text-transform: capitalize;
 }
 
 .taDirectory .container .card .wrap .answer {
-  margin: 0;
-  padding: 0;
+  line-height: 1.5;
+  color: gray;
+  font-weight: 300;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.taDirectory .container .card .wrap a {
+  color: black;
+  margin-top: 5px;
+}
+
+.taDirectory .container .card .ta-name {
+  font-weight: 800;
+  text-align: right;
+}
+
+.taDirectory .container .card:hover .ta-name {
+  color: var(--fourth-color);
+  box-shadow:
 }
 
 .taDirectory .container .addTaBtn {

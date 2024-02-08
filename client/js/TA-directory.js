@@ -48,10 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
       courseName.classList.add("course");
       courseName.textContent = ta.courseName;
 
-      const deleteButton = document.createElement("button"); // Corrected the element type
-      deleteButton.textContent = 'Delete';
-      deleteButton.classList.add('delete-button');
-      deleteButton.style.color = "white";
+      const deleteButton = document.createElement("i");
+      deleteButton.classList.add('delete-button', "fa-regular", "fa-trash-can");
+      
       deleteButton.addEventListener('click', function () {
         fetch(taURL + "/deleteTACourse", {
           method: "DELETE",
@@ -73,51 +72,57 @@ document.addEventListener("DOMContentLoaded", function () {
           .catch((error) => {
             console.error("Fetch error:", error);
           });
-
       });
 
-      function createCardWrap(label, value) {
-        const wrap = document.createElement("div");
-        wrap.classList.add("wrap");
-
-        const p = document.createElement("p");
-        p.textContent = label;
-
-        const answer = document.createElement("p");
-        answer.textContent = value;
-        answer.classList.add("answer");
-
-        wrap.appendChild(p);
-        wrap.appendChild(answer);
-        return wrap;
-      }
-
-      const box = document.createElement("div"); // Corrected variable name
-
-      box.appendChild(createCardWrap("office hour", ta.officeHours));
-      box.appendChild(createCardWrap("office location", ta.officeLocation));
-      box.appendChild(createCardWrap("tutorials", ta.tutorials));
-      // box.appendChild(createCardWrap("name", ta.name));
-
-      const emailWrap = createCardWrap("email", "");
-      const emailLink = document.createElement("a");
-      emailLink.href = `mailto:${ta.email}`;
-      emailLink.textContent = ta.email;
-      emailWrap.appendChild(emailLink);
-      box.appendChild(emailWrap);
-
-      //ta name
-      const taName = document.createElement("p");
-      taName.textContent = ta.name;
-      box.appendChild(taName)
 
       card.appendChild(deleteButton);
       card.appendChild(courseName);
-      card.appendChild(box);
 
       cardContainer.appendChild(card);
       arr.push(card);
+
+      card.appendChild(createCardWrap("office hour", ta.officeHours));
+      card.appendChild(createCardWrap("office location", ta.officeLocation));
+
+      const emailWrap = document.createElement("div");
+      emailWrap.classList.add("wrap");
+
+      const emailLabel = document.createElement("p");
+      emailLabel.textContent = "email";
+
+      const emailLink = document.createElement("a");
+      emailLink.classList.add("answer");
+      emailLink.href = `mailto:${ta.email}`;
+      emailLink.textContent = ta.email;
+
+      emailWrap.appendChild(emailLabel);
+      emailWrap.appendChild(emailLink);
+
+      card.appendChild(emailWrap);
+
+      card.appendChild(createCardWrap("tutorials", ta.tutorials));
+
+      const taName = document.createElement("p");
+      taName.textContent = ta.name;
+      taName.classList.add("ta-name");
+      card.appendChild(taName);
     });
+  }
+
+  function createCardWrap(label, value) {
+    const wrap = document.createElement("div");
+    wrap.classList.add("wrap");
+
+    const p = document.createElement("p");
+    p.textContent = label;
+
+    const answer = document.createElement("p");
+    answer.textContent = value;
+    answer.classList.add("answer");
+
+    wrap.appendChild(p);
+    wrap.appendChild(answer);
+    return wrap;
   }
 
   fetchTAData();
