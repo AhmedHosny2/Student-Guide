@@ -49,152 +49,52 @@ const grades = {
 import { clientLoginURL } from "../utils/env.js";
 if (localStorage.getItem("userName") == null)
   window.location.href = clientLoginURL;
-else {
-  const avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  const loginButton = document.querySelectorAll(".login");
-  loginButton.forEach((button) => {
-    button.style.display = "none";
-  });
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  loadAllSubjects();
-  loadSelectedSubjects();
-});
+  const subjectForm = document.getElementById("subject-form");
+  const subjectButtonsContainer = document.getElementById("subject-buttons");
 
-function loadAllSubjects() {
-  const allSubjectsForm = document.getElementById("allSubjectsForm");
+  // Create choice buttons for each subject
+  for (const year in subjects) {
+    const subjectsOfYear = subjects[year];
+    const yearHeading = document.createElement("h2");
+    yearHeading.textContent = `Year ${year}`;
+    subjectButtonsContainer.appendChild(yearHeading);
 
-  Object.keys(subjects).forEach((semester) => {
-    subjects[semester].forEach((subject) => {
-      const checkbox = createCheckbox(subject.name, subject.creditHours);
-      allSubjectsForm.appendChild(checkbox.label);
+    const selectAllButton = document.createElement("button");
+    selectAllButton.textContent = "Select All";
+    selectAllButton.addEventListener("click", function() {
+      subjectsOfYear.forEach(subject => {
+        const checkbox = subjectButtonsContainer.querySelector(`input[name="${subject.name}"]`);
+        checkbox.checked = true;
+      });
     });
-  });
-}
+    subjectButtonsContainer.appendChild(selectAllButton);
 
-function loadSelectedSubjects() {
-  const selectedSemesterElement = document.getElementById("selectedSemester");
-  const subjectForm = document.getElementById("subjectForm");
-
-  const checkboxes = document.querySelectorAll(
-    `#allSubjectsForm input[type="checkbox"]`
-  );
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", function () {
-      loadSubjects();
+    subjectsOfYear.forEach(subject => {
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.name = subject.name;
+      input.value = subject.creditHours;
+      const label = document.createElement("label");
+      label.textContent = `${subject.name} (${subject.creditHours} credit hours)`;
+      const br = document.createElement("br");
+      subjectButtonsContainer.appendChild(input);
+      subjectButtonsContainer.appendChild(label);
+      subjectButtonsContainer.appendChild(br);
     });
-  });
-
-  selectedSemesterElement.innerText = "Selected Subjects:";
-  subjectForm.innerHTML = "";
-}
-
-function createCheckbox(name, creditHours) {
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.name = name;
-  checkbox.value = creditHours;
-
-  const label = document.createElement("label");
-  label.appendChild(checkbox);
-  label.appendChild(
-    document.createTextNode(`${name} - ${creditHours} credit hours`)
-  );
-
-  return { checkbox, label };
-}
-
-function selectAllSubjects(semester) {
-  const checkboxes = document.querySelectorAll(
-    `#allSubjectsForm input[type="checkbox"]`
-  );
-
-  subjects[semester].forEach((subject) => {
-    const checkbox = document.querySelector(
-      `#allSubjectsForm input[name="${subject.name}"]`
-    );
-    if (checkbox) {
-      checkbox.checked = true;
-    }
-  });
-
-  loadSubjects();
-}
-let totalCreditHours = 0;
-function showSelectedSubjects() {
-  const selectedSubjects = document.getElementById("selectedSubjects");
-  const checkboxes = document.querySelectorAll(
-    `#allSubjectsForm input[type="checkbox"]:checked`
-  );
-
-  selectedSubjects.innerHTML = "";
-
-  checkboxes.forEach((checkbox) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = checkbox.name;
-
-    const gradeDropdown = createGradeDropdown(checkbox.name);
-    listItem.appendChild(gradeDropdown);
-
-    selectedSubjects.appendChild(listItem);
-
-    totalCreditHours += parseInt(checkbox.value);
-  });
-  // create button to calc the gpa
-  const calcButton = document.createElement("button");
-  calcButton.textContent = "Calculate GPA";
-  calcButton.onclick = function () {
-    calculateGPA();
-  };
-  selectedSubjects.appendChild(calcButton);
-  alert(`Total Credit Hours: ${totalCreditHours}`);
-}
-const calculateGPA = () => {
-  // get all leters
-  // then for each letter get the value from grades object
-  // then get the credit hours from subject object
-  // then multiply the two values and sum them
-  // at the end divide the sum by the total credit hours
-  const selectedSubjects = document.getElementById("selectedSubjects");
-  const selectedSubjectsList = selectedSubjects.querySelectorAll("li");
-  let sum = 0;
-  let totalCreditHours = 0;
-  selectedSubjectsList.forEach((subject) => {
-    const grade = subject.querySelector("select").value;
-    console.log(grade+"\n");
-    const creditHours = parseInt(
-      getCreditHours(subject.textContent.split("A+")[0])
-    );
-    totalCreditHours += creditHours;
-    sum += grade * creditHours;
-  });
-  const gpa = sum / totalCreditHours;
-  alert(`Your GPA is: ${gpa.toFixed(2)}`);
-};
-
-function createGradeDropdown(subjectName) {
-  const dropdown = document.createElement("select");
-  dropdown.name = `${subjectName}-grade`;
-
-  for (const grade in grades) {
-    const option = document.createElement("option");
-    option.value = grades[grade];
-    option.text = grade;
-    dropdown.add(option);
   }
 
-  return dropdown;
-}
-
-function getCreditHours(subjectName) {
-  for (const semester in subjects) {
-    const subject = subjects[semester].find((sub) => sub.name === subjectName);
-    if (subject) {
-      return subject.creditHours;
-    }
-  }
-  return 0; // Return 0 if subject not found
-}
+  // Prevent form submission for demonstration purpose
+  subjectForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const selectedSubjects = [];
+    const checkboxes = subjectForm.querySelectorAll('input[type="checkbox"]:checked');
+    checkboxes.forEach(checkbox => {
+      selectedSubjects.push({
+        name: checkbox.name,
+        creditHours: parseInt(checkbox.value)
+      });
+    });
+    console.log("Selected subjects:", selectedSubjects);
+    // You can perform additional actions here based on the selected subjects
+  });
