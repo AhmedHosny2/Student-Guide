@@ -68,6 +68,11 @@
   margin: 0;
 }
 
+@media (max-width: 767px) {
+  .taDirectory .container .search-bar .search-text {
+    font-size: 12px;
+  }
+}
 /* end serach bar */
 
 /* start card */
