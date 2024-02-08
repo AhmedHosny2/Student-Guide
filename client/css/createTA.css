@@ -6,184 +6,91 @@ h1 {
   border-bottom: 3px groove var(--third-color);
 }
 
-.taCreation {
-  margin: 20px 0;
-}
-
-.taCreation .container {
+/* .taCreation .container {
   display: grid;
   place-items: center;
 }
+ */
 
-.taCreation .container .wrap {
-  margin: 50px 0;
+.taCreation {
 }
 
-.taCreation .container .wrap form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 40px;
-  width: 100%;
+.taCreation .container {
+  min-height: calc(100vh - 65px);
+  display: grid;
+  place-content: center;
 }
 
-.taCreation .container .wrap form .box {
+.taCreation .container form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
+  gap: 40px;
+  background-color: white;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+  -ms-border-radius: 1.25rem;
+  -o-border-radius: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid;
+  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  cursor: pointer;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.taCreation .container form .img {
+  background-color: var(--third-color);
+  border-radius: 1.25rem 0 0 1.25rem;
+  -webkit-border-radius: 1.25rem 0 0 1.25rem;
+  -moz-border-radius: 1.25rem 0 0 1.25rem;
+  -ms-border-radius: 1.25rem 0 0 1.25rem;
+  -o-border-radius: 1.25rem 0 0 1.25rem;
+  background: linear-gradient(
+    -45deg,
+    var(--main-color),
+    var(--secondary-color),
+    var(--third-color),
+    var(--fourth-color)
+  );
+  background-size: 400% 400%;
+}
+
+.taCreation .container form .img img {
   width: 100%;
 }
 
-@media (max-width: 767px) {
-  .taCreation .container .wrap form .box {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.taCreation .container form .box {
+  display: grid;
+  gap: 20px;
+  padding: 60px;
 }
 
-.taCreation .container .wrap form .box .inputBox {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.taCreation .container .inputBox.tutorials .input-btn-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.taCreation .container .inputBox.tutorials .input-btn-wrap button {
-  background-color: var(--third-color);
-  color: white;
-  letter-spacing: 1px;
+.taCreation .container form .box input {
   border: 0;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
-  border-radius: 6px;
-  padding: 5px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  cursor: pointer;
-  display: inline-block;
+  padding: 10px;
 }
 
-.taCreation .container .inputBox.tutorials .input-btn-wrap button:hover {
-  background-color: var(--secondary-color);
-}
-
-.taCreation .container .inputBox.tutorials .listOfTutorials {
-  margin: 20px 0;
-  display: grid;
-  gap: 30px;
-}
-
-
-.taCreation .container .inputBox.tutorials .listOfTutorials .tut {
-  padding: 20px;
-  background-color: var(--secondary-color);
-  color: var(--content-color);
-  font-size: 14px;
-  letter-spacing: 1px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.taCreation .container .inputBox.tutorials .listOfTutorials .tut .del {
-  background-color: var(--third-color);
-  padding: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.taCreation .container .wrap form .inputBox .textareaLabel {
-  font-family: 'Gochi Hand', cursive;
-  line-height: 1.5;
-  width: max-content;
-  background-image: linear-gradient(transparent 50%, #e1fffe 50%, var(--third-color) 85%, transparent 85%, transparent 100%);
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  margin: 30px 0;
-  padding: 10px 0;
-  font-style: italic;
-  -webkit-animation: animatedBackground 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
-  animation: animatedBackground 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s forwards;
-}
-
-.taCreation .container .wrap form label {
-  font-weight: bold;
-  font-style: italic;
-  color: var(--main-color);
-}
-
-.taCreation .container .wrap form input {
-  border: 2px solid var(--third-color);
-  padding: 10px 15px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  background-color: hsla(0, 0%, 100%, 0.808);
-}
-
-.taCreation .container .wrap form input:focus {
+.taCreation .container form .box input:focus {
   outline: 0;
 }
 
-#submit-button {
+.taCreation .container form .box #submit-button {
   background-color: var(--third-color);
-  color: var(--content-color);
+  color: white;
   border: 0;
-  padding: 10px 15px;
+  border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
-  border-radius: 6px;
-  width: 20%;
-  font-size: 20px;
+  padding: 10px;
   cursor: pointer;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
-
-#submit-button:hover {
-  background-color: var(--secondary-color);
-}
-#autocomplete-container {
-  position: absolute;
-  width: 100%;
-  max-height: 150px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-
-#autocomplete-container div {
-  padding: 8px;
-  cursor: pointer;
-}
-
-#autocomplete-container div:hover {
-  background-color: #f0f0f0;
 }
