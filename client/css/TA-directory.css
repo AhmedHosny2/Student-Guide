@@ -175,13 +175,13 @@
   color: var(--fourth-color);
 }
 
+/* end card */
+/* start admin buttons */
 .taDirectory .container .admin-buttons {
   display: flex;
   justify-content: end;
   gap: 20px;
 }
-/* end card */
-/* start admin buttons */
 .taDirectory .container .addTaBtn {
   border-radius: 0.65rem;
   padding: 10px 12px;
@@ -215,9 +215,8 @@
 }
 
 @media (max-width: 767px) {
-  .taDirectory .container .addTaBtn {
-    bottom: 80px;
-    right: 20px;
+.taDirectory .container .admin-buttons {
+  margin-bottom: 100px;
   }
 }
 /* end admin buttons */
