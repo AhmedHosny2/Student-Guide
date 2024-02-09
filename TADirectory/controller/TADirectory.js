@@ -88,13 +88,10 @@ exports.deleteTa = async (req, res) => {
 exports.deleteTaCourse = async (req, res) => {
   const { _id } = req.body;
   try {
-    await TaCourseModel
-      .deleteOne({ _id });
+    await TaCourseModel.deleteOne({ _id });
     res.status(200).json({ message: "TA course deleted" });
-  }
-  catch (err) {
+  } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
-}
-
+};
