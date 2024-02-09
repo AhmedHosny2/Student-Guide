@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const card = document.createElement("section");
       card.classList.add("card");
 
-      const courseName = document.createElement("div");
+      const courseName = document.createElement("p");
       courseName.classList.add("course");
       courseName.textContent = ta.courseName;
 
