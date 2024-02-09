@@ -1,0 +1,132 @@
+.taCreation .container form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  background-color: white;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+  -ms-border-radius: 1.25rem;
+  -o-border-radius: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid;
+  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  cursor: pointer;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 60px;
+}
+
+.taCreation .container form .img {
+  display: grid;
+  place-content: center;
+  background-color: var(--third-color);
+  border-radius: 1.25rem 0 0 1.25rem;
+  -webkit-border-radius: 1.25rem 0 0 1.25rem;
+  -moz-border-radius: 1.25rem 0 0 1.25rem;
+  -ms-border-radius: 1.25rem 0 0 1.25rem;
+  -o-border-radius: 1.25rem 0 0 1.25rem;
+  background: linear-gradient(
+    -45deg,
+    var(--main-color),
+    var(--secondary-color),
+    var(--third-color),
+    var(--fourth-color)
+  );
+  background-size: 400% 400%;
+  display: grid;
+  place-content: center;
+}
+
+.taCreation .container form .img img {
+  width: 100%;
+}
+
+.taCreation .container form .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 40px;
+}
+
+@media (max-width: 767px) {
+  .taCreation .container form {
+    display: flex;
+    flex-direction: column;
+  }
+  .taCreation .container form .box {
+    gap: 20px;
+  }
+
+  .taCreation .container form .img {
+    display: none;
+  }
+}
+
+.taCreation .container form .box h3 {
+  color: var(--third-color);
+}
+
+.taCreation .container form .box input {
+  border: 0;
+  padding: 15px;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.taCreation .container form .box input::placeholder {
+  text-transform: capitalize;
+}
+
+.taCreation .container form .box input:focus {
+  outline: none;
+}
+
+.taCreation .container form .box .tutorial-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taCreation .container form .box .listOfTutorials {
+  display: grid;
+  gap: 5px;
+}
+
+.taCreation .container form .box .listOfTutorials .tut {
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.taCreation .container form .box .listOfTutorials .tut .del {
+  font-weight: 500;
+}
+
+.taCreation .container form .box .listOfTutorials .tut .del:hover {
+  color: #e06c75;
+}
+
+.taCreation .container form .box button {
+  background-color: var(--fourth-color);
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  text-transform: capitalize;
+}
