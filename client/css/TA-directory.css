@@ -137,10 +137,11 @@
   -o-border-radius: 0.25rem;
   border-radius: 0.25rem;
   color: var(--third-color);
-  /* text-transform: capitalize; */
+  text-transform: capitalize;
   font-size: 1.2rem;
   margin: 0;
   overflow: hidden;
+  margin-top: 30px;
 }
 
 .taDirectory .container .card .wrap-data .wrap {
@@ -183,6 +184,7 @@
   justify-content: end;
   gap: 20px;
 }
+
 .taDirectory .container .addTaBtn {
   border-radius: 0.65rem;
   padding: 10px 12px;
