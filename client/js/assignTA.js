@@ -12,7 +12,7 @@ else {
 
 let taEmails = [];
 import { taURL } from "../utils/env.js";
-fetch(taURL+"/getTAs", {
+fetch(taURL + "/getTAs", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -42,7 +42,7 @@ emailInput.addEventListener("input", function () {
     email.toLowerCase().includes(inputValue)
   );
 
-  displayAutocomplete(matchingEmails);
+  displayAutocomplete(matchingEmails.slice(0, 4));
 });
 
 // Function to display autocomplete suggestions
@@ -78,37 +78,37 @@ const clearBtn = document.getElementById("clear");
 const tutorialsVal = document.getElementById("tutorials-value");
 const listOfTutorials = document.getElementById("listOfTutorials");
 let arrOfTutorials = [];
-if(addBtn)
-addBtn.onclick = (event) => {
-  event.preventDefault();
+if (addBtn)
+  addBtn.onclick = (event) => {
+    event.preventDefault();
 
-  const tutorialValue = tutorialsVal.value;
-  if (tutorialValue.trim() !== "") {
-    arrOfTutorials.push(tutorialValue);
-    //create tutorial element in page
-    const tutorial = document.createElement("div");
-    tutorial.className = "tut";
-    tutorial.innerHTML = tutorialValue;
-    listOfTutorials.appendChild(tutorial);
-    //create delete button to remove elements from page
-    const delBtn = document.createElement("span");
-    delBtn.textContent = "delete";
-    delBtn.className = "del";
-    tutorial.appendChild(delBtn);
+    const tutorialValue = tutorialsVal.value;
+    if (tutorialValue.trim() !== "") {
+      arrOfTutorials.push(tutorialValue);
+      //create tutorial element in page
+      const tutorial = document.createElement("div");
+      tutorial.className = "tut";
+      tutorial.innerHTML = tutorialValue;
+      listOfTutorials.appendChild(tutorial);
+      //create delete button to remove elements from page
+      const delBtn = document.createElement("span");
+      delBtn.textContent = "delete";
+      delBtn.className = "del";
+      tutorial.appendChild(delBtn);
 
-    delBtn.addEventListener("click", () => {
-      const index = arrOfTutorials.indexOf(tutorialValue);
-      if (index > -1) {
-        listOfTutorials.removeChild(tutorial);
-        arrOfTutorials.splice(index, 1);
-      }
-    });
-    //used to empty the value to text area each time adding element
-    tutorialsVal.value = "";
-  }
-  //for testing
-  console.log(arrOfTutorials);
-};
+      delBtn.addEventListener("click", () => {
+        const index = arrOfTutorials.indexOf(tutorialValue);
+        if (index > -1) {
+          listOfTutorials.removeChild(tutorial);
+          arrOfTutorials.splice(index, 1);
+        }
+      });
+      //used to empty the value to text area each time adding element
+      tutorialsVal.value = "";
+    }
+    //for testing
+    console.log(arrOfTutorials);
+  };
 if (clearBtn) {
   clearBtn.onclick = (event) => {
     event.preventDefault();
