@@ -76,27 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create choice buttons for each subject
   let curSemester = 0;
+  let card;
   subjects.forEach((subject, index) => {
     if (curSemester !== subject.semester) {
       curSemester = subject.semester;
-      const br = document.createElement("br");
-      subjectButtonsContainer.appendChild(br);
+      card = document.createElement("div");
+      card.className = "card";
       const semesterHeader = document.createElement("h3");
       semesterHeader.textContent = `Semester ${subject.semester}`;
-      subjectButtonsContainer.appendChild(semesterHeader);
-      // creat button to select all subjects of this semester
-      const input = document.createElement("input");
-      input.type = "checkbox";
-      input.name = `semester-${subject.semester}`;
-      input.id = `semester-${subject.semester}`;
-      input.value = subject.creditHours;
-      const label = document.createElement("label");
-      label.textContent = `Select All Semester ${subject.semester}`;
-      const br2 = document.createElement("br");
-      subjectButtonsContainer.appendChild(input);
-      subjectButtonsContainer.appendChild(label);
-      subjectButtonsContainer.appendChild(br2);
+      card.appendChild(semesterHeader);
+      subjectButtonsContainer.appendChild(card);
     }
+  
     const input = document.createElement("input");
     input.type = "checkbox";
     input.name = subject.name + "-" + subject.semester;
@@ -113,10 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
       gradeSelect.appendChild(option);
     }
     const br = document.createElement("br");
-    subjectButtonsContainer.appendChild(input);
-    subjectButtonsContainer.appendChild(label);
-    subjectButtonsContainer.appendChild(gradeSelect);
-    subjectButtonsContainer.appendChild(br);
+    card.appendChild(input);
+    card.appendChild(label);
+    card.appendChild(gradeSelect);
+    card.appendChild(br);
     // hide grade option by default
     gradeSelect.style.display = "none";
     input.addEventListener("change", function () {

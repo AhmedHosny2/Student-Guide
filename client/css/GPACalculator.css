@@ -1,0 +1,66 @@
+#subject-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.1);
+    transition: 0.8s ease-in-out;
+
+    opacity: 1;
+    filter: brightness(100%);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.card input[type="checkbox"],
+.card select {
+    margin: 10px 0;
+}
+
+.card label {
+    font-weight: bold;
+}
+
+body {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h3 {
+    color: #333;
+}
+
+label {
+    margin: 10px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
