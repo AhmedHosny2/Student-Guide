@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add to total
       totalWeightedGrade += weightedGrade;
     });
-
+    const toPass =Math.max( .6-totalWeightedGrade,0);
     // Alert the result
-    alert("Your total weighted grade is: " + totalWeightedGrade.toFixed(4)); // Round to 2 decimal places
+    alert("Your total weighted grade is: " + totalWeightedGrade.toFixed(4)+`\n you need ${toPass.toFixed(3)} to pass`); // Round to 2 decimal places
   });
 });
