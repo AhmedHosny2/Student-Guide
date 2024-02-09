@@ -20,6 +20,36 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: 18, name: "DS", creditHours: 4, semester: 4 },
     { id: 19, name: "Media", creditHours: 4, semester: 4 },
     { id: 20, name: "SE", creditHours: 4, semester: 4 },
+    { id: 23, name: "SE I", creditHours: 4, semester: 5 },
+
+    { id: 21, name: "SDA", creditHours: 4, semester: 5 },
+    { id: 22, name: "RE", creditHours: 4, semester: 5 },
+    { id: 24, name: "SECT", creditHours: 4, semester: 5 },
+    { id: 25, name: "SE sec", creditHours: 4, semester: 5 },
+    { id: 26, name: "crypto", creditHours: 4, semester: 5 },
+    { id: 27, name: "froensic", creditHours: 4, semester: 5 },
+    { id: 28, name: "web prog.", creditHours: 4, semester: 5 },
+    { id: 29, name: "HCI", creditHours: 4, semester: 5 },
+    { id: 30, name: "graphics", creditHours: 4, semester: 5 },
+    { id: 31, name: "ML I", creditHours: 4, semester: 5 },
+    { id: 32, name: "DB prog", creditHours: 4, semester: 5 },
+    { id: 33, name: "data vis.", creditHours: 4, semester: 5 },
+    { id: 34, name: "PM", creditHours: 4, semester: 6 },
+    { id: 35, name: "RM", creditHours: 4, semester: 6 },
+
+    { id: 36, name: "Cloud", creditHours: 4, semester: 6 },
+    { id: 37, name: "Mobile", creditHours: 4, semester: 6 },
+    { id: 38, name: "SE II", creditHours: 4, semester: 6 },
+    { id: 39, name: "NoSQL", creditHours: 4, semester: 6 },
+    { id: 40, name: "ML II", creditHours: 4, semester: 6 },
+    { id: 41, name: "Image", creditHours: 4, semester: 6 },
+
+    { id: 42, name: "Network sec", creditHours: 4, semester: 6 },
+    { id: 43, name: "Business Continuity", creditHours: 4, semester: 6 },
+    { id: 44, name: "Ethical Hacking", creditHours: 4, semester: 6 },
+    { id: 45, name: "3D Design", creditHours: 4, semester: 6 },
+    { id: 46, name: "Usability ", creditHours: 4, semester: 6 },
+    { id: 47, name: "Web Dev porj ", creditHours: 4, semester: 6 },
   ];
 
   const grades = {
