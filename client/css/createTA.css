@@ -23,8 +23,7 @@ h1 {
 
 .taCreation .container form {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   background-color: white;
   -webkit-border-radius: 1.25rem;
   -moz-border-radius: 1.25rem;
@@ -53,10 +52,16 @@ h1 {
     var(--fourth-color)
   );
   background-size: 400% 400%;
+  display: grid;
+  place-content: center;
 }
 
 .taCreation .container form .img img {
   width: 100%;
+}
+
+.taCreation .container form input::placeholder{
+  text-transform: capitalize;
 }
 
 .taCreation .container form .box {
@@ -65,6 +70,11 @@ h1 {
   padding: 60px;
 }
 
+@media (max-width: 767px) {
+  .taCreation .container form .img {
+    display: none;
+  }
+}
 .taCreation .container form .box input {
   border: 0;
   box-shadow:
