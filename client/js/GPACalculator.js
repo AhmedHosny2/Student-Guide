@@ -20,8 +20,37 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: 18, name: "DS", creditHours: 4, semester: 4 },
     { id: 19, name: "Media", creditHours: 4, semester: 4 },
     { id: 20, name: "SE", creditHours: 4, semester: 4 },
-  ];
+    { id: 23, name: "SE I", creditHours: 4, semester: 5 },
 
+    { id: 21, name: "SDA", creditHours: 4, semester: 5 },
+    { id: 22, name: "RE", creditHours: 4, semester: 5 },
+    { id: 24, name: "SECT", creditHours: 4, semester: 5 },
+    { id: 25, name: "SE sec", creditHours: 4, semester: 5 },
+    { id: 26, name: "crypto", creditHours: 4, semester: 5 },
+    { id: 27, name: "froensic", creditHours: 4, semester: 5 },
+    { id: 28, name: "web prog.", creditHours: 4, semester: 5 },
+    { id: 29, name: "HCI", creditHours: 4, semester: 5 },
+    { id: 30, name: "graphics", creditHours: 4, semester: 5 },
+    { id: 31, name: "ML I", creditHours: 4, semester: 5 },
+    { id: 32, name: "DB prog", creditHours: 4, semester: 5 },
+    { id: 33, name: "data vis.", creditHours: 4, semester: 5 },
+    { id: 34, name: "PM", creditHours: 4, semester: 6 },
+    { id: 35, name: "RM", creditHours: 4, semester: 6 },
+
+    { id: 36, name: "Cloud", creditHours: 4, semester: 6 },
+    { id: 37, name: "Mobile", creditHours: 4, semester: 6 },
+    { id: 38, name: "SE II", creditHours: 4, semester: 6 },
+    { id: 39, name: "NoSQL", creditHours: 4, semester: 6 },
+    { id: 40, name: "ML II", creditHours: 4, semester: 6 },
+    { id: 41, name: "Image", creditHours: 4, semester: 6 },
+
+    { id: 42, name: "Network sec", creditHours: 4, semester: 6 },
+    { id: 43, name: "Business Continuity", creditHours: 4, semester: 6 },
+    { id: 44, name: "Ethical Hacking", creditHours: 4, semester: 6 },
+    { id: 45, name: "3D Design", creditHours: 4, semester: 6 },
+    { id: 46, name: "Usability ", creditHours: 4, semester: 6 },
+    { id: 47, name: "Web Dev porj ", creditHours: 4, semester: 6 },
+  ];
 
   const grades = {
     select: 0,
@@ -112,32 +141,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // get all select all semester buttons
-  const semesterButtons = document.querySelectorAll('input[type="checkbox"]');
-  semesterButtons.forEach((button) => {
+  // select buttons that id starts with semester
+  const selectButtons = document.querySelectorAll('input[id^="semester-"]');
+  selectButtons.forEach((button) => {
     button.addEventListener("change", function () {
       const semester = button.name.split("-")[1];
-      const subjectsInSemester = subjects.filter(
+      const subjectsOfSemester = subjects.filter(
         (subject) => subject.semester === parseInt(semester)
       );
-      if (button.checked) {
-        subjectsInSemester.forEach((subject) => {
-          const gradeSelect = document.getElementsByName(
-            `${subject.name}-grade`
-          )[0];
-          gradeSelect.style.display = "block";
-          gradesArray[subject.id - 1] = grades[gradeSelect.value];
-        });
-      } else {
-        subjectsInSemester.forEach((subject) => {
-          const gradeSelect = document.getElementsByName(
-            `${subject.name}-grade`
-          )[0];
-          gradeSelect.style.display = "none";
-          gradesArray[subject.id - 1] = 0;
-        });
-      }
-      console.log(gradesArray);
+      const creditHours = subjectsOfSemester.reduce(
+        (acc, subject) => acc + subject.creditHours,
+        0
+      );
+      //select all options that id start with semester number
+      const gradeSelects = document.querySelectorAll(
+        `input[id^="${semester}"]`
+      );
+
+      gradeSelects.forEach((gradeSelect) => {
+        gradeSelect.click();
+      });
     });
   });
 
@@ -156,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
       totalCreditHours += subjects[i].creditHours;
     }
     const result = totalCreditHoursWithGrades / totalCreditHours;
-    alert(`GPA: ${result.toFixed(2)}`);
+    alert(`GPA: ${result.toFixed(4)}`);
     console.log("Grades Array:", gradesArray);
   });
 });

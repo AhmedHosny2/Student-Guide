@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let arr = [];
 
   function fetchTAData() {
-    fetch(taURL, {
+    fetch(taURL+"/getTAs", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

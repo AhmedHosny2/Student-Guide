@@ -1,8 +1,9 @@
-const { addTa, getAllTas, assignTa, deleteTa, deleteTaCourse } = require("../controller/TADirectory");
+const { addTa, getAllTas, assignTa, deleteTa, deleteTaCourse , getTaCourses} = require("../controller/TADirectory");
 const router = require("express").Router();
 const { verifyToken, verifyRole } = require("../middleware/auth");
 router.use(verifyToken);
-router.get("/", getAllTas);
+router.get("/getTAs", getAllTas);
+router.get("/getTaCourses", getTaCourses);
 router.use(verifyRole);
 router.post("/add", addTa);
 router.post("/assign", assignTa);
