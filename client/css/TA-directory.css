@@ -92,8 +92,9 @@
   -o-transition: 0.15s;
   cursor: pointer;
   min-height: 500px;
-  display: grid;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .taDirectory .container .card:hover {
@@ -104,6 +105,7 @@
   background-color: var(--fourth-color);
   font-weight: 800;
   padding: 8px 15px;
+  margin-top: 10px;
   display: block;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
@@ -129,8 +131,6 @@
 
 .taDirectory .container .card .course {
   font-weight: 800;
-  display: block;
-  width: max-content;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
   -ms-border-radius: 0.25rem;
@@ -140,6 +140,7 @@
   /* text-transform: capitalize; */
   font-size: 1.2rem;
   margin: 0;
+  overflow: hidden;
 }
 
 .taDirectory .container .card .wrap-data .wrap {
@@ -211,8 +212,8 @@
 }
 
 @media (max-width: 767px) {
-.taDirectory .container .admin-buttons {
-  margin-bottom: 100px;
+  .taDirectory .container .admin-buttons {
+    margin-bottom: 100px;
   }
 }
 /* end admin buttons */
