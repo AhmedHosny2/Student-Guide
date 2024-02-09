@@ -34,6 +34,15 @@ exports.getAllTas = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+exports.getTaCourses = async (req, res) => {
+  try {
+    const tas = await TaCourseModel.find();
+    res.status(200).json(tas);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 exports.assignTa = async (req, res) => {
   // TODO  get all tuts already exist for this course and compare with the new ones
