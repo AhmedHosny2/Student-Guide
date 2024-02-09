@@ -45,7 +45,13 @@ exports.getCourse = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
+const getCourseCode =async()=>{
+    const courses = await courseModel.find();
+    courses.forEach(course => {
+      console.log(course.courseCode+" "+course.courseName);
+    });
+  }
+  getCourseCode();
 exports.updateCourse = async (req, res) => {
   const { courseName } = req.params;
   const { content } = req.body;
