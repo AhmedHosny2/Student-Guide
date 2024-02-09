@@ -67,7 +67,7 @@
   -ms-transition: 0.15s;
   -o-transition: 0.15s;
   cursor: pointer;
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,6 +102,7 @@
 
 .courses-selection .container .courses-wrap .course-card:hover p {
   color: var(--fourth-color);
+  border-bottom: 2px solid var(--fourth-color);
 }
 
 .courses-selection .container .courses-wrap .course-card img {
