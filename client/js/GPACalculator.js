@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: 20, name: "SE", creditHours: 4, semester: 4 },
   ];
 
-
   const grades = {
     select: 0,
     "A+": 0.7,
@@ -112,32 +111,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // get all select all semester buttons
-  const semesterButtons = document.querySelectorAll('input[type="checkbox"]');
-  semesterButtons.forEach((button) => {
+  // select buttons that id starts with semester
+  const selectButtons = document.querySelectorAll('input[id^="semester-"]');
+  selectButtons.forEach((button) => {
     button.addEventListener("change", function () {
       const semester = button.name.split("-")[1];
-      const subjectsInSemester = subjects.filter(
+      const subjectsOfSemester = subjects.filter(
         (subject) => subject.semester === parseInt(semester)
       );
-      if (button.checked) {
-        subjectsInSemester.forEach((subject) => {
-          const gradeSelect = document.getElementsByName(
-            `${subject.name}-grade`
-          )[0];
-          gradeSelect.style.display = "block";
-          gradesArray[subject.id - 1] = grades[gradeSelect.value];
-        });
-      } else {
-        subjectsInSemester.forEach((subject) => {
-          const gradeSelect = document.getElementsByName(
-            `${subject.name}-grade`
-          )[0];
-          gradeSelect.style.display = "none";
-          gradesArray[subject.id - 1] = 0;
-        });
-      }
-      console.log(gradesArray);
+      const creditHours = subjectsOfSemester.reduce(
+        (acc, subject) => acc + subject.creditHours,
+        0
+      );
+      //select all options that id start with semester number
+      const gradeSelects = document.querySelectorAll(
+        `input[id^="${semester}"]`
+      );
+
+      gradeSelects.forEach((gradeSelect) => {
+        gradeSelect.click();
+      });
     });
   });
 
@@ -156,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
       totalCreditHours += subjects[i].creditHours;
     }
     const result = totalCreditHoursWithGrades / totalCreditHours;
-    alert(`GPA: ${result.toFixed(2)}`);
+    alert(`GPA: ${result.toFixed(4)}`);
     console.log("Grades Array:", gradesArray);
   });
 });
