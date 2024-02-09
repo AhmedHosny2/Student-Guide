@@ -1,5 +1,4 @@
 import { clientLoginURL } from "../utils/env.js";
-console.log(clientLoginURL);
 if (localStorage.getItem("userName") == null)
   window.location.href = clientLoginURL;
 else {
