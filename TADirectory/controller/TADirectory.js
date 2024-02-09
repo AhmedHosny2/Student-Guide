@@ -27,7 +27,7 @@ exports.addTa = async (req, res) => {
 
 exports.getAllTas = async (req, res) => {
   try {
-    const tas = await TaCourseModel.find();
+    const tas = await TaModel.find();
     res.status(200).json(tas);
   } catch (err) {
     console.error(err);

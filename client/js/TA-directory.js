@@ -14,7 +14,7 @@ else {
 let arr = [];
 
 function fetchTAData() {
-  fetch(taURL + "/getTAs", {
+  fetch(taURL + "/getTaCourses", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

@@ -12,7 +12,7 @@ else {
 
 let taEmails = [];
 import { taURL } from "../utils/env.js";
-fetch(taURL+"getTaCourses", {
+fetch(taURL+"/getTAs", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
