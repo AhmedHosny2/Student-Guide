@@ -1,7 +1,33 @@
 const { TaModel } = require("../model/TADirectory");
-const getCookie = require("../utils/cookies").getEntriesFromCookie;
 const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 const { TaCourseModel } = require("../model/TADirectory");
+const Redis = require("redis");
+const client = Redis.createClient();
+const DEFAULT_EXPIRATION = 600;
+const runRedis = async () => {
+  await client.connect();
+};
+runRedis();
+
+exports.getAllTas = async (req, res) => {
+  try {
+    let tas = await client.get("tas");
+    // get when will it expire
+    // const ttl = await client.ttl("tas");
+    // console.log("ttl", ttl);
+    if (!tas || tas.length === 0) {
+      console.log("tas not found in cache");
+      tas = await TaModel.find();
+      client.setEx("tas", DEFAULT_EXPIRATION, JSON.stringify(tas));
+    } else tas = JSON.parse(tas);
+
+    return res.status(200).json(tas);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+// TODO make url deployed
 exports.addTa = async (req, res) => {
   const { name, email, officeLocation } = req.body;
   const uniEmail = email + "@giu-uni.de";
@@ -24,19 +50,16 @@ exports.addTa = async (req, res) => {
   }
   res.status(200).json({ message: "TA created" });
 };
+23;
 
-exports.getAllTas = async (req, res) => {
-  try {
-    const tas = await TaModel.find();
-    res.status(200).json(tas);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
 exports.getTaCourses = async (req, res) => {
   try {
-    const tas = await TaCourseModel.find();
+    let tas = await client.get("taCourses");
+    if (!tas || tas.length === 0) {
+      console.log("tas not found in cache");
+      tas = await TaCourseModel.find();
+      client.setEx("taCourses", DEFAULT_EXPIRATION, JSON.stringify(tas));
+    } else tas = JSON.parse(tas);
     res.status(200).json(tas);
   } catch (err) {
     console.error(err);

@@ -5,7 +5,6 @@ const refreshSecret = process.env.REFRESH_TOKEN_SECRET;
 function getEntriesFromCookie(req) {
   let authCookie = "";
   let refreshToken = "";
-  console.log("headderss \n\n\n" + req.headers.cookie);
   if (req.headers.cookie.includes("authcookie")) {
     authCookie = req.headers.cookie.split("authcookie=")[1].split(";")[0];
   }
@@ -19,7 +18,6 @@ function getEntriesFromCookie(req) {
     const decodedAccessToken = jwt.verify(authCookie, secret);
 
     // If the access token is valid, return its payload
-    console.log("Access token payload:", decodedAccessToken);
     return decodedAccessToken;
   } catch (accessError) {
     // Access token has expired or is invalid, let's try to use the refresh token
@@ -27,7 +25,6 @@ function getEntriesFromCookie(req) {
       // Verify the refresh token
       const decodedRefreshToken = jwt.verify(refreshToken, refreshSecret);
       const { email, isAdmin } = decodedRefreshToken;
-      console.log("the tokens = " + " " + email + " " + isAdmin + "\n\n\n");
       const newAccessToken = jwt.sign({ email, isAdmin }, secret, {
         expiresIn: "2h",
       });
@@ -35,7 +32,6 @@ function getEntriesFromCookie(req) {
       //decode it
       const newDecodedToken = jwt.verify(newAccessToken, secret);
 
-      console.log("New access token:", newDecodedToken);
       return newDecodedToken;
     } catch (refreshError) {
       // Both access and refresh tokens are invalid, handle the error
