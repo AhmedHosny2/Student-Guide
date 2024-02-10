@@ -134,8 +134,9 @@ html {
 
 .header .nav .links {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   margin: 0;
+  align-items: center;
 }
 
 .header .nav .links li a {
