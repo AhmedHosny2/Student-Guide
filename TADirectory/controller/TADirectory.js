@@ -31,6 +31,8 @@ exports.getAllTas = async (req, res) => {
 exports.addTa = async (req, res) => {
   const { name, email, officeLocation } = req.body;
   const uniEmail = email + "@giu-uni.de";
+  // reset the cache
+  client.del("tas");
   console.log(uniEmail);
   const found = await TaModel.find({ email: uniEmail });
   if (found !== null && found.length > 0) {
@@ -70,7 +72,9 @@ exports.getTaCourses = async (req, res) => {
 exports.assignTa = async (req, res) => {
   // TODO  get all tuts already exist for this course and compare with the new ones
   const { email, tutorials, courseName, officeHours } = req.body;
-  console.log(email, tutorials, courseName, officeHours);
+  //reset cache
+  client.del("taCourses");
+
   // const userEmail = getCookie(req).email;
   let found = await TaModel.find({ email: email });
   if (found === null || found.length === 0) {
@@ -96,7 +100,8 @@ exports.assignTa = async (req, res) => {
 };
 exports.deleteTa = async (req, res) => {
   const { email } = req.body;
-  console.log(email);
+  // reset cache
+  client.del("tas");
   try {
     await TaModel.deleteOne({ email });
     res.status(200).json({ message: "TA deleted" });
@@ -110,6 +115,9 @@ exports.deleteTa = async (req, res) => {
 };
 exports.deleteTaCourse = async (req, res) => {
   const { _id } = req.body;
+  // reset cache
+  client.del("taCourses");
+
   try {
     await TaCourseModel.deleteOne({ _id });
     res.status(200).json({ message: "TA course deleted" });
