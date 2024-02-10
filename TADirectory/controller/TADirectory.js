@@ -2,12 +2,24 @@ const { TaModel } = require("../model/TADirectory");
 const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 const { TaCourseModel } = require("../model/TADirectory");
 const Redis = require("redis");
-const client = Redis.createClient();
+dotenv = require("dotenv");
+dotenv.config();
+// let client;
 const DEFAULT_EXPIRATION = 600;
-const runRedis = async () => {
-  await client.connect();
-};
-runRedis();
+const client = Redis.createClient({
+  password: process.env.REDIS_PASSWORD,
+  socket: {
+      host: 'redis-16631.c299.asia-northeast1-1.gce.cloud.redislabs.com',
+      port: 16631
+  }
+});
+
+console.log(process.env.REDIS_HOSTNAME, process.env.REDIS_PORT, process.env.REDIS_PASSWORD);
+client.connect();
+client.on("connect", () => {
+  console.log("Connected to our redis instance!");
+  client.set("Greatest Basketball Player", "Lebron James");
+});
 
 exports.getAllTas = async (req, res) => {
   try {
