@@ -6,29 +6,6 @@ const courses = {
   4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4"],
 };
 
-// const courseImages = {
-//   "math 1": "../images/math1.jpg",
-//   physics: "../images/physics.jpg",
-//   "technical foundation": "../images/technicalFoundation.jpg",
-//   cs1: "../images/CS1.jpg",
-//   "math2 ": "../images/math2.jpg",
-//   oop: "../images/oop.jpg",
-//   network: "../images/networks.jpg",
-//   "micro computer": "../images/micro.jpg",
-//   theoretical: "../images/theor.jpg",
-//   cpp: "../images/cpp.png",
-//   os: "../images/os.jpeg",
-//   dsa: " ../images/dsa.png",
-//   db: "../images/db.jpg",
-//   "math 3": "  ../images/math3.jpg",
-//   se: " ../images/SE.jpg",
-//   ds: " ../images/ds.jpg",
-//   it: " ../images/it.jpg",
-//   distributed: " ../images/dis.jpg",
-//   media: "  ../images/media.jpg",
-//   "math 4": " ../images/math4.jpg",
-// };
-
 const courseImages = ["../images/courses (1).svg",
   "../images/courses (2).svg",
   "../images/courses (3).svg",
@@ -54,23 +31,10 @@ function displayCourses() {
 
   if (selectedCourses) {
     selectedCourses.forEach((course, index) => {
-      // const courseNameLowerCase = course.toLowerCase();
-      // const imageUrl = courseImages[courseNameLowerCase];
-
-      // const courseCard = document.createElement("div");
-      // courseCard.className = "course-card";
-      // courseCard.style.backgroundImage = `url(${imageUrl})`;
-
-      // create course name paragraph
-      // const courseName = document.createElement("p");
-      // courseName.textContent = course;
-      // courseCard.appendChild(courseName);
-
 
       //create course card
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
-
 
       //create course paragraph
       const courseName = document.createElement("p");
@@ -81,7 +45,6 @@ function displayCourses() {
       const cardImg = document.createElement("img");
       cardImg.src = courseImages[index % courseImages.length];
       courseCard.appendChild(cardImg);
-
 
       courseCard.addEventListener("click", async function () {
         try {
@@ -122,3 +85,9 @@ function displayCourses() {
 
 semesterSelect.addEventListener("change", displayCourses);
 displayCourses();
+
+//remove admin button
+const addCourseButton = document.querySelector(".re-direct");
+if (localStorage.getItem("isAdmin") === "false" || localStorage.getItem("isAdmin") == null) {
+  addCourseButton.style.display = "none";
+}
