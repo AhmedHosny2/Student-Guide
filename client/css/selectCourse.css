@@ -36,10 +36,17 @@
 
 /* start course card */
 .courses-selection .container .courses-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 40px;
   margin: 50px;
+}
+
+@media (max-width: 767px) {
+  .courses-selection .container .courses-wrap {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .courses-selection .container .courses-wrap .course-card {
