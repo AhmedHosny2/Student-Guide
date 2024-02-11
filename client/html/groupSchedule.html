@@ -102,7 +102,7 @@
       </select>
     </div>
     <div class="outer" style="padding: 3vh 5vw; height: 100vh">
-      <div class="container" style="height: 100vh; padding-right: 5vw">
+      <div class="container" style="height: 100vh;">
         <table id="1">
           <tbody>
             <tr style="height: 5vh">
@@ -887,25 +887,45 @@
     //   });
     // });
 
-    window.onload = function () {
-      // Hide all tables on page load
-      document.getElementById("1").style.display = "none";
-      document.getElementById("2").style.display = "none";
-      document.getElementById("3").style.display = "none";
-    };
+    // window.onload = function () {
+    // Hide all tables on page load
+    //   document.getElementById("1").style.display = "none";
+    //   document.getElementById("2").style.display = "none";
+    //   document.getElementById("3").style.display = "none";
+    // };
+
+    // document
+    //   .getElementById("tableSelect")
+    //   .addEventListener("change", function () {
+    //     // Hide all tables
+    //     document.getElementById("1").style.display = "none";
+    //     document.getElementById("2").style.display = "none";
+    //     document.getElementById("3").style.display = "none";
+
+    //     // Show the selected table
+    //     document.getElementById(this.value).style.display = "flex";
+    //   });
 
     document
       .getElementById("tableSelect")
       .addEventListener("change", function () {
-        // Hide all tables
-        document.getElementById("1").style.display = "none";
-        document.getElementById("2").style.display = "none";
-        document.getElementById("3").style.display = "none";
+        var tableIds = ["1", "2", "3"];
 
-        // Show the selected table
-        document.getElementById(this.value).style.display = "flex";
+        for (let i = 0; i < tableIds.length; i++) {
+          var table = document.getElementById(tableIds[i]);
+          table.style.opacity = 0;
+
+          table.style.display = "none";
+        }
+        var selectedTable = document.getElementById(this.value);
+        selectedTable.style.display = "flex";
+
+        setTimeout(function () {
+          selectedTable.style.opacity = 1;
+        }, 50);
       });
   </script>
+
   <script type="module" src="../js/navbar.js"></script>
 </html>
 <!-- room location /  subject name / tut num  -->
