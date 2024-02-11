@@ -13,16 +13,9 @@ body {
 .carousel-indicators {
   pointer-events: none;
 }
-.header {
-  background: #f4f4f4;
-  color: #333;
-  padding: 10px 0;
-  text-align: center;
-}
 
-.navbar {
-  margin-bottom: 20px;
-}
+
+
 
 .slideshow-container {
   position: relative;
