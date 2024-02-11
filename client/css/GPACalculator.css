@@ -109,7 +109,7 @@
 }
 
 .gpaCalc .container form .subject-buttons .sem .selectAllWrap .checkbox-wrapper label {
-  background-color: #f72414;
+  background-color: var(--fourth-color);
 }
 
 .gpaCalc .container form .subject-buttons .sem .checkbox-wrapper label:before {
