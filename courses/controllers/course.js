@@ -3,14 +3,22 @@ const courseModel = require("../model/courseModel");
 const getCookie = require("../utils/cookies").getEntriesFromCookie;
 const userURL = require("../services/BaseURLs").USER_BASE_URL;
 const updateUserPoints = require("../utils/addPoints").updateUserPoints;
-const redis = require("redis");
-const client = redis.createClient();
-const DEFAULT_EXPIRATION = 600;
-const runRedis = async () => {
-  await client.connect();
-};
-runRedis();
+// const Redis = require("redis");
+// const client = redis.createClient();
+// const DEFAULT_EXPIRATION = 600;
+// const runRedis = async () => {
+//   await client.connect();
+// };
+// runRedis();
 
+// const DEFAULT_EXPIRATION = 600;
+// const client = Redis.createClient({
+  // password: process.env.REDIS_PASSWORD,
+  // socket: {
+    // host: "redis-16631.c299.asia-northeast1-1.gce.cloud.redislabs.com",
+    // port: 16631,
+  // },
+// });
 exports.addCourse = async (req, res) => {
   const { courseName, courseCode, courseCredits, semester, content } = req.body;
 
@@ -39,12 +47,12 @@ exports.addCourse = async (req, res) => {
 exports.getCourse = async (req, res) => {
   const { courseName } = req.params;
   try {
-    let course = await client.get(courseName);
-    if (!course || course.length === 0) {
-      console.log("course not found in cache");
+    // let course = await client.get(courseName);
+    // if (!course || course.length === 0) {
+      // console.log("course not found in cache");
       course = await courseModel.findOne({ courseName });
-      client.setEx(courseName, DEFAULT_EXPIRATION, JSON.stringify(course));
-    } else course = JSON.parse(course);
+      // client.setEx(courseName, DEFAULT_EXPIRATION, JSON.stringify(course));
+    // } else course = JSON.parse(course);
     if (!course)
       return res.status(400).json({ message: "course does not exist" });
 
