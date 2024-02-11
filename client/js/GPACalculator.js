@@ -85,38 +85,64 @@ document.addEventListener("DOMContentLoaded", function () {
       semesterHeader.textContent = `Semester ${subject.semester}`;
       semesterDiv.appendChild(semesterHeader);
 
-      // Add the div to the subjectButtonsContainer
-      subjectButtonsContainer.appendChild(semesterDiv);
-
       // Update the currentSemesterDiv
       currentSemesterDiv = semesterDiv;
+
+      // Add the div to the subjectButtonsContainer
+      subjectButtonsContainer.appendChild(semesterDiv);
 
       // Create a checkbox to select all subjects of this semester
       const selectAllWrap = document.createElement("div");
       selectAllWrap.classList.add("selectAllWrap");
+
+      const checkBoxWrapAll = document.createElement("div");
+      checkBoxWrapAll.classList.add("checkbox-wrapper");
+
+      const label = document.createElement("label");
+      label.setAttribute("for", `semester-${subject.semester}`);
+      const tickMarkAll = document.createElement("div");
+      tickMarkAll.classList.add("tickMark");
       const input = document.createElement("input");
       input.type = "checkbox";
       input.name = `semester-${subject.semester}`;
       input.id = `semester-${subject.semester}`;
       input.value = subject.creditHours;
-      const label = document.createElement("label");
-      label.textContent = `Select All Semester ${subject.semester}`;
-      selectAllWrap.appendChild(input);
-      selectAllWrap.appendChild(label);
+      const pContent = document.createElement("p");
+      pContent.textContent = `Select All Semester ${subject.semester}`;
+      checkBoxWrapAll.appendChild(input);
+      checkBoxWrapAll.appendChild(label);
+      selectAllWrap.appendChild(checkBoxWrapAll);
+      selectAllWrap.appendChild(pContent);
       currentSemesterDiv.appendChild(selectAllWrap);
     }
 
     // Create a div to wrap each input and label
     const choiceWrapDiv = document.createElement("div");
     choiceWrapDiv.classList.add("choiceWrap");
+    //create checkbox wrap
+    const checkboxWrap = document.createElement("div");
+    checkboxWrap.classList.add("checkbox-wrapper");
 
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.name = subject.name + "-" + subject.semester;
-    input.id = subject.semester + subject.name;
-    input.value = subject.creditHours;
-    const label = document.createElement("label");
-    label.textContent = `${subject.name} (${subject.creditHours} credit hours)`;
+    const labelCheckBox = document.createElement("label");
+    const tickMark = document.createElement("div");
+    tickMark.classList.add("tickMark");
+
+    const checkboxSubject = document.createElement("input");
+    checkboxSubject.type = "checkbox";
+    checkboxSubject.name = subject.name + "-" + subject.semester;
+    checkboxSubject.id = subject.semester + subject.name;
+    checkboxSubject.value = subject.creditHours;
+
+    //apend the checkbox, label and tickmark inside the checkboxWrap
+    checkboxWrap.appendChild(checkboxSubject);
+    checkboxWrap.appendChild(labelCheckBox);
+    labelCheckBox.appendChild(tickMark);
+
+    // Set the 'for' attribute of the label to match the checkbox 'id'
+    labelCheckBox.setAttribute("for", subject.semester + subject.name);
+
+    const pSubject = document.createElement("p");
+    pSubject.textContent = `${subject.name} (${subject.creditHours} credit hours)`;
     const gradeSelect = document.createElement("select");
     gradeSelect.name = `${subject.name}-grade`;
 
@@ -128,15 +154,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Append input, label, and gradeSelect to the choiceWrapDiv
-    choiceWrapDiv.appendChild(input);
-    choiceWrapDiv.appendChild(label);
+    choiceWrapDiv.appendChild(checkboxWrap);
+    choiceWrapDiv.appendChild(pSubject);
     choiceWrapDiv.appendChild(gradeSelect);
 
     // Hide grade option by default
     gradeSelect.style.display = "none";
-    input.addEventListener("change", function () {
+    checkboxSubject.addEventListener("change", function () {
       // Make grade option visible when checkbox is checked
-      if (input.checked) {
+      if (checkboxSubject.checked) {
         gradeSelect.style.display = "block";
       }
       // Hide grade option when checkbox is unchecked
@@ -146,18 +172,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     gradeSelect.addEventListener("change", function () {
-      if (input.checked) {
-        const selectedGrade = gradeSelect.value;
-        const gradeValue = grades[selectedGrade];
+
+      let gradeValue;
+      let selectedGrade;
+      if (checkboxSubject.checked) {
+        selectedGrade = gradeSelect.value;
+        gradeValue = grades[selectedGrade];
         gradesArray[subject.id - 1] = gradeValue; // Update grade in gradesArray
       }
-
-      console.log(gradesArray);
+      console.log(gradeValue, selectedGrade);
     });
-
     // Append the choiceWrapDiv to the currentSemesterDiv
     currentSemesterDiv.appendChild(choiceWrapDiv);
   });
+
 
   // Select buttons that id starts with semester
   const selectButtons = document.querySelectorAll('input[id^="semester-"]');
