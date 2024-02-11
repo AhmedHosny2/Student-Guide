@@ -3,7 +3,7 @@ table {
   width: 100%;
   margin: auto;
   padding: 1vh 1vw;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
   opacity: 0;
   display: none;
 }
