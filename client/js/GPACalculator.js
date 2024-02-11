@@ -172,16 +172,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     gradeSelect.addEventListener("change", function () {
+
       let gradeValue;
       let selectedGrade;
-      if (labelCheckBox.checked) {
+      if (checkboxSubject.checked) {
         selectedGrade = gradeSelect.value;
         gradeValue = grades[selectedGrade];
         gradesArray[subject.id - 1] = gradeValue; // Update grade in gradesArray
       }
       console.log(gradeValue, selectedGrade);
     });
-    console.log(gradeSelect);
     // Append the choiceWrapDiv to the currentSemesterDiv
     currentSemesterDiv.appendChild(choiceWrapDiv);
   });
