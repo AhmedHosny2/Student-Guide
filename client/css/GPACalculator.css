@@ -1,3 +1,5 @@
+.gpaCalc .container form {
+}
 .gpaCalc .container form .subject-buttons {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -212,4 +214,35 @@
   .tickMark:after {
   transform: translate(0);
   opacity: 1;
+}
+
+.gpaCalc .container form button {
+  background-color: var(--third-color);
+  color: white;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 50px auto 100px;
+  border: 0;
+}
+
+.gpaCalc .container form button:hover {
+  box-shadow:
+    hsla(228, 43%, 54%, 0.4) 5px 5px,
+    hsla(228, 43%, 54%, 0.3) 10px 10px,
+    hsla(228, 43%, 54%, 0.2) 15px 15px,
+    hsla(228, 43%, 54%, 0.1) 20px 20px,
+    hsla(228, 43%, 54%, 0.05) 25px 25px;
 }
