@@ -30,7 +30,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: calc(100vh - 56px);
+  height: calc(100vh - 65px);
 }
 
 .carousel-item::before {
