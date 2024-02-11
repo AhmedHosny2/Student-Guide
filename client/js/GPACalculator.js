@@ -72,22 +72,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const subjectForm = document.getElementById("subject-form");
   const subjectButtonsContainer = document.getElementById("subject-buttons");
 
-  const gradesArray = new Array(subjects.length).fill(0);
-
   // Create choice buttons for each subject
   let curSemester = 0;
-  let card;
+  let currentSemesterDiv; // To keep track of the current semester div
   subjects.forEach((subject, index) => {
     if (curSemester !== subject.semester) {
       curSemester = subject.semester;
-      card = document.createElement("div");
-      card.className = "card";
+      // Create a new div for each semester
+      const semesterDiv = document.createElement("div");
+      semesterDiv.classList.add("sem");
       const semesterHeader = document.createElement("h3");
       semesterHeader.textContent = `Semester ${subject.semester}`;
-      card.appendChild(semesterHeader);
-      subjectButtonsContainer.appendChild(card);
+      semesterDiv.appendChild(semesterHeader);
+      // Add the div to the subjectButtonsContainer
+      subjectButtonsContainer.appendChild(semesterDiv);
+      // Update the currentSemesterDiv
+      currentSemesterDiv = semesterDiv;
+
+      // Create a checkbox to select all subjects of this semester
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.name = `semester-${subject.semester}`;
+      input.id = `semester-${subject.semester}`;
+      input.value = subject.creditHours;
+      const label = document.createElement("label");
+      label.textContent = `Select All Semester ${subject.semester}`;
+      currentSemesterDiv.appendChild(input);
+      currentSemesterDiv.appendChild(label);
+
     }
-  
+
     const input = document.createElement("input");
     input.type = "checkbox";
     input.name = subject.name + "-" + subject.semester;
@@ -97,26 +111,18 @@ document.addEventListener("DOMContentLoaded", function () {
     label.textContent = `${subject.name} (${subject.creditHours} credit hours)`;
     const gradeSelect = document.createElement("select");
     gradeSelect.name = `${subject.name}-grade`;
-    for (const grade in grades) {
-      const option = document.createElement("option");
-      option.value = grade;
-      option.textContent = grade;
-      gradeSelect.appendChild(option);
-    }
-    const br = document.createElement("br");
-    card.appendChild(input);
-    card.appendChild(label);
-    card.appendChild(gradeSelect);
-    card.appendChild(br);
-    // hide grade option by default
+
+
+    currentSemesterDiv.appendChild(input);
+    currentSemesterDiv.appendChild(label);
+    currentSemesterDiv.appendChild(gradeSelect);
+
+
     gradeSelect.style.display = "none";
     input.addEventListener("change", function () {
-      // maKe grade option visible when checkbox is checked
       if (input.checked) {
         gradeSelect.style.display = "block";
-      }
-      // hide grade option when checkbox is unchecked
-      else {
+      } else {
         gradeSelect.style.display = "none";
       }
     });
@@ -125,12 +131,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (input.checked) {
         const selectedGrade = gradeSelect.value;
         const gradeValue = grades[selectedGrade];
-        gradesArray[subject.id - 1] = gradeValue; // Update grade in gradesArray
+        gradesArray[subject.id - 1] = gradeValue;
       }
 
       console.log(gradesArray);
     });
   });
+
 
   // select buttons that id starts with semester
   const selectButtons = document.querySelectorAll('input[id^="semester-"]');
