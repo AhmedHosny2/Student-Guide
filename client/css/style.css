@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* Start Variables */
 :root {
   --main-color: #0b2447;
