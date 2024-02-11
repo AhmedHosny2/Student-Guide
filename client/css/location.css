@@ -5,6 +5,10 @@ body {
   line-height: 1.6;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   max-width: 1200px;
   margin: auto;
@@ -13,9 +17,6 @@ body {
 .carousel-indicators {
   pointer-events: none;
 }
-
-
-
 
 .slideshow-container {
   position: relative;
@@ -30,7 +31,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: calc(100vh - 65px);
+  height: calc(100vh - 56px);
 }
 
 .carousel-item::before {
@@ -81,7 +82,6 @@ p {
     width: 100%;
   }
   .carousel-item {
-    
     height: 90vh;
   }
 }
@@ -92,5 +92,3 @@ p {
   margin-bottom: 20px;
   font-size: clamp(1.2rem, 1.0774rem + 3.7936vw, 1rem);
 } */
-
-

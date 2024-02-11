@@ -99,10 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
       input.name = `semester-${subject.semester}`;
       input.id = `semester-${subject.semester}`;
       input.value = subject.creditHours;
-      const label = document.createElement("label");
-      label.textContent = `Select All Semester ${subject.semester}`;
+      const pContent = document.createElement("p");
+      pContent.textContent = `Select All Semester ${subject.semester}`;
       selectAllWrap.appendChild(input);
-      selectAllWrap.appendChild(label);
+      selectAllWrap.appendChild(pContent);
       currentSemesterDiv.appendChild(selectAllWrap);
     }
 

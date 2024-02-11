@@ -27,7 +27,17 @@ logoutButton.addEventListener("click", () => {
   // refersh 
   window.location.href = "/client/index.html"
   // TODO ===========================================================================
-} 
+}
 );
 
-
+// to hide login button and replace it with avatar
+if (localStorage.getItem("userName") == null)
+  window.location.href = clientLoginURL;
+else {
+  const avatar = document.querySelector(".avatar i");
+  avatar.classList.add("show");
+  const loginButton = document.querySelectorAll(".login");
+  loginButton.forEach((button) => {
+    button.style.display = "none";
+  });
+}
