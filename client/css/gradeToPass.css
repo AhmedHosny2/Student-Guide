@@ -55,7 +55,7 @@
 }
 
 .gradePass .container .txt .description img {
-  width: 50%;
+  width: 20%;
 }
 @media (max-width: 767px) {
   .gradePass .container .txt .description {
