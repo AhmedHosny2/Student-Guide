@@ -108,6 +108,10 @@ body {
   margin: 0;
 }
 
+.img-carousel {
+  margin: 0 10rem;
+}
+
 .carousel {
   height: calc(50vh - 65px);
   position: relative;
