@@ -60,6 +60,7 @@ function displayAutocomplete(suggestions) {
   // Display new suggestions
   suggestions.forEach((suggestion) => {
     const suggestionElement = document.createElement("div");
+    suggestionElement.classList.add("suggestion");
     suggestionElement.textContent = suggestion;
 
     suggestionElement.addEventListener("click", function () {
