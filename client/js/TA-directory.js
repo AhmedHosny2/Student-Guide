@@ -28,6 +28,7 @@ function fetchTAData() {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       generateTACards(data);
       console.log("Response from the API:", data);
     })
