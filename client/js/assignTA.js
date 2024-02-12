@@ -46,6 +46,18 @@ emailInput.addEventListener("input", function () {
   displayAutocomplete(matchingEmails.slice(0, 5));
 });
 
+emailInput.addEventListener("blur", () => {
+  const autoComp = document.querySelector(".taCreation .container form .box #autocomplete-container");
+  // If there is an active element within the autocomplete container, do nothing and keep it open
+  // Otherwise, close the autocomplete box when the mouse leaves the field
+  autoComp.classList.add("inactive");
+})
+
+emailInput.addEventListener("focus", () => {
+  const autoComp = document.querySelector(".taCreation .container form .box #autocomplete-container");
+  autoComp.classList.remove("inactive");
+})
+
 // Function to display autocomplete suggestions
 function displayAutocomplete(suggestions) {
   const autocompleteContainer = document.getElementById(
