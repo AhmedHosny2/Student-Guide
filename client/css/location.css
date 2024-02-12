@@ -48,12 +48,14 @@ a {
 
 .caption {
   max-width: 100%;
-  z-index: 1;
+  z-index: 99;
   margin: auto;
   position: relative;
   width: 100%;
+  top: 1rem;
+  bottom: 200rem;
 
-  color: white;
+  color: black;
   /* padding: 10px 20px; */
   display: flex;
   flex-direction: column;
@@ -70,6 +72,7 @@ p {
   max-width: 100%;
   height: auto;
   /* height: 100%; */
+  z-index: -99;
   width: 100%;
   border-radius: 40px;
   object-fit: cover;
@@ -94,3 +97,84 @@ p {
   margin-bottom: 20px;
   font-size: clamp(1.2rem, 1.0774rem + 3.7936vw, 1rem);
 } */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.carousel {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+}
+
+.carousel>ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+
+}
+.containerr{
+  border-radius: 40px;
+  background-color: black;
+  
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  -webkit-transition: 200ms opacity ease-in-out 200ms;
+  -moz-transition: 200ms opacity ease-in-out 200ms;
+  -ms-transition: 200ms opacity ease-in-out 200ms;
+  -o-transition: 200ms opacity ease-in-out 200ms;
+  transition: 200ms opacity ease-in-out 200ms;
+}
+
+.slide>img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+.carousel-button {
+  position: absolute;
+  background: none;
+  border: 0;
+  font-size: 4rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: rgba(red, green, blue, 0.5);
+  padding: 0 0.5rem;
+  background-color: rgba(red, green, blue, 0.1);
+  z-index: 2;
+}
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
