@@ -74,6 +74,21 @@
   border-bottom: 1px solid rgba(128, 128, 128, 0.196);
 }
 
+.gpaCalc .container form .subject-buttons .sem .choiceWrap select {
+  border: 0;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  padding: 10px;
+  background-color: white;
+  color: gray;
+}
+
 .gpaCalc .container form .subject-buttons .sem .selectAllWrap p,
 .gpaCalc .container form .subject-buttons .sem .choiceWrap p {
   margin: 0;
