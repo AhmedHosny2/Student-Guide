@@ -1,6 +1,5 @@
 import { taURL, clientLoginURL } from "../utils/env.js";
 
-
 if (localStorage.getItem("userName") == null)
   window.location.href = clientLoginURL;
 else {
@@ -19,14 +18,17 @@ const TAFrom = document.getElementById("TA-form");
 const taNameInput = document.getElementById("taName");
 const officeLocationInput = document.getElementById("officeLocation");
 const emailInput = document.getElementById("email");
+const genderSelect = document.getElementById("gender");
+
 TAFrom.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const name = taNameInput.value;
   const officeLocation = officeLocationInput.value;
   const email = emailInput.value;
+  const gender = genderSelect.value;
   try {
-    fetch(taURL+"/add", {
+    fetch(taURL + "/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,6 +38,7 @@ TAFrom.addEventListener("submit", function (event) {
         name,
         email,
         officeLocation,
+        gender,
       }),
     })
       .then((response) => {

@@ -14,6 +14,10 @@ const TADirectorySchema = new Schema({
     type: String,
     required: true,
   },
+  gender :{
+    type: String,
+    required: true,
+  }
 });
 const TaCourseSchema = new Schema({
   name: {
@@ -23,7 +27,10 @@ const TaCourseSchema = new Schema({
     type: String,
     required: true,
   },
-
+  gender :{
+    type: String,
+    required: true,
+  },
   officeLocation: {
     type: String,
   },

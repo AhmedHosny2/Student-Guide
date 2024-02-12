@@ -18,7 +18,7 @@ exports.getAllTas = async (req, res) => {
 };
 
 exports.addTa = async (req, res) => {
-  const { name, email, officeLocation } = req.body;
+  const { name, email, officeLocation, gender } = req.body;
   const uniEmail = email + "@giu-uni.de";
 
   const found = await TaModel.find({ email: uniEmail });
@@ -31,6 +31,7 @@ exports.addTa = async (req, res) => {
       name,
       email: uniEmail,
       officeLocation,
+      gender,
     });
     TAs.push(newTA);
   } catch (err) {
@@ -68,6 +69,7 @@ exports.assignTa = async (req, res) => {
     const newTAAssign = await TaCourseModel.create({
       name: found.name,
       officeLocation: found.officeLocation,
+      gender: found.gender,
       email,
       tutorials,
       courseName,
