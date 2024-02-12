@@ -1,45 +1,15 @@
 const { TaModel } = require("../model/TADirectory");
-const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 const { TaCourseModel } = require("../model/TADirectory");
-const Redis = require("redis");
-dotenv = require("dotenv");
-dotenv.config();
-// let client;
-const DEFAULT_EXPIRATION = 600;
-const client = Redis.createClient({
-  password: process.env.REDIS_PASSWORD,
-  socket: {
-      host: 'redis-16631.c299.asia-northeast1-1.gce.cloud.redislabs.com',
-      port: 16631
-  }
-});
-
-console.log(process.env.REDIS_HOSTNAME, process.env.REDIS_PORT, process.env.REDIS_PASSWORD);
-client.connect();
-client.on("connect", () => {
-  console.log("Connected to our redis instance!");
-  client.set("Greatest Basketball Player", "Lebron James");
-});
 
 exports.getAllTas = async (req, res) => {
   try {
-    let tas = await client.get("tas");
-    // get when will it expire
-    // const ttl = await client.ttl("tas");
-    // console.log("ttl", ttl);
-    if (!tas || tas.length === 0) {
-      console.log("tas not found in cache");
-      tas = await TaModel.find();
-      client.setEx("tas", DEFAULT_EXPIRATION, JSON.stringify(tas));
-    } else tas = JSON.parse(tas);
-
-    return res.status(200).json(tas);
+      const tas = await TaModel.find().lean() 
+       return res.status(200).json(tas);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-// TODO make url deployed
 exports.addTa = async (req, res) => {
   const { name, email, officeLocation } = req.body;
   const uniEmail = email + "@giu-uni.de";
@@ -64,16 +34,16 @@ exports.addTa = async (req, res) => {
   }
   res.status(200).json({ message: "TA created" });
 };
-23;
 
+let oldTa = [];
 exports.getTaCourses = async (req, res) => {
   try {
-    let tas = await client.get("taCourses");
-    if (!tas || tas.length === 0) {
-      console.log("tas not found in cache");
-      tas = await TaCourseModel.find();
-      client.setEx("taCourses", DEFAULT_EXPIRATION, JSON.stringify(tas));
-    } else tas = JSON.parse(tas);
+    console.log("get all tas");
+
+      if(oldTa.length > 0) 
+      return res.status(200).json(oldTa);
+     const tas = await TaCourseModel.find();
+     oldTa = tas;
     res.status(200).json(tas);
   } catch (err) {
     console.error(err);
@@ -84,10 +54,6 @@ exports.getTaCourses = async (req, res) => {
 exports.assignTa = async (req, res) => {
   // TODO  get all tuts already exist for this course and compare with the new ones
   const { email, tutorials, courseName, officeHours } = req.body;
-  //reset cache
-  client.del("taCourses");
-
-  // const userEmail = getCookie(req).email;
   let found = await TaModel.find({ email: email });
   if (found === null || found.length === 0) {
     return res.status(404).json({ message: "TA not found" });
