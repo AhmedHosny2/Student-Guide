@@ -50,7 +50,9 @@ emailInput.addEventListener("blur", () => {
   const autoComp = document.querySelector(".taCreation .container form .box #autocomplete-container");
   // If there is an active element within the autocomplete container, do nothing and keep it open
   // Otherwise, close the autocomplete box when the mouse leaves the field
-  autoComp.classList.add("inactive");
+  setTimeout(() => {
+    autoComp.classList.add("inactive");
+  }, 200); // Adjust the delay time as needed
 })
 
 emailInput.addEventListener("focus", () => {
