@@ -26,6 +26,7 @@ fetch(taURL + "/getTAs", {
     return response.json();
   })
   .then((data) => {
+    console.log(data);
     taEmails = data.map((ta) => ta.email);
     console.log("Response from the API:", taEmails);
   })
@@ -42,7 +43,7 @@ emailInput.addEventListener("input", function () {
     email.toLowerCase().includes(inputValue)
   );
 
-  displayAutocomplete(matchingEmails.slice(0, 4));
+  displayAutocomplete(matchingEmails.slice(0, 5));
 });
 
 // Function to display autocomplete suggestions
