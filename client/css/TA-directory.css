@@ -161,6 +161,7 @@
   font-weight: 300;
   font-size: 1rem;
   margin-top: 5px;
+  overflow: auto;
 }
 
 .taDirectory .container .card .wrap a {
