@@ -49,8 +49,8 @@
           <li><a href="../html/TA-directory.html">TA directory</a></li>
           <li><a href="../html/selectCourse.html">Courses</a></li>
           <li> <a href="../html/groupSchedule.html"> Schedules</a></li>
-          <li><a href="../html/GPACalculator.html">GPA calc</a></li>
           <li> <a href="../html/gradesToPass.html"> grad clac</a></li>
+          <li><a href="../html/GPACalculator.html">GPA calc</a></li>
           <li class="login"><a href="../html/login.html">login</a></li>
           <li><a href="" id="logout" class="logout">logout</a></li>
         </ul>
@@ -92,8 +92,10 @@
 
           <div class="box">
             <h3>assign teaching assistant</h3>
-            <input type="text" id="email" autocomplete="off" placeholder="email">
-            <div id="autocomplete-container"></div>
+            <div class="email-wrapper">
+              <input type="text" id="email" autocomplete="off" placeholder="email">
+              <div id="autocomplete-container"></div>
+            </div>
             <input type="text" id="courseName" name="courseName" placeholder="course name" />
             <input type="text" id="officeHour" name="officeHour" placeholder="office hour" />
 

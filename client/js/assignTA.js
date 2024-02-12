@@ -26,6 +26,7 @@ fetch(taURL + "/getTAs", {
     return response.json();
   })
   .then((data) => {
+    console.log(data);
     taEmails = data.map((ta) => ta.email);
     console.log("Response from the API:", taEmails);
   })
@@ -42,8 +43,22 @@ emailInput.addEventListener("input", function () {
     email.toLowerCase().includes(inputValue)
   );
 
-  displayAutocomplete(matchingEmails.slice(0, 4));
+  displayAutocomplete(matchingEmails.slice(0, 5));
 });
+
+emailInput.addEventListener("blur", () => {
+  const autoComp = document.querySelector(".taCreation .container form .box #autocomplete-container");
+  // If there is an active element within the autocomplete container, do nothing and keep it open
+  // Otherwise, close the autocomplete box when the mouse leaves the field
+  setTimeout(() => {
+    autoComp.classList.add("inactive");
+  }, 200); // Adjust the delay time as needed
+})
+
+emailInput.addEventListener("focus", () => {
+  const autoComp = document.querySelector(".taCreation .container form .box #autocomplete-container");
+  autoComp.classList.remove("inactive");
+})
 
 // Function to display autocomplete suggestions
 function displayAutocomplete(suggestions) {
@@ -59,6 +74,7 @@ function displayAutocomplete(suggestions) {
   // Display new suggestions
   suggestions.forEach((suggestion) => {
     const suggestionElement = document.createElement("div");
+    suggestionElement.classList.add("suggestion");
     suggestionElement.textContent = suggestion;
 
     suggestionElement.addEventListener("click", function () {

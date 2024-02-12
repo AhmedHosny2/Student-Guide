@@ -102,17 +102,37 @@ function generateTACards(taData) {
 
     card.appendChild(createCardWrap("tutorials", ta.tutorials));
 
+    const imgObject = {
+      "male": "../images/male.svg",
+      "female": "../images/female.svg",
+      "croissant": "../images/Croissant.webp"
+    }
+    const taWrapper = document.createElement("div");
+    taWrapper.classList.add("taWrapper");
+    const taImage = document.createElement("img");
+    taImage.classList.add("genderImg")
+    if (ta.gender === "male") {
+      taImage.src = imgObject["male"];
+    }
+    else if (ta.gender === 'female') {
+      taImage.src = imgObject["female"];
+    } else {
+      taImage.src = imgObject["croissant"];
+    }
+
     const taName = document.createElement("p");
     taName.textContent = ta.name;
     taName.classList.add("ta-name");
-    card.appendChild(taName);
+    taWrapper.appendChild(taImage)
+    taWrapper.appendChild(taName);
+    card.appendChild(taWrapper);
   });
 
   const deleteButtons = document.querySelectorAll(".taDirectory .container .card .delete-button");
-
   if (localStorage.getItem("isAdmin") === "false" || localStorage.getItem("isAdmin") == null) {
     deleteButtons.forEach(button => button.style.display = "none");
   }
+
 }
 
 

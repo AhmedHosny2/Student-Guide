@@ -1,0 +1,213 @@
+.gradePass .container {
+}
+.gradePass .container .txt {
+}
+.gradePass .container .txt h2 {
+  color: var(--third-color);
+  position: relative;
+  padding: 30px 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.gradePass .container .txt h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: var(--fourth-color);
+}
+.gradePass .container .txt h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: var(--fourth-color);
+}
+
+.gradePass .container .txt h2 span {
+  color: #e06c75;
+}
+.gradePass .container .txt .description {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.gradePass .container .txt .description p {
+  color: #585f63;
+  font-size: 1.1em;
+  line-height: 1.8em;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.gradePass .container .txt .description p span {
+  color: var(--third-color);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.gradePass .container .txt .description img {
+  width: 20%;
+}
+@media (max-width: 767px) {
+  .gradePass .container .txt .description {
+    flex-wrap: wrap;
+  }
+  .gradePass .container .txt .description img {
+    width: 100%;
+  }
+}
+.gradePass .container .txt .explain {
+  margin: 0;
+  padding: 0;
+}
+.gradePass .container .txt .explain .tip {
+  color: #585f63;
+  font-size: 1.1em;
+  margin: 10px 0;
+  line-height: 1.8em;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.gradePass .container .txt .explain .tip span {
+  color: var(--third-color);
+  font-size: 600;
+  font-size: 1.3rem;
+}
+
+.gradePass .container #gradesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+@media (max-width: 767px) {
+  .gradePass .container #gradesContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.gradePass .container #gradesContainer .subj {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 1.5rem;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+  -ms-border-radius: 1.25rem;
+  -o-border-radius: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid;
+  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  transition: 0.15s;
+  -webkit-transition: 0.15s;
+  -moz-transition: 0.15s;
+  -ms-transition: 0.15s;
+  -o-transition: 0.15s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.gradePass .container #gradesContainer .subj:hover {
+  box-shadow: 13px 13px 0px 3px var(--main-color);
+}
+.gradePass .container #gradesContainer .subj .delete-btn {
+  background-color: var(--fourth-color);
+  font-weight: 800;
+  padding: 8px 15px;
+  margin-top: 10px;
+  display: block;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+  border-radius: 0.25rem;
+  color: white;
+  text-align: center;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border: 0;
+  cursor: pointer;
+}
+
+.gradePass .container #gradesContainer .subj .delete-btn:hover {
+  background-color: #e06c75;
+}
+
+.gradePass .container #gradesContainer .subj h4 {
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.gradePass .container #gradesContainer .subj:hover h4 {
+  color: var(--fourth-color);
+}
+
+.gradePass .container #gradesContainer .subj input {
+  border: 0;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  padding: 10px;
+}
+
+.gradePass .container #gradesContainer .subj input:focus {
+  outline: 0;
+}
+
+.gradePass .container .buttWrap {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+.gradePass .container .buttWrap button {
+  background-color: var(--third-color);
+  color: white;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 100px;
+  border: 0;
+  cursor: pointer;
+}
+
+.gradePass .container .buttWrap button:hover {
+  box-shadow:
+    hsla(228, 43%, 54%, 0.4) 5px 5px,
+    hsla(228, 43%, 54%, 0.3) 10px 10px,
+    hsla(228, 43%, 54%, 0.2) 15px 15px,
+    hsla(228, 43%, 54%, 0.1) 20px 20px,
+    hsla(228, 43%, 54%, 0.05) 25px 25px;
+}
