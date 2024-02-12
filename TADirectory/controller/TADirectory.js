@@ -2,6 +2,10 @@ const { TaModel } = require("../model/TADirectory");
 const { TaCourseModel } = require("../model/TADirectory");
 let TAs = [];
 let TACourses = [];
+function printMessage() {
+  console.log(TACourses);
+}
+setInterval(printMessage, 15000); // 15000 milliseconds = 15 seconds
 
 exports.getAllTas = async (req, res) => {
   try {
