@@ -85,7 +85,9 @@ exports.deleteTaCourse = async (req, res) => {
   console.log(req.body);
   try {
     await TaCourseModel.deleteOne({ _id });
-    const indexToDelete = TACourses.findIndex((myTA) => myTA._id.valueOf() === _id);
+    const indexToDelete = TACourses.findIndex(
+      (myTA) => myTA._id.valueOf() === _id
+    );
     console.log(indexToDelete);
     if (indexToDelete !== -1) {
       TACourses.splice(indexToDelete, 1);
