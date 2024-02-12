@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 40px;
-  margin: 50px 0 180px;
+  margin: 50px 0;
 }
 /* start search bar */
 
@@ -167,6 +167,22 @@
 .taDirectory .container .card .wrap a {
   color: black;
   margin-top: 5px;
+}
+
+.taDirectory .container .card .taWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 10px;
+}
+
+.taDirectory .container .card .taWrapper .genderImg {
+  width: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .taDirectory .container .card .ta-name {
