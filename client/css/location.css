@@ -150,9 +150,7 @@ body {
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
 }
-.slides::before {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-}
+
 
 .slide[data-active] {
   opacity: 1;
@@ -185,4 +183,17 @@ body {
 
 .carousel-button.next {
   right: 1rem;
+}
+@media only screen and (max-width: 767px) {
+  
+.img-carousel {
+  margin: 0 2rem;
+
+  height: calc(75vh - 65px)
+
+}
+.carousel {
+  /* margin: 2rem 0; */
+  margin-bottom: 2rem;
+}
 }
