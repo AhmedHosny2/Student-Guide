@@ -105,7 +105,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 5px;
 }
 
 .header .logo h4 {
@@ -140,6 +140,12 @@ html {
   gap: 2rem;
   margin: 0;
   align-items: center;
+}
+
+@media (min-width: 1199px) {
+  .header .nav .links .home {
+    display: none;
+  }
 }
 
 .header .nav .links li a {
