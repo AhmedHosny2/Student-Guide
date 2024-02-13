@@ -61,10 +61,28 @@
 
   <body>
     <div class="form-container">
-      <h1 style="font-size: 40px"><b>OTP Verificiation</b></h1>
-      <input type="text" id="OTP" name="OTP" placeholder="OTP" required />
+      <h1 style="font-size: 40px"><b>OTP Verification</b></h1>
+      <div id="OTP">
+        <div class="containerr">
+            <div id="inputs" class="inputs">
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                    <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+            </div>
+        </div>
+      </div>
       <button id="OTPBtn" type="submit">Verify OTP</button>
     </div>
+    
     <script type="module" src="../js/verfiyEmail.js"></script>
   </body>
 </html>

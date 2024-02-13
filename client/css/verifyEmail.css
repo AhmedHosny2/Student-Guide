@@ -8,7 +8,7 @@ a {
   text-decoration: none;
 }
 
-#OTP {
+/* #OTP {
   width: 300px;
   height: 40px;
   padding: 10px;
@@ -16,6 +16,52 @@ a {
   border: 1px solid #ddd;
   font-size: 20px;
   margin-bottom: 10px;
+  #OTP {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 20px;
+} */
+#OTP {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+#OTP input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+.containerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+  min-width: 25rem;
+}
+
+.input {
+  width: 40px;
+  border: none;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  margin: 0 10px;
+  text-align: center;
+  font-size: 36px;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.input:focus {
+  border-bottom: 3px solid orange;
+  outline: none;
+}
+
+.input:nth-child(1) {
+  cursor: pointer;
+  pointer-events: all;
 }
 
 #OTPBtn {
@@ -42,6 +88,6 @@ a {
   align-items: center;
   gap: 10px;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   background-color: #f8f9fa;
 }
