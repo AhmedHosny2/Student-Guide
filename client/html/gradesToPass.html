@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="../images/fav.png">
     <!-- css files -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/materials.css" />
+    <link rel="stylesheet" href="../css/gradeToPass.css">
     <!-- normalize-file -->
     <link rel="stylesheet" href="../css/normalize.css" />
     <!-- google fonts -->
@@ -48,8 +48,8 @@
                     <li><a href="../html/TA-directory.html">TA directory</a></li>
                     <li><a href="../html/selectCourse.html">Courses</a></li>
                     <li> <a href="../html/groupSchedule.html"> Schedules</a></li>
-                    <li><a href="../html/GPACalculator.html">GPA calc</a></li>
                     <li> <a href="../html/gradesToPass.html"> grad clac</a></li>
+                    <li><a href="../html/GPACalculator.html">GPA calc</a></li>
                     <li class="login"><a href="../html/login.html">login</a></li>
                     <li><a href="" id="logout" class="logout">logout</a></li>
                 </ul>
@@ -79,11 +79,51 @@
             </div>
         </div>
     </header>
-    <h2>Subject Grade Details</h2>
-    <button id="addButton">Add Grade</button>
-    <div id="gradesContainer"></div>
+    <div class="gradePass">
+        <div class="container">
+            <div class="txt">
+                <h2>Easy Weighted <span>Grade Calculator</span></h2>
+                <div class="description">
+                    <img src="../images/grade to pass (2).svg" alt="">
+                    <div>
+                        <p><span>hi, I'm vee, and welcome to the Grade Calculator! Let me guide you through
+                                it:</span>
+                            Quickly determine your total weighted grade by providing exam grades, your performance, and
+                            weights. Receive instant
+                            results and discover the minimum grade required to pass. Simplify your academic assessment
+                            with this user-friendly tool.</p>
+                        <ul class="explain">
+                            <li class="tip">
+                                <span>Name (nameInput):</span> Enter the name of the exam or assessment (e.g.,
+                                midterm).Example:
+                                "midterm"
+                            </li>
+                            <li class="tip"><span>Weight (weightInput):</span> Assign a weight to the exam, indicating
+                                its
+                                importance as a percentage.
+                                Example: "30%" signifies 30% of the total grade.</li>
+                            <li class="tip"><span>Exam Grade (examInput):</span> Input the raw score for the exam,
+                                typically out
+                                of
+                                100. Example: "85" if the raw score is 85 out of 100.
+                            </li>
+                            <li class="tip"><span>Your Grade (gradeInput):</span> Input your individual performance
+                                grade for
+                                the
+                                exam. Example: "85" if your achieved grade is 85.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-    <button id="calculateButton">Calculate</button>
+            <div id="gradesContainer"></div>
+            <div class="buttWrap">
+                <button id="addButton">Add Grade</button>
+                <button id="calculateButton">Calculate</button>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="../js/gradesToPass.js"></script>
     <script type="module" src="../js/navbar.js"></script>
 </body>

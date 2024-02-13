@@ -20,3 +20,45 @@ setInterval(() => {
 const nextButton = document.querySelector("[data-carousel-button='next']");
 nextButton.click();
 }, 3000);
+
+
+ // Get the input field
+ var input = document.querySelector('input[name="search"]');
+
+ // Listen for keystrokes
+ input.addEventListener("keyup", filterCards);
+
+ function filterCards() {
+   // Get the search term (in lower case)
+   var searchTerm = input.value.toLowerCase();
+
+   // Get all the cards
+   var cards = document.querySelectorAll(".card");
+
+   // Loop through the cards
+   cards.forEach(function (card) {
+     // Get the title of the card
+     var title = card
+       .querySelector(".card-title")
+       .textContent.toLowerCase();
+     // Get the subtitle of the card
+     var subtitle = card
+       .querySelector(".card-subtitle")
+       .textContent.toLowerCase();
+     // Get the text content of the card
+     var textContent = card
+       .querySelector(".card-text")
+       .textContent.toLowerCase();
+
+     // If the title, subtitle, or text content includes the search term, show the card, otherwise hide it
+     if (
+       title.includes(searchTerm) ||
+       subtitle.includes(searchTerm) ||
+       textContent.includes(searchTerm)
+     ) {
+       card.style.display = "";
+     } else {
+       card.style.display = "none";
+     }
+   });
+ }
