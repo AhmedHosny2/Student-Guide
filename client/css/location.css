@@ -152,6 +152,19 @@ body {
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+  background-position: center;
+  background-image: url("../images/Library1.jpeg");
+  height: 500px;
+  width: 100%;
+  margin: 0;
+  padding: 50px;
+  color: white;
+
+
+  background-size: cover;
+
+
+  background-attachment: fixed;
 }
 
 .slide[data-active] {
@@ -233,10 +246,19 @@ body {
   display: flex;
   justify-content: center;
   padding: 20px;
-  
+
   background-color: #f8f9fa;
 }
+/* .img-section {
+  background-position: center;
+  background-image: url("../images/Library1.jpeg");
 
+
+  background-size: cover;
+
+
+  background-attachment: fixed;
+} */
 .search input[type="text"] {
   display: flex;
   justify-content: center;
@@ -278,7 +300,6 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-
 }
 
 .search button:hover {
