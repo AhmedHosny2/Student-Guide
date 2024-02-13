@@ -36,14 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         data = JSON.parse(data);
         localStorage.setItem("userEmail", data.email);
-        localStorage.setItem("userName", data.userName);
-        localStorage.setItem("isAdmin", data.isAdmin);
         if (status === 207) {
           console.log(data);
           alert("verfiy your email first!");
           window.location.href = "../html/verfiyEmail.html";
           return;
         }
+        localStorage.setItem("isAdmin", data.isAdmin);
+        localStorage.setItem("userName", data.userName);
+
         // data = JSON.parse(data);
         console.log("Response from the API:", data);
         //once user logged in switch to the home https://www.ahmed-yehia.me/index.html
