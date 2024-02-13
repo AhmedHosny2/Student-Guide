@@ -1,18 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/verifyEmail.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Verificiation</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- fav icon -->
-    <link rel="icon" type="image/x-icon" href="../images/fav.png">
-</head>
+    <link rel="icon" type="image/x-icon" href="../images/fav.png" />
+  </head>
 
-<body>
-    <input type="text" id="OTP" name="OTP" placeholder="OTP" required />
-    <button id="OTPBtn" type="submit">Verify OTP</button>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="../index.html">
+          <h4>resource <span>hub</span></h4>
+        </a>
+      </div>
+      <nav class="nav" data-visibility="false">
+        <ul class="links">
+          <li class="home"><a href="../index.html">home</a></li>
+          <li><a href="../html/location.html">location</a></li>
+          <li><a href="../html/TA-directory.html">TA directory</a></li>
+          <li><a href="../html/selectCourse.html">Courses</a></li>
+          <li><a href="../html/groupSchedule.html"> Schedules</a></li>
+          <li><a href="../html/GPACalculator.html">GPA calc</a></li>
+          <li><a href="../html/gradesToPass.html"> grad clac</a></li>
+          <li class="login"><a href="../html/login.html">login</a></li>
+          <li><a href="" id="logout" class="logout">logout</a></li>
+        </ul>
+      </nav>
+      <div class="avatar">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <a href="html/login.html" class="login"> login </a>
+      <div class="burger-menu">
+        <span class="top"></span>
+        <span class="mid"></span>
+        <span class="btm"></span>
+      </div>
+      <div class="mobile-nav">
+        <a href="../index.html" class="active">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <a href="../html/location.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </a>
+        <a href="../html/TA-directory.html">
+          <i class="fa-solid fa-person-chalkboard"></i>
+        </a>
+        <a href="../html/selectCourse.html">
+          <i class="fa-solid fa-book"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <body>
+    <div class="form-container">
+      <h1 style="font-size: 40px"><b>OTP Verification</b></h1>
+      <div id="OTP">
+        <div class="containerr">
+            <div id="inputs" class="inputs">
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                    <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+                <input class="input" type="text"
+                    inputmode="numeric" maxlength="1" />
+            </div>
+        </div>
+      </div>
+      <button id="OTPBtn" type="submit">Verify OTP</button>
+    </div>
+    
     <script type="module" src="../js/verfiyEmail.js"></script>
-</body>
-
+  </body>
 </html>

@@ -152,6 +152,17 @@ body {
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+  /* background-position: center;
+  background-image: url("../images/Library1.jpeg");
+  height: 500px;
+  width: 100%;
+  margin: 0;
+  padding: 50px;
+  color: white; */
+
+  background-size: cover;
+
+  background-attachment: fixed;
 }
 
 .slide[data-active] {
@@ -230,15 +241,46 @@ body {
   /* font-weight: bold; */
 }
 .search {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   padding: 20px;
-  
-  background-color: #f8f9fa;
-}
 
-.search input[type="text"] {
+  background-color: #f8f9fa; */
+  position: relative;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* .img-section {
+  background-position: center;
+  background-image: url("../images/Library1.jpeg");
+
+
+  background-size: cover;
+
+
+  background-attachment: fixed;
+} */
+.search:hover{
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+
+}
+.search input[type="text"] {
+  border: 0;
+  padding: 10px;
+  background-color: transparent;
+  padding: 15px;
+  width: 100%;
+  /* display: flex;
   justify-content: center;
   background-color: #f2f2f2;
   text-align: center;
@@ -254,6 +296,7 @@ body {
   width: 40vw;
   height: 10vh;
   border: 1px solid;
+  
   -webkit-transition: 0.15s;
   -moz-transition: 0.15s;
   -ms-transition: 0.15s;
@@ -263,7 +306,7 @@ body {
   -moz-border-radius: 1.25rem;
   -ms-border-radius: 1.25rem;
   -o-border-radius: 1.25rem;
-  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  box-shadow: 7px 7px 0px 3px var(--secondary-color); */
 }
 
 .search button {
@@ -278,7 +321,6 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-
 }
 
 .search button:hover {
@@ -305,6 +347,57 @@ img {
 
 .carousel-button.next {
   right: 1rem;
+}
+.search-text {
+  position: absolute;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--fourth-color);
+  color: white;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  padding: 18px;
+}
+.search input:focus {
+  outline: none;
+}
+.search span {
+  color: var(--secondary-color);
+}
+.contain{
+  margin: 2rem 1rem;
+}
+.search .search-text {
+  position: absolute;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--fourth-color);
+  color: white;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  padding: 18px;
+}
+.contain .search .search-text p {
+  padding: 0;
+  margin: 0;
+  
+}
+.contain .search input {
+  border: 0;
+
+  background-color: transparent;
+  padding: 15px;
+  width: 100%;
 }
 @media only screen and (max-width: 767px) {
   .img-carousel {
