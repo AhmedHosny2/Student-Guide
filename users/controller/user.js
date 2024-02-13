@@ -109,7 +109,12 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ message: "Password is incorrect" });
     }
     if (!user.verifyed) {
-      return res.status(207).json({ message: "Email is not verified" });
+      return res.status(207).json({
+        message: "Email is not verified",
+        userName: user.userName,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      });
     }
     // Calculate the new time after adding 5 hours
     const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
@@ -137,7 +142,7 @@ exports.loginUser = async (req, res) => {
       httpOnly: true,
       sameSite: "none",
       secure: true,
-      domain, 
+      domain,
       path: "/",
     });
 
@@ -146,7 +151,7 @@ exports.loginUser = async (req, res) => {
       userName: user.userName,
       email: user.email,
       isAdmin: user.isAdmin,
-      token,
+      // token,
     });
   } catch (err) {
     console.error(err);
@@ -192,6 +197,7 @@ exports.updateUserPoints = async (req, res) => {
 
 exports.sendOTP = async (req, res) => {
   const email = req.body.userEmail;
+  console.log(email);
   const user = await userModel.findOne({ email });
   const randomOTP = generateOTP();
   await sendEmail(

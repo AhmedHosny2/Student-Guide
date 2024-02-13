@@ -8,7 +8,7 @@ a {
   text-decoration: none;
 }
 
-/* #OTP {
+#OTP {
   width: 300px;
   height: 40px;
   padding: 10px;
@@ -16,18 +16,11 @@ a {
   border: 1px solid #ddd;
   font-size: 20px;
   margin-bottom: 10px;
-  #OTP {
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
-  margin-bottom: 20px;
-} */
-#OTP {
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
-  margin-bottom: 20px;
+  
 }
+/* #OTP {
+  
+} */
 
 #OTP input {
   width: 40px;
