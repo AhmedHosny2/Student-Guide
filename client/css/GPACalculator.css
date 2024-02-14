@@ -45,9 +45,10 @@
 @media (max-width: 767px) {
   .gpaCalc .container .txt .description {
     flex-wrap: wrap;
+    justify-content: center;
   }
   .gpaCalc .container .txt .description img {
-    width: 100%;
+    width: 50%;
   }
 }
 
