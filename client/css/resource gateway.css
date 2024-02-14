@@ -1,3 +1,6 @@
+.key-links {
+  margin-bottom: 120px;
+}
 .key-links .container h2 {
   position: relative;
   color: var(--third-color);
@@ -27,6 +30,27 @@
   max-width: 255px;
   background-color: var(--fourth-color);
 }
+.key-links .container .description {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.key-links .container .description img {
+  width: 20%;
+}
+
+@media (max-width: 767px) {
+  .key-links .container .description {
+    flex-direction: column;
+  }
+
+  .key-links .container .description img {
+    width: 100%;
+  }
+}
 
 .key-links .container .description p {
   color: #585f63;
@@ -39,14 +63,6 @@
 .key-links .container .description p span {
   color: var(--third-color);
   font-weight: 600;
-}
-
-.key-links .container .description {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  margin-bottom: 50px;
-  gap: 20px;
 }
 
 .key-links .container .card-wrap .card img {
@@ -64,8 +80,4 @@
 }
 .key-links .container .card-wrap .card:hover .txt .card-title {
   color: var(--fourth-color);
-}
-
-.key-links .container .description img {
-  width: 20%;
 }
