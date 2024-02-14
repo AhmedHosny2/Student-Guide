@@ -12,12 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
     const apiUrl = `${userURL}/signup`;
-const signUpLoader = document.getElementById("signUpLoader");
-const signUpBtnTxt = document.getElementById("signUpBtnTxt");
+    const signUpLoader = document.getElementById("signUpLoader");
+    const signUpBtnTxt = document.getElementById("signUpBtnTxt");
 
-  signUpLoader.style.display = "block";
-  signUpBtnTxt.style.display = "none";
-
+    signUpLoader.style.display = "block";
+    signUpBtnTxt.style.display = "none";
 
     fetch(apiUrl, {
       method: "POST",
