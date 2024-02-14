@@ -17,9 +17,7 @@ function fetchTAData() {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       generateTACards(data);
-      console.log("Response from the API:", data);
     })
     .catch((error) => {
       console.error("Fetch error:", error);
@@ -150,7 +148,6 @@ searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value.toLowerCase();
   arr.forEach((card) => {
     const courseName = card.querySelector(".course").textContent.toLowerCase();
-    console.log(card);
     const isVisible = courseName.includes(searchValue);
     card.classList.toggle("hide", !isVisible);
   });

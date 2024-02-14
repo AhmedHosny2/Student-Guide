@@ -180,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
         gradeValue = grades[selectedGrade];
         gradesArray[subject.id - 1] = gradeValue; // Update grade in gradesArray
       }
-      console.log(gradeValue, selectedGrade);
     });
     // Append the choiceWrapDiv to the currentSemesterDiv
     currentSemesterDiv.appendChild(choiceWrapDiv);
@@ -226,6 +225,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     const result = totalCreditHoursWithGrades / totalCreditHours;
     alert(`GPA: ${result.toFixed(4)}`);
-    console.log("Grades Array:", gradesArray);
   });
 });

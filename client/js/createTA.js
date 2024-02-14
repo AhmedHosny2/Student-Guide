@@ -29,7 +29,6 @@ TAFrom.addEventListener("submit", function (event) {
       }),
     })
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           alert("1 Something went wrong please infrom the Admin!", 3000);
           throw new Error("Network response was not ok");

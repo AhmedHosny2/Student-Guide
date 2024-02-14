@@ -11,9 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
-    console.log(formDataObject);
     const apiUrl = `${userURL}/signup`;
-    console.log();
     fetch(apiUrl, {
       method: "POST",
       headers: {

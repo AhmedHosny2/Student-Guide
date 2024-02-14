@@ -15,9 +15,7 @@ fetch(taURL + "/getTAs", {
     return response.json();
   })
   .then((data) => {
-    console.log(data);
     taEmails = data.map((ta) => ta.email);
-    console.log("Response from the API:", taEmails);
   })
   .catch((error) => {
     console.error("Fetch error:", error);
@@ -112,7 +110,6 @@ if (addBtn)
       tutorialsVal.value = "";
     }
     //for testing
-    console.log(arrOfTutorials);
   };
 if (clearBtn) {
   clearBtn.onclick = (event) => {
@@ -151,7 +148,6 @@ TAFrom.addEventListener("submit", function (event) {
       }),
     })
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           alert("1 Something went wrong please infrom the Admin!", 3000);
           throw new Error("Network response was not ok");
@@ -160,7 +156,6 @@ TAFrom.addEventListener("submit", function (event) {
       })
       .then((data) => {
         alert("TA added successfully!", 3000);
-        console.log("Response from the API:", data);
         TAFrom.reset();
         // Handle the response data from the API (e.g., show a success message)
       })

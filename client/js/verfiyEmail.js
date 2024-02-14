@@ -17,7 +17,6 @@ fetch(userURL + "/sendOTP", {
     return response.json();
   })
   .then((data) => { 
-    console.log("Response from the API:", data);
   })
   .catch((error) => {
     console.error("Fetch error:", error);

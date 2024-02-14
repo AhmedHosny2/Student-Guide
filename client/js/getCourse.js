@@ -290,7 +290,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // change the content of tinymce
-    console.log(localStorage.getItem("courseData"));
     contentDisplay.innerHTML = editorContent;
   }
 
@@ -333,7 +332,6 @@ const updateCourse = async () => {
       return response.json();
     })
     .then((data) => {
-      console.log("Response from the API:", data);
       // Handle the response data from the API (e.g., show a success message)
     })
     .catch((error) => {
@@ -354,12 +352,10 @@ addPerson.addEventListener("click", () => {
 
 subBtn.addEventListener("click", () => {
   let val = image_url.value;
-  console.log(val);
   //reset the value of text box
   image_url.value = "";
   //adding image to the avatar box
   let newAvatar = document.createElement("img");
   newAvatar.src = val;
-  console.log(newAvatar);
   avatarBox.appendChild(newAvatar);
 });

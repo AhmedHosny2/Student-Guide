@@ -2,12 +2,10 @@ const form = document.getElementById("course-form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  console.log("create course started");
   const formData = new FormData(form);
   const formDataObject = {};
 
   const editorContent = tiny.activeEditor.getContent();
-  // console.log(editorContent);
   formDataObject["content"] = editorContent; // Use "content" as the key
 
   formData.forEach((value, key) => {
@@ -32,7 +30,6 @@ form.addEventListener("submit", function (event) {
       })
       .then((data) => {
         animateAlert("Course created successfully", 3000);
-        console.log("Response from the API:", data);
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
