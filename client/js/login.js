@@ -1,8 +1,6 @@
 import { userURL, clientURL } from "../utils/env.js";
 const loginForm = document.querySelector(".login-form");
-const protectedRouteButton = document.getElementById(
-  "protected-route-button"
-);
+const protectedRouteButton = document.getElementById("protected-route-button");
 const adminRouteButton = document.getElementById("admin-route-button");
 
 loginForm.addEventListener("submit", (e) => {
@@ -12,6 +10,11 @@ loginForm.addEventListener("submit", (e) => {
   formData.forEach((value, key) => {
     formDataObject[key] = value;
   });
+
+  const loginLoader = document.getElementById("loginLoader");
+  const loginBtnTxt = document.getElementById("loginBtnTxt");
+  loginLoader.style.display = "block";
+  loginBtnTxt.style.display = "none";
 
   const apiUrl = `${userURL}/login`;
   let status;
@@ -25,6 +28,8 @@ loginForm.addEventListener("submit", (e) => {
   })
     .then((response) => {
       if (!response.ok) {
+        loginLoader.style.display = "none";
+        loginBtnTxt.style.display = "block";
         throw new Error("Network response was not ok");
       }
       status = response.status;
@@ -82,21 +87,3 @@ signInSwitch.addEventListener("click", () => {
   signUp_box.classList.remove("active");
 });
 
-const loginBtn = document.getElementById("submitLogin");
-const loginLoader = document.getElementById("loginLoader");
-const loginBtnTxt = document.getElementById("loginBtnTxt");
-
-
-loginBtn.addEventListener("click", () => {
-  loginLoader.style.display = "block";
-  loginBtnTxt.style.display = "none";
-});
-
-const signUpBtn = document.getElementById("signUpBtn");
-const signUpLoader = document.getElementById("signUpLoader");
-const signUpBtnTxt = document.getElementById("signUpBtnTxt");
-
-signUpBtn.addEventListener("click", () => {
-  signUpLoader.style.display = "block";
-  signUpBtnTxt.style.display = "none";
-});
