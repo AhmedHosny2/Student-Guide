@@ -377,9 +377,9 @@ html {
     z-index: 1000;
   }
 
-  .header .container .burger-menu {
+  /* .header .container .burger-menu {
     display: none;
-  }
+  } */
 
   .header .container .mobile-nav {
     display: flex;
