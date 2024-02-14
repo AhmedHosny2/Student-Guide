@@ -8,15 +8,16 @@ university companion application designed to **enhance student experience** by c
 
 # Screenshots
 ![Desktop2024 02 14-18 58 34 02-ezgif com-video-to-gif-converter](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/13ad54e2-754b-4c60-9c7a-41ddf1aab49e)
-
-![TA Directory](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/6256c24a-b87d-4f5e-bd74-4275bfd13046)![adding TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/4e9490f6-e044-4b5f-abc3-f70b43547e38)![location 1](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/05f02777-12df-4ea6-85e6-9d86de70475c)![add TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/95e6b024-8a3b-4ed5-9ef0-d6b0d5ea6b7a)
+![location 1](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/05f02777-12df-4ea6-85e6-9d86de70475c)
 ![location 2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/d4e357e2-b80d-4f5c-87c7-f06995e9d5e0)
-![responsive](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/c771c54b-837c-46d6-bbcf-31888839db19)
+![TA Directory](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/6256c24a-b87d-4f5e-bd74-4275bfd13046)
+![adding TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/4e9490f6-e044-4b5f-abc3-f70b43547e38)
+![add TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/95e6b024-8a3b-4ed5-9ef0-d6b0d5ea6b7a)
 ![schedules](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/5a53dc9a-eae6-42ae-8ad4-53d4ebdd38ff)
-![RG](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/465b419f-3b4b-455e-bb97-4063a8d12d6b)
 ![Grade Calc](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/cdf80fd3-d3fe-496a-9f29-64fb5520a07f)
 ![GPA calc](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/12907d05-9c5a-495c-8b23-219cdae55805)
-
+![RG](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/465b419f-3b4b-455e-bb97-4063a8d12d6b)
+![responsive](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/c771c54b-837c-46d6-bbcf-31888839db19)
 
 # Tools & Technologies
 
