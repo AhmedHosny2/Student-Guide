@@ -1,4 +1,4 @@
-import  {userURL, clientURL} from "../utils/env.js";
+import { userURL, clientURL } from "../utils/env.js";
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".login-form");
   const protectedRouteButton = document.getElementById(
@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const adminRouteButton = document.getElementById("admin-route-button");
 
-  
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(loginForm);
@@ -15,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
 
-    const apiUrl =`${userURL}/login`; 
-
+    const apiUrl = `${userURL}/login`;
+    let status;
     fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -29,24 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        if(response.status === 207){
-          localStorage.setItem("userEmail", formDataObject.email);
-          alert("verfiy your email first!");
-          window.location.href = "../html/verfiyEmail.html";
-          return;
+        status = response.status;
 
-        }
         // the response used .send in backend
         return response.text();
       })
       .then((data) => {
         data = JSON.parse(data);
+        localStorage.setItem("userEmail", data.email);
+        if (status === 207) {
+          console.log(data);
+          alert("verfiy your email first!");
+          window.location.href = "../html/verfiyEmail.html";
+          return;
+        }
+        localStorage.setItem("isAdmin", data.isAdmin);
+        localStorage.setItem("userName", data.userName);
+
+        // data = JSON.parse(data);
         console.log("Response from the API:", data);
         //once user logged in switch to the home https://www.ahmed-yehia.me/index.html
         // here
-        localStorage.setItem("userEmail", data.email);
-        localStorage.setItem("userName", data.userName);
-        localStorage.setItem("isAdmin", data.isAdmin);
+        // console.log(data);
+
         window.location.href = clientURL;
       })
       .catch((error) => {
@@ -86,4 +90,3 @@ signUpSwitch.addEventListener("click", () => {
 signInSwitch.addEventListener("click", () => {
   signUp_box.classList.remove("active");
 });
-
