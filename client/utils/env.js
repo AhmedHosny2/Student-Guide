@@ -8,7 +8,6 @@ export const clientLoginURL = "https://guide.ahmed-yehia.me/html/login.html";
 export const clientURL = "https://guide.ahmed-yehia.me";
 export const getCourseURL = "https://guide.ahmed-yehia.me/html/getCourse.html";
 
-
 // for local version
 
 

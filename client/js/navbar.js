@@ -1,13 +1,3 @@
-// if (localStorage.getItem("userName") == null)
-// window.location.href = "https://www.ahmed-yehia.me/html/login.html";
-// else {
-// const loginButton = document.querySelectorAll(".login");
-// loginButton.forEach((button) => {
-//   button.style.display = "none";
-// });
-// }
-//nav bar responsive
-
 const hamburgerMenu = document.querySelector(".burger-menu");
 const navBar = document.querySelector(".header .nav");
 hamburgerMenu.addEventListener("click", () => {
@@ -24,12 +14,9 @@ hamburgerMenu.addEventListener("click", () => {
 const logoutButton = document.getElementById("logout");
 logoutButton.addEventListener("click", () => {
   localStorage.clear();
-  // refersh 
-  window.location.href = "/client/index.html"
-  // TODO ===========================================================================
-}
-);
-
+  window.location.href = "/client/html/login.html";
+});
+import { clientLoginURL } from "../utils/env.js";
 // to hide login button and replace it with avatar
 if (localStorage.getItem("userName") == null)
   window.location.href = clientLoginURL;

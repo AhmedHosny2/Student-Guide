@@ -1,65 +1,48 @@
-import { clientLoginURL } from "../utils/env.js";
-document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("userName") == null)
-    window.location.href = clientLoginURL;
-  else {
-    const avatar = document.querySelector(".avatar i");
-    avatar.classList.add("show");
-    const loginButton = document.querySelectorAll(".login");
-    loginButton.forEach((button) => {
-      button.style.display = "none";
-    });
-  }
+const form = document.getElementById("course-form");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  const form = document.getElementById("course-form");
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  const formData = new FormData(form);
+  const formDataObject = {};
 
-    console.log("create course started");
-    const formData = new FormData(form);
-    const formDataObject = {};
+  const editorContent = tiny.activeEditor.getContent();
+  formDataObject["content"] = editorContent; // Use "content" as the key
 
-    const editorContent = tiny.activeEditor.getContent();
-    // console.log(editorContent);
-    formDataObject["content"] = editorContent; // Use "content" as the key
-
-    formData.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-
-    try {
-      fetch(coursesURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(formDataObject),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            animateFailureAlert("Course creation failed", 3000);
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          animateAlert("Course created successfully", 3000);
-          console.log("Response from the API:", data);
-          // Handle the response data from the API (e.g., show a success message)
-        })
-        .catch((error) => {
-          animateFailureAlert(
-            "This course name or code was created before !",
-            3000
-          );
-
-          console.error("Fetch error:", error);
-        });
-    } catch (err) {
-      console.error(err);
-    }
+  formData.forEach((value, key) => {
+    formDataObject[key] = value;
   });
+
+  try {
+    fetch(coursesURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(formDataObject),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          animateFailureAlert("Course creation failed", 3000);
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        animateAlert("Course created successfully", 3000);
+        // Handle the response data from the API (e.g., show a success message)
+      })
+      .catch((error) => {
+        animateFailureAlert(
+          "This course name or code was created before !",
+          3000
+        );
+
+        console.error("Fetch error:", error);
+      });
+  } catch (err) {
+    console.error(err);
+  }
 });
 import { coursesURL } from "../utils/env.js";
 // Add the code for initializing the TinyMCE editor below this comment

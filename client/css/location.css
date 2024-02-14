@@ -5,8 +5,13 @@ body {
 
 a {
   text-decoration: none;
-}
+  color: black;
 
+}
+a:visited { 
+  text-decoration: none; 
+  color: black;
+ }
 /* .container {
   max-width: 1200px;
   margin: auto;

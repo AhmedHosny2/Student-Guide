@@ -18,17 +18,7 @@ if (editor) {
   console.error("Element with id 'editor' not found");
 }
 const contentDisplay = document.querySelector(".contentDisplay .container");
-import { coursesURL ,clientLoginURL } from "../utils/env.js";
-if (localStorage.getItem("userName") == null)
-  window.location.href = clientLoginURL;
-else {
-  const avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  const loginButton = document.querySelectorAll(".login");
-  loginButton.forEach((button) => {
-    button.style.display = "none";
-  });
-}
+import { coursesURL } from "../utils/env.js";
 
 editBtn.addEventListener("click", () => {
   document.body.classList.toggle("overlay");
@@ -300,7 +290,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // change the content of tinymce
-    console.log(localStorage.getItem("courseData"));
     contentDisplay.innerHTML = editorContent;
   }
 
@@ -343,7 +332,6 @@ const updateCourse = async () => {
       return response.json();
     })
     .then((data) => {
-      console.log("Response from the API:", data);
       // Handle the response data from the API (e.g., show a success message)
     })
     .catch((error) => {
@@ -364,12 +352,10 @@ addPerson.addEventListener("click", () => {
 
 subBtn.addEventListener("click", () => {
   let val = image_url.value;
-  console.log(val);
   //reset the value of text box
   image_url.value = "";
   //adding image to the avatar box
   let newAvatar = document.createElement("img");
   newAvatar.src = val;
-  console.log(newAvatar);
   avatarBox.appendChild(newAvatar);
 });

@@ -1,4 +1,4 @@
-import  { userURL } from "../utils/env.js";
+import { userURL } from "../utils/env.js";
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.querySelector(".signup-form");
 
@@ -11,9 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
-    console.log(formDataObject);
-    const apiUrl = `${userURL}/signup`; 
-    console.log();
+    const apiUrl = `${userURL}/signup`;
+    const signUpLoader = document.getElementById("signUpLoader");
+    const signUpBtnTxt = document.getElementById("signUpBtnTxt");
+
+    signUpLoader.style.display = "block";
+    signUpBtnTxt.style.display = "none";
+
     fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -23,12 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => {
         if (!response.ok) {
+          signUpLoader.style.display = "none";
+          signUpBtnTxt.style.display = "block";
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
       .then((data) => {
-    
         localStorage.setItem("userEmail", formDataObject.email);
 
         window.location.href = "../html/verfiyEmail.html";

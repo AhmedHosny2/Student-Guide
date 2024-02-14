@@ -1,7 +1,13 @@
 main {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(-45deg, var(--main-color), var(--secondary-color), var(--third-color), var(--fourth-color));
+  background: linear-gradient(
+    -45deg,
+    var(--main-color),
+    var(--secondary-color),
+    var(--third-color),
+    var(--fourth-color)
+  );
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   position: relative;
@@ -41,13 +47,15 @@ p {
   min-height: 480px;
   position: relative;
   overflow: hidden;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 button {
   border: 0;
   background-color: var(--third-color);
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 12px;
   font-weight: bold;
   padding: 10px 15px;
@@ -64,6 +72,10 @@ button {
   -o-transition: var(--main-transition-duration);
   transition: var(--main-transition-duration);
   width: 100%;
+  cursor: pointer;
+  display: flex;
+  place-content: center;
+  gap: 20px;
 }
 
 button:active {
@@ -75,7 +87,7 @@ button:focus {
 }
 
 button.ghost {
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   background-color: transparent;
 }
 
@@ -84,6 +96,7 @@ button.ghost {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
 
 .button-wrap button:not(:last-child) {
@@ -114,7 +127,7 @@ input::placeholder {
 }
 
 form {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,7 +209,7 @@ form {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
-  color: #FFFFFF;
+  color: #ffffff;
   position: absolute;
   left: -100%;
   height: 100%;
@@ -270,8 +283,7 @@ main .img-left {
 }
 
 /* start responsive */
-@media (max-width:1199px) {
-
+@media (max-width: 1199px) {
   main .img-right,
   main .img-left {
     display: none;
@@ -279,7 +291,6 @@ main .img-left {
 }
 
 @media (max-width: 768px) {
-
   .overlay-container {
     display: none;
   }
@@ -301,6 +312,36 @@ main .img-left {
     z-index: 100;
     opacity: 1;
   }
+}
+/* start loader styling */
+.loader {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+  display: none;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  -webkit-transform: translate(-50%, -50%) scale(0);
+  -moz-transform: translate(-50%, -50%) scale(0);
+  -ms-transform: translate(-50%, -50%) scale(0);
+  -o-transform: translate(-50%, -50%) scale(0);
+  bottom: 0;
+  border-radius: 50%;
+  background: #fff;
+  animation: push 2s infinite ease-in;
+}
+
+.loader:after {
+  animation-delay: 1s;
 }
 
 /* start animation */
@@ -341,5 +382,26 @@ main .img-left {
     -ms-transform: translateY(0px);
     -o-transform: translateY(0px);
     transform: translateY(0px);
+  }
+}
+
+@keyframes push {
+  0% {
+    transform: translate(-50%, 100%) scale(1);
+  }
+
+  15%,
+  25% {
+    transform: translate(-50%, 50%) scale(1);
+  }
+
+  50%,
+  75% {
+    transform: translate(-50%, -30%) scale(0.5);
+  }
+
+  80%,
+  100% {
+    transform: translate(-50%, -50%) scale(0);
   }
 }

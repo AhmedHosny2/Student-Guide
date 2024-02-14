@@ -1,15 +1,4 @@
-import { taURL, clientLoginURL } from "../utils/env.js";
-
-if (localStorage.getItem("userName") == null)
-  window.location.href = clientLoginURL;
-else {
-  const avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  const loginButton = document.querySelectorAll(".login");
-  loginButton.forEach((button) => {
-    button.style.display = "none";
-  });
-}
+import { taURL } from "../utils/env.js";
 
 let arr = [];
 
@@ -28,9 +17,7 @@ function fetchTAData() {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       generateTACards(data);
-      console.log("Response from the API:", data);
     })
     .catch((error) => {
       console.error("Fetch error:", error);
@@ -51,9 +38,9 @@ function generateTACards(taData) {
 
     //start delete button
     const deleteButton = document.createElement("i");
-    deleteButton.classList.add('delete-button', "fa-regular", "fa-trash-can");
+    deleteButton.classList.add("delete-button", "fa-regular", "fa-trash-can");
 
-    deleteButton.addEventListener('click', function () {
+    deleteButton.addEventListener("click", function () {
       fetch(taURL + "/deleteTACourse", {
         method: "DELETE",
         headers: {
@@ -103,18 +90,17 @@ function generateTACards(taData) {
     card.appendChild(createCardWrap("tutorials", ta.tutorials));
 
     const imgObject = {
-      "male": "../images/male.svg",
-      "female": "../images/female.svg",
-      "croissant": "../images/Croissant.webp"
-    }
+      male: "../images/male.svg",
+      female: "../images/female.svg",
+      croissant: "../images/Croissant.webp",
+    };
     const taWrapper = document.createElement("div");
     taWrapper.classList.add("taWrapper");
     const taImage = document.createElement("img");
-    taImage.classList.add("genderImg")
+    taImage.classList.add("genderImg");
     if (ta.gender === "male") {
       taImage.src = imgObject["male"];
-    }
-    else if (ta.gender === 'female') {
+    } else if (ta.gender === "female") {
       taImage.src = imgObject["female"];
     } else {
       taImage.src = imgObject["croissant"];
@@ -123,19 +109,21 @@ function generateTACards(taData) {
     const taName = document.createElement("p");
     taName.textContent = ta.name;
     taName.classList.add("ta-name");
-    taWrapper.appendChild(taImage)
+    taWrapper.appendChild(taImage);
     taWrapper.appendChild(taName);
     card.appendChild(taWrapper);
   });
 
-  const deleteButtons = document.querySelectorAll(".taDirectory .container .card .delete-button");
-  if (localStorage.getItem("isAdmin") === "false" || localStorage.getItem("isAdmin") == null) {
-    deleteButtons.forEach(button => button.style.display = "none");
+  const deleteButtons = document.querySelectorAll(
+    ".taDirectory .container .card .delete-button"
+  );
+  if (
+    localStorage.getItem("isAdmin") === "false" ||
+    localStorage.getItem("isAdmin") == null
+  ) {
+    deleteButtons.forEach((button) => (button.style.display = "none"));
   }
-
 }
-
-
 
 function createCardWrap(label, value) {
   const wrap = document.createElement("div");
@@ -159,18 +147,20 @@ const searchBar = document.getElementById("searchBar");
 searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value.toLowerCase();
   arr.forEach((card) => {
-    const courseName = card
-      .querySelector(".course")
-      .textContent.toLowerCase();
-    console.log(card);
+    const courseName = card.querySelector(".course").textContent.toLowerCase();
     const isVisible = courseName.includes(searchValue);
     card.classList.toggle("hide", !isVisible);
   });
 });
 
 // hide admin buttons
-const adminBtns = document.querySelector(".taDirectory .container .admin-buttons");
+const adminBtns = document.querySelector(
+  ".taDirectory .container .admin-buttons"
+);
 
-if (localStorage.getItem("isAdmin") === "false" || localStorage.getItem("isAdmin") == null) {
+if (
+  localStorage.getItem("isAdmin") === "false" ||
+  localStorage.getItem("isAdmin") == null
+) {
   adminBtns.style.display = "none";
 }

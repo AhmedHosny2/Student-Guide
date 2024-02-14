@@ -33,7 +33,7 @@ exports.addTa = async (req, res) => {
       officeLocation,
       gender,
     });
-    TAs.push(newTA);
+    TAs = [];
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
@@ -75,7 +75,7 @@ exports.assignTa = async (req, res) => {
       courseName,
       officeHours,
     });
-    TACourses.push(newTAAssign);
+    TACourses = [];
     res.status(200).json({ message: "TAs assigned" });
   } catch (err) {
     console.error(err);
@@ -87,13 +87,8 @@ exports.deleteTaCourse = async (req, res) => {
   console.log(req.body);
   try {
     await TaCourseModel.deleteOne({ _id });
-    const indexToDelete = TACourses.findIndex(
-      (myTA) => myTA._id.valueOf() === _id
-    );
-    console.log(indexToDelete);
-    if (indexToDelete !== -1) {
-      TACourses.splice(indexToDelete, 1);
-    }
+    TACourses = [];
+
     console.log(TACourses);
     res.status(200).json({ message: "TAs course deleted" });
   } catch (err) {
@@ -106,10 +101,7 @@ exports.deleteTa = async (req, res) => {
   const { email } = req.body;
   try {
     await TaModel.deleteOne({ email });
-    const indexToDelete = TA.findIndex((myTA) => myTA.email === email);
-    if (indexToDelete !== -1) {
-      TA.splice(indexToDelete, 1);
-    }
+    TAs = [];
     res.status(200).json({ message: "TAs deleted" });
     await TaCourseModel.deleteMany({
       email,
