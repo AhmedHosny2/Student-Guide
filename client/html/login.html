@@ -39,7 +39,8 @@
                         <input type="email" id="email" name="email" placeholder="GIU Email" required />
 
                         <input type="password" id="password" name="password" placeholder="Password" required />
-                        <button type="submit">Sign Up</button>
+                        <button type="submit" id="submitSignup"><span class="loader" id="loader"></span><span id="btnTxt">Sign
+                                Up</span></button>
                         <span class="signIn-switch">already member</span>
                     </form>
                 </div>
@@ -49,7 +50,8 @@
                         <input type="text" id="userName" name="userName" placeholder="user name" required />
                         <input type="password" id="password" name="password" placeholder="Password" required />
                         <div class="button-wrap">
-                            <button type="submit">Login</button>
+                            <button type="submit" id="submitLogin"><span class="loader"
+                                    id="loader"></span><span id="btnTxt">Login</span></button>
                             <span class="signUp-switch">still don't have account?!</span>
                         </div>
                     </form>
@@ -71,10 +73,8 @@
             </div>
             <img src="../images/hero.svg" alt="" class="img-right">
             <img src="../images/login-page.svg" alt="" class="img-left">
+
         </section>
-        <!-- <button id="protected-route-button">Fetch Protected Route</button>
-            <button id="admin-route-button">Fetch Admin Route</button> -->
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     </main>
     <script type="module" src="../js/login.js"></script>
     <script type="module" src="../js/signup.js"></script>

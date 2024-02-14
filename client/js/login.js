@@ -1,62 +1,66 @@
 import { userURL, clientURL } from "../utils/env.js";
-document.addEventListener("DOMContentLoaded", () => {
-  const loginForm = document.querySelector(".login-form");
-  const protectedRouteButton = document.getElementById(
-    "protected-route-button"
-  );
-  const adminRouteButton = document.getElementById("admin-route-button");
+const loginForm = document.querySelector(".login-form");
+const loading = document.getElementById("loader");
+const btnTxt = document.getElementById("btnTxt");
+const protectedRouteButton = document.getElementById(
+  "protected-route-button"
+);
+const adminRouteButton = document.getElementById("admin-route-button");
 
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(loginForm);
-    const formDataObject = {};
-    formData.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-
-    const apiUrl = `${userURL}/login`;
-    let status;
-    fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(formDataObject),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        status = response.status;
-
-        // the response used .send in backend
-        return response.text();
-      })
-      .then((data) => {
-        data = JSON.parse(data);
-        localStorage.setItem("userEmail", data.email);
-        if (status === 207) {
-          alert("verfiy your email first!");
-          window.location.href = "../html/verfiyEmail.html";
-          return;
-        }
-        localStorage.setItem("isAdmin", data.isAdmin);
-        localStorage.setItem("userName", data.userName);
-        window.location.href = clientURL;
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(loginForm);
+  const formDataObject = {};
+  formData.forEach((value, key) => {
+    formDataObject[key] = value;
   });
 
-  //   document
-  //     .getElementById("google-login-button")
-  //     .addEventListener("click", function () {
-  //       window.location.href =
-  //         "https://student-guide-users.vercel.app/auth/google";
-  //     });
+  const apiUrl = `${userURL}/login`;
+  let status;
+  fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(formDataObject),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      status = response.status;
+
+      // the response used .send in backend
+      return response.text();
+    })
+    .then((data) => {
+      data = JSON.parse(data);
+      localStorage.setItem("userEmail", data.email);
+      if (status === 207) {
+        alert("verfiy your email first!");
+        window.location.href = "../html/verfiyEmail.html";
+        return;
+      }
+      localStorage.setItem("isAdmin", data.isAdmin);
+      localStorage.setItem("userName", data.userName);
+      window.location.href = clientURL;
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    }).finally(() => {
+      loading.style.display = "none";
+      btnTxt.style.display = "block";
+    })
 });
+
+//   document
+//     .getElementById("google-login-button")
+//     .addEventListener("click", function () {
+//       window.location.href =
+//         "https://student-guide-users.vercel.app/auth/google";
+//     });
+
 //start login styling animation
 const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
