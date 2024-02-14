@@ -45,10 +45,11 @@
 @media (max-width: 767px) {
   .key-links .container .description {
     flex-direction: column;
+    align-items: center;
   }
 
   .key-links .container .description img {
-    width: 100%;
+    width: 50%;
   }
 }
 
