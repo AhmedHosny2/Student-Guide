@@ -7,9 +7,10 @@ university companion application designed to **enhance student experience** by c
 
 
 # Screenshots
+![Desktop2024 02 14-18 58 34 02-ezgif com-video-to-gif-converter](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/13ad54e2-754b-4c60-9c7a-41ddf1aab49e)
 
 
-![Desktop2024 02 14-18 58 34 02-ezgif com-video-to-gif-converter](https://github.com/AhmedHosny2/Student-Guide/ass![select Course](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/8f8ea69f-ad6b-469e-aafa-c8f88b131694)
+
 ![TA Directory](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/6256c24a-b87d-4f5e-bd74-4275bfd13046)![adding TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/4e9490f6-e044-4b5f-abc3-f70b43547e38)![location 1](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/05f02777-12df-4ea6-85e6-9d86de70475c)![add TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/95e6b024-8a3b-4ed5-9ef0-d6b0d5ea6b7a)
 ![location 2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/d4e357e2-b80d-4f5c-87c7-f06995e9d5e0)
 ![responsive](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/3625f193-c0aa-4b1d-a9f2-e6a27550262c)
