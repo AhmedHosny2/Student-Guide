@@ -28,6 +28,27 @@
   background-color: var(--fourth-color);
 }
 
+.key-links .container .description p {
+  color: #585f63;
+  font-size: 1.1em;
+  line-height: 1.8em;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.key-links .container .description p span {
+  color: var(--third-color);
+  font-weight: 600;
+}
+
+.key-links .container .description {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
 .key-links .container .card-wrap .card img {
   padding: 10px;
   width: 100%;
@@ -47,20 +68,4 @@
 
 .key-links .container .description img {
   width: 20%;
-}
-
-.key-links .container .description p {
-  color: #585f63;
-  font-size: 1.1em;
-  line-height: 1.8em;
-  text-transform: capitalize;
-  font-weight: 500;
-}
-
-.key-links .container .description {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  margin-bottom: 50px;
-  gap: 20px;
 }
