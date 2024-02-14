@@ -185,12 +185,10 @@ body {
   color: white;
 }
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: stretch;
-  margin-bottom: 2rem;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  margin: 50px 0;
 }
 .card {
   max-width: 25rem;
@@ -363,7 +361,7 @@ h3 {
   font-size: clamp(0.1rem, 1rem + 1vw, 3rem);
   margin: 0;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   .img-carousel {
     margin: 0 2rem;
     height: calc(75vh - 65px);
