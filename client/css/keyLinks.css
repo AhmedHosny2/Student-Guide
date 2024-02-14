@@ -1,0 +1,15 @@
+.key-links .container .card-wrap .card img {
+  width: 100%;
+}
+
+.key-links .container .card-wrap .card .txt .card-text {
+  color: gray;
+}
+
+.key-links .container .card-wrap .card .txt .card-title {
+  font-weight: 600;
+  text-align: right;
+}
+.key-links .container .card-wrap .card:hover .txt .card-title {
+  color: var(--fourth-color);
+}

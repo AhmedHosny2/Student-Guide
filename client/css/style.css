@@ -61,6 +61,40 @@ html {
   margin-right: auto;
 }
 
+/* start card */
+.card-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  margin: 50px 0;
+}
+
+.container .card-wrap .card {
+  padding: 1rem;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+  -ms-border-radius: 1.25rem;
+  -o-border-radius: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid;
+  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  transition: 0.15s;
+  -webkit-transition: 0.15s;
+  -moz-transition: 0.15s;
+  -ms-transition: 0.15s;
+  -o-transition: 0.15s;
+  cursor: pointer;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container .card-wrap .card:hover {
+  box-shadow: 13px 13px 0px 3px var(--main-color);
+}
+/* end card */
+
 /* start media query */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
