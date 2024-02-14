@@ -68,7 +68,7 @@ a:visited {
   margin: 0 7rem;
 }
 
-ul::after{
+.inner-cont ul::after{
 
   content: '';
   position:absolute;
