@@ -1,7 +1,5 @@
 import { userURL, clientURL } from "../utils/env.js";
 const loginForm = document.querySelector(".login-form");
-const loading = document.getElementById("loader");
-const btnTxt = document.getElementById("btnTxt");
 const protectedRouteButton = document.getElementById(
   "protected-route-button"
 );
@@ -48,10 +46,7 @@ loginForm.addEventListener("submit", (e) => {
     })
     .catch((error) => {
       console.error("Fetch error:", error);
-    }).finally(() => {
-      loading.style.display = "none";
-      btnTxt.style.display = "block";
-    })
+    });
 });
 
 //   document
@@ -85,4 +80,23 @@ signUpSwitch.addEventListener("click", () => {
 
 signInSwitch.addEventListener("click", () => {
   signUp_box.classList.remove("active");
+});
+
+const loginBtn = document.getElementById("submitLogin");
+const loginLoader = document.getElementById("loginLoader");
+const loginBtnTxt = document.getElementById("loginBtnTxt");
+
+
+loginBtn.addEventListener("click", () => {
+  loginLoader.style.display = "block";
+  loginBtnTxt.style.display = "none";
+});
+
+const signUpBtn = document.getElementById("signUpBtn");
+const signUpLoader = document.getElementById("signUpLoader");
+const signUpBtnTxt = document.getElementById("signUpBtnTxt");
+
+signUpBtn.addEventListener("click", () => {
+  signUpLoader.style.display = "block";
+  signUpBtnTxt.style.display = "none";
 });
