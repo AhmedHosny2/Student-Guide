@@ -199,6 +199,10 @@ exports.sendOTP = async (req, res) => {
   const email = req.body.userEmail;
   console.log(email);
   const user = await userModel.findOne({ email });
+  if(user.OTP){
+    console.log("OTP already sent");
+    return res.status(200).json({ message: "OTP already sent" });
+  }
   const randomOTP = generateOTP();
   await sendEmail(
     email,
