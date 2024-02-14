@@ -84,6 +84,7 @@ button.ghost {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
 
 .button-wrap button:not(:last-child) {
