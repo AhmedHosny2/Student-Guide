@@ -1,17 +1,4 @@
-import { taURL, clientLoginURL } from "../utils/env.js";
-
-if (localStorage.getItem("userName") == null)
-  window.location.href = clientLoginURL;
-else {
-  const avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  const loginButton = document.querySelectorAll(".login");
-  loginButton.forEach((button) => {
-    button.style.display = "none";
-  });
-}
-
-// on  submit button click
+import { taURL } from "../utils/env.js";
 
 // Get references to the form and input elements
 const TAFrom = document.getElementById("TA-form");

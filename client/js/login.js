@@ -37,20 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
         data = JSON.parse(data);
         localStorage.setItem("userEmail", data.email);
         if (status === 207) {
-          console.log(data);
           alert("verfiy your email first!");
           window.location.href = "../html/verfiyEmail.html";
           return;
         }
         localStorage.setItem("isAdmin", data.isAdmin);
         localStorage.setItem("userName", data.userName);
-
-        // data = JSON.parse(data);
-        console.log("Response from the API:", data);
-        //once user logged in switch to the home https://www.ahmed-yehia.me/index.html
-        // here
-        // console.log(data);
-
         window.location.href = clientURL;
       })
       .catch((error) => {
@@ -58,12 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  document
-    .getElementById("google-login-button")
-    .addEventListener("click", function () {
-      window.location.href =
-        "https://student-guide-users.vercel.app/auth/google";
-    });
+  //   document
+  //     .getElementById("google-login-button")
+  //     .addEventListener("click", function () {
+  //       window.location.href =
+  //         "https://student-guide-users.vercel.app/auth/google";
+  //     });
 });
 //start login styling animation
 const signUpButton = document.getElementById("signUp");

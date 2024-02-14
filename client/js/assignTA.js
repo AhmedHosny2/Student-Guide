@@ -1,14 +1,3 @@
-import { clientLoginURL } from "../utils/env.js";
-if (localStorage.getItem("userName") == null)
-  window.location.href = clientLoginURL;
-else {
-  const avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  const loginButton = document.querySelectorAll(".login");
-  loginButton.forEach((button) => {
-    button.style.display = "none";
-  });
-}
 
 let taEmails = [];
 import { taURL } from "../utils/env.js";

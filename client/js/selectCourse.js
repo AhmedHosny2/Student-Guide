@@ -1,4 +1,4 @@
-import { getCourseURL, coursesURL, clientLoginURL } from "../utils/env.js";
+import { getCourseURL, coursesURL } from "../utils/env.js";
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
   2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
@@ -6,23 +6,16 @@ const courses = {
   4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4"],
 };
 
-const courseImages = ["../images/courses (1).svg",
+const courseImages = [
+  "../images/courses (1).svg",
   "../images/courses (2).svg",
   "../images/courses (3).svg",
-  "../images/courses (4).svg"]
+  "../images/courses (4).svg",
+];
 
 const semesterSelect = document.getElementById("semester");
 const courseList = document.getElementById("course-list");
-if (localStorage.getItem("userName") == null)
-  window.location.href = clientLoginURL;
-else {
-  const avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  const loginButton = document.querySelectorAll(".login");
-  loginButton.forEach((button) => {
-    button.style.display = "none";
-  });
-}
+
 function displayCourses() {
   const selectedSemester = semesterSelect.value;
   const selectedCourses = courses[selectedSemester];
@@ -31,7 +24,6 @@ function displayCourses() {
 
   if (selectedCourses) {
     selectedCourses.forEach((course, index) => {
-
       //create course card
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
@@ -65,9 +57,11 @@ function displayCourses() {
             .then((data) => {
               localStorage.setItem("courseData", data.content);
               localStorage.setItem("courseName", data.courseName);
-              localStorage.setItem("readingTime", Math.floor(data.content.length / 200));
+              localStorage.setItem(
+                "readingTime",
+                Math.floor(data.content.length / 200)
+              );
               window.location.href = getCourseURL;
-
             })
             .catch((error) => {
               console.error("Fetch error:", error);
@@ -88,6 +82,9 @@ displayCourses();
 
 //remove admin button
 const addCourseButton = document.querySelector(".re-direct");
-if (localStorage.getItem("isAdmin") === "false" || localStorage.getItem("isAdmin") == null) {
+if (
+  localStorage.getItem("isAdmin") === "false" ||
+  localStorage.getItem("isAdmin") == null
+) {
   addCourseButton.style.display = "none";
 }

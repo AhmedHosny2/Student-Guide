@@ -1,4 +1,4 @@
-import  { userURL } from "../utils/env.js";
+import { userURL } from "../utils/env.js";
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.querySelector(".signup-form");
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
     console.log(formDataObject);
-    const apiUrl = `${userURL}/signup`; 
+    const apiUrl = `${userURL}/signup`;
     console.log();
     fetch(apiUrl, {
       method: "POST",
@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((data) => {
-    
         localStorage.setItem("userEmail", formDataObject.email);
 
         window.location.href = "../html/verfiyEmail.html";

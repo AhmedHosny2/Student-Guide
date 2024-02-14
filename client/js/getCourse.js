@@ -18,17 +18,7 @@ if (editor) {
   console.error("Element with id 'editor' not found");
 }
 const contentDisplay = document.querySelector(".contentDisplay .container");
-import { coursesURL ,clientLoginURL } from "../utils/env.js";
-if (localStorage.getItem("userName") == null)
-  window.location.href = clientLoginURL;
-else {
-  const avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  const loginButton = document.querySelectorAll(".login");
-  loginButton.forEach((button) => {
-    button.style.display = "none";
-  });
-}
+import { coursesURL } from "../utils/env.js";
 
 editBtn.addEventListener("click", () => {
   document.body.classList.toggle("overlay");
