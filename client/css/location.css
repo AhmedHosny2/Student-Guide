@@ -363,7 +363,7 @@ h3 {
   font-size: clamp(0.1rem, 1rem + 1vw, 3rem);
   margin: 0;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 800px) {
   .img-carousel {
     margin: 0 2rem;
     height: calc(75vh - 65px);
@@ -391,9 +391,6 @@ h3 {
     position: absolute;
     width: -webkit-fill-available;
     margin: 1.2rem 1rem 1.1rem 1rem;
-  }
-  .card {
-    width: 100%;
   }
   p {
     font-size: clamp(0.1rem, 1rem + 1vw, 1rem);
