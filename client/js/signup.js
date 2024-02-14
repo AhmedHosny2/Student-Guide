@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
       formDataObject[key] = value;
     });
     const apiUrl = `${userURL}/signup`;
+const signUpLoader = document.getElementById("signUpLoader");
+const signUpBtnTxt = document.getElementById("signUpBtnTxt");
+
+  signUpLoader.style.display = "block";
+  signUpBtnTxt.style.display = "none";
+
+
     fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -21,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => {
         if (!response.ok) {
+          signUpLoader.style.display = "none";
+          signUpBtnTxt.style.display = "block";
           throw new Error("Network response was not ok");
         }
         return response.json();
