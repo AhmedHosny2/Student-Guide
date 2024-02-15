@@ -1,1143 +1,1504 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>schedules</title>
+    <!-- fav icon -->
+    <link rel="icon" type="image/x-icon" href="../images/fav.png" />
+    <!-- css files -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/groupSchedule.css" />
+    <!-- normalize-file -->
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- logo font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- adding script for text editor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/super-build/ckeditor.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>schedules</title>
-  <!-- fav icon -->
-  <link rel="icon" type="image/x-icon" href="../images/fav.png" />
-  <!-- css files -->
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/groupSchedule.css" />
-  <!-- normalize-file -->
-  <link rel="stylesheet" href="../css/normalize.css" />
-  <!-- google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <!-- logo font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet" />
-  <!-- google icons -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- adding script for text editor -->
-  <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/super-build/ckeditor.js"></script>
-</head>
-
-<body>
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <a href="../index.html">
-          <h4>resource <span>hub</span></h4>
-        </a>
-      </div>
-      <nav class="nav" data-visibility="false">
-        <ul class="links">
-          <li class="home"><a href="../index.html">home</a></li>
-          <li><a href="../html/location.html">location</a></li>
-          <li><a href="../html/TA-directory.html">TA directory</a></li>
-          <li><a href="../html/selectCourse.html">Courses</a></li>
-          <li><a href="../html/gradesToPass.html"> grad clac</a></li>
-          <li><a href="../html/GPACalculator.html">GPA calc</a></li>
-          <li><a href="../html/groupSchedule.html"> Schedules</a></li>
-          <li><a href="../html/resource gateway.html"> resources gateway</a></li>
-          <li class="login"><a href="../html/login.html">login</a></li>
-          <li><a href="" id="logout" class="logout">logout</a></li>
-        </ul>
-      </nav>
-      <div class="avatar">
-        <i class="fa-regular fa-user"></i>
-      </div>
-      <a href="html/login.html" class="login"> login </a>
-      <div class="burger-menu">
-        <span class="top"></span>
-        <span class="mid"></span>
-        <span class="btm"></span>
-      </div>
-      <div class="mobile-nav">
-        <a href="../index.html" class="active">
-          <i class="fa-solid fa-house"></i>
-        </a>
-        <a href="../html/location.html">
-          <i class="fa-solid fa-map-location-dot"></i>
-        </a>
-        <a href="../html/TA-directory.html">
-          <i class="fa-solid fa-person-chalkboard"></i>
-        </a>
-        <a href="../html/selectCourse.html">
-          <i class="fa-solid fa-book"></i>
-        </a>
-      </div>
-    </div>
-  </header>
-  <!-- start location -->
-  <div class="location">
-    <div class="container">
-      <div class="txt">
-        <h2>College <span>Schedule Portal</span></h2>
-        <div class="description">
-          <img src="../images/grade to pass (2).svg" alt="">
-          <p><span>vee always here for you🫡</span> Explore our College Schedule Portal! Select your course from the
-            dropdown menu to view your class schedule.
-            Options
-            range from second to sixth-year courses in Software Engineering, Information Technology, Data Science, and
-            Computer
-            Science. Stay organized and up-to-date with your academic week! feel free to use the selection down below.
-          </p>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <a href="../index.html">
+            <h4>resource <span>hub</span></h4>
+          </a>
+        </div>
+        <nav class="nav" data-visibility="false">
+          <ul class="links">
+            <li class="home"><a href="../index.html">home</a></li>
+            <li><a href="../html/location.html">location</a></li>
+            <li><a href="../html/TA-directory.html">TA directory</a></li>
+            <li><a href="../html/selectCourse.html">Courses</a></li>
+            <li><a href="../html/gradesToPass.html"> grad clac</a></li>
+            <li><a href="../html/GPACalculator.html">GPA calc</a></li>
+            <li><a href="../html/groupSchedule.html"> Schedules</a></li>
+            <li>
+              <a href="../html/resource gateway.html"> resources gateway</a>
+            </li>
+            <li class="login"><a href="../html/login.html">login</a></li>
+            <li><a href="" id="logout" class="logout">logout</a></li>
+          </ul>
+        </nav>
+        <div class="avatar">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <a href="html/login.html" class="login"> login </a>
+        <div class="burger-menu">
+          <span class="top"></span>
+          <span class="mid"></span>
+          <span class="btm"></span>
+        </div>
+        <div class="mobile-nav">
+          <a href="../index.html" class="active">
+            <i class="fa-solid fa-house"></i>
+          </a>
+          <a href="../html/location.html">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </a>
+          <a href="../html/TA-directory.html">
+            <i class="fa-solid fa-person-chalkboard"></i>
+          </a>
+          <a href="../html/selectCourse.html">
+            <i class="fa-solid fa-book"></i>
+          </a>
         </div>
       </div>
-      <select class="tableSelect" id="tableSelect">
-        <option value="0">Select a table</option>
-        <option value="1">SE 6th</option>
-        <option value="2">IT 6th</option>
-        <option value="3">DS 6th</option>
-        <option value="4">CS 4th I</option>
-        <option value="5">CS 4th II</option>
-        <option value="6">CS 2nd I</option>
-        <option value="7">CS 2nd II</option>
-      </select>
+    </header>
+    <!-- start location -->
+    <div class="location">
+      <div class="container">
+        <div class="txt">
+          <h2>College <span>Schedule Portal</span></h2>
+          <div class="description">
+            <img src="../images/grade to pass (2).svg" alt="" />
+            <p>
+              <span>vee always here for you🫡</span> Explore our College Schedule
+              Portal! Select your course from the dropdown menu to view your
+              class schedule. Options range from second to sixth-year courses in
+              Software Engineering, Information Technology, Data Science, and
+              Computer Science. Stay organized and up-to-date with your academic
+              week! feel free to use the selection down below.
+            </p>
+          </div>
+        </div>
+        <select class="tableSelect" id="tableSelect">
+          <option value="0">Select a table</option>
+          <option value="1">SE 6th</option>
+          <option value="2">IT 6th</option>
+          <option value="3">DS 6th</option>
+          <option value="4">CS 4th I</option>
+          <option value="5">CS 4th II</option>
+          <option value="6">CS 2nd I</option>
+          <option value="7">CS 2nd II</option>
+        </select>
+      </div>
+      <div class="table-wrapper">
+        <table id="1">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>First slot</td>
+              <td>Second slot</td>
+              <td>Third slot</td>
+              <td>Forth slot</td>
+              <td>Fifth slot</td>
+            </tr>
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>
+                <p>mobile p 13</p>
+                <p>A 215</p>
+                <p>cloud p 12</p>
+                <p>S 519</p>
+                <p>SE II p 14</p>
+                <p>S 422</p>
+              </td>
+              <td>
+                <p>cloud p 13</p>
+                A 212
+                <p>SE II p 14</p>
+                <p>S 422</p>
+                <p>RM T 12</p>
+                <p>A 209</p>
+              </td>
+              <td>
+                <p>mobile p 12</p>
+                <p>M 327</p>
+                <p>cloud p 14</p>
+                <p>M 328</p>
+                <p>RM T 13</p>
+                <p>A 208</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td>
+                <p>cloud p 17</p>
+                <p>S 518</p>
+                <p>RM T 14</p>
+                <p>S 219</p>
+              </td>
+              <td>
+                <p>PM Lecture</p>
+                <p>M 205</p>
+              </td>
+              <td>
+                <p>cloud Lecture</p>
+                <p>A 328</p>
+              </td>
+              <td>
+                <p>SE II p 12</p>
+                <p>M 327</p>
+                <p>cloud p 15</p>
+                <p>M 328</p>
+                <p>mobile p 14</p>
+                <p>S 518</p>
+              </td>
+              <td>
+                <p>SE II p 12</p>
+                <p>M 327</p>
+                <p>cloud p 16</p>
+                <p>M 328</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>
+                <p>SE II p 13</p>
+                <p>S 324</p>
+              </td>
+              <td>
+                <p>SE II p 13</p>
+                <p>S 324</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>
+                <p>RM lecture</p>
+                <p>M 305</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>mobile p 17</p>
+                <p>A 209</p>
+              </td>
+              <td>
+                <p>mobile Lecture</p>
+                <p>S 334</p>
+              </td>
+              <td>
+                <p>mobile p 15</p>
+                <p>S 006</p>
+              </td>
+              <td>
+                <p>mobile p 16</p>
+                <p>S 421</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="2">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>First slot</td>
+              <td>Second slot</td>
+              <td>Third slot</td>
+              <td>Forth slot</td>
+              <td>Fifth slot</td>
+            </tr>
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td>
+                <p>FREE</p>
+              </td>
+              <td>
+                <p>PM lecture</p>
+                <p>M 205</p>
+              </td>
+              <td>FREE</td>
+              <td>
+                <p>RM T 7</p>
+                <p>S 421</p>
+              </td>
+              <td>
+                <p>Rm T 8</p>
+                <p>S 421</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE DAY</td>
+              <td>FREE DAY</td>
+              <td>FREE DAY</td>
+              <td>FREE DAY</td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>
+                <p>ethical hack.p 7</p>
+                <p>M 328</p>
+                <p>netwrok sec p 8</p>
+                <p>S 518</p>
+              </td>
+              <td>
+                <p>ethical hack.p 7</p>
+                <p>M 328</p>
+                <p>businees cont. p 8</p>
+                <p>S 518</p>
+              </td>
+              <td>
+                <p>newtork sec. p 7</p>
+                <p>S 421</p>
+                <p>ethcial hack. p 9</p>
+                <p>S 519</p>
+              </td>
+              <td>
+                <p>Rm lecture</p>
+                <p>M 305</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>
+                <p>etchial hack. p 8</p>
+                <p>A 212</p>
+              </td>
+              <td>
+                <p>etchial hack. p 8</p>
+                <p>A 212</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>business cont. p 9</p>
+                <p>S 518</p>
+              </td>
+              <td>
+                <p>business cont. Lectuer</p>
+                <p>S 435</p>
+              </td>
+              <td>
+                <p>network Sec. Lecture</p>
+                <p>S 435</p>
+              </td>
+              <td>
+                <p>business cont. p 10</p>
+                <p>S 218</p>
+                <p>network sec. p 9</p>
+                <p>S 219</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="3">
+          <tbody>
+            <tr>
+              <td></td>
+
+              <td>First slot</td>
+              <td>Second slot</td>
+              <td>Third slot</td>
+              <td>Fourth slot</td>
+              <td>Fifth slot</td>
+            </tr>
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td>
+                <p>NoSQL p1</p>
+                <p>A 208</p>
+                <p>image pro p3</p>
+                <p>M 327</p>
+              </td>
+              <td>
+                <p>NoSQL p1</p>
+                <p>A 208</p>
+                <p>ML II p 3</p>
+                <p>A 212</p>
+                <p>RM T 2</p>
+                <p>A 209</p>
+              </td>
+              <td>
+                <p>NoSQL p 2</p>
+                <p>A 208</p>
+                <p>ML II p1</p>
+                <p>A 212</p>
+                <p>RM T 3</p>
+                <p>A 209</p>
+              </td>
+              <td>
+                <p>NoSQL p 2</p>
+                <p>A 208</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td>FREE</td>
+              <td>PM LectureM 205</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>Image pro LectureS 435</td>
+              <td>ML II LectureS 435</td>
+              <td>
+                <p>NoSQL p 5S 219</p>
+                <p>ML II p 4</p>
+                <p>S 519</p>
+              </td>
+              <td>
+                <p>NoSQL p 5S 219</p>
+                <p>image pro</p>
+                <p>M 327</p>
+              </td>
+              <td>
+                <p>ML II p 5</p>
+                <p>M 327</p>
+                <p>CPS&amp;RPW T097</p>
+                <p>M 433</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>
+                <p>image pro p 2</p>
+                <p>M 327</p>
+              </td>
+              <td>
+                <p>NoSQL p 3</p>
+                <p>S 219</p>
+                <p>ML II p 2</p>
+                <p>M 327</p>
+                <p>RM T 1</p>
+                <p>S 218</p>
+              </td>
+              <td>
+                <p>NoSQL p 3S 219</p>
+                <p>image pro p 1</p>
+                <p>S 324</p>
+              </td>
+              <td>
+                <p>CPS &amp; RPW T097</p>
+                <p>M 511</p>
+              </td>
+              <td>
+                <p>RM Lecture</p>
+                <p>M 305</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>
+                <p>NoSQL p 4</p>
+                <p>A 215</p>
+              </td>
+              <td>
+                <p>NoSQL p 4</p>
+                <p>A 215</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>
+                <p>DE 3 T 014</p>
+                <p>M 511</p>
+                <p>DE 4 T 040</p>
+                <p>S 501</p>
+              </td>
+              <td>
+                <p>DE 3 T 014</p>
+                <p>M 511</p>
+                <p>DE 4 T 040</p>
+                <p>S 501</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="4">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>First slot</td>
+              <td>Second slot</td>
+              <td>Third slot</td>
+              <td>Forth slot</td>
+              <td>Fifth slot</td>
+            </tr>
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td>
+                <p>AS T089</p>
+                <p>M 227</p>
+              </td>
+              <td>
+                <p>SE lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>
+                <p>SE p 6</p>
+                <p>M 327</p>
+                <p>Distributed p 5</p>
+                <p>M 328</p>
+                <p>Media p 4</p>
+                <p>S 219</p>
+                <p>Data Science p 3</p>
+                <p>S 218</p>
+                <p>IT T 2</p>
+                <p>S 118</p>
+                <p>Math T 1</p>
+                <p>S 222</p>
+              </td>
+              <td>
+                <p>SE p 1</p>
+                <p>M 327</p>
+                <p>Distributed p 6</p>
+                <p>M 328</p>
+                <p>Media p 5</p>
+                <p>S 324</p>
+                <p>Data Science p 4</p>
+                <p>S 219</p>
+                <p>IT T 3</p>
+                <p>S 118</p>
+                <p>Math T 3</p>
+                <p>S 222</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>SM T089</p>
+                <p>M 443</p>
+              </td>
+              <td>
+                <p>Distributed Lecture</p>
+                <p>M 305</p>
+              </td>
+              <td>
+                <p>DE 3 T 10</p>
+                <p>S 523</p>
+                <p>DE 4 T 25</p>
+                <p>S524</p>
+                <p>DE 4 T 26</p>
+                <p>S525</p>
+                <p>DE 4 T 27</p>
+                <p>S 526</p>
+                <p>DE 4 T 28</p>
+                <p>S601</p>
+              </td>
+              <td>
+                <p>DE 3 T 10</p>
+                <p>S 523</p>
+                <p>DE 4 T 25</p>
+                <p>S524</p>
+                <p>DE 4 T 26</p>
+                <p>S525</p>
+                <p>DE 4 T 27</p>
+                <p>S 526</p>
+                <p>DE 4 T 28</p>
+                <p>S601</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>
+                <p>SE p 2</p>
+                <p>M 327</p>
+                <p>Distributed p 1</p>
+                <p>M 328</p>
+                <p>Media p 6</p>
+                <p>S 518</p>
+                <p>Data Science p 5</p>
+                <p>S 218</p>
+                <p>IT T 4</p>
+                <p>S 326</p>
+                <p>Math T 3</p>
+                <p>S 225</p>
+              </td>
+              <td>
+                <p>Math Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>
+                <p>SE p 3</p>
+                <p>M 327</p>
+                <p>Distributed p 2</p>
+                <p>M 328</p>
+                <p>Media p 1</p>
+                <p>S 518</p>
+                <p>Data Science p 6</p>
+                <p>S 218</p>
+                <p>IT T 5</p>
+                <p>S 326</p>
+                <p>Math T 4</p>
+                <p>S 327</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>
+                <p>AS T089</p>
+                <p>M 433</p>
+                <p>CPS T 6</p>
+                <p>M 227</p>
+                <p>RPW T 12</p>
+                <p>M 228</p>
+                <p>RPW T 13</p>
+                <p>&lt; 432</p>
+              </td>
+              <td>
+                <p>Media Lecture</p>
+                <p>A 228</p>
+              </td>
+              <td>
+                <p>SE p 4</p>
+                <p>M 327</p>
+                <p>Distributed p 3</p>
+                <p>M 328</p>
+                <p>Media p 2</p>
+                <p>S 518</p>
+                <p>Data Science p 1</p>
+                <p>S 218</p>
+                <p>IT T 6</p>
+                <p>S 118</p>
+                <p>Math T 5</p>
+                <p>S 221</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>IT lecture</p>
+                <p>M 305</p>
+              </td>
+              <td>
+                <p>RPW T 14</p>
+                <p>M 227</p>
+                <p>RPW T 15</p>
+                <p>M 228</p>
+              </td>
+              <td>
+                <p>Data Science Lecture</p>
+                <p>M 305</p>
+              </td>
+              <td>
+                <p>SE p 5</p>
+                <p>S 219</p>
+                <p>Distributed p 4</p>
+                <p>S 518</p>
+                <p>Media p 3</p>
+                <p>S 323</p>
+                <p>Data Science p 2</p>
+                <p>S 324</p>
+                <p>IT T 1</p>
+                <p>S 113</p>
+                <p>Math T 6</p>
+                <p>S 114</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="5">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>First slot</td>
+              <td>Second slot</td>
+              <td>Third slot</td>
+              <td>Forth slot</td>
+              <td>Fifth slot</td>
+            </tr>
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>SE p 12</p>
+                <p>M 327</p>
+                <p>Distributed p 11</p>
+                <p>M 328</p>
+                <p>Media p 10</p>
+                <p>S 421</p>
+                <p>Data Science p 9</p>
+                <p>S 422</p>
+                <p>IT T 8</p>
+                <p>S 101</p>
+                <p>Math T 7</p>
+                <p>S 113</p>
+              </td>
+              <td>
+                <p>SE lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>
+                <p>DE 3 T 11</p>
+                <p>M 511</p>
+                <p>DE 4 T 30</p>
+                <p>S 501</p>
+                <p>DE 4 T 31</p>
+                <p>S 618</p>
+                <p>DE 4 T 32</p>
+                <p>S 520</p>
+                <p>DE 4 T 33</p>
+                <p>S 521</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td>
+                <p>Media P 12</p>
+                <p>M 327</p>
+                <p>Data Science P 11</p>
+                <p>M 328</p>
+                <p>Math T 9</p>
+                <p>S 113</p>
+              </td>
+              <td>
+                <p>Distributed p 7</p>
+                <p>M 327</p>
+                <p>Distributed p 12</p>
+                <p>M 328</p>
+                <p>Media p 11</p>
+                <p>S 518</p>
+                <p>IT T 10</p>
+                <p>S 422</p>
+                <p>IT T 9</p>
+                <p>S 425</p>
+                <p>Math T 8</p>
+                <p>S 426</p>
+              </td>
+              <td>
+                <p>SE P 7</p>
+                <p>M 327</p>
+                <p>SE p 8</p>
+                <p>S 519</p>
+                <p>Data Science p 10</p>
+                <p>M 328</p>
+              </td>
+              <td>
+                <p>DIstrubuted Lecture</p>
+                <p>M 305</p>
+              </td>
+              <td>
+                <p>DE 3 T 10</p>
+                <p>S 523</p>
+                <p>DE 4 T 25</p>
+                <p>S524</p>
+                <p>DE 4 T 26</p>
+                <p>S525</p>
+                <p>DE 4 T 27</p>
+                <p>S 526</p>
+                <p>DE 4 T 28</p>
+                <p>S601</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>SE p 9</p>
+                <p>M 327</p>
+                <p>Distributed p 8</p>
+                <p>M 328</p>
+                <p>Media p 7</p>
+                <p>S 518</p>
+                <p>Data Science p 12</p>
+                <p>S 218</p>
+                <p>IT T 11</p>
+                <p>S 326</p>
+                <p>Math T 10</p>
+                <p>S 118</p>
+              </td>
+              <td>
+                <p>Math Lecture</p>
+                <p>S 334</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>RPW T 16</p>
+                <p>M 227</p>
+                <p>RPW T 17</p>
+                <p>M 228</p>
+                <p>RPW T 18</p>
+                <p>M 432</p>
+                <p>CPS T 7</p>
+                <p>M 507</p>
+                <p>RPW T 35</p>
+                <p>M 414</p>
+              </td>
+              <td>
+                <p>Media Lecture</p>
+                <p>A 228</p>
+              </td>
+              <td>
+                <p>SE p 10</p>
+                <p>M 327</p>
+                <p>Distributed p 9</p>
+                <p>M 328</p>
+                <p>Media p 8</p>
+                <p>S 518</p>
+                <p>Data Science p 7</p>
+                <p>S 218</p>
+                <p>IT T 12</p>
+                <p>S 226</p>
+                <p>Math T 11</p>
+                <p>S 321</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>SE p 11</p>
+                <p>S 519</p>
+                <p>Distributed p 10</p>
+                <p>S 518</p>
+                <p>Media p 9</p>
+                <p>A 108</p>
+                <p>Data Science p 8</p>
+                A 208
+                <p>IT T 7</p>
+                <p>S 115</p>
+                <p>Math T 12</p>
+                <p>S 116</p>
+              </td>
+              <td>
+                <p>Data Science Lecture</p>
+                <p>M 305</p>
+              </td>
+              <td>
+                <p>DE 3 T 11</p>
+                <p>M 511</p>
+                <p>DE 4 T 30</p>
+                <p>S 501</p>
+                <p>DE 4 T 31</p>
+                <p>S 618</p>
+                <p>DE 4 T 32</p>
+                <p>S 520</p>
+                <p>DE 4 T 33</p>
+                <p>S 521</p>
+              </td>
+              <td>
+                <p>IT lecture</p>
+                <p>M 305</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="6">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>First slot</td>
+              <td>Second slot</td>
+              <td>Third slot</td>
+              <td>Forth slot</td>
+              <td>Fifth slot</td>
+            </tr>
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>Network p 8</p>
+                <p>A 221</p>
+                <p>Network p 1</p>
+                <p>A 215</p>
+                <p>CO p 5</p>
+                <p>A 208</p>
+                <p>Theo T 4</p>
+                <p>A 312</p>
+                <p>Theo T 2</p>
+                <p>A 109</p>
+                <p>Theo T 9</p>
+                <p>A 112</p>
+                <p>OOP T 6</p>
+                <p>A 115</p>
+                <p>Math T 3</p>
+                <p>A 117</p>
+                <p>Math T 7</p>
+                <p>A 308</p>
+              </td>
+              <td>
+                <p>Math Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>
+                <p>OOP Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>
+                <p>Network p 2</p>
+                <p>A 221</p>
+                <p>Theo p 9</p>
+                <p>A 208</p>
+                <p>CO p 4</p>
+                <p>A 108</p>
+                <p>CO p 6</p>
+                <p>A 209</p>
+                <p>Theo T 5</p>
+                <p>A 109</p>
+                <p>Theo T 3</p>
+                <p>A 112</p>
+                <p>OOP T 7</p>
+                <p>A 115</p>
+                <p>OOP T 1</p>
+                <p>A 117</p>
+                <p>Math T 8</p>
+                <p>A 308</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>Network p 3</p>
+                <p>A 221</p>
+                <p>CO p 7</p>
+                <p>A 208</p>
+                <p>CO p 1</p>
+                <p>A 209</p>
+                <p>Theo p 4S</p>
+                <p>442</p>
+                <p>Theo p 5</p>
+                <p>A 215</p>
+                <p>Math T 6</p>
+                <p>A 112</p>
+                <p>OOP T 2</p>
+                <p>A 115</p>
+                <p>OOP T 9</p>
+                <p>A 117</p>
+              </td>
+              <td>
+                <p>AS T 12S 111</p>
+                <p>AS T 13S 112</p>
+                <p>SM T 30M 227</p>
+                <p>SM T 31M 507</p>
+                <p>SM T 43M 430</p>
+              </td>
+              <td>
+                <p>Micro Lecture</p>
+                <p>M 105</p>
+                <p>Theo Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>DE</td>
+              <td>
+                <p>Network p 4</p>
+                <p>A 221</p>
+                <p>CO p 3</p>
+                <p>A 215</p>
+                <p>Theo p 2S</p>
+                <p>422</p>
+                <p>Theo p 8</p>
+                <p>A 421</p>
+                <p>Theo T 6</p>
+                <p>A 308</p>
+                <p>Theo T 7</p>
+                <p>A 309</p>
+                <p>Math T 1</p>
+                <p>A 312</p>
+                <p>Math T 9</p>
+                <p>A 315</p>
+                <p>Math T 5</p>
+                <p>A 317</p>
+              </td>
+              <td>
+                <p>Network Lecture</p>
+                <p>A 328</p>
+                <p>OOP Lecture</p>
+                <p>A 328</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>
+                <p>Micro Lecture</p>
+                <p>M 205</p>
+              </td>
+              <td>
+                <p>Network p 7</p>
+                <p>A 221</p>
+                <p>Network p 9</p>
+                <p>A 215</p>
+                <p>CO p 2</p>
+                <p>A 212</p>
+                <p>Theo p 3S</p>
+                <p>422</p>
+                <p>Theo p 6</p>
+                <p>A 421</p>
+                <p>Theo T 1</p>
+                <p>A 109</p>
+                <p>OOP T 4</p>
+                <p>A 112</p>
+                <p>OOP T 5</p>
+                <p>A 115</p>
+                <p>OOP T 8</p>
+                <p>A 117</p>
+              </td>
+              <td>
+                <p>Network Lecture</p>
+                <p>M 205</p>
+              </td>
+              <td>
+                <p>AS T 12M 502</p>
+                <p>AS T 13M 432</p>
+                <p>SM T 32M 433</p>
+                <p>SM T 33S 111</p>
+                <p>SM T 34S 112</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>
+                <p>Network p 6</p>
+                <p>A 221</p>
+                <p>Network p 5</p>
+                <p>A 215</p>
+                <p>CO p 8</p>
+                <p>A 108</p>
+                <p>CO p 9</p>
+                <p>A 208</p>
+                <p>Theo p 1</p>
+                <p>A 212</p>
+                <p>Theo p 7</p>
+                <p>A 422</p>
+                <p>OOP T 3</p>
+                <p>A 109</p>
+                <p>Math T 2</p>
+                <p>A 112</p>
+                <p>Math T 4</p>
+                <p>A 115</p>
+              </td>
+              <td>
+                <p>Theo Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>DE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>Network p 3</p>
+                <p>A 221</p>
+                <p>CO p 7</p>
+                <p>A 208</p>
+                <p>CO p 1</p>
+                <p>A 209</p>
+                <p>Theo p 4S</p>
+                <p>442</p>
+                <p>Theo p 5</p>
+                <p>A 215</p>
+                <p>Math T 6</p>
+                <p>A 112</p>
+                <p>OOP T 2</p>
+                <p>A 115</p>
+                <p>OOP T 9</p>
+                <p>A 117</p>
+              </td>
+              <td>
+                <p>AS T 12S 111</p>
+                <p>AS T 13S 112</p>
+                <p>SM T 30M 227</p>
+                <p>SM T 31M 507</p>
+                <p>SM T 43M 430</p>
+              </td>
+              <td>
+                <p>Micro Lecture</p>
+                <p>M 105</p>
+                <p>Theo Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>DE</td>
+              <td>
+                <p>Network p 4</p>
+                <p>A 221</p>
+                <p>CO p 3</p>
+                <p>A 215</p>
+                <p>Theo p 2S</p>
+                <p>422</p>
+                <p>Theo p 8</p>
+                <p>A 421</p>
+                <p>Theo T 6</p>
+                <p>A 308</p>
+                <p>Theo T 7</p>
+                <p>A 309</p>
+                <p>Math T 1</p>
+                <p>A 312</p>
+                <p>Math T 9</p>
+                <p>A 315</p>
+                <p>Math T 5</p>
+                <p>A 317</p>
+              </td>
+              <td>
+                <p>Network Lecture</p>
+                <p>A 328</p>
+                <p>OOP Lecture</p>
+                <p>A 328</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>
+                <p>Micro Lecture</p>
+                <p>M 205</p>
+              </td>
+              <td>
+                <p>Network p 7</p>
+                <p>A 221</p>
+                <p>Network p 9</p>
+                <p>A 215</p>
+                <p>CO p 2</p>
+                <p>A 212</p>
+                <p>Theo p 3S</p>
+                <p>422</p>
+                <p>Theo p 6</p>
+                <p>A 421</p>
+                <p>Theo T 1</p>
+                <p>A 109</p>
+                <p>OOP T 4</p>
+                <p>A 112</p>
+                <p>OOP T 5</p>
+                <p>A 115</p>
+                <p>OOP T 8</p>
+                <p>A 117</p>
+              </td>
+              <td>
+                <p>Network Lecture</p>
+                <p>M 205</p>
+              </td>
+              <td>
+                <p>AS T 12M 502</p>
+                <p>AS T 13M 432</p>
+                <p>SM T 32M 433</p>
+                <p>SM T 33S 111</p>
+                <p>SM T 34S 112</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>
+                <p>Network p 6</p>
+                <p>A 221</p>
+                <p>Network p 5</p>
+                <p>A 215</p>
+                <p>CO p 8</p>
+                <p>A 108</p>
+                <p>CO p 9</p>
+                <p>A 208</p>
+                <p>Theo p 1</p>
+                <p>A 212</p>
+                <p>Theo p 7</p>
+                <p>A 422</p>
+                <p>OOP T 3</p>
+                <p>A 109</p>
+                <p>Math T 2</p>
+                <p>A 112</p>
+                <p>Math T 4</p>
+                <p>A 115</p>
+              </td>
+              <td>
+                <p>Theo Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>DE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+          </tbody>
+        </table>
+        <table id="7">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>First slot</td>
+              <td>Second slot</td>
+              <td>Third slot</td>
+              <td>Fourth slot</td>
+              <td>Fifth slot</td>
+            </tr>
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>Math Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>
+                <p>Network p 15</p>
+                <p>A 221</p>
+                <p>CO p 11</p>
+                <p>A 108</p>
+                <p>CO p 18</p>
+                <p>A 208</p>
+                <p>Theo T 10</p>
+                <p>A 112</p>
+                <p>Theo T 16</p>
+                <p>A 109</p>
+                <p>Theo T 12</p>
+                <p>A 115</p>
+                <p>Theo T 13</p>
+                <p>A 117</p>
+                <p>Theo T 14</p>
+                <p>A 308</p>
+                <p>Math T 14</p>
+                <p>A 309</p>
+              </td>
+              <td>
+                <p>Network p 16</p>
+                <p>A 221</p>
+                <p>CO p 13</p>
+                <p>A 108</p>
+                <p>CO p 12</p>
+                <p>A 208</p>
+                <p>Theo T 11</p>
+                <p>A 109</p>
+                <p>Theo T 14</p>
+                <p>A 117</p>
+                <p>Theo T 18</p>
+                <p>A 112</p>
+                <p>Theo T 15</p>
+                <p>A 308</p>
+                <p>Math T 17</p>
+                <p>A 309</p>
+                <p>Math T 10</p>
+                <p>A 312</p>
+              </td>
+              <td>
+                <p>Theo Lecture</p>
+                <p>M 105</p>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td>
+                <p>AE T 6</p>
+                <p>M 506</p>
+              </td>
+              <td>ENGLISH TUTs</td>
+              <td>
+                <p>Micro Lecture</p>
+                <p>M 105</p>
+                <p>Theo lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>DE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td>
+                <p>Network p 11</p>
+                <p>A 221</p>
+                <p>CO p 10</p>
+                <p>A 108</p>
+                <p>CO p 15</p>
+                <p>A 208</p>
+                <p>Theo T 13</p>
+                <p>A 109</p>
+                <p>Theo p 16</p>
+                <p>A 215</p>
+                <p>Theo T 14</p>
+                <p>A 112</p>
+                <p>Theo T 17</p>
+                <p>A 115</p>
+                <p>Math T 12</p>
+                <p>A 117</p>
+                <p>Math T 18</p>
+                <p>A 308</p>
+              </td>
+              <td>English</td>
+              <td>DE</td>
+              <td>
+                <p>Theo Lecture</p>
+                <p>A 328</p>
+                <p>Micro Lecture</p>
+                <p>A 328</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td>
+                <p>Network p 12</p>
+                <p>A 221</p>
+                <p>Network p 10</p>
+                <p>A 215</p>
+                <p>CO p 16</p>
+                <p>A 108</p>
+                <p>CO p 14</p>
+                <p>A 208</p>
+                <p>Theo p 13</p>
+                <p>A 109</p>
+                <p>Theo p 17</p>
+                <p>A 212</p>
+                <p>Theo p 18S</p>
+                <p>422</p>
+                <p>Theo T 11</p>
+                <p>A 109</p>
+                <p>Math T 15</p>
+                <p>A 112</p>
+              </td>
+              <td>
+                <p>Network Lecture</p>
+                <p>M 205</p>
+              </td>
+              <td>
+                <p>Network p 13</p>
+                <p>A 221</p>
+                <p>Network p 18</p>
+                <p>A 215</p>
+                <p>CO p 17S</p>
+                <p>219</p>
+                <p>Theo p 14S</p>
+                <p>422</p>
+                <p>Theo T 12S</p>
+                <p>225</p>
+                <p>Theo T 10</p>
+                <p>A 308</p>
+                <p>Theo T 15</p>
+                <p>A 309</p>
+                <p>Math T 16</p>
+                <p>A 312</p>
+                <p>Math T 11</p>
+                <p>A 315</p>
+              </td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td>FREE</td>
+              <td>
+                <p>OOP Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>
+                <p>Network p 17</p>
+                <p>A 221</p>
+                <p>Network p 14</p>
+                <p>A 215</p>
+                <p>Theo p 12M</p>
+                <p>328</p>
+                <p>Theo p 10S</p>
+                <p>218</p>
+                <p>Theo p 11S</p>
+                <p>219</p>
+                <p>Theo p 15S</p>
+                <p>323</p>
+                <p>Math T 13</p>
+                <p>A 308</p>
+                <p>OOP T 16</p>
+                <p>A 309</p>
+                <p>OOP T 18</p>
+                <p>A 312</p>
+              </td>
+              <td>
+                <p>Micro Lecture</p>
+                <p>M 105</p>
+              </td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td>FREE DAY</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+              <td>FREE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="table-wrapper">
-
-      <table id="1">
-        <tbody>
-          <tr>
-            <td>First slot</td>
-            <td>Second slot</td>
-            <td>Third slot</td>
-            <td>Forth slot</td>
-            <td>Fifth slot</td>
-          </tr>
-          <tr>
-            <td><strong>Saturday</strong></td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>
-              <p>mobile p 13</p>
-              <p>A 215</p>
-              <p>cloud p 12</p>
-              <p>S 519</p>
-              <p>SE II p 14</p>
-              <p>S 422</p>
-            </td>
-            <td>
-              <p>cloud p 13</p>
-              A 212
-              <p>SE II p 14</p>
-              <p>S 422</p>
-              <p>RM T 12</p>
-              <p>A 209</p>
-            </td>
-            <td>
-              <p>mobile p 12</p>
-              <p>M 327</p>
-              <p>cloud p 14</p>
-              <p>M 328</p>
-              <p>RM T 13</p>
-              <p>A 208</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Sunday</strong></td>
-            <td>
-              <p>cloud p 17</p>
-              <p>S 518</p>
-              <p>RM T 14</p>
-              <p>S 219</p>
-            </td>
-            <td>
-              <p>PM Lecture</p>
-              <p>M 205</p>
-            </td>
-            <td>
-              <p>cloud Lecture</p>
-              <p>A 328</p>
-            </td>
-            <td>
-              <p>SE II p 12</p>
-              <p>M 327</p>
-              <p>cloud p 15</p>
-              <p>M 328</p>
-              <p>mobile p 14</p>
-              <p>S 518</p>
-            </td>
-            <td>
-              <p>SE II p 12</p>
-              <p>M 327</p>
-              <p>cloud p 16</p>
-              <p>M 328</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>
-              <p>SE II p 13</p>
-              <p>S 324</p>
-            </td>
-            <td>
-              <p>SE II p 13</p>
-              <p>S 324</p>
-            </td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>
-              <p>RM lecture</p>
-              <p>M 305</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>mobile p 17</p>
-              <p>A 209</p>
-            </td>
-            <td>
-              <p>mobile Lecture</p>
-              <p>S 334</p>
-            </td>
-            <td>
-              <p>mobile p 15</p>
-              <p>S 006</p>
-            </td>
-            <td>
-              <p>mobile p 16</p>
-              <p>S 421</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Friday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table id="2">
-        <tbody>
-          <tr>
-            <td>First slot</td>
-            <td>Second slot</td>
-            <td>Third slot</td>
-            <td>Forth slot</td>
-            <td>Fifth slot</td>
-          </tr>
-          <tr>
-            <td><strong>Saturday</strong></td>
-            <td>FREE DAY</td>
-          </tr>
-          <tr>
-            <td><strong>Sunday</strong></td>
-            <td>
-              <p>FREE</p>
-            </td>
-            <td>
-              <p>PM lecture</p>
-              <p>M 205</p>
-            </td>
-            <td>FREE</td>
-            <td>
-              <p>RM T 7</p>
-              <p>S 421</p>
-            </td>
-            <td>
-              <p>Rm T 8</p>
-              <p>S 421</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE DAY</td>
-            <td>FREE DAY</td>
-            <td>FREE DAY</td>
-            <td>FREE DAY</td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>
-              <p>ethical hack.p 7</p>
-              <p>M 328</p>
-              <p>netwrok sec p 8</p>
-              <p>S 518</p>
-            </td>
-            <td>
-              <p>ethical hack.p 7</p>
-              <p>M 328</p>
-              <p>businees cont. p 8</p>
-              <p>S 518</p>
-            </td>
-            <td>
-              <p>newtork sec. p 7</p>
-              <p>S 421</p>
-              <p>ethcial hack. p 9</p>
-              <p>S 519</p>
-            </td>
-            <td>
-              <p>Rm lecture</p>
-              <p>M 305</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>
-              <p>etchial hack. p 8</p>
-              <p>A 212</p>
-            </td>
-            <td>
-              <p>etchial hack. p 8</p>
-              <p>A 212</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>business cont. p 9</p>
-              <p>S 518</p>
-            </td>
-            <td>
-              <p>business cont. Lectuer</p>
-              <p>S 435</p>
-            </td>
-            <td>
-              <p>network Sec. Lecture</p>
-              <p>S 435</p>
-            </td>
-            <td>
-              <p>business cont. p 10</p>
-              <p>S 218</p>
-              <p>network sec. p 9</p>
-              <p>S 219</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Friday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table id="3">
-        <tbody>
-          <tr>
-            <td>First slot</td>
-            <td>Second slot</td>
-            <td>Third slot</td>
-            <td>Fourth slot</td>
-            <td>Fifth slot</td>
-          </tr>
-          <tr>
-            <td><strong>Saturday</strong></td>
-            <td>
-              <p>NoSQL p1</p>
-              <p>A 208</p>
-              <p>image pro p3</p>
-              <p>M 327</p>
-            </td>
-            <td>
-              <p>NoSQL p1</p>
-              <p>A 208</p>
-              <p>ML II p 3</p>
-              <p>A 212</p>
-              <p>RM T 2</p>
-              <p>A 209</p>
-            </td>
-            <td>
-              <p>NoSQL p 2</p>
-              <p>A 208</p>
-              <p>ML II p1</p>
-              <p>A 212</p>
-              <p>RM T 3</p>
-              <p>A 209</p>
-            </td>
-            <td>
-              <p>NoSQL p 2</p>
-              <p>A 208</p>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Sunday</strong></td>
-            <td>FREE</td>
-            <td>PM LectureM 205</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>Image pro LectureS 435</td>
-            <td>ML II LectureS 435</td>
-            <td>
-              <p>NoSQL p 5S 219</p>
-              <p>ML II p 4</p>
-              <p>S 519</p>
-            </td>
-            <td>
-              <p>NoSQL p 5S 219</p>
-              <p>image pro</p>
-              <p>M 327</p>
-            </td>
-            <td>
-              <p>ML II p 5</p>
-              <p>M 327</p>
-              <p>CPS&amp;RPW T097</p>
-              <p>M 433</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>
-              <p>image pro p 2</p>
-              <p>M 327</p>
-            </td>
-            <td>
-              <p>NoSQL p 3</p>
-              <p>S 219</p>
-              <p>ML II p 2</p>
-              <p>M 327</p>
-              <p>RM T 1</p>
-              <p>S 218</p>
-            </td>
-            <td>
-              <p>NoSQL p 3S 219</p>
-              <p>image pro p 1</p>
-              <p>S 324</p>
-            </td>
-            <td>
-              <p>CPS &amp; RPW T097</p>
-              <p>M 511</p>
-            </td>
-            <td>
-              <p>RM Lecture</p>
-              <p>M 305</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>
-              <p>NoSQL p 4</p>
-              <p>A 215</p>
-            </td>
-            <td>
-              <p>NoSQL p 4</p>
-              <p>A 215</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>
-              <p>DE 3 T 014</p>
-              <p>M 511</p>
-              <p>DE 4 T 040</p>
-              <p>S 501</p>
-            </td>
-            <td>
-              <p>DE 3 T 014</p>
-              <p>M 511</p>
-              <p>DE 4 T 040</p>
-              <p>S 501</p>
-            </td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Friday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table id="4">
-        <tbody>
-          <tr>
-            <td>First slot</td>
-            <td>Second slot</td>
-            <td>Third slot</td>
-            <td>Forth slot</td>
-            <td>Fifth slot</td>
-          </tr>
-          <tr>
-            <td><strong>Saturday</strong></td>
-            <td>
-              <p>AS T089</p>
-              <p>M 227</p>
-            </td>
-            <td>
-              <p>SE lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>
-              <p>SE p 6</p>
-              <p>M 327</p>
-              <p>Distributed p 5</p>
-              <p>M 328</p>
-              <p>Media p 4</p>
-              <p>S 219</p>
-              <p>Data Science p 3</p>
-              <p>S 218</p>
-              <p>IT T 2</p>
-              <p>S 118</p>
-              <p>Math T 1</p>
-              <p>S 222</p>
-            </td>
-            <td>
-              <p>SE p 1</p>
-              <p>M 327</p>
-              <p>Distributed p 6</p>
-              <p>M 328</p>
-              <p>Media p 5</p>
-              <p>S 324</p>
-              <p>Data Science p 4</p>
-              <p>S 219</p>
-              <p>IT T 3</p>
-              <p>S 118</p>
-              <p>Math T 3</p>
-              <p>S 222</p>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Sunday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>SM T089</p>
-              <p>M 443</p>
-            </td>
-            <td>
-              <p>Distributed Lecture</p>
-              <p>M 305</p>
-            </td>
-            <td>
-              <p>DE 3 T 10</p>
-              <p>S 523</p>
-              <p>DE 4 T 25</p>
-              <p>S524</p>
-              <p>DE 4 T 26</p>
-              <p>S525</p>
-              <p>DE 4 T 27</p>
-              <p>S 526</p>
-              <p>DE 4 T 28</p>
-              <p>S601</p>
-            </td>
-            <td>
-              <p>DE 3 T 10</p>
-              <p>S 523</p>
-              <p>DE 4 T 25</p>
-              <p>S524</p>
-              <p>DE 4 T 26</p>
-              <p>S525</p>
-              <p>DE 4 T 27</p>
-              <p>S 526</p>
-              <p>DE 4 T 28</p>
-              <p>S601</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>
-              <p>SE p 2</p>
-              <p>M 327</p>
-              <p>Distributed p 1</p>
-              <p>M 328</p>
-              <p>Media p 6</p>
-              <p>S 518</p>
-              <p>Data Science p 5</p>
-              <p>S 218</p>
-              <p>IT T 4</p>
-              <p>S 326</p>
-              <p>Math T 3</p>
-              <p>S 225</p>
-            </td>
-            <td>
-              <p>Math Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>
-              <p>SE p 3</p>
-              <p>M 327</p>
-              <p>Distributed p 2</p>
-              <p>M 328</p>
-              <p>Media p 1</p>
-              <p>S 518</p>
-              <p>Data Science p 6</p>
-              <p>S 218</p>
-              <p>IT T 5</p>
-              <p>S 326</p>
-              <p>Math T 4</p>
-              <p>S 327</p>
-            </td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>
-              <p>AS T089</p>
-              <p>M 433</p>
-              <p>CPS T 6</p>
-              <p>M 227</p>
-              <p>RPW T 12</p>
-              <p>M 228</p>
-              <p>RPW T 13</p>
-              <p>&lt; 432</p>
-            </td>
-            <td>
-              <p>Media Lecture</p>
-              <p>A 228</p>
-            </td>
-            <td>
-              <p>SE p 4</p>
-              <p>M 327</p>
-              <p>Distributed p 3</p>
-              <p>M 328</p>
-              <p>Media p 2</p>
-              <p>S 518</p>
-              <p>Data Science p 1</p>
-              <p>S 218</p>
-              <p>IT T 6</p>
-              <p>S 118</p>
-              <p>Math T 5</p>
-              <p>S 221</p>
-            </td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>IT lecture</p>
-              <p>M 305</p>
-            </td>
-            <td>
-              <p>RPW T 14</p>
-              <p>M 227</p>
-              <p>RPW T 15</p>
-              <p>M 228</p>
-            </td>
-            <td>
-              <p>Data Science Lecture</p>
-              <p>M 305</p>
-            </td>
-            <td>
-              <p>SE p 5</p>
-              <p>S 219</p>
-              <p>Distributed p 4</p>
-              <p>S 518</p>
-              <p>Media p 3</p>
-              <p>S 323</p>
-              <p>Data Science p 2</p>
-              <p>S 324</p>
-              <p>IT T 1</p>
-              <p>S 113</p>
-              <p>Math T 6</p>
-              <p>S 114</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Friday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table id="5">
-        <tbody>
-          <tr>
-            <td>First slot</td>
-            <td>Second slot</td>
-            <td>Third slot</td>
-            <td>Forth slot</td>
-            <td>Fifth slot</td>
-          </tr>
-          <tr>
-            <td><strong>Saturday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>SE p 12</p>
-              <p>M 327</p>
-              <p>Distributed p 11</p>
-              <p>M 328</p>
-              <p>Media p 10</p>
-              <p>S 421</p>
-              <p>Data Science p 9</p>
-              <p>S 422</p>
-              <p>IT T 8</p>
-              <p>S 101</p>
-              <p>Math T 7</p>
-              <p>S 113</p>
-            </td>
-            <td>
-              <p>SE lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>
-              <p>DE 3 T 11</p>
-              <p>M 511</p>
-              <p>DE 4 T 30</p>
-              <p>S 501</p>
-              <p>DE 4 T 31</p>
-              <p>S 618</p>
-              <p>DE 4 T 32</p>
-              <p>S 520</p>
-              <p>DE 4 T 33</p>
-              <p>S 521</p>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Sunday</strong></td>
-            <td>
-              <p>Media P 12</p>
-              <p>M 327</p>
-              <p>Data Science P 11</p>
-              <p>M 328</p>
-              <p>Math T 9</p>
-              <p>S 113</p>
-            </td>
-            <td>
-              <p>Distributed p 7</p>
-              <p>M 327</p>
-              <p>Distributed p 12</p>
-              <p>M 328</p>
-              <p>Media p 11</p>
-              <p>S 518</p>
-              <p>IT T 10</p>
-              <p>S 422</p>
-              <p>IT T 9</p>
-              <p>S 425</p>
-              <p>Math T 8</p>
-              <p>S 426</p>
-            </td>
-            <td>
-              <p>SE P 7</p>
-              <p>M 327</p>
-              <p>SE p 8</p>
-              <p>S 519</p>
-              <p>Data Science p 10</p>
-              <p>M 328</p>
-            </td>
-            <td>
-              <p>DIstrubuted Lecture</p>
-              <p>M 305</p>
-            </td>
-            <td>
-              <p>DE 3 T 10</p>
-              <p>S 523</p>
-              <p>DE 4 T 25</p>
-              <p>S524</p>
-              <p>DE 4 T 26</p>
-              <p>S525</p>
-              <p>DE 4 T 27</p>
-              <p>S 526</p>
-              <p>DE 4 T 28</p>
-              <p>S601</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>SE p 9</p>
-              <p>M 327</p>
-              <p>Distributed p 8</p>
-              <p>M 328</p>
-              <p>Media p 7</p>
-              <p>S 518</p>
-              <p>Data Science p 12</p>
-              <p>S 218</p>
-              <p>IT T 11</p>
-              <p>S 326</p>
-              <p>Math T 10</p>
-              <p>S 118</p>
-            </td>
-            <td>
-              <p>Math Lecture</p>
-              <p>S 334</p>
-            </td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>RPW T 16</p>
-              <p>M 227</p>
-              <p>RPW T 17</p>
-              <p>M 228</p>
-              <p>RPW T 18</p>
-              <p>M 432</p>
-              <p>CPS T 7</p>
-              <p>M 507</p>
-              <p>RPW T 35</p>
-              <p>M 414</p>
-            </td>
-            <td>
-              <p>Media Lecture</p>
-              <p>A 228</p>
-            </td>
-            <td>
-              <p>SE p 10</p>
-              <p>M 327</p>
-              <p>Distributed p 9</p>
-              <p>M 328</p>
-              <p>Media p 8</p>
-              <p>S 518</p>
-              <p>Data Science p 7</p>
-              <p>S 218</p>
-              <p>IT T 12</p>
-              <p>S 226</p>
-              <p>Math T 11</p>
-              <p>S 321</p>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>SE p 11</p>
-              <p>S 519</p>
-              <p>Distributed p 10</p>
-              <p>S 518</p>
-              <p>Media p 9</p>
-              <p>A 108</p>
-              <p>Data Science p 8</p>
-              A 208
-              <p>IT T 7</p>
-              <p>S 115</p>
-              <p>Math T 12</p>
-              <p>S 116</p>
-            </td>
-            <td>
-              <p>Data Science Lecture</p>
-              <p>M 305</p>
-            </td>
-            <td>
-              <p>DE 3 T 11</p>
-              <p>M 511</p>
-              <p>DE 4 T 30</p>
-              <p>S 501</p>
-              <p>DE 4 T 31</p>
-              <p>S 618</p>
-              <p>DE 4 T 32</p>
-              <p>S 520</p>
-              <p>DE 4 T 33</p>
-              <p>S 521</p>
-            </td>
-            <td>
-              <p>IT lecture</p>
-              <p>M 305</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Friday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table id="6">
-        <tbody>
-          <tr>
-            <td>First slot</td>
-            <td>Second slot</td>
-            <td>Third slot</td>
-            <td>Forth slot</td>
-            <td>Fifth slot</td>
-          </tr>
-          <tr>
-            <td><strong>Saturday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Sunday</strong></td>
-            <td>FREE</td>
-            <td>
-              Network p 8A 221Network p 1A 215CO p 5A 208Theo T 4A 312Theo T
-              2A 109Theo T 9A 112OOP T 6A 115Math T 3A 117Math T 7A 308
-            </td>
-            <td>
-              <p>Math Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>
-              <p>OOP Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>
-              Network p 2A 221Theo p 9A 208CO p 4A 108CO p 6A 209Theo T 5A
-              109Theo T 3A 112OOP T 7A 115OOP T 1A 117Math T 8A 308
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>FREE</td>
-            <td>
-              Network p 3A 221CO p 7A 208CO p 1A 209Theo p 4S 442Theo p 5A
-              215Math T 6A 112OOP T 2A 115OOP T 9A 117
-            </td>
-            <td>
-              AS T 12S 111AS T 13S 112SM T 30M 227SM T 31M 507SM T 43M 430
-            </td>
-            <td>
-              <p>Micro Lecture</p>
-              <p>M 105</p>
-              <p>Theo Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>DE</td>
-            <td>
-              Network p 4A 221CO p 3A 215Theo p 2S 422Theo p 8A 421Theo T 6A
-              308Theo T 7A 309Math T 1A 312Math T 9A 315Math T 5A 317
-            </td>
-            <td>
-              <p>Network Lecture</p>
-              <p>A 328</p>
-              <p>OOP Lecture</p>
-              <p>A 328</p>
-            </td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>
-              <p>Micro Lecture</p>
-              <p>M 205</p>
-            </td>
-            <td>
-              Network p 7A 221Network p 9A 215CO p 2A 212Theo p 3S 422Theo p
-              6A 421Theo T 1A 109OOP T 4A 112OOP T 5A 115OOP T 8A 117
-            </td>
-            <td>
-              <p>Network Lecture</p>
-              <p>M 205</p>
-            </td>
-            <td>
-              AS T 12M 502AS T 13M 432SM T 32M 433SM T 33S 111SM T 34S 112
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>
-              Network p 6A 221Network p 5A 215CO p 8A 108CO p 9A 208Theo p 1A
-              212Theo p 7A 422OOP T 3A 109Math T 2A 112Math T 4A 115
-            </td>
-            <td>
-              <p>Theo Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>DE</td>
-          </tr>
-          <tr>
-            <td><strong>Friday</strong></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table id="7">
-        <tbody>
-          <tr>
-            <td>First slot</td>
-            <td>Second slot</td>
-            <td>Third slot</td>
-            <td>Forth slot</td>
-            <td>Fifth slot</td>
-          </tr>
-          <tr>
-            <td><strong>Saturday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Sunday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>Math Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>
-              Network p 15A 221CO p 11A 108CO p 18A 208Theo T 10A 112Theo T
-              16A 109Theo T 12A 115Theo T 13A 117Theo T 14A 308Math T 14A 309
-            </td>
-            <td>
-              Network p 16A 221CO p 13A 108CO p 12A 208Theo T 11A 109Theo T
-              14A 117Theo T 18A 112Theo T 15A 308Math T 17A 309Math T 10A 312
-            </td>
-            <td>
-              <p>Theo Lecture</p>
-              <p>M 105</p>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Monday</strong></td>
-            <td>
-              <p>AE T 6</p>
-              <p>M 506</p>
-            </td>
-            <td>ENGLISH TUTs</td>
-            <td>
-              <p>Micro Lecture</p>
-              <p>M 105</p>
-              <p>Theo lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>DE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Tuesday</strong></td>
-            <td>
-              Network p 11A 221CO p 10A 108CO p 15A 208Theo T 13A 109Theo p
-              16A 215Theo T 14A 112Theo T 17A 115Math T 12A 117Math T 18A 308
-            </td>
-            <td>English</td>
-            <td>DE</td>
-            <td>
-              <p>Theo Lecture</p>
-              <p>A 328</p>
-              <p>Micro Lecture</p>
-              <p>A 328</p>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Wednesday</strong></td>
-            <td>
-              <p>
-                Network p 12A 221Network p 10A 215CO p 16A 108CO p 14A 208Theo
-                p 13A 109Theo p 17A 212Theo p 18S 422Theo T 11A 109Math T 15A
-                112
-              </p>
-            </td>
-            <td>
-              <p>Network Lecture</p>
-              <p>M 205</p>
-            </td>
-            <td>
-              Network p 13A 221Network p 18A 215CO p 17S 219Theo p 14S 422Theo
-              T 12S 225Theo T 10A 308Theo T 15A 309Math T 16A 312Math T 11A
-              315
-            </td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Thursday</strong></td>
-            <td>FREE</td>
-            <td>
-              <p>OOP Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>
-              Network p 17A 221Network p 14A 215Theo p 12M 328Theo p 10S
-              218Theo p 11S 219Theo p 15S 323Math T 13A 308OOP T 16A 309OOP T
-              18A 312
-            </td>
-            <td>
-              <p>Micro Lecture</p>
-              <p>M 105</p>
-            </td>
-            <td>FREE</td>
-          </tr>
-          <tr>
-            <td><strong>Friday</strong></td>
-            <td>FREE DAY</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-            <td>FREE</td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-  </div>
-
-</body>
-<script type="module" src="../js/groupSchedule.js"></script>
-<script type="module" src="../js/navbar.js"></script>
-
+  </body>
+  <script type="module" src="../js/groupSchedule.js"></script>
+  <script type="module" src="../js/navbar.js"></script>
 </html>
