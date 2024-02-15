@@ -1,4 +1,8 @@
 //start text editing
+window.addEventListener("load", function () {
+  const loadingScreen = document.getElementById("loader");
+  loadingScreen.style.display = "none";
+});
 const editBtn = document.querySelector(".text-edit");
 const editor = document.getElementById("editor");
 const submit = document.querySelector(".submit");
@@ -16,55 +20,72 @@ const contentDisplay = document.querySelector(".contentDisplay .container");
 import { coursesURL } from "../utils/env.js";
 
 editBtn.addEventListener("click", () => {
-  let ckeditorScript = document.createElement('script');
+  let ckeditorScript = document.createElement("script");
 
   // Set the src attribute to the CKEditor script URL
-  ckeditorScript.src = "https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js";// replace 
+  ckeditorScript.src = "https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"; // replace
   ckeditorScript.type = "text/javascript";
   // Define a function to be called after the script is loaded
-  ckeditorScript.onload = function() {
-      // CKEditor script has been loaded, now create the CKEditor instance with custom configuration
-     // replace 
-      CKEDITOR.replace('editor', {
-        toolbar: [
-          { name: 'undo', items: ['Undo'] },
-          { name: 'redo', items: ['Redo'] },
-          { name: 'heading', items: ['heading'] },
-          { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
-          { name: 'styles', items: ['Format', 'Font', 'FontSize', 'FontFamily', 'TextColor', 'fontBackgroundColor'] }, // Add Font Size, Font Family, Font Color, and Background Color
-          { name: 'colors', items: ['TextColor', 'BGColor'] },
-          { name: 'code', items: ['Code'] }, // Add code place
-          { name: 'insert', items: ['Table', 'HorizontalRule'] }, // Add embed table
-          { name: 'link', items: ['Link', 'Unlink'] }, // Add links
-          { name: 'uploadImage', items: ['uploadImage'] },
-          { name: 'blockQuote', items: ['Blockquote'] },
-          { name: 'codeBlock', items: ['CodeBlock'] },
-          { name: 'bulletedList', items: ['BulletedList'] },
-          { name: 'numberedList', items: ['NumberedList'] },
-          { name: 'todoList', items: ['TodoList'] },
-          { name: 'outdent', items: ['Outdent'] },
-          { name: 'indent', items: ['Indent'] }
+  ckeditorScript.onload = function () {
+    // CKEditor script has been loaded, now create the CKEditor instance with custom configuration
+    // replace
+    CKEDITOR.replace("editor", {
+      toolbar: [
+        { name: "undo", items: ["Undo"] },
+        { name: "redo", items: ["Redo"] },
+        { name: "heading", items: ["heading"] },
+        {
+          name: "basicstyles",
+          items: [
+            "Bold",
+            "Italic",
+            "Underline",
+            "Strike",
+            "Subscript",
+            "Superscript",
+            "-",
+            "RemoveFormat",
+          ],
+        },
+        {
+          name: "styles",
+          items: [
+            "Format",
+            "Font",
+            "FontSize",
+            "FontFamily",
+            "TextColor",
+            "fontBackgroundColor",
+          ],
+        }, // Add Font Size, Font Family, Font Color, and Background Color
+        { name: "colors", items: ["TextColor", "BGColor"] },
+        { name: "code", items: ["Code"] }, // Add code place
+        { name: "insert", items: ["Table", "HorizontalRule"] }, // Add embed table
+        { name: "link", items: ["Link", "Unlink"] }, // Add links
+        { name: "uploadImage", items: ["uploadImage"] },
+        { name: "blockQuote", items: ["Blockquote"] },
+        { name: "codeBlock", items: ["CodeBlock"] },
+        { name: "bulletedList", items: ["BulletedList"] },
+        { name: "numberedList", items: ["NumberedList"] },
+        { name: "todoList", items: ["TodoList"] },
+        { name: "outdent", items: ["Outdent"] },
+        { name: "indent", items: ["Indent"] },
       ],
       // add styles to the editor
-      
-      });
-      
-      // Get the CKEditor instance and store it in a variable
-      myEditor = CKEDITOR.instances.editor;
-      myEditor.setData(contentDisplay.innerHTML);
-     
+    });
+
+    // Get the CKEditor instance and store it in a variable
+    myEditor = CKEDITOR.instances.editor;
+    myEditor.setData(contentDisplay.innerHTML);
   };
 
   // Append the script element to the document's head
   document.head.appendChild(ckeditorScript);
   document.body.classList.toggle("overlay");
-    submit.classList.toggle("show");
+  submit.classList.toggle("show");
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
-
   if (localStorage.getItem("courseData")) {
     contentDisplay.innerHTML = localStorage.getItem("courseData");
   }
@@ -92,37 +113,46 @@ document.addEventListener("DOMContentLoaded", function () {
     // update the value in the DB
   });
 });
+const pageData = document.getElementById("yaya");
+pageData.style.display = "none";
+const loader = document.getElementById("loader");
+loader.style.display = "block";
 
-const updateCourse = async () => {
-  const courseName = localStorage.getItem("courseName");
-  const newContent = myEditor.getData();
-  if (newContent) {
-    localStorage.setItem("courseData", newContent);
-  }
-  const content = localStorage.getItem("courseData");
+  const updateCourse = async () => {
+    const courseName = localStorage.getItem("courseName");
+    const newContent = myEditor.getData();
+    if (newContent) {
+      localStorage.setItem("courseData", newContent);
+    }
+    const content = localStorage.getItem("courseData");
 
-  const url = `${coursesURL}/${courseName}`; //here
-  fetch(url, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-    body: JSON.stringify({ content }),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
+    const url = `${coursesURL}/${courseName}`; //here
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ content }),
     })
-    .then((data) => {
-      // Handle the response data from the API (e.g., show a success message)
-    })
-    .catch((error) => {
-      console.error("Fetch error:", error);
-    });
-};
+      .then((response) => {
+        if (!response.ok) {
+          loader.style.display = "none";
+          pageData.style.display = "grid";
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        loader.style.display = "none";
+        pageData.style.display = "grid";
+        // Handle the response data from the API (e.g., show a success message)
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  };
+
 
 //add person
 const addPerson = document.querySelector(".button-wrap .add-person");
@@ -151,5 +181,4 @@ if (
 ) {
   editBtn.style.display = "none";
   addPerson.style.display = "none";
-  
 }

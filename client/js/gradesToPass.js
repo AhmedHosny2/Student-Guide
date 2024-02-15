@@ -1,3 +1,7 @@
+window.onload = function() {
+  const loadingScreen = document.getElementById("loader");
+  loadingScreen.style.display = "none";
+};
 const addButton = document.getElementById("addButton");
 const gradesContainer = document.getElementById("gradesContainer");
 const calculateButton = document.getElementById("calculateButton");

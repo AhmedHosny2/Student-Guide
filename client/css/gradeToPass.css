@@ -53,6 +53,86 @@
 .gradePass .container .txt .description img {
   width: 20%;
 }
+
+
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(50vh - 65px);
+  width: 100%;
+}
+.loader {
+  color: var(--third-color);
+  position: relative;
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 50px;
+  letter-spacing: 3.3px;
+  box-sizing: border-box;
+}
+.loader::before {
+  content: '';  
+  position: absolute;
+  right: 70px;
+  bottom: 10px;
+  height: 28px;
+  width: 5.15px;
+  background: currentColor;
+  box-sizing: border-box;
+  animation: animloader1 1s linear infinite alternate;
+}
+.loader::after {
+  content: '';  
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: 125px;
+  top: 2px;
+  border-radius: 50%;
+  background: #19376d;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+}
+
+@keyframes animloader {
+  0% {
+    transform: translate(0px, 0px) ;
+  }
+  14% {
+    transform: translate(-12px, -16px) (1.05);
+  }
+  28% {
+    transform: translate(-27px, -28px) ;
+  }
+  42% {
+    transform: translate(-46px, -35px) ;
+  }
+  57% {
+    transform: translate(-70px, -37px) ;
+  }
+  71% {
+    transform: translate(-94px, -32px) ;
+  }
+  85% {
+    transform: translate(-111px, -22px) ;
+  }
+  100% {
+    transform: translate(-125px, -9px) ;
+  }
+}
+
+@keyframes animloader1 {
+  0% {
+    box-shadow: 0 -6px, -122.9px -8px;
+  }
+  25%, 75% {
+    box-shadow: 0 0px, -122.9px -8px;
+  }
+  100% {
+    box-shadow: 0 0px, -122.9px -16px;
+  }
+}
 @media (max-width: 767px) {
   .gradePass .container .txt .description {
     flex-wrap: wrap;

@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const pageData = document.getElementById("yaya");
+  pageData.style.display = "none";
+  console.log(yaya);
+  const loader = document.getElementById("loader");
+  loader.style.display = "block";
+  console.log(loader);
   const subjects = [
     { id: 1, name: "Math", creditHours: 8, semester: 1 },
     { id: 2, name: "Physics", creditHours: 5, semester: 1 },
@@ -74,7 +80,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create choice buttons for each subject
   let curSemester = 0;
   let currentSemesterDiv; // To keep track of the current semester div
+
   subjects.forEach((subject) => {
+    loader.style.display = "none";
+    pageData.style.display = "grid";
     if (curSemester !== subject.semester) {
       curSemester = subject.semester;
 
