@@ -1,113 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Locations</title>
-    <!-- fav icon -->
-    <link rel="icon" type="image/x-icon" href="../images/fav.png" />
 
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/location.css" />
-    <link rel="stylesheet" type="text/css" href="../css/selectCourse.scss" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locations</title>
+  <!-- fav icon -->
+  <link rel="icon" type="image/x-icon" href="../images/fav.png" />
 
-    <!-- normalize-file -->
-    <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/location.css" />
+  <link rel="stylesheet" type="text/css" href="../css/selectCourse.scss" />
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- logo font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
-      rel="stylesheet"
-    />
-    <!-- google icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+  <!-- normalize-file -->
+  <link rel="stylesheet" href="../css/normalize.css" />
 
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- logo font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet" />
+  <!-- google icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="logo">
-          <a href="../index.html">
-            <h4>resource <span>hub</span></h4>
-          </a>
-        </div>
-        <nav class="nav" data-visibility="false">
-          <ul class="links">
-            <li class="home"><a href="../index.html">home</a></li>
-            <li><a href="../html/location.html">location</a></li>
-            <li><a href="../html/TA-directory.html">TA directory</a></li>
-            <li><a href="../html/selectCourse.html">Courses</a></li>
-            <li><a href="../html/groupSchedule.html"> Schedules</a></li>
-            <li><a href="../html/GPACalculator.html">GPA calc</a></li>
-            <li><a href="../html/gradesToPass.html"> grad clac</a></li>
-            <li>
-              <a href="../html/resource gateway.html"> resources gateway</a>
-            </li>
-            <li class="login"><a href="../html/login.html">login</a></li>
-            <li><a href="" id="logout" class="logout">logout</a></li>
-          </ul>
-        </nav>
-        <div class="avatar">
-          <i class="fa-regular fa-user"></i>
-        </div>
-        <a href="html/login.html" class="login"> login </a>
-        <div class="burger-menu">
-          <span class="top"></span>
-          <span class="mid"></span>
-          <span class="btm"></span>
-        </div>
-        <div class="mobile-nav">
-          <a href="../index.html" class="active">
-            <i class="fa-solid fa-house"></i>
-          </a>
-          <a href="../html/location.html">
-            <i class="fa-solid fa-map-location-dot"></i>
-          </a>
-          <a href="../html/TA-directory.html">
-            <i class="fa-solid fa-person-chalkboard"></i>
-          </a>
-          <a href="../html/selectCourse.html">
-            <i class="fa-solid fa-book"></i>
-          </a>
-        </div>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="../index.html">
+          <h4>resource <span>hub</span></h4>
+        </a>
       </div>
-    </header>
+      <nav class="nav" data-visibility="false">
+        <ul class="links">
+          <li class="home"><a href="../index.html">home</a></li>
+          <li><a href="../html/location.html">location</a></li>
+          <li><a href="../html/TA-directory.html">TA directory</a></li>
+          <li><a href="../html/selectCourse.html">Courses</a></li>
+          <li><a href="../html/groupSchedule.html"> Schedules</a></li>
+          <li><a href="../html/GPACalculator.html">GPA calc</a></li>
+          <li><a href="../html/gradesToPass.html"> grad clac</a></li>
+          <li>
+            <a href="../html/resource gateway.html"> resources gateway</a>
+          </li>
+          <li class="login"><a href="../html/login.html">login</a></li>
+          <li><a href="" id="logout" class="logout">logout</a></li>
+        </ul>
+      </nav>
+      <div class="avatar">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <a href="html/login.html" class="login"> login </a>
+      <div class="burger-menu">
+        <span class="top"></span>
+        <span class="mid"></span>
+        <span class="btm"></span>
+      </div>
+      <div class="mobile-nav">
+        <a href="../index.html" class="active">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <a href="../html/location.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </a>
+        <a href="../html/TA-directory.html">
+          <i class="fa-solid fa-person-chalkboard"></i>
+        </a>
+        <a href="../html/selectCourse.html">
+          <i class="fa-solid fa-book"></i>
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <div class="location">
-      <div class="container">
-        <div class="cards-container">
-          <div class="search">
-            <input
-              type="search"
-              placeholder="Search Locations.."
-              name="search"
-            />
-            <!-- <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> -->
-            <div class="search-text">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+  <div class="location">
+    <div class="img-carousel">
+      <section class="img-section" aria-label="newest photos">
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"></button>
+          <button class="carousel-button next" data-carousel-button="next"></button>
+
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/Library1.jpeg" alt="Library" />
+            </li>
+            <li class="slide">
+              <img src="../images/Library2.jpeg" alt="Library" />
+            </li>
+            <li class="slide">
+              <img src="../images/Library3.jpeg" alt="Library" />
+            </li>
+          </ul>
+          <div class="caption">
+            <h3>Library</h3>
+            <h6><b>S1.605</b></h6>
+            <p>
+              The college library is a large, peaceful place with many
+              rooms to study. It's great for focusing and learning,
+              providing students with a perfect environment to study and
+              explore new ideas.
+            </p>
           </div>
+
+        </div>
+      </section>
+
+      <section class="img-section" aria-label="newest photos">
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"></button>
+          <button class="carousel-button next" data-carousel-button="next"></button>
+
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/Pool1.JPG" alt="Library" />
+            </li>
+            <li class="slide">
+              <img src="../images/Pool2.JPG" alt="Library" />
+            </li>
+            <li class="slide">
+              <img src="../images/Pool3.JPG" alt="Library" />
+            </li>
+            <li class="slide">
+              <img src="../images/Pool4.JPG" alt="Library" />
+            </li>
+          </ul>
+          <div class="caption">
+            <h3>GIU Pool</h3>
+            <h6><b>Under S Building</b></h6>
+            <p>
+              a modern place where students can swim for fun, fitness, or
+              competition. It's a cool spot to stay active and unwind on
+              campus.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="img-section" aria-label="newest photos">
+        <div class="carousel" data-carousel>
+
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/Mosque.jpeg" alt="Mosque" />
+            </li>
+          </ul>
+          <div class="caption">
+            <h3>GIU Mosque</h3>
+            <h6><b>Beside S Building</b></h6>
+            <p>
+              The college mosque is a peaceful space with ample room for
+              prayer and reflection. It warmly accommodates both male and
+              female students, fostering a welcoming environment for
+              spiritual connection and community within the heart of the
+              campus.
+            </p>
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="container">
+      <div class="card-location">
+        <div class="search">
+          <input type="search" placeholder="Search Locations.." name="search" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="card-wrap">
           <div class="card">
             <img src="../images/Clinic.svg" alt="Clinic Image" />
             <div class="innerCard">
@@ -145,10 +215,7 @@
           </div>
 
           <div class="card">
-            <img
-              src="../images/academic cordinator.svg"
-              alt="Academic Coordinator"
-            />
+            <img src="../images/academic cordinator.svg" alt="Academic Coordinator" />
             <div class="innerCard">
               <h4 class="card-title">Academic Coordinators</h4>
               <span class="card-subtitle">M2.211 & M2.210</span>
@@ -161,10 +228,7 @@
           </div>
 
           <div class="card">
-            <img
-              src="../images/technical support.svg"
-              alt="Technical Support"
-            />
+            <img src="../images/technical support.svg" alt="Technical Support" />
             <div class="innerCard">
               <h4 class="card-title">Technical Support</h4>
               <span class="card-subtitle">M3.325</span>
@@ -214,107 +278,13 @@
             </div>
           </div>
         </div>
-        <div class="img-carousel">
-          <section class="img-section" aria-label="newest photos">
-            <div class="carousel" data-carousel>
-              <button
-                class="carousel-button prev"
-                data-carousel-button="prev"
-              ></button>
-              <button
-                class="carousel-button next"
-                data-carousel-button="next"
-              ></button>
-              <div class="inner-cont">
-                <ul data-slides>
-                  <li class="slide" data-active>
-                    <img src="../images/Library1.jpeg" alt="Library" />
-                  </li>
-                  <li class="slide">
-                    <img src="../images/Library2.jpeg" alt="Library" />
-                  </li>
-                  <li class="slide">
-                    <img src="../images/Library3.jpeg" alt="Library" />
-                  </li>
-                </ul>
-                <div class="caption">
-                  <h3>Library</h3>
-                  <h6><b>S1.605</b></h6>
-                  <p>
-                    The college library is a large, peaceful place with many
-                    rooms to study. It's great for focusing and learning,
-                    providing students with a perfect environment to study and
-                    explore new ideas.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="img-section" aria-label="newest photos">
-            <div class="carousel" data-carousel>
-              <button
-                class="carousel-button prev"
-                data-carousel-button="prev"
-              ></button>
-              <button
-                class="carousel-button next"
-                data-carousel-button="next"
-              ></button>
-              <div class="inner-cont">
-                <ul data-slides>
-                  <li class="slide" data-active>
-                    <img src="../images/Pool1.JPG" alt="Library" />
-                  </li>
-                  <li class="slide">
-                    <img src="../images/Pool2.JPG" alt="Library" />
-                  </li>
-                  <li class="slide">
-                    <img src="../images/Pool3.JPG" alt="Library" />
-                  </li>
-                  <li class="slide">
-                    <img src="../images/Pool4.JPG" alt="Library" />
-                  </li>
-                </ul>
-                <div class="caption">
-                  <h3>GIU Pool</h3>
-                  <h6><b>Under S Building</b></h6>
-                  <p>
-                    a modern place where students can swim for fun, fitness, or
-                    competition. It's a cool spot to stay active and unwind on
-                    campus.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="img-section" aria-label="newest photos">
-            <div class="carousel" data-carousel>
-              <div class="inner-cont">
-                <ul data-slides>
-                  <li class="slide" data-active>
-                    <img src="../images/Mosque.jpeg" alt="Mosque" />
-                  </li>
-                </ul>
-                <div class="caption">
-                  <h3>GIU Mosque</h3>
-                  <h6><b>Beside S Building</b></h6>
-                  <p>
-                    The college mosque is a peaceful space with ample room for
-                    prayer and reflection. It warmly accommodates both male and
-                    female students, fostering a welcoming environment for
-                    spiritual connection and community within the heart of the
-                    campus.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
       </div>
+
+
     </div>
-    <script type="module" src="../js/navbar.js"></script>
-    <script type="module" src="../js/location.js"></script>
-  </body>
+  </div>
+  <script type="module" src="../js/navbar.js"></script>
+  <script type="module" src="../js/location.js"></script>
+</body>
+
 </html>
