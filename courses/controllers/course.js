@@ -5,7 +5,12 @@ const userURL = require("../services/BaseURLs").USER_BASE_URL;
 const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 const Courses = new Map();
 exports.addCourse = async (req, res) => {
-  const { courseName, courseCode, courseCredits, semester, content } = req.body;
+  let { courseName, courseCode, courseCredits, semester, content } = req.body;
+  courseName = courseName.toString();
+  courseCode = courseCode.toString();
+  courseCredits = courseCredits.toString();
+  semester = semester.toString();
+  content = content.toString();
 
   const email = getCookie(req).email;
   const isCreted = await courseModel.findOne({ courseName });
@@ -30,7 +35,8 @@ exports.addCourse = async (req, res) => {
 };
 
 exports.getCourse = async (req, res) => {
-  const { courseName } = req.params;
+  let { courseName } = req.params;
+  courseName = courseName.toString();
   try {
     if (Courses.get(courseName))
       return res.status(200).json(Courses.get(courseName));
@@ -50,8 +56,10 @@ exports.getCourse = async (req, res) => {
 };
 
 exports.updateCourse = async (req, res) => {
-  const { courseName } = req.params;
-  const { content } = req.body;
+  let { courseName } = req.params;
+  let { content } = req.body;
+  courseName = courseName.toString();
+  content = content.toString();
   try {
     const course = await courseModel.findOne({ courseName });
     if (!course) {
