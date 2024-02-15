@@ -126,6 +126,20 @@ input::placeholder {
   font-weight: bold;
 }
 
+select {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  caret-color: var(--third-color);
+}
+
 form {
   background-color: #ffffff;
   display: flex;
