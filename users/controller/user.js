@@ -47,11 +47,12 @@ const generateRefreshToken = (user, expiresAt, isrefresh) => {
 };
 
 exports.signupUser = async (req, res) => {
-  let { userName, email, password } = req.body;
+  let { userName, email, password, semester } = req.body;
 
   userName = userName.toString();
   email = email.toString();
   password = password.toString();
+  semester = semester.toString();
 
   try {
     userName = userName.toLowerCase();
@@ -64,22 +65,18 @@ exports.signupUser = async (req, res) => {
       email.slice(-19) !== "@student.giu-uni.de" &&
       email.slice(-11) !== "@giu-uni.de"
     ) {
-      return res.status(400).json({ message: "Email should be a GIU email" });
+      return res.status(401).json({ message: "Email should be a GIU email" });
     }
     if (checkEmail || checkuserName) {
-      return res.status(400).json({ message: "User already exists" });
-    }
-    if (password.length < 8) {
-      return res
-        .status(400)
-        .json({ message: "Password should be at least 8 characters" });
+      return res.status(402).json({ message: "Choose another User name or Email" });
     }
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const newUser = await userModel.create({
+    await userModel.create({
       userName,
       email: email,
       password: hashedPassword,
+      semester,
     });
     // send welcome email
     sendEmail(

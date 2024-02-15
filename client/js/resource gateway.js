@@ -1,12 +1,11 @@
 const cardsData = {
   "cms downloader": ["https://github.com/AhmedAshrafAZ/cms-downloader", "Automate Your Downloads Effortlessly! Fetch, Create Folders, and Download All Your CMS Content with Ease!"],
-  "ACM club": ["https://chat.whatsapp.com/Cj0aQdBmxBpHFZaSJY5hcE", "Level Up Your Skills: Join ACM Club for Problem-Solving and Programming Mastery!"],
+  "ACM_club": ["https://chat.whatsapp.com/Cj0aQdBmxBpHFZaSJY5hcE", "Level Up Your Skills: Join ACM Club for Problem-Solving and Programming Mastery!"],
   "GIU calendar": ["https://drive.google.com/file/d/1PwTV77dy07mzuBjtGLd32Bqzrz0DNygr/view?usp=sharing", "Unlock Your Potential: Academic Semester Calendar Unveiled!"],
   "13- whatsapp group": ["https://chat.whatsapp.com/CWoFNpYmuSYAbVULWKxCtT", "Join the GIU Study WhatsApp group for 13- students"],
   "GIU WIR": ["https://drive.google.com/file/d/1WHAYGxa3jRV1gGBhok-6RGGdvwewy3ye/view?usp=sharing", "Do wanna have a discount using your student ID? Check out the WIR program!"],
   "10- whatsapp group": ["https://chat.whatsapp.com/BflwNdGVwgVLaohbIr7nvU", "Join the GIU Study WhatsApp group for 10- students"],
 }
-console.log(Object.entries(cardsData));
 Object.entries(cardsData).forEach(([key, value]) => {
   const cardContainer = document.querySelector(".card-wrap");
   // create new card
@@ -25,13 +24,14 @@ Object.entries(cardsData).forEach(([key, value]) => {
   // create and add card text
   let cardText = document.createElement("p");
   cardText.classList.add("card-text");
+
   cardText.textContent = value[1];
   textContent.appendChild(cardText);
 
   //create card title
   const cardTitle = document.createElement("p");
   cardTitle.classList.add("card-title");
-  cardTitle.textContent = key;
+  cardTitle.textContent = key.replace(/_/g, " ");
 
   //append card content
   textContent.appendChild(cardTitle);

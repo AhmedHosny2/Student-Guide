@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
+    if (!formDataObject.email.includes("giu-uni.de")) {
+      alert("Email should be a GIU email");
+      return;
+    }
     const apiUrl = `${userURL}/signup`;
     const signUpLoader = document.getElementById("signUpLoader");
     const signUpBtnTxt = document.getElementById("signUpBtnTxt");
@@ -26,11 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify(formDataObject),
     })
       .then((response) => {
+        if (response.status === 402) {
+          alert("Choose another User name or Email", 3000); // Show for 3 seconds
+        }
+        if (response.status === 401) {
+          alert("Email should be a GIU email", 3000); // Show for 3 seconds
+        }
+
         if (!response.ok) {
           signUpLoader.style.display = "none";
           signUpBtnTxt.style.display = "block";
           throw new Error("Network response was not ok");
         }
+       
         return response.json();
       })
       .then((data) => {
@@ -40,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
-        animateFailureAlert("This email is taken.", 3000); // Show for 3 seconds
+        // animateFailureAlert("This email is taken.", 3000); // Show for 3 seconds
         console.error("Fetch error:", error);
       });
   });
