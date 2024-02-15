@@ -45,7 +45,7 @@ exports.createFolder = async (folderName) => {
   }
 };
 
-uploadFiles = async (folderId, folderPath) => {
+const uploadFiles = async (folderId, folderPath) => {
   try {
     const files = fs.readdirSync(folderPath);
     for (const file of files) {
