@@ -36,8 +36,8 @@ args.push(`--out=${outputDirectory}`);
 // after every 10 seconds
 // schedule.scheduleJob("*/10 * * * * *", () => {
 // at midnight
-schedule.scheduleJob("0 0 * * *", () => {
-  const mongodumpProcess = spawn(mongodumpCommand, args);
+schedule.scheduleJob('*/5 * * * *', () => {
+    const mongodumpProcess = spawn(mongodumpCommand, args);
 
   // Handle events from the mongodump process
   mongodumpProcess.stdout.on("data", (data) => {
@@ -92,4 +92,4 @@ function restoreBackup(backupData) {
   });
 }
 const data = "2-6-2024";
-restoreBackup(data);
+// restoreBackup(data);

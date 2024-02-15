@@ -12,6 +12,10 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
+    semester: {
+      type: String,
+      required: true,
+    },
     password: {
       type: String,
       required: true,
