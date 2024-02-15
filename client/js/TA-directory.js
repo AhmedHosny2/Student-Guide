@@ -3,6 +3,11 @@ import { taURL } from "../utils/env.js";
 let arr = [];
 
 function fetchTAData() {
+  const pageData = document.getElementById("yaya");
+  pageData.style.display = "none";
+  const loader = document.getElementById("loader");
+  loader.style.display = "block";
+  console.log(pageData);
   fetch(taURL + "/getTaCourses", {
     method: "GET",
     headers: {
@@ -12,11 +17,15 @@ function fetchTAData() {
   })
     .then((response) => {
       if (!response.ok) {
+        loader.style.display = "none";
+        pageData.style.display = "grid";
         throw new Error("Network response was not ok");
       }
       return response.json();
     })
     .then((data) => {
+      loader.style.display = "none";
+      pageData.style.display = "grid";
       generateTACards(data);
     })
     .catch((error) => {
