@@ -7,7 +7,6 @@ function fetchTAData() {
   pageData.style.display = "none";
   const loader = document.getElementById("loader");
   loader.style.display = "block";
-  console.log(pageData);
   fetch(taURL + "/getTaCourses", {
     method: "GET",
     headers: {
@@ -163,6 +162,7 @@ searchBar.addEventListener("input", (e) => {
 });
 
 // hide admin buttons
+
 const adminBtns = document.querySelector(
   ".taDirectory .container .admin-buttons"
 );
