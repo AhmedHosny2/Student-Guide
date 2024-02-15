@@ -60,7 +60,8 @@
   <!-- end header -->
   <main>
     <!-- start course selection -->
-    <div class="courses-selection">
+   
+    <div class="courses-selection" id="yaya">
       <div class="container">
         <form>
           <label for="semester">Select Your Semester : </label>
@@ -72,9 +73,11 @@
             <option value="5">Semester 5</option>
           </select>
         </form>
+        
         <!-- course will be displayed here -->
         <div id="course-list" class="courses-wrap"></div>
         <!-- redirection to create course page -->
+       
         <a href="../html/createCourse.html" class="re-direct">
           <span class="material-symbols-outlined"> add </span>
         </a>
@@ -82,6 +85,9 @@
     </div>
     <!-- end course selection -->
   </main>
+  <div class="loader-wrapper">
+    <span class="loader" id="loader">Load&nbsp;ng</span>
+  </div>
 
   <script type="module" src="../js/selectCourse.js"></script>
   <script type="module" src="../js/navbar.js"></script>

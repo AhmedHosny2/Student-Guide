@@ -16,15 +16,23 @@ const courseImages = [
 const semesterSelect = document.getElementById("semester");
 const courseList = document.getElementById("course-list");
 
+const pageData = document.getElementById("yaya");
+pageData.style.display = "none";
+console.log(yaya);
+const loader = document.getElementById("loader");
+loader.style.display = "block";
+console.log(loader);
+
 function displayCourses() {
   const selectedSemester = semesterSelect.value;
   const selectedCourses = courses[selectedSemester];
 
   courseList.innerHTML = "";
-
   if (selectedCourses) {
     selectedCourses.forEach((course, index) => {
       //create course card
+      loader.style.display = "none";
+      pageData.style.display = "grid";
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
 
@@ -50,11 +58,15 @@ function displayCourses() {
           })
             .then((response) => {
               if (!response.ok) {
+                loader.style.display = "none";
+                pageData.style.display = "grid";
                 throw new Error("Network response was not ok");
               }
               return response.json();
             })
             .then((data) => {
+              loader.style.display = "none";
+              pageData.style.display = "grid";
               localStorage.setItem("courseData", data.content);
               localStorage.setItem("courseName", data.courseName);
               localStorage.setItem(
