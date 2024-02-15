@@ -1,61 +1,49 @@
-const buttons = document.querySelectorAll("[data-carousel-button]");
+function sliderFunction(slider, items, next, prev, dots) {
+  let lengthItems = items.length - 1;
+  let active = 0;
+  next.onclick = function () {
+    active = active + 1 <= lengthItems ? active + 1 : 0;
+    reloadSlider();
+  }
+  prev.onclick = function () {
+    active = active - 1 >= 0 ? active - 1 : lengthItems;
+    reloadSlider();
+  }
+  let refreshInterval = setInterval(() => { next.click() }, 3000);
+  function reloadSlider() {
+    slider.style.left = -items[active].offsetLeft + 'px';
+    // 
+    let last_active_dot = document.querySelector('.slider .dots li.active');
+    last_active_dot.classList.remove('active');
+    dots[active].classList.add('active');
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const offset = button.dataset.carouselButton === "next" ? 1 : -1;
-    const slides = button
-      .closest("[data-carousel]")
-      .querySelector("[data-slides]");
-    const activeSlide = slides.querySelector("[data-active]");
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-    if (newIndex < 0) newIndex = slides.children.length - 1;
-    if (newIndex >= slides.children.length) newIndex = 0;
-    slides.children[newIndex].dataset.active = true;
-    delete activeSlide.dataset.active;
-  });
-});
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => { next.click() }, 3000);
+  }
 
-// Add interval to change image every 2 seconds
-setInterval(() => {
-  const nextButton = document.querySelector("[data-carousel-button='next']");
-  nextButton.click();
-}, 3000);
-
-// Get the input field
-let input = document.querySelector('input[name="search"]');
-
-// Listen for keystrokes
-input.addEventListener("keyup", filterCards);
-
-function filterCards() {
-  // Get the search term (in lower case)
-  let searchTerm = input.value.toLowerCase();
-
-  // Get all the cards
-  let cards = document.querySelectorAll(".card");
-
-  // Loop through the cards
-  cards.forEach(function (card) {
-    // Get the title of the card
-    let title = card.querySelector(".card-title").textContent.toLowerCase();
-    // Get the subtitle of the card
-    let subtitle = card
-      .querySelector(".card-subtitle")
-      .textContent.toLowerCase();
-    // Get the text content of the card
-    let textContent = card
-      .querySelector(".card-text")
-      .textContent.toLowerCase();
-
-    // If the title, subtitle, or text content includes the search term, show the card, otherwise hide it
-    if (
-      title.includes(searchTerm) ||
-      subtitle.includes(searchTerm) ||
-      textContent.includes(searchTerm)
-    ) {
-      card.style.display = "";
-    } else {
-      card.style.display = "none";
-    }
-  });
+  dots.forEach((li, key) => {
+    li.addEventListener('click', () => {
+      active = key;
+      reloadSlider();
+    })
+  })
+  window.onresize = function () {
+    reloadSlider();
+  };
 }
+
+const librarySlider = document.querySelector('.librarySlider .list');
+const libraryItems = document.querySelectorAll('.librarySlider .list .library');
+const libraryNext = document.getElementById('nextLibrary');
+const libraryPrev = document.getElementById('prevLibrary');
+const libraryDots = document.querySelectorAll('.librarySlider .libraryDots li');
+
+sliderFunction(librarySlider, libraryItems, libraryNext, libraryPrev, libraryDots);
+
+const poolSlider = document.querySelector('.poolSlider .list');
+const poolItems = document.querySelectorAll('.poolSlider .list .pool');
+const poolNext = document.getElementById('nextPool');
+const poolPrev = document.getElementById('prevPool');
+const poolDots = document.querySelectorAll('.poolSlider .poolDots li');
+
+sliderFunction(poolSlider, poolItems, poolNext, poolPrev, poolDots);

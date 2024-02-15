@@ -1,135 +1,102 @@
-.caption {
-  max-width: 100%;
-  z-index: 99;
-  margin: auto;
+.location .carousel {
   position: relative;
-  width: 100%;
-  top: 18rem;
-  bottom: 1rem;
-  padding: 1rem 2rem 2rem 2rem;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
-.slides {
-  max-width: 100%;
-  height: auto;
-  z-index: -99;
-  width: 100%;
-  object-fit: cover;
-}
-
-@media only screen and (max-width: 767px) {
-  .slides {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-  .carousel-item {
-    height: 90vh;
-  }
-}
-
-.location .img-carousel {
-  margin: 0 5rem;
-}
-
-.location .img-carousel ul::after {
+.location .carousel::after {
   content: "";
   position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.164);
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
-  z-index: 1;
-  border-radius: 10px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
-}
-.carousel {
-  height: calc(75vh - 65px);
-  position: relative;
-  margin: 2rem 0;
 }
 
-.carousel > ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.slide {
+.location .carousel .txt {
   position: absolute;
-  inset: 0;
-  opacity: 0;
-  -webkit-transition: 200ms opacity ease-in-out 200ms;
-  -moz-transition: 200ms opacity ease-in-out 200ms;
-  -ms-transition: 200ms opacity ease-in-out 200ms;
-  -o-transition: 200ms opacity ease-in-out 200ms;
-  transition: 200ms opacity ease-in-out 200ms;
-}
-
-.slide > img {
-  display: block;
+  bottom: 50px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 10px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
-
-  background-size: cover;
-
-  background-attachment: fixed;
-}
-
-.slide[data-active] {
-  opacity: 1;
   z-index: 1;
-  transition-delay: 0ms;
-}
-
-.carousel-button {
-  position: absolute;
-  background: none;
-  border: 0;
-  font-size: 4rem;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: rgba(red, green, blue, 0.5);
-  padding: 0 0.5rem;
-  background-color: rgba(red, green, blue, 0.1);
-  z-index: 2;
   color: white;
 }
 
-.card-title {
+.location .slider {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+.location .slider .list {
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  transition: 1s;
+}
+.location .slider .list img {
+  height: 100%;
+  width: 100vw;
+  object-fit: cover;
+}
+.location .slider .buttons {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.location .slider .buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--fourth-color);
+  color: #fff;
+  border: none;
+  font-family: monospace;
   font-weight: bold;
-  font-size: clamp(0.1rem, 1rem + 1vw, 1.5rem);
-  margin-top: 2rem;
-  color: var(--third-color);
+  cursor: pointer;
+  z-index: 4;
+}
+.location .slider .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.location .slider .dots li {
+  list-style: none;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 20px;
+  transition: 0.5s;
+  z-index: 5;
+}
+.location .slider .dots li.active {
+  width: 30px;
+}
+@media screen and (max-width: 768px) {
+  .location .slider {
+    height: 400px;
+  }
 }
 
-.card-subtitle {
-  font-size: medium;
-  font-weight: bold;
+.location .container .card-location .search {
+  background-color: white;
+  position: relative;
 }
-.location .container .search {
+
+.location .container .card-location .search {
   position: relative;
   width: 100%;
   box-shadow:
@@ -144,25 +111,13 @@
   align-items: center;
   justify-content: space-between;
 }
-.img-section {
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-.location .container .card-location .search {
-  background-color: white;
-  position: relative;
-}
 
 .location .container .card-location .search input {
   border: 0;
-  width: 70%;
+  padding: 10px;
+  background-color: transparent;
   padding: 15px;
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
+  width: 100%;
 }
 
 .location .container .card-location .search input:focus {
@@ -195,88 +150,4 @@
   color: gray;
   font-weight: 400;
   font-size: 18px;
-}
-
-/* img {
-  width: 100%;
-  object-fit: cover;
-} */
-
-.carousel-button.prev {
-  left: 1rem;
-}
-
-.carousel-button.next {
-  right: 1rem;
-}
-
-p {
-  font-size: clamp(0.1rem, 1rem + 1vw, 1.3rem);
-}
-h6 {
-  font-size: clamp(0.1rem, 1rem + 1vw, 1rem);
-  margin: 0;
-}
-h3 {
-  font-size: clamp(0.1rem, 1rem + 1vw, 3rem);
-  margin: 0;
-}
-@media only screen and (max-width: 900px) {
-  .img-carousel {
-    margin: 0 2rem;
-    height: calc(75vh - 65px);
-  }
-  .card {
-    max-width: 25rem;
-    min-width: 20rem;
-    max-height: 35rem;
-    min-height: 33rem;
-    padding: 1rem 2rem;
-    padding-bottom: 2rem;
-    margin: 1rem 1rem;
-  }
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: stretch;
-    margin-bottom: 2rem;
-    gap: 15px;
-  }
-  .caption {
-    top: 13rem;
-    min-height: 13vh;
-    position: absolute;
-    width: -webkit-fill-available;
-    margin: 1.2rem 1rem 1.1rem 1rem;
-  }
-  p {
-    font-size: clamp(0.1rem, 1rem + 1vw, 1rem);
-  }
-  h6 {
-    font-size: clamp(0.1rem, 1rem + 1vw, 1rem);
-    margin: 0;
-  }
-  h3 {
-    font-size: clamp(0.1rem, 1rem + 1vw, 1rem);
-    margin: 0;
-  }
-
-  .carousel {
-    /* margin: 2rem 0; */
-    margin-bottom: 2rem;
-  }
-}
-@media only screen and (max-width: 667px) {
-  .img-carousel {
-    margin: 0 2rem;
-    height: calc(75vh - 65px);
-  }
-  .caption {
-    top: 2rem;
-    min-height: 13vh;
-    position: absolute;
-    width: -webkit-fill-available;
-    margin: 1.2rem 1rem 1.1rem 1rem;
-  }
 }
