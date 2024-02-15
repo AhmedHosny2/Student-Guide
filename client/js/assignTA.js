@@ -1,4 +1,3 @@
-
 let taEmails = [];
 import { taURL } from "../utils/env.js";
 fetch(taURL + "/getTAs", {
@@ -34,18 +33,22 @@ emailInput.addEventListener("input", function () {
 });
 
 emailInput.addEventListener("blur", () => {
-  const autoComp = document.querySelector(".taCreation .container form .box #autocomplete-container");
+  const autoComp = document.querySelector(
+    ".taCreation .container form .box #autocomplete-container"
+  );
   // If there is an active element within the autocomplete container, do nothing and keep it open
   // Otherwise, close the autocomplete box when the mouse leaves the field
   setTimeout(() => {
     autoComp.classList.add("inactive");
   }, 200); // Adjust the delay time as needed
-})
+});
 
 emailInput.addEventListener("focus", () => {
-  const autoComp = document.querySelector(".taCreation .container form .box #autocomplete-container");
+  const autoComp = document.querySelector(
+    ".taCreation .container form .box #autocomplete-container"
+  );
   autoComp.classList.remove("inactive");
-})
+});
 
 // Function to display autocomplete suggestions
 function displayAutocomplete(suggestions) {
@@ -122,16 +125,14 @@ if (clearBtn) {
 
 // back end
 const TAFrom = document.getElementById("TA-assign-form");
-const taNameInput = document.getElementById("taName");
 const officeHourInput = document.getElementById("officeHour");
-const officeLocationInput = document.getElementById("officeLocation");
 const courseNameInput = document.getElementById("courseName");
 TAFrom.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const officeHours = officeHourInput.value;
   const email = emailInput.value;
-  const tutorials = arrOfTutorials.sort();
+  const tutorials = arrOfTutorials.sort((a, b) => a - b);
   const courseName = courseNameInput.value;
   try {
     fetch(taURL + "/assign", {
