@@ -5,7 +5,6 @@ const cors = require("cors");
 require("dotenv").config();
 
 const db = require("./config/database.js");
-const googleRouter = require("./routes/googleAuth.js");
 const userRouter = require("./routes/user");
 
 const app = express();
