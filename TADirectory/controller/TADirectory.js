@@ -18,7 +18,12 @@ exports.getAllTas = async (req, res) => {
 };
 
 exports.addTa = async (req, res) => {
-  const { name, email, officeLocation, gender } = req.body;
+  let { name, email, officeLocation, gender } = req.body;
+  name = name.toString();
+  email = email.toString();
+  officeLocation = officeLocation.toString();
+  gender = gender.toString();
+
   const uniEmail = email + "@giu-uni.de";
 
   const found = await TaModel.find({ email: uniEmail });
@@ -57,7 +62,12 @@ exports.getTaCourses = async (req, res) => {
 
 exports.assignTa = async (req, res) => {
   // TODO  get all tuts already exist for this course and compare with the new ones
-  const { email, tutorials, courseName, officeHours } = req.body;
+  let { email, tutorials, courseName, officeHours } = req.body;
+  email = email.toString();
+  tutorials = tutorials.toString();
+  courseName = courseName.toString();
+  officeHours = officeHours.toString();
+
   let found = await TaModel.find({ email: email });
   if (found === null || found.length === 0) {
     return res.status(404).json({ message: "TAs not found" });
@@ -83,8 +93,9 @@ exports.assignTa = async (req, res) => {
   }
 };
 exports.deleteTaCourse = async (req, res) => {
-  const { _id } = req.body;
-  console.log(req.body);
+  let { _id } = req.body;
+  _id = _id.toString();
+
   try {
     await TaCourseModel.deleteOne({ _id });
     TACourses = [];
@@ -98,7 +109,9 @@ exports.deleteTaCourse = async (req, res) => {
 };
 
 exports.deleteTa = async (req, res) => {
-  const { email } = req.body;
+  let { email } = req.body;
+  email = email.toString();
+  
   try {
     await TaModel.deleteOne({ email });
     TAs = [];
