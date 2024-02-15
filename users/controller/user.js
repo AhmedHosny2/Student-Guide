@@ -49,6 +49,10 @@ const generateRefreshToken = (user, expiresAt, isrefresh) => {
 exports.signupUser = async (req, res) => {
   let { userName, email, password } = req.body;
 
+  userName = userName.toString();
+  email = email.toString();
+  password = password.toString();
+
   try {
     userName = userName.toLowerCase();
     email = email.toLowerCase();
@@ -94,6 +98,8 @@ exports.signupUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   let { userName, password } = req.body;
   userName = userName.toLowerCase();
+  userName = userName.toString();
+  password = password.toString();
   try {
     if (!(userName && password)) {
       return res.status(400).json({ message: "All input is required" });
@@ -160,7 +166,8 @@ exports.loginUser = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-  const email = getCookies(req).email;
+  let email = getCookies(req).email;
+  email = email.toLowerCase();
   const user = await userModel.findOne({ email });
 
   if (!user) {
@@ -196,8 +203,8 @@ exports.updateUserPoints = async (req, res) => {
 };
 
 exports.sendOTP = async (req, res) => {
-  const email = req.body.userEmail;
-  console.log(email);
+  let email = req.body.userEmail;
+  email = email.toLowerCase();
   const user = await userModel.findOne({ email });
 
   const randomOTP = generateOTP();
@@ -211,8 +218,9 @@ exports.sendOTP = async (req, res) => {
   res.status(200).json({ message: "OTP sent" });
 };
 exports.verifyOTP = async (req, res) => {
-  const { OTP } = req.body;
-  const email = req.body.userEmail;
+  let { OTP } = req.body;
+  let email = req.body.userEmail.toString();
+  OTP = OTP.toString();
   const user = await userModel.findOne({ email });
   if (user.OTP === OTP) {
     user.verifyed = true;
