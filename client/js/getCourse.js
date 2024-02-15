@@ -52,17 +52,12 @@ editBtn.addEventListener("click", () => {
       // Get the CKEditor instance and store it in a variable
       myEditor = CKEDITOR.instances.editor;
       myEditor.setData(contentDisplay.innerHTML);
-      // Show the editor
-      // editor.hidden = false;
-      // document.body.classList.toggle("overlay");
-      // textarea.classList.toggle("show");
-      // submit.classList.toggle("show");
+     
   };
 
   // Append the script element to the document's head
   document.head.appendChild(ckeditorScript);
   document.body.classList.toggle("overlay");
-    // textarea.classList.toggle("show");
     submit.classList.toggle("show");
 });
 
@@ -70,9 +65,6 @@ editBtn.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ===================================================
-
-  // localStorage.setItem("courseData", `<h1><span style="color: rgb(241, 196, 15);"><strong><span style="font-family: 'arial black', sans-serif;">cool</span></strong></span></h1>`);
   if (localStorage.getItem("courseData")) {
     contentDisplay.innerHTML = localStorage.getItem("courseData");
   }
