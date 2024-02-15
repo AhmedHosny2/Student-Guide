@@ -3,7 +3,7 @@ const editBtn = document.querySelector(".text-edit");
 const editor = document.getElementById("editor");
 const submit = document.querySelector(".submit");
 let myEditor;
-var readTimeElement = document.querySelector(".readTime");
+let readTimeElement = document.querySelector(".readTime");
 
 // Update the content of the element with the new reading time
 readTimeElement.innerHTML =
@@ -16,7 +16,7 @@ const contentDisplay = document.querySelector(".contentDisplay .container");
 import { coursesURL } from "../utils/env.js";
 
 editBtn.addEventListener("click", () => {
-  var ckeditorScript = document.createElement('script');
+  let ckeditorScript = document.createElement('script');
 
   // Set the src attribute to the CKEditor script URL
   ckeditorScript.src = "https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js";// replace 
