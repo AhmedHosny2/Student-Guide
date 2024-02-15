@@ -152,3 +152,12 @@ subBtn.addEventListener("click", () => {
   newAvatar.src = val;
   avatarBox.appendChild(newAvatar);
 });
+
+if (
+  localStorage.getItem("isAdmin") === "false" ||
+  localStorage.getItem("isAdmin") == null
+) {
+  editBtn.style.display = "none";
+  addPerson.style.display = "none";
+  
+}
