@@ -32,7 +32,7 @@ exports.addTa = async (req, res) => {
   }
 
   try {
-    const newTA = await TaModel.create({
+     await TaModel.create({
       name,
       email: uniEmail,
       officeLocation,
@@ -76,7 +76,7 @@ exports.assignTa = async (req, res) => {
   try {
     console.log(found);
 
-    const newTAAssign = await TaCourseModel.create({
+     await TaCourseModel.create({
       name: found.name,
       officeLocation: found.officeLocation,
       gender: found.gender,
@@ -111,7 +111,7 @@ exports.deleteTaCourse = async (req, res) => {
 exports.deleteTa = async (req, res) => {
   let { email } = req.body;
   email = email.toString();
-  
+
   try {
     await TaModel.deleteOne({ email });
     TAs = [];
