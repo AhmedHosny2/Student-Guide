@@ -1,3 +1,7 @@
+window.addEventListener("load", function () {
+  const loadingScreen = document.getElementById("test");
+  loadingScreen.style.display = "none";
+});
 
 window.onload = function() {
   var tableIds = ["1", "2", "3", "4", "5", "6", "7"];
