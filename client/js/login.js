@@ -1,7 +1,5 @@
 import { userURL, clientURL } from "../utils/env.js";
 const loginForm = document.querySelector(".login-form");
-const protectedRouteButton = document.getElementById("protected-route-button");
-const adminRouteButton = document.getElementById("admin-route-button");
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -54,12 +52,7 @@ loginForm.addEventListener("submit", (e) => {
     });
 });
 
-//   document
-//     .getElementById("google-login-button")
-//     .addEventListener("click", function () {
-//       window.location.href =
-//         "https://student-guide-users.vercel.app/auth/google";
-//     });
+
 
 //start login styling animation
 const signUpButton = document.getElementById("signUp");
