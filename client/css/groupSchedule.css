@@ -89,6 +89,10 @@
   margin-bottom: 50px;
 }
 
+.location .container .tableSelect:focus {
+  outline: none;
+}
+
 .location .table-wrapper {
   overflow: auto;
   margin-bottom: 150px;
