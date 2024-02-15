@@ -172,7 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     gradeSelect.addEventListener("change", function () {
-
       let gradeValue;
       let selectedGrade;
       if (checkboxSubject.checked) {
@@ -185,7 +184,6 @@ document.addEventListener("DOMContentLoaded", function () {
     currentSemesterDiv.appendChild(choiceWrapDiv);
   });
 
-
   // Select buttons that id starts with semester
   const selectButtons = document.querySelectorAll('input[id^="semester-"]');
   selectButtons.forEach((button) => {
@@ -193,10 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const semester = button.name.split("-")[1];
       const subjectsOfSemester = subjects.filter(
         (subject) => subject.semester === parseInt(semester)
-      );
-      const creditHours = subjectsOfSemester.reduce(
-        (acc, subject) => acc + subject.creditHours,
-        0
       );
       // Select all options that id start with semester number
       const gradeSelects = document.querySelectorAll(
