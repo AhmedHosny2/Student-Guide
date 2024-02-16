@@ -117,6 +117,8 @@ const pageData = document.getElementById("yaya");
 pageData.style.display = "none";
 const loader = document.getElementById("loader");
 loader.style.display = "block";
+const loadingDiv = document.getElementById("loadingDiv");
+
 
   const updateCourse = async () => {
     const courseName = localStorage.getItem("courseName");
