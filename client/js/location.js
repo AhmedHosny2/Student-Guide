@@ -61,5 +61,11 @@ const poolNext = document.getElementById("nextPool");
 const poolPrev = document.getElementById("prevPool");
 const poolDots = document.querySelectorAll(".poolSlider .poolDots li");
 
-sliderFunction(poolSlider, poolItems, poolNext, poolPrev, poolDots);
+sliderFunction(
+  poolSlider,
+  poolItems,
+  poolNext,
+  poolPrev,
+  poolDots
+);
 

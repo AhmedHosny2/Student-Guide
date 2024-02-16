@@ -1,436 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Locations</title>
-    <!-- fav icon -->
-    <link rel="icon" type="image/x-icon" href="../images/fav.png" />
 
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/location.css" />
-    <link rel="stylesheet" type="text/css" href="../css/selectCourse.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locations</title>
+  <!-- fav icon -->
+  <link rel="icon" type="image/x-icon" href="../images/fav.png" />
 
-    <!-- normalize-file -->
-    <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/location.css" />
+  <link rel="stylesheet" type="text/css" href="../css/selectCourse.css" />
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- logo font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
-      rel="stylesheet"
-    />
-    <!-- google icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+  <!-- normalize-file -->
+  <link rel="stylesheet" href="../css/normalize.css" />
 
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- logo font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet" />
+  <!-- google icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <body>
-    <header class="header">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="../index.html">
+          <h4>resource <span>hub</span></h4>
+        </a>
+      </div>
+      <nav class="nav" data-visibility="false">
+        <ul class="links">
+          <li class="home"><a href="../index.html">home</a></li>
+          <li><a href="../html/location.html">location</a></li>
+          <li><a href="../html/TA-directory.html">TA directory</a></li>
+          <li><a href="../html/selectCourse.html">Courses</a></li>
+          <li><a href="../html/gradesToPass.html"> grad clac</a></li>
+          <li><a href="../html/GPACalculator.html">GPA calc</a></li>
+          <li><a href="../html/groupSchedule.html"> Schedules</a></li>
+          <li><a href="../html/resource gateway.html"> Key Links</a></li>
+          <li class="login"><a href="../html/login.html">login</a></li>
+          <li><a href="" id="logout" class="logout">logout</a></li>
+        </ul>
+      </nav>
+      <div class="avatar">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <a href="html/login.html" class="login"> login </a>
+      <div class="burger-menu">
+        <span class="top"></span>
+        <span class="mid"></span>
+        <span class="btm"></span>
+      </div>
+      <div class="mobile-nav">
+        <a href="../index.html">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <a href="../html/location.html" class="active">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </a>
+        <a href="../html/TA-directory.html">
+          <i class="fa-solid fa-person-chalkboard"></i>
+        </a>
+        <a href="../html/selectCourse.html">
+          <i class="fa-solid fa-book"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="location">
+    <div class="heading">
       <div class="container">
-        <div class="logo">
-          <a href="../index.html">
-            <h4>resource <span>hub</span></h4>
-          </a>
-        </div>
-        <nav class="nav" data-visibility="false">
-          <ul class="links">
-            <li class="home"><a href="../index.html">home</a></li>
-            <li><a href="../html/location.html">location</a></li>
-            <li><a href="../html/TA-directory.html">TA directory</a></li>
-            <li><a href="../html/selectCourse.html">Courses</a></li>
-            <li><a href="../html/gradesToPass.html"> grad clac</a></li>
-            <li><a href="../html/GPACalculator.html">GPA calc</a></li>
-            <li><a href="../html/groupSchedule.html"> Schedules</a></li>
-            <li><a href="../html/resource gateway.html"> Key Links</a></li>
-            <li class="login"><a href="../html/login.html">login</a></li>
-            <li><a href="" id="logout" class="logout">logout</a></li>
-          </ul>
-        </nav>
-        <div class="avatar">
-          <i class="fa-regular fa-user"></i>
-        </div>
-        <a href="html/login.html" class="login"> login </a>
-        <div class="burger-menu">
-          <span class="top"></span>
-          <span class="mid"></span>
-          <span class="btm"></span>
-        </div>
-        <div class="mobile-nav">
-          <a href="../index.html">
-            <i class="fa-solid fa-house"></i>
-          </a>
-          <a href="../html/location.html" class="active">
-            <i class="fa-solid fa-map-location-dot"></i>
-          </a>
-          <a href="../html/TA-directory.html">
-            <i class="fa-solid fa-person-chalkboard"></i>
-          </a>
-          <a href="../html/selectCourse.html">
-            <i class="fa-solid fa-book"></i>
-          </a>
-        </div>
-      </div>
-    </header>
-    <div class="location">
-      <!-- <div class="img-carousel">
-
-      <section class="img-section" aria-label="newest photos">
-        <div class="carousel" data-carousel>
-          <button class="carousel-button prev" data-carousel-button="prev"></button>
-          <button class="carousel-button next" data-carousel-button="next"></button>
-
-          <ul data-slides>
-            <li class="slide" data-active>
-              <img src="../images/Library1.jpeg" alt="Library" />
-            </li>
-            <li class="slide">
-              <img src="../images/Library2.jpeg" alt="Library" />
-            </li>
-            <li class="slide">
-              <img src="../images/Library3.jpeg" alt="Library" />
-            </li>
-          </ul>
-          <div class="caption">
-            <h3>Library</h3>
-            <h6><b>S1.605</b></h6>
-            <p>
-              The college library is a large, peaceful place with many
-              rooms to study. It's great for focusing and learning,
-              providing students with a perfect environment to study and
-              explore new ideas.
-             </p>
-                <button class="contactBtn">Contact</button>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="img-section" aria-label="newest photos">
-        <div class="carousel" data-carousel>
-          <button class="carousel-button prev" data-carousel-button="prev"></button>
-          <button class="carousel-button next" data-carousel-button="next"></button>
-
-          <ul data-slides>
-            <li class="slide" data-active>
-              <img src="../images/Pool1.JPG" alt="Library" />
-            </li>
-            <li class="slide">
-              <img src="../images/Pool2.JPG" alt="Library" />
-            </li>
-            <li class="slide">
-              <img src="../images/Pool3.JPG" alt="Library" />
-            </li>
-            <li class="slide">
-              <img src="../images/Pool4.JPG" alt="Library" />
-            </li>
-          </ul>
-          <div class="caption">
-            <h3>GIU Pool</h3>
-            <h6><b>Under S Building</b></h6>
-            <p>
-              a modern place where students can swim for fun, fitness, or
-              competition. It's a cool spot to stay active and unwind on
-              campus.
-             </p>
-                <button class="contactBtn">Contact</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="img-section" aria-label="newest photos">
-        <div class="carousel" data-carousel>
-
-          <ul data-slides>
-            <li class="slide" data-active>
-              <img src="../images/Mosque.jpeg" alt="Mosque" />
-            </li>
-          </ul>
-          <div class="caption">
-            <h3>GIU Mosque</h3>
-            <h6><b>Beside S Building</b></h6>
-            <p>
-              The college mosque is a peaceful space with ample room for
-              prayer and reflection. It warmly accommodates both male and
-              female students, fostering a welcoming environment for
-              spiritual connection and community within the heart of the
-              campus.
-             </p>
-                <button class="contactBtn">Contact</button>
-
-          </div>
-        </div>
-      </section>
-    </div> -->
-
-      <div class="library carousel">
-        <div class="library-txt txt">
-          <div class="container">
-            <h3>Library</h3>
-            <h6><b>S1.605</b></h6>
-            <p>
-              The college library is a large, peaceful place with many rooms to
-              study. It's great for focusing and learning, providing students
-              with a perfect environment to study and explore new ideas.
-            </p>
-          </div>
-        </div>
-        <div class="librarySlider slider">
-          <div class="caption"></div>
-          <div class="list">
-            <div class="library">
-              <img src="../images/Library1.jpeg" alt="" />
-            </div>
-            <div class="library">
-              <img src="../images/Library2.jpeg" alt="" />
-            </div>
-            <div class="library">
-              <img src="../images/Library3.jpeg" alt="" />
-            </div>
-          </div>
-          <div class="buttons">
-            <button id="prevLibrary">
-              <i class="fa-solid fa-angle-left"></i>
-            </button>
-            <button id="nextLibrary">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-          <ul class="libraryDots dots">
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pool carousel">
-        <div class="pool-txt txt">
-          <div class="container">
-            <h3>GIU Pool</h3>
-            <h6><b>Under S Building</b></h6>
-            <p>
-              a modern place where students can swim for fun, fitness, or
-              competition. It's a cool spot to stay active and unwind on campus.
-            </p>
-          </div>
-        </div>
-        <div class="poolSlider slider">
-          <div class="list">
-            <div class="pool">
-              <img src="../images/Pool1.JPG" alt="" />
-            </div>
-            <div class="pool">
-              <img src="../images/Pool2.JPG" alt="" />
-            </div>
-            <div class="pool">
-              <img src="../images/Pool3.JPG" alt="" />
-            </div>
-          </div>
-          <div class="buttons">
-            <button id="prevPool">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button id="nextPool">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-          <ul class="poolDots dots">
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="card-location">
-          <div class="search">
-            <input
-              type="search"
-              placeholder="Search Locations.."
-              name="search"
-            />
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <div class="card-wrap">
-            <div class="card">
-              <div class="card-head">
-                <h6 class="card-status">NEW</h6>
-                <h4 class="card-title">Bookstore</h4>
-                <span class="card-subtitle">Under S Building</span>
-              </div>
-              <img src="../images/Bookstore.svg" alt="Clinic Image" />
-              <div class="innerCard">
-                <p class="card-text">
-                  a convenient place where students can buy textbooks, school
-                  supplies, and university merchandise. It's a one-stop shop for
-                  all your academic needs, right on campus.
-                </p>
-                <a href="https://wa.me/01289819508" class="contactBtn">Contact</a>
-               
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Clinic</h4>
-                <span class="card-subtitle">M1.101</span>
-              </div>
-              <img src="../images/Clinic.svg" alt="Clinic Image" />
-              <div class="innerCard">
-                <p class="card-text">
-                  Provides essential medical care to students.
-                </p>
-                <a href="mailto:clinic@giu-uni.de" class="contactBtn">Contact</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Admission Office</h4>
-                <span class="card-subtitle">M3.122</span>
-              </div>
-              <img src="../images/admission.svg" alt="Admission" />
-              <div class="innerCard">
-                <p class="card-text">
-                  helps students join the academic community by guiding them
-                  through the admission process.
-                </p>
-                <a href="mailto:admission@giu-uni.de" class="contactBtn">Contact</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Finance Offices</h4>
-                <span class="card-subtitle">M3.114 & S3.337</span>
-              </div>
-              <img src="../images/finance.svg" alt="Finance Offices" />
-              <div class="innerCard">
-                <p class="card-text">
-                  efficiently manage financial matters, offering students
-                  support and guidance on budgeting, payments, and financial
-                  aid, ensuring smooth financial operations within the campus.
-                </p>
-                <a href="mailto:finance@giu-uni.de" class="contactBtn">Contact</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Academic Coordinators</h4>
-                <span class="card-subtitle">M2.211 & M2.210</span>
-              </div>
-              <img
-                src="../images/academic cordinator.svg"
-                alt="Academic Coordinator"
-              />
-              <div class="innerCard">
-                <p class="card-text">
-                  student academic affairs, offering personalized assistance,
-                  course planning advice, and resources to ensure students excel
-                  in their studies at GIU.
-                </p>
-                <a href="mailto:coordinators@giu-uni.de" class="contactBtn">Contact</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Technical Support</h4>
-                <span class="card-subtitle">M3.325</span>
-              </div>
-              <img
-                src="../images/technical support.svg"
-                alt="Technical Support"
-              />
-              <div class="innerCard">
-                <p class="card-text">
-                  assistance for students and faculty with IT-related issues,
-                  ensuring seamless access to digital resources and resolving
-                  technical challenges promptly.
-                </p>
-                <a href="https://wa.me/+201224754055" class="contactBtn">Contact</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Facility Manager</h4>
-                <span class="card-subtitle">M2.415</span>
-              </div>
-              <img
-                src="../images/facility manager.svg"
-                alt="Facility Manager"
-              />
-              <div class="innerCard">
-                <p class="card-text">
-                  maintenance and operation of campus facilities, ensuring a
-                  safe, functional, and comfortable environment for students and
-                  staff to thrive in their academic pursuits.
-                </p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Examination Office</h4>
-                <span class="card-subtitle">S3.120</span>
-              </div>
-              <img src="../images/exam office.svg" alt="Examination Office" />
-              <div class="innerCard">
-                <p class="card-text">
-                  all aspects of academic assessments, remarking, scheduling
-                  exams, coordinating invigilators, and ensuring a smooth
-                  examination process for students and faculty.
-                </p>
-                <a href="mailto:exam.office@giu-uni.de" class="contactBtn">Contact</a>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-head">
-                <h4 class="card-title">Copy Center</h4>
-                <span class="card-subtitle">S1.103</span>
-              </div>
-              <img src="../images/copycenter.svg" alt="Copy Center" />
-              <div class="innerCard">
-                <p class="card-text">
-                  printing, copying to students and staff, assisting with
-                  academic and administrative document needs.
-                </p>
-                <button class="contactBtn">Contact</button>
-              </div>
+        <div class="txt">
+          <h2>Location: <span>Guide to Key College Locations</span></h2>
+          <div class="description">
+            <img src="../images/grade to pass (2).svg" alt="">
+            <div>
+              <p><span>vee got you🫡</span> Discover the essence of our college campus with a comprehensive web guide
+                showcasing vital locations, including academic
+                buildings, the library, student center, athletic facilities, dining areas, and green spaces. Tailored
+                for prospective
+                students, current community members, and visitors, this virtual tour offers insights into the dynamic
+                facets that define
+                our academic environment. Explore the heart and soul of our campus community today.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="loader-wrapper" id="test">
-        <span class="loader" id="loader">Load&nbsp;ng</span>
+    </div>
+    <div class="library carousel">
+      <div class="library-txt txt">
+        <div class="container">
+          <h3 class="title">Library</h3>
+          <p class="loca">S1.605</p>
+          <p class="description">
+            The college library is a large, peaceful place with many rooms to
+            study. It's great for focusing and learning, providing students
+            with a perfect environment to study and explore new ideas.
+          </p>
+        </div>
+      </div>
+      <div class="librarySlider slider">
+        <div class="caption"></div>
+        <div class="list">
+          <div class="library">
+            <img src="../images/Library1.jpeg" alt="" />
+          </div>
+          <div class="library">
+            <img src="../images/Library2.jpeg" alt="" />
+          </div>
+          <div class="library">
+            <img src="../images/Library3.jpeg" alt="" />
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="prevLibrary">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button id="nextLibrary">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <ul class="libraryDots dots">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     </div>
 
-    <script type="module" src="../js/navbar.js"></script>
-    <script type="module" src="../js/location.js"></script>
-  </body>
+    <div class="pool carousel">
+      <div class="pool-txt txt">
+        <div class="container">
+          <h3 class="title">GIU Pool</h3>
+          <p class="loca">Under S Building</p>
+          <p class="description">
+            a modern place where students can swim for fun, fitness, or
+            competition. It's a cool spot to stay active and unwind on campus.
+          </p>
+        </div>
+      </div>
+      <div class="poolSlider slider">
+        <div class="list">
+          <div class="pool">
+            <img src="../images/Pool1.JPG" alt="" />
+          </div>
+          <div class="pool">
+            <img src="../images/Pool2.JPG" alt="" />
+          </div>
+          <div class="pool">
+            <img src="../images/Pool3.JPG" alt="" />
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="prevPool">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="nextPool">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <ul class="poolDots dots">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mosque carousel">
+      <div class="library-txt txt">
+        <div class="container">
+          <h3 class="title">GIU Mosque</h3>
+          <p class="loca">Beside S Building</p>
+          <p class="description">
+            The college mosque is a peaceful space with ample room for
+            prayer and reflection. It warmly accommodates both male and
+            female students, fostering a welcoming environment for
+            spiritual connection and community within the heart of the
+            campus.
+          </p>
+        </div>
+      </div>
+      <img class="mosqueImg" src="../images/Mosque.jpeg" alt="" id="libImg" />
+    </div>
+
+    <div class="container">
+      <div class="card-location">
+        <div class="search">
+          <input type="search" placeholder="Search Locations.." name="search" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="card-wrap">
+          <div class="card">
+            <div class="card-head">
+              <h6 class="card-status">NEW</h6>
+              <h4 class="card-title">Bookstore</h4>
+              <span class="card-subtitle">Under S Building</span>
+            </div>
+            <img src="../images/Bookstore.svg" alt="Clinic Image" />
+            <div class="innerCard">
+              <p class="card-text">
+                a convenient place where students can buy textbooks, school
+                supplies, and university merchandise. It's a one-stop shop for
+                all your academic needs, right on campus.
+              </p>
+              <a href="https://wa.me/01289819508" class="contactBtn">Contact</a>
+
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Clinic</h4>
+              <span class="card-subtitle">M1.101</span>
+            </div>
+            <img src="../images/Clinic.svg" alt="Clinic Image" />
+            <div class="innerCard">
+              <p class="card-text">
+                Provides essential medical care to students.
+              </p>
+              <a href="mailto:clinic@giu-uni.de" class="contactBtn">Contact</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Admission Office</h4>
+              <span class="card-subtitle">M3.122</span>
+            </div>
+            <img src="../images/admission.svg" alt="Admission" />
+            <div class="innerCard">
+              <p class="card-text">
+                helps students join the academic community by guiding them
+                through the admission process.
+              </p>
+              <a href="mailto:admission@giu-uni.de" class="contactBtn">Contact</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Finance Offices</h4>
+              <span class="card-subtitle">M3.114 & S3.337</span>
+            </div>
+            <img src="../images/finance.svg" alt="Finance Offices" />
+            <div class="innerCard">
+              <p class="card-text">
+                efficiently manage financial matters, offering students
+                support and guidance on budgeting, payments, and financial
+                aid, ensuring smooth financial operations within the campus.
+              </p>
+              <a href="mailto:finance@giu-uni.de" class="contactBtn">Contact</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Academic Coordinators</h4>
+              <span class="card-subtitle">M2.211 & M2.210</span>
+            </div>
+            <img src="../images/academic cordinator.svg" alt="Academic Coordinator" />
+            <div class="innerCard">
+              <p class="card-text">
+                student academic affairs, offering personalized assistance,
+                course planning advice, and resources to ensure students excel
+                in their studies at GIU.
+              </p>
+              <a href="mailto:coordinators@giu-uni.de" class="contactBtn">Contact</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Technical Support</h4>
+              <span class="card-subtitle">M3.325</span>
+            </div>
+            <img src="../images/technical support.svg" alt="Technical Support" />
+            <div class="innerCard">
+              <p class="card-text">
+                assistance for students and faculty with IT-related issues,
+                ensuring seamless access to digital resources and resolving
+                technical challenges promptly.
+              </p>
+              <a href="https://wa.me/+201224754055" class="contactBtn">Contact</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Facility Manager</h4>
+              <span class="card-subtitle">M2.415</span>
+            </div>
+            <img src="../images/facility manager.svg" alt="Facility Manager" />
+            <div class="innerCard">
+              <p class="card-text">
+                maintenance and operation of campus facilities, ensuring a
+                safe, functional, and comfortable environment for students and
+                staff to thrive in their academic pursuits.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Examination Office</h4>
+              <span class="card-subtitle">S3.120</span>
+            </div>
+            <img src="../images/exam office.svg" alt="Examination Office" />
+            <div class="innerCard">
+              <p class="card-text">
+                all aspects of academic assessments, remarking, scheduling
+                exams, coordinating invigilators, and ensuring a smooth
+                examination process for students and faculty.
+              </p>
+              <a href="mailto:exam.office@giu-uni.de" class="contactBtn">Contact</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h4 class="card-title">Copy Center</h4>
+              <span class="card-subtitle">S1.103</span>
+            </div>
+            <img src="../images/copycenter.svg" alt="Copy Center" />
+            <div class="innerCard">
+              <p class="card-text">
+                printing, copying to students and staff, assisting with
+                academic and administrative document needs.
+              </p>
+              <button class="contactBtn">Contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="loader-wrapper" id="test">
+      <span class="loader" id="loader">Load&nbsp;ng</span>
+    </div>
+  </div>
+
+  <script type="module" src="../js/navbar.js"></script>
+  <script type="module" src="../js/location.js"></script>
+</body>
+
 </html>
