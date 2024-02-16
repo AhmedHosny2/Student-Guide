@@ -4,13 +4,12 @@ pageData.style.display = "none";
 const loader = document.getElementById("test");
 loader.style.display = "flex";
 
-
 const cardsData = {
   "CMS Downloader": [
     "https://github.com/AhmedAshrafAZ/cms-downloader",
     "Automate Your Downloads Effortlessly! Fetch, Create Folders, and Download All Your CMS Content with Ease!",
   ],
-  ACM_Club: [
+  "ACM Club": [
     "https://chat.whatsapp.com/Cj0aQdBmxBpHFZaSJY5hcE",
     "Level Up Your Skills: Join ACM Club for Problem-Solving and Programming Mastery!",
   ],
@@ -22,13 +21,13 @@ const cardsData = {
     "https://chat.whatsapp.com/CWoFNpYmuSYAbVULWKxCtT",
     "Join the GIU Study WhatsApp group for 13- students",
   ],
-  "GIU WIR": [
-    "https://drive.google.com/file/d/1WHAYGxa3jRV1gGBhok-6RGGdvwewy3ye/view?usp=sharing",
-    "Do wanna have a discount using your student ID? Check out the WIR program!",
-  ],
   "10- Whatsapp Group": [
     "https://chat.whatsapp.com/BflwNdGVwgVLaohbIr7nvU",
     "Join the GIU Study WhatsApp group for 10- students",
+  ],
+  "GIU WIR": [
+    "https://drive.google.com/file/d/1WHAYGxa3jRV1gGBhok-6RGGdvwewy3ye/view?usp=sharing",
+    "Do wanna have a discount using your student ID? Check out the WIR program!",
   ],
 };
 
@@ -43,6 +42,7 @@ Object.entries(cardsData).forEach(([key, value]) => {
   // create and add img data
   let img = document.createElement("img");
   img.src = `../images/${key}.svg`;
+  console.log(img.src);
   img.alt = "image not available";
   card.appendChild(img);
 
@@ -74,4 +74,3 @@ Object.entries(cardsData).forEach(([key, value]) => {
     window.open(value[0], "_blank");
   });
 });
-
