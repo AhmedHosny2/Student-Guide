@@ -1,28 +1,31 @@
 window.addEventListener("load", function () {
   const loadingScreen = document.getElementById("test");
   loadingScreen.style.display = "none";
+  loadingScreen.remove();
 });
 
-window.onload = function() {
+
+
+window.onload = function () {
   var tableIds = ["1", "2", "3", "4", "5", "6", "7"];
   for (let i = 0; i < tableIds.length; i++) {
     var table = document.getElementById(tableIds[i]);
     table.style.display = "none";
   }
-}
+};
 
-document
-  .getElementById("tableSelect")
-  .addEventListener("change", function () {
-    var tableIds = ["1", "2", "3", "4", "5", "6", "7"];
-    for (let i = 0; i < tableIds.length; i++) {
-      var table = document.getElementById(tableIds[i]);
-      table.style.opacity = 0;
-      table.style.display = "none";
-    }
-    var selectedTable = document.getElementById(this.value);
-    selectedTable.style.display = "flex";
-    setTimeout(function () {
-      selectedTable.style.opacity = 1;
-    }, 50);
-  });
+
+
+document.getElementById("tableSelect").addEventListener("change", function () {
+  var tableIds = ["1", "2", "3", "4", "5", "6", "7"];
+  for (let i = 0; i < tableIds.length; i++) {
+    var table = document.getElementById(tableIds[i]);
+    table.style.opacity = 0;
+    table.style.display = "none";
+  }
+  var selectedTable = document.getElementById(this.value);
+  selectedTable.style.display = "flex";
+  setTimeout(function () {
+    selectedTable.style.opacity = 1;
+  }, 50);
+});

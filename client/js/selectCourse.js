@@ -20,7 +20,7 @@ const pageData = document.getElementById("yaya");
 pageData.style.display = "none";
 console.log(yaya);
 const loader = document.getElementById("loader");
-loader.style.display = "block";
+loader.style.display = "flex";
 console.log(loader);
 
 function displayCourses() {
