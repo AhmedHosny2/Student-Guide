@@ -109,6 +109,7 @@
 }
 .location .mosqueImg {
   height: calc(100vh - 55px);
+  width: 100%;
 }
 
 .location .slider .list {
