@@ -7,6 +7,7 @@ const saltRounds = 10;
 const domain = process.env.DOMAIN;
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const {signUpEmailTemp} = require("../utils/emailTemp")
 const sendEmail = async (to, subject, text) => {
   const msg = {
     to,
@@ -82,7 +83,7 @@ exports.signupUser = async (req, res) => {
     sendEmail(
       email,
       "Welcome to The Guide",
-      `Welcome to The Guide, ${userName}! We are excited to have you on board.`
+      signUpEmailTemp,
     );
     console.log("Sign up done");
     res.status(200).json({ message: "User created" });
