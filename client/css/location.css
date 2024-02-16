@@ -99,8 +99,7 @@
 .location .container .card-location .search {
   position: relative;
   width: 100%;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -140,7 +139,7 @@
   box-sizing: border-box;
 }
 .loader::before {
-  content: '';  
+  content: "";
   position: absolute;
   right: 70px;
   bottom: 10px;
@@ -151,7 +150,7 @@
   animation: animloader1 1s linear infinite alternate;
 }
 .loader::after {
-  content: '';  
+  content: "";
   width: 10px;
   height: 10px;
   position: absolute;
@@ -165,28 +164,28 @@
 
 @keyframes animloader {
   0% {
-    transform: translate(0px, 0px) ;
+    transform: translate(0px, 0px);
   }
   14% {
     transform: translate(-12px, -16px) (1.05);
   }
   28% {
-    transform: translate(-27px, -28px) ;
+    transform: translate(-27px, -28px);
   }
   42% {
-    transform: translate(-46px, -35px) ;
+    transform: translate(-46px, -35px);
   }
   57% {
-    transform: translate(-70px, -37px) ;
+    transform: translate(-70px, -37px);
   }
   71% {
-    transform: translate(-94px, -32px) ;
+    transform: translate(-94px, -32px);
   }
   85% {
-    transform: translate(-111px, -22px) ;
+    transform: translate(-111px, -22px);
   }
   100% {
-    transform: translate(-125px, -9px) ;
+    transform: translate(-125px, -9px);
   }
 }
 
@@ -194,7 +193,8 @@
   0% {
     box-shadow: 0 -6px, -122.9px -8px;
   }
-  25%, 75% {
+  25%,
+  75% {
     box-shadow: 0 0px, -122.9px -8px;
   }
   100% {
@@ -217,7 +217,38 @@
 
 .location .container .card-location .card {
   justify-content: space-between;
-  align-items: center;
+  gap: 10px;
+}
+
+.location .container .card-location .card .card-title {
+  color: #576cbc;
+  /* margin-bottom: 2rem; */
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin: 6px 0;
+}
+.location .container .card-location .card .card-subtitle {
+  color: black;
+  font-size: clamp(0.5rem, 5vw, 1rem);
+  font-weight: 700;
+  margin: 0;
+}
+.location .container .card-location .card-wrap .card .card-head {
+  margin: 1rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* height: 10rem; */
+
+  justify-content: space-between;
+}
+
+.location .container .card-location .card-wrap .card .card-status {
+  position: relative;
+  font-size: clamp(0.5rem, 5vw, 0.9rem);
+  color: #c68e17;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  border-radius: 0 0 0 0.5rem;
 }
 
 .location .container .card-location .card img {
@@ -228,4 +259,16 @@
   color: gray;
   font-weight: 400;
   font-size: 18px;
+}
+
+.location .container .card-location .card .contactBtn {
+  color: white;
+  font-weight: 700;
+  border-radius: 40px;
+  background: #576cbc;
+  padding: 15px 15px;
+  margin: 0 0.5rem 1rem 0;
+  border: 0px;
+  cursor: pointer;
+  float: right;
 }

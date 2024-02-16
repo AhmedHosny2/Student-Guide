@@ -6,7 +6,7 @@ loader.style.display = "flex";
 
 
 const cardsData = {
-  "cms downloader": [
+  "CMS Downloader": [
     "https://github.com/AhmedAshrafAZ/cms-downloader",
     "Automate Your Downloads Effortlessly! Fetch, Create Folders, and Download All Your CMS Content with Ease!",
   ],
