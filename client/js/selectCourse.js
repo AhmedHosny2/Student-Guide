@@ -31,7 +31,6 @@ function displayCourses() {
     selectedCourses.forEach((course, index) => {
       //create course card
       loader.style.display = "none";
-      loader.remove();
       pageData.style.display = "grid";
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
