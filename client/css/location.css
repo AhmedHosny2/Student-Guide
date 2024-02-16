@@ -237,7 +237,7 @@
   margin: 0;
 }
 .location .container .card-location .card-wrap .card .card-head {
-  margin: 1.5rem 0;
+  margin: 1.6rem 0;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -252,7 +252,7 @@
   color: #c68e17;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
-  bottom: 3.7rem;
+  bottom: 3.6rem;
   border-radius: 0 0 0 0.5rem;
 }
 
