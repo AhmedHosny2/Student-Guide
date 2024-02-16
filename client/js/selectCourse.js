@@ -19,7 +19,7 @@ const courseList = document.getElementById("course-list");
 const pageData = document.getElementById("yaya");
 pageData.style.display = "none";
 
-const loader = document.getElementById("loader");
+const loader = document.getElementById("loaderDiv");
 loader.style.display = "flex";
 
 function displayCourses() {
@@ -30,7 +30,8 @@ function displayCourses() {
   if (selectedCourses) {
     selectedCourses.forEach((course, index) => {
       //create course card
-      // loader.style.display = "none";
+      loader.style.display = "none";
+      loader.remove();
       pageData.style.display = "grid";
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
