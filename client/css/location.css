@@ -1,3 +1,6 @@
+.location {
+  margin: 0 0 150px 0;
+}
 .location .container .txt h2 {
   position: relative;
   color: var(--third-color);
