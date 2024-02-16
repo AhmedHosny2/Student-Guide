@@ -4,16 +4,15 @@ let arr = [];
 // const pageData = document.getElementById("yaya");
 // pageData.style.display = "none";
 const loader = document.getElementById("loader");
-var searchInput = document.querySelector('#searchBar');
-var searchText = document.querySelector('.search-text');
+var searchInput = document.querySelector("#searchBar");
+var searchText = document.querySelector(".search-text");
 
 // Hide the search bar tools
-searchInput.style.display = 'none';
-searchText.style.display = 'none';
+searchInput.style.display = "none";
+searchText.style.display = "none";
 loader.style.display = "block";
-const  loadingDiv = document.getElementById("loadingDiv");
+const loadingDiv = document.getElementById("loadingDiv");
 function fetchTAData() {
- 
   fetch(taURL + "/getTaCourses", {
     method: "GET",
     headers: {
@@ -32,8 +31,8 @@ function fetchTAData() {
       loader.style.display = "none";
       // searchBarDiv.style.display = "block";
       loadingDiv.style.display = "none";
-      searchText.style.display = 'block';
-      searchInput.style.display = 'block';
+      searchText.style.display = "block";
+      searchInput.style.display = "block";
       // loader.style.display = "none";
       // pageData.style.display = "grid";
       generateTACards(data);
