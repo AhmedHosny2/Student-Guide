@@ -18,10 +18,9 @@ const courseList = document.getElementById("course-list");
 
 const pageData = document.getElementById("yaya");
 pageData.style.display = "none";
-console.log(yaya);
+
 const loader = document.getElementById("loader");
 loader.style.display = "flex";
-console.log(loader);
 
 function displayCourses() {
   const selectedSemester = semesterSelect.value;
@@ -31,7 +30,7 @@ function displayCourses() {
   if (selectedCourses) {
     selectedCourses.forEach((course, index) => {
       //create course card
-      loader.style.display = "none";
+      // loader.style.display = "none";
       pageData.style.display = "grid";
       const courseCard = document.createElement("div");
       courseCard.className = "course-card";
@@ -48,7 +47,11 @@ function displayCourses() {
 
       courseCard.addEventListener("click", async function () {
         try {
+          const loaderDiv = document.getElementById("loaderDiv");
+          loaderDiv.style.display = "block";
+          pageData.style.display = "none";
           const apiUrl = `${coursesURL}/${course}`;
+          console.log(apiUrl);
           fetch(apiUrl, {
             method: "GET",
             headers: {
@@ -65,6 +68,8 @@ function displayCourses() {
               return response.json();
             })
             .then((data) => {
+              loaderDiv.style.display = "none";
+
               loader.style.display = "none";
               pageData.style.display = "grid";
               localStorage.setItem("courseData", data.content);

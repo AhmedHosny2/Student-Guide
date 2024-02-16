@@ -4,16 +4,15 @@ let arr = [];
 // const pageData = document.getElementById("yaya");
 // pageData.style.display = "none";
 const loader = document.getElementById("loader");
-var searchInput = document.querySelector('#searchBar');
-var searchText = document.querySelector('.search-text');
+var searchInput = document.querySelector("#searchBar");
+var searchText = document.querySelector(".search-text");
 
 // Hide the search bar tools
-searchInput.style.display = 'none';
-searchText.style.display = 'none';
+searchInput.style.display = "none";
+searchText.style.display = "none";
 loader.style.display = "block";
-const  loadingDiv = document.getElementById("loadingDiv");
+const loadingDiv = document.getElementById("loadingDiv");
 function fetchTAData() {
- 
   fetch(taURL + "/getTaCourses", {
     method: "GET",
     headers: {
