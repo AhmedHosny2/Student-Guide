@@ -89,6 +89,10 @@
   .location .slider {
     height: 400px;
   }
+  .location .container {
+    padding-left: 32px;
+    padding-right: 35px;
+  }
 }
 
 .location .container .card-location .search {
@@ -248,7 +252,7 @@
   color: #c68e17;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
-  bottom:3.7rem;
+  bottom: 3.7rem;
   border-radius: 0 0 0 0.5rem;
 }
 
