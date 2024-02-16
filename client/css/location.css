@@ -184,6 +184,10 @@
   .location .slider {
     height: 400px;
   }
+  .location .container {
+    padding-left: 32px;
+    padding-right: 35px;
+  }
 }
 
 .location .container .card-location .search {
@@ -336,7 +340,7 @@
   margin: 0;
 }
 .location .container .card-location .card-wrap .card .card-head {
-  margin: 1.5rem 0;
+  margin: 1.6rem 0;
   position: relative;
   display: flex;
   flex-direction: column;
