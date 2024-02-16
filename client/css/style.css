@@ -127,8 +127,7 @@ html {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
@@ -428,4 +427,32 @@ html {
   background-color: var(--secondary-color);
   color: var(--fourth-color);
   text-transform: capitalize;
+}
+.success-alert,
+.error-alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.success-alert {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.error-alert {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.alert-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }

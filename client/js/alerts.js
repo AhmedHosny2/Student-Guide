@@ -1,59 +1,20 @@
-function animateAlert(message, duration) {
-  const alertDiv = document.createElement("div");
-  alertDiv.textContent = message;
-  alertDiv.style.position = "fixed";
-  alertDiv.style.top = "10px";
-  alertDiv.style.left = "50%";
-  alertDiv.style.transform = "translateX(-50%)";
-  alertDiv.style.backgroundColor = "lightgreen"; // Green background
-  alertDiv.style.color = "green"; // Green text color
-  alertDiv.style.padding = "10px";
-  alertDiv.style.border = "1px solid #008000"; // Green border
-  alertDiv.style.borderRadius = "5px";
-  alertDiv.style.textAlign = "center";
-  alertDiv.style.opacity = 0;
-  alertDiv.style.transition = "opacity 0.5s ease-in-out";
-
-  document.body.appendChild(alertDiv);
-
+export function showSuccessAlert(message) {
+  console.log(message);
+  var successAlert = document.createElement("div");
+  successAlert.className = "success-alert";
+  successAlert.innerHTML = "<strong>Success:</strong> " + message;
+  document.body.appendChild(successAlert);
   setTimeout(function () {
-    alertDiv.style.opacity = 1;
-  }, 10); // Delay for a smooth appearance
-
-  setTimeout(function () {
-    alertDiv.style.opacity = 0;
-    setTimeout(function () {
-      document.body.removeChild(alertDiv);
-    }, 500); // Remove the alert after the fade-out animation
-  }, duration);
+    document.body.removeChild(successAlert);
+  }, 10000); // Hide after 2 seconds
 }
 
-function animateFailureAlert(message, duration) {
-  const alertDiv = document.createElement("div");
-  alertDiv.textContent = message;
-  alertDiv.style.position = "fixed";
-  alertDiv.style.top = "10px";
-  alertDiv.style.left = "50%";
-  alertDiv.style.transform = "translateX(-50%)";
-  alertDiv.style.backgroundColor = "lightcoral"; // Red background
-  alertDiv.style.color = "red"; // Red text color
-  alertDiv.style.padding = "10px";
-  alertDiv.style.border = "1px solid #FF0000"; // Red border
-  alertDiv.style.borderRadius = "5px";
-  alertDiv.style.textAlign = "center";
-  alertDiv.style.opacity = 0;
-  alertDiv.style.transition = "opacity 0.5s ease-in-out";
-
-  document.body.appendChild(alertDiv);
-
+export function showErrorAlert(message) {
+  var errorAlert = document.createElement("div");
+  errorAlert.className = "error-alert";
+  errorAlert.innerHTML = "<strong>Error:</strong> " + message;
+  document.body.appendChild(errorAlert);
   setTimeout(function () {
-    alertDiv.style.opacity = 1;
-  }, 10); // Delay for a smooth appearance
-
-  setTimeout(function () {
-    alertDiv.style.opacity = 0;
-    setTimeout(function () {
-      document.body.removeChild(alertDiv);
-    }, 500); // Remove the alert after the fade-out animation
-  }, duration);
+    document.body.removeChild(errorAlert);
+  }, 2000); // Hide after 2 seconds
 }
