@@ -22,7 +22,7 @@
   box-sizing: border-box;
 }
 .loader::before {
-  content: '';  
+  content: "";
   position: absolute;
   right: 70px;
   bottom: 10px;
@@ -33,7 +33,7 @@
   animation: animloader1 1s linear infinite alternate;
 }
 .loader::after {
-  content: '';  
+  content: "";
   width: 10px;
   height: 10px;
   position: absolute;
@@ -47,28 +47,28 @@
 
 @keyframes animloader {
   0% {
-    transform: translate(0px, 0px) ;
+    transform: translate(0px, 0px);
   }
   14% {
     transform: translate(-12px, -16px) (1.05);
   }
   28% {
-    transform: translate(-27px, -28px) ;
+    transform: translate(-27px, -28px);
   }
   42% {
-    transform: translate(-46px, -35px) ;
+    transform: translate(-46px, -35px);
   }
   57% {
-    transform: translate(-70px, -37px) ;
+    transform: translate(-70px, -37px);
   }
   71% {
-    transform: translate(-94px, -32px) ;
+    transform: translate(-94px, -32px);
   }
   85% {
-    transform: translate(-111px, -22px) ;
+    transform: translate(-111px, -22px);
   }
   100% {
-    transform: translate(-125px, -9px) ;
+    transform: translate(-125px, -9px);
   }
 }
 
@@ -76,7 +76,8 @@
   0% {
     box-shadow: 0 -6px, -122.9px -8px;
   }
-  25%, 75% {
+  25%,
+  75% {
     box-shadow: 0 0px, -122.9px -8px;
   }
   100% {
@@ -158,8 +159,7 @@
 /* start table */
 .location .container .tableSelect {
   border: 0;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -178,11 +178,12 @@
 
 .location .table-wrapper {
   overflow: auto;
-  margin-bottom: 150px;
+  /* margin-bottom: 150px; */
+  position:relative;
 }
 
 .location .table-wrapper table tbody {
-  background-color: white;
+  background-color: red;
   padding: 20px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -191,11 +192,16 @@
   -o-border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
+.location .table-wrapper table {
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 .location .table-wrapper table tbody td {
   padding: 20px;
-  box-shadow:
-    rgb(204, 219, 232) 3px 3px 6px 0px inset,
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 .location .table-wrapper table tbody td strong {
