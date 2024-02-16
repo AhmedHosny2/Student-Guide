@@ -1,12 +1,19 @@
 import { taURL } from "../utils/env.js";
 
 let arr = [];
+// const pageData = document.getElementById("yaya");
+// pageData.style.display = "none";
+const loader = document.getElementById("loader");
+var searchInput = document.querySelector('#searchBar');
+var searchText = document.querySelector('.search-text');
 
+// Hide the search bar tools
+searchInput.style.display = 'none';
+searchText.style.display = 'none';
+loader.style.display = "block";
+const  loadingDiv = document.getElementById("loadingDiv");
 function fetchTAData() {
-  const pageData = document.getElementById("yaya");
-  pageData.style.display = "none";
-  const loader = document.getElementById("loader");
-  loader.style.display = "block";
+ 
   fetch(taURL + "/getTaCourses", {
     method: "GET",
     headers: {
@@ -17,14 +24,18 @@ function fetchTAData() {
     .then((response) => {
       if (!response.ok) {
         loader.style.display = "none";
-        pageData.style.display = "grid";
         throw new Error("Network response was not ok");
       }
       return response.json();
     })
     .then((data) => {
       loader.style.display = "none";
-      pageData.style.display = "grid";
+      // searchBarDiv.style.display = "block";
+      loadingDiv.style.display = "none";
+      searchText.style.display = 'block';
+      searchInput.style.display = 'block';
+      // loader.style.display = "none";
+      // pageData.style.display = "grid";
       generateTACards(data);
     })
     .catch((error) => {

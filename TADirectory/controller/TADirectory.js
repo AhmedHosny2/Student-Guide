@@ -1,3 +1,4 @@
+const { set } = require("mongoose");
 const { TaModel } = require("../model/TADirectory");
 const { TaCourseModel } = require("../model/TADirectory");
 let TAs = [];
@@ -5,6 +6,7 @@ let TACourses = [];
 
 exports.getAllTas = async (req, res) => {
   try {
+   
     if (TAs.length > 0) {
       return res.status(200).json(TAs);
     }
@@ -48,6 +50,7 @@ exports.addTa = async (req, res) => {
 
 exports.getTaCourses = async (req, res) => {
   try {
+
     if (TACourses.length > 0) {
       return res.status(200).json(TACourses);
     }
