@@ -68,4 +68,17 @@ sliderFunction(
   poolPrev,
   poolDots
 );
+const arr = document.querySelectorAll(".card");
+console.log(arr);
 
+const searchBar = document.getElementById("search");
+searchBar.addEventListener("input", (e) => {
+  const searchValue = e.target.value.toLowerCase();
+  arr.forEach((card) => {
+    const cardTitle = card.querySelector(".container .card-location .card-wrap .card .card-head .card-title").textContent.toLowerCase();
+    console.log("course name :"+cardTitle);
+    const isVisible = cardTitle.includes(searchValue);
+
+    card.classList.toggle("hide", !isVisible);
+  });
+});

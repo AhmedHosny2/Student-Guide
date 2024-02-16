@@ -243,6 +243,7 @@
   letter-spacing: 3.3px;
   box-sizing: border-box;
 }
+
 .loader::before {
   content: "";
   position: absolute;
@@ -266,6 +267,7 @@
   box-sizing: border-box;
   animation: animloader 1s linear infinite alternate;
 }
+
 
 @keyframes animloader {
   0% {
@@ -330,7 +332,10 @@
   justify-content: space-between;
   gap: 10px;
 }
+.location .container .card-location .card.hide {
+display: none;
 
+}
 .location .container .card-location .card .card-title {
   color: #576cbc;
   /* margin-bottom: 2rem; */
