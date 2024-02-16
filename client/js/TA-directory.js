@@ -32,8 +32,8 @@ function fetchTAData() {
       loader.style.display = "none";
       // searchBarDiv.style.display = "block";
       loadingDiv.style.display = "none";
-      searchText.style.display = 'block';
-      searchInput.style.display = 'block';
+      searchText.style.display = '';
+      searchInput.style.display = '';
       // loader.style.display = "none";
       // pageData.style.display = "grid";
       generateTACards(data);
