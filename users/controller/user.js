@@ -7,7 +7,7 @@ const saltRounds = 10;
 const domain = process.env.DOMAIN;
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const {signUpEmailTemp} = require("../utils/emailTemp")
+const { signUpEmailTemp } = require("../utils/emailTemp");
 const sendEmail = async (to, subject, text) => {
   const msg = {
     to,
@@ -69,7 +69,9 @@ exports.signupUser = async (req, res) => {
       return res.status(401).json({ message: "Email should be a GIU email" });
     }
     if (checkEmail || checkuserName) {
-      return res.status(402).json({ message: "Choose another User name or Email" });
+      return res
+        .status(402)
+        .json({ message: "Choose another User name or Email" });
     }
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -80,11 +82,7 @@ exports.signupUser = async (req, res) => {
       semester,
     });
     // send welcome email
-    sendEmail(
-      email,
-      "Welcome to The Guide",
-      signUpEmailTemp,
-    );
+    sendEmail(email, "Welcome to The Guide", signUpEmailTemp);
     console.log("Sign up done");
     res.status(200).json({ message: "User created" });
   } catch (err) {
@@ -204,6 +202,10 @@ exports.sendOTP = async (req, res) => {
   let email = req.body.userEmail;
   email = email.toLowerCase();
   const user = await userModel.findOne({ email });
+  console.log(user.OTP);
+  if (user.OTP) {
+    return res.status(200).json({ message: "OTP already sent" });
+  }
 
   const randomOTP = generateOTP();
   await sendEmail(
