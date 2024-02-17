@@ -1,3 +1,4 @@
+import { tost } from "./Toastify";
 document.addEventListener("DOMContentLoaded", function () {
   const pageData = document.getElementById("yaya");
   pageData.style.display = "none";
@@ -227,6 +228,44 @@ document.addEventListener("DOMContentLoaded", function () {
       totalCreditHours += subjects[i].creditHours;
     }
     const result = totalCreditHoursWithGrades / totalCreditHours;
-    alert(`GPA: ${result.toFixed(4)}`);
+    const grade = result.toFixed(4);
+    let letterGrade;
+    if(grade < 1){
+      letterGrade = "A+";
+    }
+    else if(grade < 1.3){
+      letterGrade = "A";
+    }
+    else if(grade < 1.7){
+      letterGrade = "A-";
+    }
+    else if(grade < 2){
+      letterGrade = "B+";
+    }
+    else if(grade < 2.3){
+      letterGrade = "B";
+    }
+    else if(grade < 2.7){
+      letterGrade = "B-";
+    }
+    else if(grade < 3){
+      letterGrade = "C+";
+    }
+    else if(grade < 3.3){
+      letterGrade = "C";
+    }
+    else if(grade < 3.7){
+      letterGrade = "C-";
+    }
+    else if(grade < 4){
+      letterGrade = "D+";
+    }
+    else if(grade < 4.3){
+      letterGrade = "D";
+    }
+    else if(grade < 5){
+      letterGrade = "F";
+    }
+    tost(`Your GPA is: ${grade}  which is  ${letterGrade}`, "success", 6000);
   });
 });

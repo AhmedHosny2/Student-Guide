@@ -1,5 +1,5 @@
 import { taURL } from "../utils/env.js";
-
+import { tost } from "./Toastify.js";
 let arr = [];
 // const pageData = document.getElementById("yaya");
 // pageData.style.display = "none";
@@ -69,10 +69,10 @@ function generateTACards(taData) {
       })
         .then((response) => {
           if (!response.ok) {
-            alert("TA not found");
+            tost("Something went wrong please infrom the Admin!", "error", 3000);
             throw new Error("Network response was not ok");
           }
-          alert("TA deleted");
+         tost("TA deleted successfully!", "success", 3000);
           location.reload();
           return response.json();
         })

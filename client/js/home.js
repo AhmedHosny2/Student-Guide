@@ -6,13 +6,6 @@ const arrOfGreetings = [
   "Ciao Mondo!",
   "!مرحبا بالعالم",
 ];
-import { showErrorAlert, showSuccessAlert } from "./alerts.js";
-showSuccessAlert("Welcome to our website");
-var successAlert = document.createElement("div");
-successAlert.className = "success-alert";
-successAlert.innerHTML = "<strong>Success:</strong> " + "message";
-document.body.appendChild(successAlert);
-// document.body.removeChild(successAlert);
 
 const greeting = document.getElementById("greeting");
 const h1 = document.createElement("h1");

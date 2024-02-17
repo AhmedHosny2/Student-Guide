@@ -1,6 +1,7 @@
 import { userURL, clientURL } from "../utils/env.js";
-const loginForm = document.querySelector(".login-form");
+import { tost } from "./Toastify.js";
 
+const loginForm = document.querySelector(".login-form");
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(loginForm);
@@ -39,7 +40,7 @@ loginForm.addEventListener("submit", (e) => {
       data = JSON.parse(data);
       localStorage.setItem("userEmail", data.email);
       if (status === 207) {
-        alert("verfiy your email first!");
+       tost("Please verify your email! check inbox and junk emails", "info", 7000);
         window.location.href = "../html/verfiyEmail.html";
         return;
       }

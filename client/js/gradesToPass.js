@@ -1,4 +1,5 @@
-window.onload = function() {
+import { tost } from "./Toastify.js";
+window.onload = function () {
   const loadingScreen = document.getElementById("loader");
   loadingScreen.style.display = "none";
 };
@@ -73,8 +74,8 @@ calculateButton.addEventListener("click", function () {
     let weightNUm = weightInput.value.includes("%")
       ? weightInput.value.slice(0, -1)
       : weightInput.value.includes("0.")
-        ? weightInput.value * 100
-        : weightInput.value;
+      ? weightInput.value * 100
+      : weightInput.value;
     const weight = parseFloat(weightNUm) / 100; // converting percentage to decimal
 
     // Calculate weighted grade
@@ -83,7 +84,21 @@ calculateButton.addEventListener("click", function () {
     // Add to total
     totalWeightedGrade += weightedGrade;
   });
-  const toPass = Math.max(.6 - totalWeightedGrade, 0);
-  // Alert the result
-  alert("Your total weighted grade is: " + totalWeightedGrade.toFixed(4) + `\n you need ${toPass.toFixed(3)} to pass`); // Round to 2 decimal places
+  const toPass = Math.max(0.5 - totalWeightedGrade, 0);
+  if (toPass == 0)
+    tost(
+      `Your total weighted grade is: ${
+        totalWeightedGrade.toFixed(4) * 100
+      }%  you have passed`,
+      "success",
+      6000
+    );
+  else
+    tost(
+      `Your total  grade is: ${
+        totalWeightedGrade.toFixed(4) * 100
+      }%  you need ${toPass.toFixed(3) * 100}% to pass`,
+      "info",
+      6000
+    );
 });

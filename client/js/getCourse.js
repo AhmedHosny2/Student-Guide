@@ -1,4 +1,4 @@
-//start text editing
+import { tost } from "./Toastify.js";
 window.addEventListener("load", function () {
   const loadingScreen = document.getElementById("loader");
   loadingScreen.style.display = "none";
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Event listener for the button click
   submit.addEventListener("click", function () {
     if (myEditor.getData() < localStorage.getItem("courseData").length * 0.7) {
-      alert("You have to write at least 70% of the content");
+      tost("Please add more content", "error", 3000);
       return;
     }
     updateCourse();

@@ -1,7 +1,9 @@
 import { userURL } from "../utils/env.js";
+import { tost } from "./Toastify.js";
 const submitButton = document.getElementById("OTPBtn");
 const OTPInput = document.getElementById("OTP");
 const userEmail = localStorage.getItem("userEmail");
+
 fetch(userURL + "/sendOTP", {
   method: "POST",
   headers: {
@@ -16,8 +18,7 @@ fetch(userURL + "/sendOTP", {
     }
     return response.json();
   })
-  .then((data) => { 
-  })
+  .then((data) => {})
   .catch((error) => {
     console.error("Fetch error:", error);
   });
@@ -30,14 +31,14 @@ submitButton.addEventListener("click", function () {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    body: JSON.stringify({ OTP , userEmail }),
+    body: JSON.stringify({ OTP, userEmail }),
   })
     .then((response) => {
       if (!response.ok) {
-        alert("Invalid OTP");
+        tost("Invalid OTP check your inbox/ junk emails ", "error", 3000);
         throw new Error("Network response was not ok");
       }
-      alert("Email verified");
+      tost("Email verified successfully!", "success", 3000);
       window.location.href = "../index.html";
       return response.json();
     })
@@ -45,5 +46,3 @@ submitButton.addEventListener("click", function () {
       console.error("Fetch error:", error);
     });
 });
-const inputs = document.getElementById("inputs");
- 

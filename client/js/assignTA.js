@@ -1,3 +1,4 @@
+import {tost} from "./Toastify.js"
 let taEmails = [];
 import { taURL } from "../utils/env.js";
 fetch(taURL + "/getTAs", {
@@ -150,19 +151,18 @@ TAFrom.addEventListener("submit", function (event) {
     })
       .then((response) => {
         if (!response.ok) {
-          alert("1 Something went wrong please infrom the Admin!", 3000);
+          tost("Something went wrong please infrom the Admin!", "error", 3000);
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
       .then((data) => {
-        alert("TA added successfully!", 3000);
+        tost("TA added successfully!", "success", 3000);
         TAFrom.reset();
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
-        alert("Something went wrong please infrom the Admin!", 3000);
-
+        tost("Something went wrong please infrom the Admin!", "error", 3000);
         console.error("Fetch error:", error);
       });
   } catch (err) {
