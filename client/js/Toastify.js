@@ -16,6 +16,8 @@ const tost = (message, type, duration) => {
         duration,
         position: "center", // `left`, `center` or `right`
         // stopOnFocus: true, // Prevents dismissing of toast on hover
+        // cloase
+        close: true,
         style: {
             background: background,
         },
