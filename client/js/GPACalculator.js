@@ -1,11 +1,9 @@
-import { tost } from "./Toastify";
+import { tost } from "./Toastify.js";
 document.addEventListener("DOMContentLoaded", function () {
   const pageData = document.getElementById("yaya");
   pageData.style.display = "none";
-  console.log(yaya);
   const loader = document.getElementById("loader");
   loader.style.display = "block";
-  console.log(loader);
   const subjects = [
     { id: 1, name: "Math", creditHours: 8, semester: 1 },
     { id: 2, name: "Physics", creditHours: 5, semester: 1 },
