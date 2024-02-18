@@ -168,6 +168,7 @@ exports.loginUser = async (req, res) => {
 exports.getUser = async (req, res) => {
   let email = getCookies(req).email;
   email = email.toLowerCase();
+  email = email.toString();
   const user = await userModel.findOne({ email });
 
   if (!user) {
@@ -190,7 +191,9 @@ exports.logoutUser = async (req, res) => {
 };
 
 exports.updateUserPoints = async (req, res) => {
-  const { userEmail, points } = req.body;
+  let  { userEmail, points } = req.body;
+  userEmail = userEmail.toString();
+  points = parseInt(points);
   const curUser = await userModel.findOne({ email: userEmail });
   const newPoints = curUser.contributionPoints + points;
   console.log(newPoints);
@@ -205,6 +208,7 @@ exports.updateUserPoints = async (req, res) => {
 exports.sendOTP = async (req, res) => {
   let email = req.body.userEmail;
   email = email.toLowerCase();
+  email = email.toString();
   const user = await userModel.findOne({ email });
 let randomOTP;
   if (user.OTP) {
@@ -233,6 +237,7 @@ exports.verifyOTP = async (req, res) => {
   let { OTP } = req.body;
   let email = req.body.userEmail.toString();
   OTP = OTP.toString();
+  
   const user = await userModel.findOne({ email });
   if (user.OTP === OTP) {
     user.verifyed = true;
