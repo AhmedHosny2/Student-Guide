@@ -7,7 +7,7 @@ const saltRounds = 10;
 const domain = process.env.DOMAIN;
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const { signUpEmailTemp } = require("../utils/emailTemp");
+const {} = require("../utils/emailTemp");
 const sendEmail = async (to, subject, text) => {
   const msg = {
     to,
@@ -81,8 +81,12 @@ exports.signupUser = async (req, res) => {
       password: hashedPassword,
       semester,
     });
+    const randomOTP = generateOTP();
+
+    user.OTP = randomOTP;
+    await user.save();
     // send welcome email
-    sendEmail(email, "Welcome to The Guide", signUpEmailTemp);
+    sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
     console.log("Sign up done");
     res.status(200).json({ message: "User created" });
   } catch (err) {
@@ -204,8 +208,13 @@ exports.sendOTP = async (req, res) => {
   const user = await userModel.findOne({ email });
   console.log(user.OTP);
   if (user.OTP) {
-    return res.status(200).json({ message: "OTP already sent" });
+    user.OTPTiral += 1;
+    await user.save();
   }
+if(user.OTPTiral>4){
+  res.status(400).json({ message: "You have reached the maximum number of OTP trials" });
+  return;
+}
 
   const randomOTP = generateOTP();
   await sendEmail(

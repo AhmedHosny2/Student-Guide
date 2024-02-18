@@ -35,6 +35,10 @@ const userSchema = new Schema(
     OTP: {
       type: String,
     },
+    OTPTiral: {
+      type: Number,
+      default: 0,
+    },
     token: { type: String },
   },
   {
