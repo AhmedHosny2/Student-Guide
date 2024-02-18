@@ -47,9 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((data) => {
+        tost("Please verify your email! check inbox and junk emails", "info", 5000);
         localStorage.setItem("userEmail", formDataObject.email);
 
-        window.location.href = "../html/verfiyEmail.html";
+        setTimeout(() => {
+          window.location.href = "../html/verfiyEmail.html";
+        }, 5000);
+
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
