@@ -4,8 +4,8 @@ let arr = [];
 // const pageData = document.getElementById("yaya");
 // pageData.style.display = "none";
 const loader = document.getElementById("loader");
-var searchInput = document.querySelector("#searchBar");
-var searchText = document.querySelector(".search-text");
+let searchInput = document.querySelector("#searchBar");
+let searchText = document.querySelector(".search-text");
 
 // Hide the search bar tools
 searchInput.style.display = "none";

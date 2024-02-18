@@ -7,7 +7,7 @@ const saltRounds = 10;
 const domain = process.env.DOMAIN;
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const {} = require("../utils/emailTemp");
+const { signUpEmailTemp } = require("../utils/emailTemp");
 const sendEmail = async (to, subject, text) => {
   const msg = {
     to,
