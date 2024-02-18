@@ -191,7 +191,7 @@ exports.logoutUser = async (req, res) => {
 };
 
 exports.updateUserPoints = async (req, res) => {
-  let  { userEmail, points } = req.body;
+  let { userEmail, points } = req.body;
   userEmail = userEmail.toString();
   points = parseInt(points);
   const curUser = await userModel.findOne({ email: userEmail });
@@ -210,7 +210,7 @@ exports.sendOTP = async (req, res) => {
   email = email.toLowerCase();
   email = email.toString();
   const user = await userModel.findOne({ email });
-let randomOTP;
+  let randomOTP;
   if (user.OTP) {
     user.OTPTiral += 1;
     randomOTP = user.OTP;
@@ -222,8 +222,7 @@ let randomOTP;
       .json({ message: "You have reached the maximum number of OTP trials" });
     return;
   }
-if(!randomOTP)
-   randomOTP = generateOTP();
+  if (!randomOTP) randomOTP = generateOTP();
   await sendEmail(
     email,
     "OTP for email verification",
@@ -237,7 +236,7 @@ exports.verifyOTP = async (req, res) => {
   let { OTP } = req.body;
   let email = req.body.userEmail.toString();
   OTP = OTP.toString();
-  
+
   const user = await userModel.findOne({ email });
   if (user.OTP === OTP) {
     user.verifyed = true;
@@ -245,5 +244,19 @@ exports.verifyOTP = async (req, res) => {
     res.status(200).json({ message: "Email verified" });
   } else {
     res.status(400).json({ message: "OTP is incorrect" });
+  }
+};
+// resend otp for all unverified emails
+const resendOTP = async () => {
+  const users = await userModel.find({ verifyed: false });
+  for (let user of users) {
+    let randomOTP = generateOTP();
+    await sendEmail(
+      user.email,
+      "OTP for email verification",
+      `sorry for what happened today here is Your OTP  ${randomOTP}`
+    );
+    user.OTP = randomOTP;
+    await user.save();
   }
 };
