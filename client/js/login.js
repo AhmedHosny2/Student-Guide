@@ -29,6 +29,7 @@ loginForm.addEventListener("submit", (e) => {
       if (!response.ok) {
         loginLoader.style.display = "none";
         loginBtnTxt.style.display = "block";
+        tost("Invalid email or password", "error", 3000);
         throw new Error("Network response was not ok");
       }
       status = response.status;

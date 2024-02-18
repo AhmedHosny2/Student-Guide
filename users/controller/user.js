@@ -75,7 +75,7 @@ exports.signupUser = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    await userModel.create({
+    const user = await userModel.create({
       userName,
       email: email,
       password: hashedPassword,
@@ -206,17 +206,20 @@ exports.sendOTP = async (req, res) => {
   let email = req.body.userEmail;
   email = email.toLowerCase();
   const user = await userModel.findOne({ email });
-  console.log(user.OTP);
+let randomOTP;
   if (user.OTP) {
     user.OTPTiral += 1;
+    randomOTP = user.OTP;
     await user.save();
   }
-if(user.OTPTiral>4){
-  res.status(400).json({ message: "You have reached the maximum number of OTP trials" });
-  return;
-}
-
-  const randomOTP = generateOTP();
+  if (user.OTPTiral > 2) {
+    res
+      .status(400)
+      .json({ message: "You have reached the maximum number of OTP trials" });
+    return;
+  }
+if(!randomOTP)
+   randomOTP = generateOTP();
   await sendEmail(
     email,
     "OTP for email verification",
