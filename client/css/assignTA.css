@@ -19,7 +19,6 @@
 .taCreation .container form .img {
   display: grid;
   place-content: center;
-  background-color: var(--third-color);
   border-radius: 1.25rem 0 0 1.25rem;
   -webkit-border-radius: 1.25rem 0 0 1.25rem;
   -moz-border-radius: 1.25rem 0 0 1.25rem;
