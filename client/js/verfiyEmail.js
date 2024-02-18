@@ -43,7 +43,7 @@ resendOTPBtn.addEventListener("click", function () {
 });
 
 submitButton.addEventListener("click", function () {
-  const OTP = OTPInput.value;
+  const OTP = OTPInput.value.trim();
   fetch(userURL + "/verifyOTP", {
     method: "PUT",
     headers: {
