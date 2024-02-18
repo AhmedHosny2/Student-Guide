@@ -15,13 +15,12 @@ const {
   testVerifyRole,
   testVerifyToken,
 } = require("../middleware/auth");
-// router.post("/logout", logoutUser);
-
-router.post("/signup",  signupUser);
-router.post("/login",  loginUser);
+const { limiter } = require("../utils/rateLimiter.js");
+router.post("/signup", limiter, signupUser);
+router.post("/login", limiter, loginUser);
 router.put("/updatePoints", updateUserPoints);
-router.post("/sendOTP",  sendOTP);
-router.put("/verifyOTP",  verifyOTP);
+router.post("/sendOTP", limiter, sendOTP);
+router.put("/verifyOTP", limiter, verifyOTP);
 router.use(verifyToken);
 // router.get("/protected-route", testVerifyToken);
 // router.get("/admin-route", verifyRole, testVerifyRole);
