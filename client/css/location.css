@@ -6,8 +6,6 @@
   color: var(--third-color);
   padding: 30px 0;
   margin: 0;
-  margin-bottom: 0px;
-  margin-bottom: 0px;
   margin-bottom: 20px;
 }
 
@@ -203,8 +201,7 @@
 .location .container .card-location .search {
   position: relative;
   width: 100%;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -220,7 +217,6 @@
   border: 0;
   padding: 10px;
   background-color: transparent;
-  padding: 15px;
   width: 100%;
 }
 
@@ -268,7 +264,6 @@
   animation: animloader 1s linear infinite alternate;
 }
 
-
 @keyframes animloader {
   0% {
     transform: translate(0px, 0px);
@@ -298,20 +293,14 @@
 
 @keyframes animloader1 {
   0% {
-    box-shadow:
-      0 -6px,
-      -122.9px -8px;
+    box-shadow: 0 -6px, -122.9px -8px;
   }
   25%,
   75% {
-    box-shadow:
-      0 0px,
-      -122.9px -8px;
+    box-shadow: 0 0px, -122.9px -8px;
   }
   100% {
-    box-shadow:
-      0 0px,
-      -122.9px -16px;
+    box-shadow: 0 0px, -122.9px -16px;
   }
 }
 
@@ -333,8 +322,7 @@
   gap: 10px;
 }
 .location .container .card-location .card.hide {
-display: none;
-
+  display: none;
 }
 .location .container .card-location .card .card-title {
   color: #576cbc;
