@@ -189,7 +189,7 @@ main {
     height: 86vh;
     background-color: #f3f5f8;
     opacity: 1;
-    background: url("../images/background.png") repeat;
+    background-image: url("../images/background.png") repeat;
     animation: bg-scrolling-reverse 0.92s infinite;
     animation-timing-function: linear;
     text-align: center;
