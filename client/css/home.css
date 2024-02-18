@@ -189,8 +189,6 @@ main {
     height: 86vh;
     background-color: #f3f5f8;
     opacity: 1;
-    /* background-image: radial-gradient(#576CBC 1.3px, #f3f5f8 1.3px);
-    background-size: 26px 26px; */
     background: url("../images/background.png") repeat;
     animation: bg-scrolling-reverse 0.92s infinite;
     animation-timing-function: linear;
@@ -318,10 +316,8 @@ main {
 
 .section-global .redir-btn:hover {
   box-shadow: hsla(228, 43%, 54%, 0.4) 5px 5px,
-    hsla(228, 43%, 54%, 0.3) 10px 10px,
-    hsla(228, 43%, 54%, 0.2) 15px 15px,
-    hsla(228, 43%, 54%, 0.1) 20px 20px,
-    hsla(228, 43%, 54%, 0.05) 25px 25px;
+    hsla(228, 43%, 54%, 0.3) 10px 10px, hsla(228, 43%, 54%, 0.2) 15px 15px,
+    hsla(228, 43%, 54%, 0.1) 20px 20px, hsla(228, 43%, 54%, 0.05) 25px 25px;
 }
 
 @media (max-width: 1199px) {
@@ -368,7 +364,7 @@ main {
   animation: up-down 2s infinite ease-in-out;
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .welcome .direct {
     display: none;
   }
