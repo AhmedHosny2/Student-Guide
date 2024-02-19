@@ -29,6 +29,7 @@
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.3",
+    "nodemailer": "^6.9.9",
     "nodemon": "^3.0.1",
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",

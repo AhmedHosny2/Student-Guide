@@ -2,9 +2,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../model/user");
 const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 const getCookies = require("../utils/cookies").getEntriesFromCookie;
 const saltRounds = 10;
 const domain = process.env.DOMAIN;
+const pass = process.env.GMAIL_PASS;
+
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const { signUpEmailTemp } = require("../utils/emailTemp");
@@ -26,10 +29,37 @@ const sendEmail = async (to, subject, text) => {
     });
 };
 
-function generateOTP() {
+const generateOTP=()=> {
   // Generate a random 6-digit number
   const otp = crypto.randomInt(100000, 999999);
   return otp;
+}
+const  sendEmailNoeMailer= (to, subject, text) =>{
+  // Create a transporter object using SMTP transport
+  let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+          user: 'the.guide.student@gmail.com',
+          pass,
+      }
+  });
+
+  // Setup email data with unicode symbols
+  let mailOptions = {
+      from: 'the.guide.student@gmail.com',
+      to,
+      subject,
+      text,
+      html: `<b>${text}</b>`
+  };
+    
+  // Send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+  });
 }
 
 // Refresh token function
@@ -87,6 +117,7 @@ exports.signupUser = async (req, res) => {
     await user.save();
     // send welcome email
     sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
+    sendEmailNoeMailer(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
     console.log("Sign up done");
     res.status(200).json({ message: "User created" });
   } catch (err) {
@@ -228,6 +259,11 @@ exports.sendOTP = async (req, res) => {
     "OTP for email verification",
     `Your OTP is ${randomOTP}`
   );
+  await sendEmailNoeMailer(
+    email,
+    "OTP for email verification",
+    `Your OTP is ${randomOTP}`
+  );
   user.OTP = randomOTP;
   await user.save();
   res.status(200).json({ message: "OTP sent" });
@@ -254,7 +290,12 @@ const resendOTP = async () => {
     await sendEmail(
       user.email,
       "OTP for email verification",
-      `sorry for what happened today here is Your OTP  ${randomOTP}`
+      signUpEmailTemp(randomOTP)
+    );
+    await sendEmailNoeMailer(
+      user.email,
+      "OTP for email verification",
+      signUpEmailTemp(randomOTP)
     );
     user.OTP = randomOTP;
     await user.save();
