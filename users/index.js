@@ -9,7 +9,7 @@ const userRouter = require("./routes/user");
 
 const app = express();
 app.disable("x-powered-by");
-app.set('trust proxy', true);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
