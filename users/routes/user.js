@@ -11,9 +11,6 @@ const {
 } = require("../controller/user");
 const {
   verifyToken,
-  verifyRole,
-  testVerifyRole,
-  testVerifyToken,
 } = require("../middleware/auth");
 const { limiter } = require("../utils/rateLimiter.js");
 router.post("/signup", limiter, signupUser);
@@ -22,8 +19,6 @@ router.put("/updatePoints", updateUserPoints);
 router.post("/sendOTP", limiter, sendOTP);
 router.put("/verifyOTP", limiter, verifyOTP);
 router.use(verifyToken);
-// router.get("/protected-route", testVerifyToken);
-// router.get("/admin-route", verifyRole, testVerifyRole);
 router.post("/logout", logoutUser);
 router.get("/", getUser);
 
