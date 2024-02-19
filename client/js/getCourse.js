@@ -99,26 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
     contentDisplay.innerHTML = editorContent;
   }
 
-  // Event listener for the button click
-  submit.addEventListener("click", function () {
-    if (myEditor.getData() < localStorage.getItem("courseData").length * 0.7) {
-      tost("Please add more content", "error", 3000);
-      return;
-    }
-    updateCourse();
-    displayContent();
-    document.body.classList.toggle("overlay");
-    // textarea.classList.toggle("show");
-    submit.classList.toggle("show");
-    // update the value in the DB
-  });
-});
-const pageData = document.getElementById("yaya");
-pageData.style.display = "none";
-const loader = document.getElementById("loader");
-loader.style.display = "block";
-const loadingDiv = document.getElementById("loadingDiv");
-
 
   const updateCourse = async () => {
     const courseName = localStorage.getItem("courseName");
@@ -139,21 +119,33 @@ const loadingDiv = document.getElementById("loadingDiv");
     })
       .then((response) => {
         if (!response.ok) {
-          loader.style.display = "none";
-          pageData.style.display = "grid";
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
       .then((data) => {
-        loader.style.display = "none";
-        pageData.style.display = "grid";
+        
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
         console.error("Fetch error:", error);
       });
   };
+
+  // Event listener for the button click
+  submit.addEventListener("click", function () {
+    if (myEditor.getData() < localStorage.getItem("courseData").length * 0.7) {
+      tost("Please add more content", "error", 3000);
+      return;
+    }
+    updateCourse();
+    displayContent();
+    document.body.classList.toggle("overlay");
+    // textarea.classList.toggle("show");
+    submit.classList.toggle("show");
+    // update the value in the DB
+  });
+});
 
 
 //add person
