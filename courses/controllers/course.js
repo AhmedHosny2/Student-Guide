@@ -2,7 +2,6 @@ const axios = require("axios");
 const courseModel = require("../model/courseModel");
 const getCookie = require("../utils/cookies").getEntriesFromCookie;
 const userURL = require("../services/BaseURLs").USER_BASE_URL;
-const updateUserPoints = require("../utils/addPoints").updateUserPoints;
 const Courses = new Map();
 exports.addCourse = async (req, res) => {
   let { courseName, courseCode, courseCredits, semester, content } = req.body;
@@ -26,7 +25,6 @@ exports.addCourse = async (req, res) => {
       content,
       contributors: [email],
     });
-    updateUserPoints(email, 30);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal server error" });
@@ -58,6 +56,7 @@ exports.getCourse = async (req, res) => {
 exports.updateCourse = async (req, res) => {
   let { courseName } = req.params;
   let { content } = req.body;
+  let email = getCookie(req).email;
   courseName = courseName.toString();
   content = content.toString();
   try {
@@ -70,6 +69,8 @@ exports.updateCourse = async (req, res) => {
       { content }
     );
     Courses.delete(courseName);
+    // add email to contributors
+      newCourse.contributors.push(email);
     await newCourse.save();
     return res.status(200).json({ message: "course updated" });
   } catch (err) {
