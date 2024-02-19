@@ -247,7 +247,7 @@ exports.sendOTP = async (req, res) => {
     randomOTP = user.OTP;
     await user.save();
   }
-  if (user.OTPTiral > 2) {
+  if (user.OTPTiral > 6) {
     res
       .status(400)
       .json({ message: "You have reached the maximum number of OTP trials" });
