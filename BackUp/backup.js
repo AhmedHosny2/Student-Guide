@@ -29,7 +29,7 @@ const currentDate =
 console.log(currentDate);
 
 // Set the output directory to the current directory
-const outputDirectory = path.join(currentDirectory, "BackUpAt" + currentDate);
+const outputDirectory = `/BackUp/BackUpAt${currentDate}`;
 args.push(`--out=${outputDirectory}`);
 
 // Spawn the mongodump process
