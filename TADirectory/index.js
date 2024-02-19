@@ -6,6 +6,8 @@ require("dotenv").config();
 const db = require("./config/database.js");
 const Router = require("./routes/TADirectory.js");
 const app = express();
+app.disable("x-powered-by");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
