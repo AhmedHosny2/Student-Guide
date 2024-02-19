@@ -7,7 +7,7 @@ const { createFolder } = require("./drive");
 const origin = process.env.DB_CONNECTION;
 
 // Specify the MongoDB URI
-const mongoUri = origin
+const mongoUri = origin;
 const mongoUriRestore = process.env.BACKUP_URI;
 // Get the current directory of the script
 const currentDirectory = __dirname;
@@ -36,8 +36,8 @@ args.push(`--out=${outputDirectory}`);
 // after every 10 seconds
 // schedule.scheduleJob("*/10 * * * * *", () => {
 // at midnight
-schedule.scheduleJob('*/5 * * * *', () => {
-    const mongodumpProcess = spawn(mongodumpCommand, args);
+schedule.scheduleJob("*/5 * * * *", () => {
+  const mongodumpProcess = spawn(mongodumpCommand, args);
 
   // Handle events from the mongodump process
   mongodumpProcess.stdout.on("data", (data) => {
@@ -63,9 +63,7 @@ schedule.scheduleJob('*/5 * * * *', () => {
 
 function restoreBackup(backupData) {
   console.log("restoring backup");
-  const backUpPath = path.join(currentDirectory, "BackUpAt" + backupData);
-  console.log(backUpPath);
-  console.log(mongoUriRestore);
+  const backUpPath = `/BackUp/BackUpAt${backupData}`;
   const mongorestoreCommand = "mongorestore";
   const argsRestore = [
     `--uri=${mongoUriRestore}`,
@@ -92,4 +90,4 @@ function restoreBackup(backupData) {
   });
 }
 const data = "2-6-2024";
-// restoreBackup(data);
+restoreBackup(data);
