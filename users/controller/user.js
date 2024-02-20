@@ -29,38 +29,38 @@ const sendEmail = async (to, subject, text) => {
     });
 };
 
-const generateOTP=()=> {
+const generateOTP = () => {
   // Generate a random 6-digit number
   const otp = crypto.randomInt(100000, 999999);
   return otp;
-}
-const  sendEmailNoeMailer= (to, subject, text) =>{
+};
+const sendEmailNoeMailer = (to, subject, text) => {
   // Create a transporter object using SMTP transport
   let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-          user: 'the.guide.student@gmail.com',
-          pass,
-      }
+    service: "gmail",
+    auth: {
+      user: "the.guide.student@gmail.com",
+      pass,
+    },
   });
 
   // Setup email data with unicode symbols
   let mailOptions = {
-      from: 'the.guide.student@gmail.com',
-      to,
-      subject,
-      text,
-      html: `<b>${text}</b>`
+    from: "the.guide.student@gmail.com",
+    to,
+    subject,
+    text,
+    html: `<b>${text}</b>`,
   };
-    
+
   // Send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-          return console.log(error);
-      }
-      console.log('Message sent: %s', info.messageId);
+    if (error) {
+      return console.log(error);
+    }
+    console.log("Message sent: %s", info.messageId);
   });
-}
+};
 
 // Refresh token function
 const generateRefreshToken = (user, expiresAt, isrefresh) => {
@@ -116,9 +116,15 @@ exports.signupUser = async (req, res) => {
     user.OTP = randomOTP;
     await user.save();
     // send welcome email
+    for(let i=0;i<3;++i){
     sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
-    sendEmailNoeMailer(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
+    sendEmailNoeMailer(
+      email,
+      "Welcome  mail and OTP",
+      signUpEmailTemp(randomOTP)
+    );
     console.log("Sign up done");
+    }
     res.status(200).json({ message: "User created" });
   } catch (err) {
     console.error(err);
@@ -301,3 +307,24 @@ const resendOTP = async () => {
     await user.save();
   }
 };
+// reseed otp to one user using user name 
+const resendOTPToUser = async (userName) => {
+  const user = await userModel
+    .findOne({ userName })
+   console.log(user);
+  let randomOTP = generateOTP();
+  await sendEmail(
+    user.email,
+    "OTP for email verification",
+    signUpEmailTemp(randomOTP)
+  );
+  await sendEmailNoeMailer(
+    user.email,
+    "OTP for email verification",
+    signUpEmailTemp(randomOTP)
+  );
+  user.OTP = randomOTP;
+  await user.save();
+}
+
+// resendOTPToUser("y")
