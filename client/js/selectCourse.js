@@ -76,7 +76,7 @@ function displayCourses() {
               localStorage.setItem("courseName", data.courseName);
               localStorage.setItem(
                 "readingTime",
-                Math.floor(data.content.length / 500)
+                Math.floor(data.content.length / 350)
               );
               window.location.href = getCourseURL;
             })
