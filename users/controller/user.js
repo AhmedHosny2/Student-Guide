@@ -116,15 +116,25 @@ exports.signupUser = async (req, res) => {
     user.OTP = randomOTP;
     await user.save();
     // send welcome email
-    for(let i=0;i<3;++i){
-    sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
+       sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
     sendEmailNoeMailer(
       email,
       "Welcome  mail and OTP",
       signUpEmailTemp(randomOTP)
     );
     console.log("Sign up done");
-    }
+    // here 
+    await sendEmail(
+      email,
+      "OTP for email verification",
+      `Your OTP is ${randomOTP}`
+    );
+    await sendEmailNoeMailer(
+      email,
+      "OTP for email verification",
+      `Your OTP is ${randomOTP}`
+    );
+    console.log("OTP sent");
     res.status(200).json({ message: "User created" });
   } catch (err) {
     console.error(err);
