@@ -47,8 +47,8 @@ function displayCourses() {
 
       courseCard.addEventListener("click", async function () {
         try {
-          const loaderDiv = document.getElementById("loaderDiv");
-          loaderDiv.style.display = "block";
+          const loader = document.getElementById("loader");
+          loader.style.display = "block";
           pageData.style.display = "none";
           const apiUrl = `${coursesURL}/${course}`;
           console.log(apiUrl);
@@ -68,7 +68,7 @@ function displayCourses() {
               return response.json();
             })
             .then((data) => {
-              loaderDiv.style.display = "none";
+              loader.style.display = "none";
 
               loader.style.display = "none";
               pageData.style.display = "grid";
