@@ -19,7 +19,7 @@ const courseList = document.getElementById("course-list");
 const pageData = document.getElementById("yaya");
 pageData.style.display = "none";
 
-const loader = document.getElementById("loaderDiv");
+const loader = document.getElementById("loader");
 loader.style.display = "flex";
 
 function displayCourses() {
