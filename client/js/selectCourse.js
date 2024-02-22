@@ -3,7 +3,7 @@ const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
   2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
   3: ["CPP", "OS", "DSA", "DB", "Math 3"],
-  4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4"],
+  4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4", "Pro tips ✨"],
 };
 
 const courseImages = [
@@ -42,6 +42,10 @@ function displayCourses() {
 
       //add card images
       const cardImg = document.createElement("img");
+      if(course == "Pro tips ✨"){
+        cardImg.src = "../images/pro_tips.svg";
+      }
+      else
       cardImg.src = courseImages[index % courseImages.length];
       courseCard.appendChild(cardImg);
 
