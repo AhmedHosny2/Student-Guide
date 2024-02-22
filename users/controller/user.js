@@ -313,7 +313,7 @@ exports.verifyOTP = async (req, res) => {
 };
 // resend otp for all unverified emails
 const resendOTP = async () => {
-  const users = await userModel.find({ semester: "semester 4", verified: false });
+  const users = await userModel.find({ semester: "semester 4", verifyed: false });
     // console.log(users.length);
   // for(let user of users){
   //   console.log(user.OTP);
@@ -329,7 +329,7 @@ const resendOTP = async () => {
     await sendEmailNoeMailer(
       user.email,
       "OTP for email verification",
-      signUpEmailTemp(randomOTP)
+      `Your OTP is ${randomOTP}`
     );
   }
 };
