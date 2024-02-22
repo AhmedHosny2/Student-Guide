@@ -1,140 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>grade calculator</title>
     <!-- fav icon -->
-    <link rel="icon" type="image/x-icon" href="../images/fav.png">
+    <link rel="icon" type="image/x-icon" href="../images/fav.png" />
     <!-- css files -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/gradeToPass.css">
+    <link rel="stylesheet" href="../css/gradeToPass.css" />
     <!-- normalize-file -->
     <link rel="stylesheet" href="../css/normalize.css" />
     <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <!-- logo font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
     <!-- google icons -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- adding script for text editor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/super-build/ckeditor.js"></script>
     <!-- Tostify  alerts-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    
-</head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="../index.html">
-                    <h4>resource <span>hub</span></h4>
-                </a>
-            </div>
-            <nav class="nav" data-visibility="false">
-                <ul class="links">
-                    <li class="home"><a href="../index.html">home</a></li>
-                    <li><a href="../html/location.html">location</a></li>
-                    <li><a href="../html/TA-directory.html">TA directory</a></li>
-                    <li><a href="../html/selectCourse.html">Courses</a></li>
-                    <li><a href="../html/gradesToPass.html"> grad clac</a></li>
-                    <li><a href="../html/GPACalculator.html">GPA calc</a></li>
-                    <li><a href="../html/groupSchedule.html"> Schedules</a></li>
-                    <li><a href="../html/resource gateway.html"> Key Links</a></li>
-                    <li class="login"><a href="../html/login.html">login</a></li>
-                    <li><a href="" id="logout" class="logout">logout</a></li>
-                </ul>
-            </nav>
-            <div class="avatar">
-                <i class="fa-regular fa-user"></i>
-            </div>
-            <a href="html/login.html" class="login"> login </a>
-            <div class="burger-menu">
-                <span class="top"></span>
-                <span class="mid"></span>
-                <span class="btm"></span>
-            </div>
-            <div class="mobile-nav">
-                <a href="../index.html" class="active">
-                    <i class="fa-solid fa-house"></i>
-                </a>
-                <a href="../html/location.html">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                </a>
-                <a href="../html/TA-directory.html">
-                    <i class="fa-solid fa-person-chalkboard"></i>
-                </a>
-                <a href="../html/selectCourse.html">
-                    <i class="fa-solid fa-book"></i>
-                </a>
-            </div>
+      <div class="container">
+        <div class="logo">
+          <a href="../index.html">
+            <h4>resource <span>hub</span></h4>
+          </a>
         </div>
+        <nav class="nav" data-visibility="false">
+          <ul class="links">
+            <li class="home"><a href="../index.html">home</a></li>
+            <li><a href="../html/location.html">location</a></li>
+            <li><a href="../html/TA-directory.html">TA directory</a></li>
+            <li><a href="../html/selectCourse.html">Courses</a></li>
+            <li><a href="../html/gradesToPass.html"> grad clac</a></li>
+            <li><a href="../html/GPACalculator.html">GPA calc</a></li>
+            <li><a href="../html/groupSchedule.html"> Schedules</a></li>
+            <li><a href="../html/resource gateway.html"> Key Links</a></li>
+            <li class="login"><a href="../html/login.html">login</a></li>
+            <li><a href="" id="logout" class="logout">logout</a></li>
+          </ul>
+        </nav>
+        <div class="avatar">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <a href="html/login.html" class="login"> login </a>
+        <div class="burger-menu">
+          <span class="top"></span>
+          <span class="mid"></span>
+          <span class="btm"></span>
+        </div>
+        <div class="mobile-nav">
+          <a href="../index.html" class="active">
+            <i class="fa-solid fa-house"></i>
+          </a>
+          <a href="../html/location.html">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </a>
+          <a href="../html/TA-directory.html">
+            <i class="fa-solid fa-person-chalkboard"></i>
+          </a>
+          <a href="../html/selectCourse.html">
+            <i class="fa-solid fa-book"></i>
+          </a>
+        </div>
+      </div>
     </header>
-    
-    <div class="gradePass">
-        <div class="container">
-            <div class="txt">
-                <h2>Easy Weighted <span>Grade Calculator</span></h2>
-                <div class="description">
-                    <img src="../images/grade to pass (2).svg" alt="">
-                    <div>
-                        <p><span>hi, I'm vee, and welcome to the Grade Calculator! Let me guide you through
-                                it:</span>
-                            Quickly determine your total weighted grade by providing exam grades, your performance, and
-                            weights. Receive instant
-                            results and discover the minimum grade required to pass. Simplify your academic assessment
-                            with this user-friendly tool.</p>
-                        <ul class="explain">
-                            <li class="tip">
-                                <span>Name (nameInput):</span> Enter the name of the exam or assessment (e.g.,
-                                midterm).Example:
-                                "midterm"
-                            </li>
-                            <li class="tip"><span>Weight (weightInput):</span> Assign a weight to the exam, indicating
-                                its
-                                importance as a percentage.
-                                Example: "30%" signifies 30% of the total grade.</li>
-                            <li class="tip"><span>Exam Grade (examInput):</span> Input the raw score for the exam,
-                                typically out
-                                of
-                                100. Example: "85" if the raw score is 85 out of 100.
-                            </li>
-                            <li class="tip"><span>Your Grade (gradeInput):</span> Input your individual performance
-                                grade for
-                                the
-                                exam. Example: "85" if your achieved grade is 85.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div id="gradesContainer"></div>
-            <div class="buttWrap">
-                <button id="addButton">Add Grade</button>
-                <button id="calculateButton">Calculate</button>
+    <div class="gradePass">
+      <div class="container">
+        <div class="txt">
+          <h2>Easy Weighted <span>Grade Calculator</span></h2>
+          <div class="description">
+            <img src="../images/grade to pass (2).svg" alt="" />
+            <div>
+              <p>
+                <span
+                  >hi, I'm vee, and welcome to the Grade Calculator! Let me
+                  guide you through it:</span
+                >
+                Quickly determine your total weighted grade by providing exam
+                grades, your performance, and weights. Receive instant results
+                and discover the minimum grade required to pass. Simplify your
+                academic assessment with this user-friendly tool.
+              </p>
+              <ul class="explain">
+                <li class="tip">
+                  <span>Name (nameInput):</span> Enter the name of the exam or
+                  assessment (e.g., midterm).Example: "midterm"
+                </li>
+                <li class="tip">
+                  <span>Weight (weightInput):</span> Assign a weight to the
+                  exam, indicating its importance as a percentage. Example:
+                  "30%" signifies 30% of the total grade.
+                </li>
+                <li class="tip">
+                  <span>Exam Grade (examInput):</span> Input the raw score for
+                  the exam, typically out of 100. Example: "85" if the raw score
+                  is 85 out of 100.
+                </li>
+                <li class="tip">
+                  <span>Your Grade (gradeInput):</span> Input your individual
+                  performance grade for the exam. Example: "85" if your achieved
+                  grade is 85.
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
+
+        <div id="gradesContainer"></div>
+        <div class="buttWrap">
+          <button id="addButton">Add Grade</button>
+          <button id="calculateButton">Calculate</button>
+          <button id="whatif">Whatif?!!</button>
+    
+        </div>
+      </div>
     </div>
     <div class="loader-wrapper" id="loader">
-        <span class="loader" >Load&nbsp;ng</span>
-      </div>
+      <span class="loader">Load&nbsp;ng</span>
+    </div>
 
     <script type="module" src="../js/gradesToPass.js"></script>
     <script type="module" src="../js/navbar.js"></script>
-</body>
-
+  </body>
 </html>
