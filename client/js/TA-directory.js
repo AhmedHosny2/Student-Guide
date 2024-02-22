@@ -1,8 +1,7 @@
 import { taURL } from "../utils/env.js";
 import { tost } from "./Toastify.js";
 let arr = [];
-// const pageData = document.getElementById("yaya");
-// pageData.style.display = "none";
+const pageData = document.getElementById("yaya");
 const loader = document.getElementById("loader");
 let searchInput = document.querySelector("#searchBar");
 let searchText = document.querySelector(".search-text");
@@ -10,9 +9,10 @@ let searchText = document.querySelector(".search-text");
 // Hide the search bar tools
 searchInput.style.display = "none";
 searchText.style.display = "none";
-loader.style.display = "block";
-const loadingDiv = document.getElementById("loadingDiv");
+
 function fetchTAData() {
+  loader.style.display = "flex";
+  pageData.style.display = "none";
   fetch(taURL + "/getTaCourses", {
     method: "GET",
     headers: {
@@ -29,12 +29,10 @@ function fetchTAData() {
     })
     .then((data) => {
       loader.style.display = "none";
-      // searchBarDiv.style.display = "block";
-      loadingDiv.style.display = "none";
+      pageData.style.display = "grid";
       searchText.style.display = '';
       searchInput.style.display = '';
-      // loader.style.display = "none";
-      // pageData.style.display = "grid";
+     
       generateTACards(data);
     })
     .catch((error) => {
