@@ -38,7 +38,7 @@ resendOTPBtn.addEventListener("click", function () {
        resendOTPBtn.style.cursor = "pointer";
        resendOTPBtn.disabled   = false;
       console.error("Fetch error:", error);
-      tost("Error sending OTP please infrom the Admin !", "error", 3000);
+      tost("CHECK YOUR JUNK NOT YOUR INBOX !!!!", "error", 3000);
     });
 });
 
