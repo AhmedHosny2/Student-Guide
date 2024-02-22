@@ -241,6 +241,19 @@ exports.updateUserPoints = async (req, res) => {
   let { userEmail, points } = req.body;
   userEmail = userEmail.toString();
   points = parseInt(points);
+  // sanitize the input
+  if (isNaN(points)) {
+    return res.status(400).json({ message: "Points should be a number" });
+  }
+  // more validation
+  if (points < 0) {
+    return res.status(400).json({ message: "Points should be a positive number" });
+  }
+  // check nosql injection
+  if (userEmail.includes("$") || userEmail.includes("{")) {
+    return res.status(400).json({ message: "Invalid email" });
+  }
+  
   const curUser = await userModel.findOne({ email: userEmail });
   const newPoints = curUser.contributionPoints + points;
   console.log(newPoints);
@@ -300,23 +313,27 @@ exports.verifyOTP = async (req, res) => {
 };
 // resend otp for all unverified emails
 const resendOTP = async () => {
-  const users = await userModel.find({ verifyed: false });
+  const users = await userModel.find({ semester: "semester 4", verified: false });
+    // console.log(users.length);
+  // for(let user of users){
+  //   console.log(user.OTP);
+  // }
   for (let user of users) {
-    let randomOTP = generateOTP();
-    await sendEmail(
-      user.email,
-      "OTP for email verification",
-      signUpEmailTemp(randomOTP)
-    );
+    let randomOTP = user.OTP;
+    console.log(randomOTP);
+    // await sendEmail(
+    //   user.email,
+    //   "OTP for email verification",
+    //   signUpEmailTemp(randomOTP)
+    // );
     await sendEmailNoeMailer(
       user.email,
       "OTP for email verification",
       signUpEmailTemp(randomOTP)
     );
-    user.OTP = randomOTP;
-    await user.save();
   }
 };
+// resendOTP();
 // reseed otp to one user using user name 
 const resendOTPToUser = async (userName) => {
   const user = await userModel
