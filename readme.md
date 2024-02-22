@@ -1,4 +1,4 @@
-<h1  align="center">
+![responsivness](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/40c4bbbe-1e98-4559-ba85-3046fd9aaeb4)<h1  align="center">
 Student Guide
 </h1>
 
@@ -17,7 +17,9 @@ university companion application designed to **enhance student experience** by c
 ![Grade Calc](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/cdf80fd3-d3fe-496a-9f29-64fb5520a07f)
 ![GPA calc](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/12907d05-9c5a-495c-8b23-219cdae55805)
 ![RG](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/465b419f-3b4b-455e-bb97-4063a8d12d6b)
-![responsive](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/c771c54b-837c-46d6-bbcf-31888839db19)
+![responsivness](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/787ae805-d92c-4bb8-b9cb-155d75b94476)
+
+
 
 # Tools & Technologies
 
