@@ -11,7 +11,7 @@ const cardsData = {
     "cmsDownloader"
   ],
   "ACM Club": [
-    "https://chat.whatsapp.com/Cj0aQdBmxBpHFZaSJY5hcE",
+    "https://www.facebook.com/profile.php?id=61556831184217",
     "Level Up Your Skills: Join ACM Club for Problem-Solving and Programming Mastery!",
     "acmClub"
   ],
