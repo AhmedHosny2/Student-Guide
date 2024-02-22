@@ -1,4 +1,4 @@
-![responsivness](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/40c4bbbe-1e98-4559-ba85-3046fd9aaeb4)<h1  align="center">
+<h1  align="center">
 Student Guide
 </h1>
 
