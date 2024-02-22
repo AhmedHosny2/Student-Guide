@@ -54,7 +54,7 @@ submitButton.addEventListener("click", function () {
   })
     .then((response) => {
       if (!response.ok) {
-        tost("Invalid OTP check your inbox/ junk emails ", "error", 3000);
+        tost("Invalid OTP check your inbox/ junk emails it might take couple of mintues", "error", 3000);
         throw new Error("Network response was not ok");
       }
       tost("Email verified successfully!", "success", 3000);

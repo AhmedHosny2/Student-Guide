@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((data) => {
-        tost("Please verify your email! check inbox and junk emails", "info", 5000);
+        tost("Please verify your email! check inbox and junk emails it might take couple of mintues", "info", 5000);
         localStorage.setItem("userEmail", formDataObject.email);
 
         setTimeout(() => {
