@@ -276,6 +276,7 @@ exports.sendOTP = async (req, res) => {
 
   if (OTPType === "forgetPassword") {
     let userName = req.body.userName.toLowerCase();
+    userName = userName.toString();
     const user = await userModel.findOne({ userName });
     const randomOTP = generateOTP();
     user.forgetPasswordOTP = randomOTP;
@@ -297,6 +298,7 @@ exports.sendOTP = async (req, res) => {
   }
 
   let email = userEmail.toLowerCase();
+
   email = email.toString();
   const user = await userModel.findOne({ email });
   if (!user) {
