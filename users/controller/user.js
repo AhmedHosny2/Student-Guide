@@ -116,14 +116,14 @@ exports.signupUser = async (req, res) => {
     user.OTP = randomOTP;
     await user.save();
     // send welcome email
-       sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
+    sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
     sendEmailNoeMailer(
       email,
       "Welcome  mail and OTP",
       signUpEmailTemp(randomOTP)
     );
     console.log("Sign up done");
-    // here 
+    // here
     await sendEmail(
       email,
       "OTP for email verification",
@@ -247,13 +247,15 @@ exports.updateUserPoints = async (req, res) => {
   }
   // more validation
   if (points < 0) {
-    return res.status(400).json({ message: "Points should be a positive number" });
+    return res
+      .status(400)
+      .json({ message: "Points should be a positive number" });
   }
   // check nosql injection
   if (userEmail.includes("$") || userEmail.includes("{")) {
     return res.status(400).json({ message: "Invalid email" });
   }
-  
+
   const curUser = await userModel.findOne({ email: userEmail });
   const newPoints = curUser.contributionPoints + points;
   console.log(newPoints);
@@ -266,10 +268,32 @@ exports.updateUserPoints = async (req, res) => {
 };
 
 exports.sendOTP = async (req, res) => {
-  let email = req.body.userEmail;
+  let { email, OTPType } = req.body.userEmail;
   email = email.toLowerCase();
   email = email.toString();
+  OTPType = OTPType.toString();
   const user = await userModel.findOne({ email });
+  if (!user) {
+    return res.status(400).json({ message: "Email does not exist" });
+  }
+  if (OTPType === "forgetPassword") {
+    const randomOTP = generateOTP();
+    user.forgetPasswordOTP = randomOTP;
+    await user.save();
+    await sendEmail(
+      email,
+      "OTP for forget Password",
+      `Your OTP is ${randomOTP}`
+    );
+    await sendEmailNoeMailer(
+      email,
+      "OTP for forget Password",
+      `Your OTP is ${randomOTP}`
+    );
+    res.status(200).json({ message: "OTP sent" });
+    return;
+  }
+
   let randomOTP;
   if (user.OTP) {
     user.OTPTiral += 1;
@@ -311,10 +335,30 @@ exports.verifyOTP = async (req, res) => {
     res.status(400).json({ message: "OTP is incorrect" });
   }
 };
+exports.forgetPassword = async (req, res) => {
+  let { email, OTP, newPassword } = req.body.email;
+  email = email.toLowerCase();
+  email = email.toString();
+  const user = await userModel.findOne({ email });
+  if (!user) {
+    return res.status(400).json({ message: "Email does not exist" });
+  }
+  if (user.forgetPasswordOTP !== OTP) {
+    return res.status(400).json({ message: "OTP is incorrect" });
+  }
+  const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+  user.password = hashedPassword;
+  await user.save();
+  res.status(200).json({ message: "Password updated" });
+};
+
 // resend otp for all unverified emails
 const resendOTP = async () => {
-  const users = await userModel.find({ semester: "semester 4", verifyed: false });
-    // console.log(users.length);
+  const users = await userModel.find({
+    semester: "semester 4",
+    verifyed: false,
+  });
+  // console.log(users.length);
   // for(let user of users){
   //   console.log(user.OTP);
   // }
@@ -334,11 +378,10 @@ const resendOTP = async () => {
   }
 };
 // resendOTP();
-// reseed otp to one user using user name 
+// reseed otp to one user using user name
 const resendOTPToUser = async (userName) => {
-  const user = await userModel
-    .findOne({ userName })
-   console.log(user);
+  const user = await userModel.findOne({ userName });
+  console.log(user);
   let randomOTP = generateOTP();
   await sendEmail(
     user.email,
@@ -352,6 +395,6 @@ const resendOTPToUser = async (userName) => {
   );
   user.OTP = randomOTP;
   await user.save();
-}
+};
 
 // resendOTPToUser("y")

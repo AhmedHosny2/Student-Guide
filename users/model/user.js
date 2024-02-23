@@ -35,10 +35,14 @@ const userSchema = new Schema(
     OTP: {
       type: String,
     },
+    forgetPasswordOTP: {
+      type: String,
+    },
     OTPTiral: {
       type: Number,
       default: 0,
     },
+    
     token: { type: String },
   },
   {
