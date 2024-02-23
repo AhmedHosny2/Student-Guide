@@ -32,7 +32,7 @@ const navLinks = [
   { name: "TA directory", link: "../html/TA-directory.html" },
   { name: "Courses", link: "../html/selectCourse.html" },
   { name: "Schedules", link: "../html/groupSchedule.html" },
-  { name: "grad clac", link: "../html/gradesToPass.html" },
+  { name: "grade clac", link: "../html/gradesToPass.html" },
   { name: "GPA calc", link: "../html/GPACalculator.html" },
   { name: "Key Links", link: "../html/resource gateway.html" },
   { name: "login", link: "../html/login.html" },
