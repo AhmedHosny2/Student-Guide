@@ -279,7 +279,11 @@ form {
 .wrapper.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
-
+#forgotPassword{
+  cursor: pointer;
+  text-transform: capitalize;
+  background-color: var(--third-color);
+}
 main .img-right {
   width: 400px;
   position: fixed;
