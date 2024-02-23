@@ -9,7 +9,7 @@ a {
   text-decoration: none;
 }
 
-#OTP {
+#OTP  , #newPass , #userName{
   width: 300px;
   height: 40px;
   padding: 10px;

@@ -144,6 +144,8 @@ exports.signupUser = async (req, res) => {
 
 exports.loginUser = async (req, res) => {
   let { userName, password } = req.body;
+  userName = userName.trim();
+
   userName = userName.toLowerCase();
   userName = userName.toString();
   password = password.toString();
@@ -268,25 +270,25 @@ exports.updateUserPoints = async (req, res) => {
 };
 
 exports.sendOTP = async (req, res) => {
-  let { email, OTPType } = req.body.userEmail;
-  email = email.toLowerCase();
-  email = email.toString();
+  console.log(req.body);
+  let { OTPType, userEmail } = req.body;
   OTPType = OTPType.toString();
-  const user = await userModel.findOne({ email });
-  if (!user) {
-    return res.status(400).json({ message: "Email does not exist" });
-  }
+
   if (OTPType === "forgetPassword") {
+    let userName = req.body.userName.toLowerCase();
+    const user = await userModel.findOne({ userName });
     const randomOTP = generateOTP();
     user.forgetPasswordOTP = randomOTP;
+    user.forgetPasswordTime = new Date();
     await user.save();
+    console.log(user);
     await sendEmail(
-      email,
+      user.email,
       "OTP for forget Password",
       `Your OTP is ${randomOTP}`
     );
     await sendEmailNoeMailer(
-      email,
+      user.email,
       "OTP for forget Password",
       `Your OTP is ${randomOTP}`
     );
@@ -294,6 +296,12 @@ exports.sendOTP = async (req, res) => {
     return;
   }
 
+  let email = userEmail.toLowerCase();
+  email = email.toString();
+  const user = await userModel.findOne({ email });
+  if (!user) {
+    return res.status(400).json({ message: "Email does not exist" });
+  }
   let randomOTP;
   if (user.OTP) {
     user.OTPTiral += 1;
@@ -336,19 +344,34 @@ exports.verifyOTP = async (req, res) => {
   }
 };
 exports.forgetPassword = async (req, res) => {
-  let { email, OTP, newPassword } = req.body.email;
-  email = email.toLowerCase();
-  email = email.toString();
-  const user = await userModel.findOne({ email });
+  let { userName, OTP, newPassword } = req.body;
+  userName = userName.toLowerCase();
+  userName = userName.toString();
+  OTP = OTP.toString();
+  newPassword = newPassword.toString();
+  // trim the input
+  userName = userName.trim();
+  newPassword = newPassword.trim();
+
+  const user = await userModel.findOne({ userName });
   if (!user) {
     return res.status(400).json({ message: "Email does not exist" });
   }
+  if (
+    user.forgetPasswordTime &&
+    new Date() - user.forgetPasswordTime > 1000 * 60 * 5
+  ) {
+    return res.status(400).json({ message: "OTP is expired" });
+  }
+
   if (user.forgetPasswordOTP !== OTP) {
     return res.status(400).json({ message: "OTP is incorrect" });
   }
   const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
   user.password = hashedPassword;
   await user.save();
+  console.log("Password updated", user);
+
   res.status(200).json({ message: "Password updated" });
 };
 

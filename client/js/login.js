@@ -81,4 +81,8 @@ signUpSwitch.addEventListener("click", () => {
 signInSwitch.addEventListener("click", () => {
   signUp_box.classList.remove("active");
 });
-
+const forgetPassword = document.getElementById("forget-password");
+forgetPassword.addEventListener("click", () => {
+  
+  window.location.href = "../html/userEmail.html";
+});

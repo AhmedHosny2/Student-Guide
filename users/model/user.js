@@ -37,6 +37,10 @@ const userSchema = new Schema(
     },
     forgetPasswordOTP: {
       type: String,
+
+    },
+    forgetPasswordTime: {
+      type: Date,
     },
     OTPTiral: {
       type: Number,
