@@ -108,9 +108,16 @@
   overflow: hidden;
   margin-bottom: 50px;
 }
+
+@media (max-width: 767px) {
+  .location .mosque {
+    height: 400px;
+  }
+}
+
 .location .mosqueImg {
-  height: calc(100vh - 55px);
   width: 100%;
+  height: 100%;
 }
 
 .location .slider .list {
@@ -185,10 +192,6 @@
 @media screen and (max-width: 768px) {
   .location .slider {
     height: 400px;
-  }
-  .location .container {
-    padding-left: 32px;
-    padding-right: 35px;
   }
 }
 
