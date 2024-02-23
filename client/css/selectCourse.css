@@ -102,6 +102,12 @@
   width: 130px;
 }
 
+@media (max-width:767px) {
+  .courses-selection .container .courses-wrap .course-card img {
+  width: 90px;
+}
+}
+
 .courses-selection .container .courses-wrap {
   margin-bottom: 50px;
 }
