@@ -58,9 +58,10 @@
 @media (max-width: 767px) {
   .location .container .txt .description {
     flex-direction: column;
+    align-items: center;
   }
   .location .container .txt .description img {
-    width: 100%;
+    width: 50%;
   }
 }
 

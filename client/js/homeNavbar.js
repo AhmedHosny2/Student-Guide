@@ -9,7 +9,7 @@ containerDiv.classList.add("container");
 const logoDiv = document.createElement("div");
 logoDiv.classList.add("logo");
 const logoLink = document.createElement("a");
-logoLink.href = "../index.html";
+logoLink.href = "index.html";
 const logoText = document.createElement("h4");
 logoText.textContent = "resource ";
 const spanElement = document.createElement("span");
@@ -28,14 +28,14 @@ const ulElement = document.createElement("ul");
 ulElement.classList.add("links");
 
 const navLinks = [
-  { name: "location", link: "../html/location.html" },
-  { name: "TA directory", link: "../html/TA-directory.html" },
-  { name: "Courses", link: "../html/selectCourse.html" },
-  { name: "Schedules", link: "../html/groupSchedule.html" },
-  { name: "grad clac", link: "../html/gradesToPass.html" },
-  { name: "GPA calc", link: "../html/GPACalculator.html" },
-  { name: "Key Links", link: "../html/resource gateway.html" },
-  { name: "login", link: "../html/login.html" },
+  { name: "location", link: "html/location.html" },
+  { name: "TA directory", link: "html/TA-directory.html" },
+  { name: "Courses", link: "html/selectCourse.html" },
+  { name: "Schedules", link: "html/groupSchedule.html" },
+  { name: "grad clac", link: "html/gradesToPass.html" },
+  { name: "GPA calc", link: "html/GPACalculator.html" },
+  { name: "Key Links", link: "html/resource gateway.html" },
+  { name: "login", link: "html/login.html" },
 ];
 
 navLinks.forEach((item) => {
@@ -60,6 +60,7 @@ containerDiv.appendChild(avatarDiv);
 
 // Create logout link
 const logoutLink = document.createElement("a");
+logoutLink.style.backgroundColor = "red";
 logoutLink.href = ""; // Add the correct href for logout
 logoutLink.id = "logout"; // Set the id for easy identification
 logoutLink.classList.add("logout"); // Add the logout class
@@ -85,10 +86,10 @@ const mobileNavDiv = document.createElement("div");
 mobileNavDiv.classList.add("mobile-nav");
 
 const mobileNavLinks = [
-  { href: "../index.html", iconUnicode: "\u{f015}" },
-  { href: "../html/location.html", iconUnicode: "\u{f3c5}" },
-  { href: "../html/TA-directory.html", iconUnicode: "\u{f5fc}" },
-  { href: "../html/selectCourse.html", iconUnicode: "\u{f5da}" },
+  { href: "index.html", iconUnicode: "\u{f015}" },
+  { href: "html/location.html", iconUnicode: "\u{f3c5}" },
+  { href: "html/TA-directory.html", iconUnicode: "\u{f5fc}" },
+  { href: "html/selectCourse.html", iconUnicode: "\u{f5da}" },
 ];
 
 mobileNavLinks.forEach((link) => {
