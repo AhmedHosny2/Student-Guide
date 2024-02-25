@@ -48,14 +48,32 @@ function generateTACards(taData) {
     const card = document.createElement("section");
     card.classList.add("card");
 
-    const courseName = document.createElement("p");
+    let cardHead = document.createElement("div");
+    cardHead.classList.add("card-head");
+
+
+    const courseName = document.createElement("h4");
     courseName.classList.add("course");
     courseName.textContent = ta.courseName;
+
+    const taName = document.createElement("h4");
+    taName.textContent = ta.name;
+    taName.classList.add("ta-name");
+    
+    const contactButton = document.createElement("a");
+    contactButton.classList.add("contactBtn");
+    contactButton.href = `mailto:${ta.email}`;
+    contactButton.textContent = "contact";
+    
+  
+
+    
 
     //start delete button
     const deleteButton = document.createElement("i");
     deleteButton.classList.add("delete-button", "fa-regular", "fa-trash-can");
 
+    
     deleteButton.addEventListener("click", function () {
       fetch(taURL + "/deleteTACourse", {
         method: "DELETE",
@@ -79,7 +97,11 @@ function generateTACards(taData) {
         });
     });
     card.appendChild(deleteButton);
-    card.appendChild(courseName);
+
+
+    cardHead.appendChild(taName);
+    // cardHead.appendChild(courseName);
+    card.appendChild(cardHead)
 
     cardContainer.appendChild(card);
     arr.push(card);
@@ -87,21 +109,8 @@ function generateTACards(taData) {
     card.appendChild(createCardWrap("office hour", ta.officeHours));
     card.appendChild(createCardWrap("office location", ta.officeLocation));
 
-    const emailWrap = document.createElement("div");
-    emailWrap.classList.add("wrap");
 
-    const emailLabel = document.createElement("p");
-    emailLabel.textContent = "email";
-
-    const emailLink = document.createElement("a");
-    emailLink.classList.add("answer");
-    emailLink.href = `mailto:${ta.email}`;
-    emailLink.textContent = ta.email;
-
-    emailWrap.appendChild(emailLabel);
-    emailWrap.appendChild(emailLink);
-
-    card.appendChild(emailWrap);
+    
 
     card.appendChild(createCardWrap("tutorials", ta.tutorials));
 
@@ -110,6 +119,7 @@ function generateTACards(taData) {
       female: "../images/female.svg",
       croissant: "../images/Croissant.webp",
     };
+   
     const taWrapper = document.createElement("div");
     taWrapper.classList.add("taWrapper");
     const taImage = document.createElement("img");
@@ -121,13 +131,12 @@ function generateTACards(taData) {
     } else {
       taImage.src = imgObject["croissant"];
     }
-
-    const taName = document.createElement("p");
-    taName.textContent = ta.name;
-    taName.classList.add("ta-name");
-    taWrapper.appendChild(taImage);
-    taWrapper.appendChild(taName);
+    cardHead.appendChild(taImage);
+    taWrapper.appendChild(courseName)
+    // taWrapper.appendChild(taImage);
+    taWrapper.appendChild(contactButton)
     card.appendChild(taWrapper);
+    card.ap
   });
 
   const deleteButtons = document.querySelectorAll(
