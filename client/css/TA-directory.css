@@ -249,7 +249,7 @@
   -moz-border-radius: 0.25rem;
   -ms-border-radius: 0.25rem;
   -o-border-radius: 0.25rem;
-  border-radius: 0.25rem;
+  border-radius: 40px;
   color: white;
   text-align: center;
   -webkit-transition: 0.3s;
