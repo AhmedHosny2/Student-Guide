@@ -330,7 +330,6 @@
 }
 .location .container .card-location .card .card-title {
   color: #576cbc;
-  /* margin-bottom: 2rem; */
   font-size: clamp(1.5rem, 5vw, 2rem);
   margin: 6px 0;
 }
@@ -345,7 +344,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /* height: 10rem; */
 
   justify-content: space-between;
 }
@@ -380,4 +378,9 @@
   border: 0px;
   cursor: pointer;
   float: right;
+}
+.location .container .card-location .card .contactBtn:hover {
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+  transform: translate(-3px, -2px);
+  transition: all 0.3s ease;
 }
