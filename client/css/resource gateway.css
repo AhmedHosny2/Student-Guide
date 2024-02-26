@@ -182,9 +182,10 @@
   border: 0px;
   cursor: pointer;
   float: right;
+  box-shadow: 3px 20px 15px 5px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .key-links .container .card-wrap .card .contactBtn:hover {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
   transform: translate(-3px, -2px);
-  transition: all 0.3s ease;
 }

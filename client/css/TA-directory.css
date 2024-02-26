@@ -267,30 +267,27 @@
   display: none;
 }
 
-.taDirectory .container .card .course {
+.taDirectory .container .card .taWrapper .course {
   font-weight: 800;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
   -ms-border-radius: 0.25rem;
   -o-border-radius: 0.25rem;
   border-radius: 40px;
-  /* color: rgb(112, 144, 234); */
-color: var(--third-color);
+  color: var(--third-color);
   background-color: rgba(0, 0, 0, 0.04);
-  box-shadow: 3px 20px 15px 3px rgba(0, 0, 0, 0.03);
-  padding: 15px 15px;
+  box-shadow: 3px 20px 15px 5px rgba(0, 0, 0, 0.07);
+  padding: 15px;
   margin: 0 0.5rem 1rem 0;
   width: fit-content;
   text-transform: capitalize;
   font-size: clamp(0.5rem, 5vw, 1.1rem);
-
   overflow: hidden;
   float: left;
-  /* margin-top: 10px; */
+  transition: transform 0.3s ease-in-out, background-color 0.2s ease-in-out;
 }
-.taDirectory .container .card .course:hover{
-  transition: all 0.4s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.05);
+.taDirectory .container .card .taWrapper .course:hover {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .taDirectory .container .card .wrap {
@@ -330,16 +327,22 @@ color: var(--third-color);
   width: 40px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
+  box-shadow: 3px 20px 15px 5px rgba(0, 0, 0, 0.07);
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   float: right;
+  transition: transform 0.4s ease-in-out;
+}
+.taDirectory .container .card .card-head .genderImg:hover {
+  transform: scale(1.1);
 }
 
-.taDirectory .container .card .ta-name {
+.taDirectory .container .card .card-head .ta-name {
   color: var(--third-color);
   font-size: clamp(1.5rem, 5vw, 1.8rem);
   margin: 6px 0;
+  /* filter: drop-shadow(-5px 15px 20px rgba(0, 0, 0, 0.5)); */
 }
 .taDirectory .container .card .card-head {
   margin: 1.6rem 0;
@@ -359,11 +362,12 @@ color: var(--third-color);
   border: 0px;
   cursor: pointer;
   float: right;
+  box-shadow: 3px 20px 15px 5px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .taDirectory .container .card .taWrapper .contactBtn:hover {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
   transform: translate(-3px, -2px);
-  transition: all 0.3s ease;
 }
 
 /* end card */
