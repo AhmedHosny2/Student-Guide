@@ -73,23 +73,28 @@ containerDiv.appendChild(navDiv);
 
 // Create avatar
 const avatar = document.createElement("a");
-if ('/client/index.html' === location.pathname)
+const imgElement = document.createElement("img");
+
+if ('/client/index.html' === location.pathname) {
   avatar.href = "html/profilePage.html";
-else
+  imgElement.src = "images/profile pic2.svg";
+}
+else {
   avatar.href = "../html/profilePage.html";
+  imgElement.src = "../images/profile pic2.svg";
+}
 avatar.classList.add("avatar");
-const iElement = document.createElement("i");
-iElement.classList.add("fa-regular", "fa-user");
-avatar.appendChild(iElement);
+
+avatar.appendChild(imgElement);
 containerDiv.appendChild(avatar);
 
 // Create logout link
-const logoutLink = document.createElement("a");
-logoutLink.href = ""; // Add the correct href for logout
-logoutLink.id = "logout"; // Set the id for easy identification
-logoutLink.classList.add("logout"); // Add the logout class
-logoutLink.textContent = "logout";
-containerDiv.appendChild(logoutLink);
+// const logoutLink = document.createElement("a");
+// logoutLink.href = ""; // Add the correct href for logout
+// logoutLink.id = "logout"; // Set the id for easy identification
+// logoutLink.classList.add("logout"); // Add the logout class
+// logoutLink.textContent = "logout";
+// containerDiv.appendChild(logoutLink);
 
 // Create burger menu
 const burgerMenuDiv = document.createElement("div");
@@ -127,9 +132,6 @@ else
 mobileNavLinks.forEach((link) => {
   const aElement = document.createElement("a");
   aElement.href = link.href;
-  if (link.active) {
-    aElement.classList.add("active");
-  }
   const iElement = document.createElement("i");
   iElement.classList.add("fa-solid");
   iElement.textContent = link.iconUnicode;

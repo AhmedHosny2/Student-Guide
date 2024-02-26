@@ -403,24 +403,15 @@ html {
   }
 }
 
-.header .container .avatar i {
-  display: none;
-}
-
-.header .container .avatar i.show {
-  color: white;
-  background-color: var(--fourth-color);
-  padding: 5px 6px;
+.header .container .avatar img {
+  width: 40px;
+  border: 2px solid var(--fourth-color);
+  border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  border-radius: 50%;
-  border: 6px solid var(--main-color);
-  cursor: pointer;
-  font-weight: bold;
-  display: block;
-  font-size: 10px;
+
 }
 
 /* end header */
