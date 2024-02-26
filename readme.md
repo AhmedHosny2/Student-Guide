@@ -146,4 +146,9 @@ Port: 5003
 
 # Contribution 👀
 
-You are very welcome to contribute to this repo. Just create the your Pull Request, I will review it & your updates will be merged ASAP insha'Allah.
+1. **Assign Yourself a Task**: Head over to our [Trello board](https://trello.com/invite/b/ezMbfDl0/ATTId2130ade5328a5ca8751d4e40f69ac0e033F1DCF/student-guide) and assign yourself a task that you'd like to work on.
+
+2. **Create a Pull Request**: Once you've chosen a task and made your changes, create a Pull Request (PR) in this repository.
+
+3. **Review Process**: Your PR will be reviewed promptly.
+4. **Merge**: After review, your updates will be merged into the project as soon as possible, insha'Allah.
