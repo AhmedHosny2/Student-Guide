@@ -128,7 +128,7 @@
   box-sizing: border-box;
 }
 .loader::before {
-  content: '';  
+  content: '';
   position: absolute;
   right: 70px;
   bottom: 10px;
