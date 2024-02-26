@@ -7,7 +7,7 @@ university companion application designed to **enhance student experience** by c
 
 
 # Screenshots
-![Desktop2024 02 14-18 58 34 02-ezgif com-video-to-gif-converter](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/13ad54e2-754b-4c60-9c7a-41ddf1aab49e)
+![2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/9452f9f3-1ccb-40b8-8f08-16c92c8db76c)
 ![location 1](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/05f02777-12df-4ea6-85e6-9d86de70475c)
 ![location 2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/d4e357e2-b80d-4f5c-87c7-f06995e9d5e0)
 ![TA Directory](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/6256c24a-b87d-4f5e-bd74-4275bfd13046)
