@@ -7,7 +7,7 @@ university companion application designed to **enhance student experience** by c
 
 
 # Screenshots
-![2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/9452f9f3-1ccb-40b8-8f08-16c92c8db76c)
+![home page](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/ff069093-cbac-4ee4-b62c-537144b19d3c)
 ![location 1](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/05f02777-12df-4ea6-85e6-9d86de70475c)
 ![location 2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/d4e357e2-b80d-4f5c-87c7-f06995e9d5e0)
 ![TA Directory](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/6256c24a-b87d-4f5e-bd74-4275bfd13046)
