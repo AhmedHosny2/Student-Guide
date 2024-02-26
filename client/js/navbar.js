@@ -109,13 +109,21 @@ containerDiv.appendChild(burgerMenuDiv);
 const mobileNavDiv = document.createElement("div");
 mobileNavDiv.classList.add("mobile-nav");
 
-const mobileNavLinks = [
-  { href: "../index.html", iconUnicode: "\u{f015}" },
-  { href: "../html/location.html", iconUnicode: "\u{f3c5}" },
-  { href: "../html/TA-directory.html", iconUnicode: "\u{f5fc}" },
-  { href: "../html/selectCourse.html", iconUnicode: "\u{f5da}" },
-];
-
+let mobileNavLinks
+if ('/client/index.html' === location.pathname)
+  mobileNavLinks = [
+    { href: "index.html", iconUnicode: "\u{f015}" },
+    { href: "html/location.html", iconUnicode: "\u{f3c5}" },
+    { href: "html/TA-directory.html", iconUnicode: "\u{f5fc}" },
+    { href: "html/selectCourse.html", iconUnicode: "\u{f5da}" },
+  ];
+else
+  mobileNavLinks = [
+    { href: "../index.html", iconUnicode: "\u{f015}" },
+    { href: "../html/location.html", iconUnicode: "\u{f3c5}" },
+    { href: "../html/TA-directory.html", iconUnicode: "\u{f5fc}" },
+    { href: "../html/selectCourse.html", iconUnicode: "\u{f5da}" },
+  ];
 mobileNavLinks.forEach((link) => {
   const aElement = document.createElement("a");
   aElement.href = link.href;
