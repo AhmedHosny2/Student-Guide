@@ -27,17 +27,33 @@ navDiv.setAttribute("data-visibility", "false");
 const ulElement = document.createElement("ul");
 ulElement.classList.add("links");
 
-const navLinks = [
-  { name: "location", link: "../html/location.html" },
-  { name: "TA directory", link: "../html/TA-directory.html" },
-  { name: "Courses", link: "../html/selectCourse.html" },
-  { name: "Schedules", link: "../html/groupSchedule.html" },
-  { name: "grade clac", link: "../html/gradesToPass.html" },
-  { name: "GPA calc", link: "../html/GPACalculator.html" },
-  { name: "Key Links", link: "../html/resource gateway.html" },
-  { name: "login", link: "../html/login.html" },
-];
 
+//return the required links for each page
+let navLinks;
+
+if ('/client/index.html' === location.pathname) {
+  navLinks = [
+    { name: "location", link: "html/location.html" },
+    { name: "TA directory", link: "html/TA-directory.html" },
+    { name: "Courses", link: "html/selectCourse.html" },
+    { name: "Schedules", link: "html/groupSchedule.html" },
+    { name: "grade clac", link: "html/gradesToPass.html" },
+    { name: "GPA calc", link: "html/GPACalculator.html" },
+    { name: "Key Links", link: "html/resource gateway.html" },
+    { name: "login", link: "html/login.html" },
+  ];
+} else {
+  navLinks = [
+    { name: "location", link: "../html/location.html" },
+    { name: "TA directory", link: "../html/TA-directory.html" },
+    { name: "Courses", link: "../html/selectCourse.html" },
+    { name: "Schedules", link: "../html/groupSchedule.html" },
+    { name: "grade clac", link: "../html/gradesToPass.html" },
+    { name: "GPA calc", link: "../html/GPACalculator.html" },
+    { name: "Key Links", link: "../html/resource gateway.html" },
+    { name: "login", link: "../html/login.html" },
+  ];
+}
 navLinks.forEach((item) => {
   const liElement = document.createElement("li");
   const aElement = document.createElement("a");
