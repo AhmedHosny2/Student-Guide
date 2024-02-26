@@ -7,7 +7,11 @@
   <title>profilePage</title>
   <!-- fav icon -->
   <link rel="icon" type="image/x-icon" href="../images/fav.png">
-
+  <!-- css files -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/profilePage.css" />
+  <!-- normalize-file -->
+  <link rel="stylesheet" href="../css/normalize.css" />
 </head>
 
 <body>
@@ -15,18 +19,36 @@
     <!-- header section -->
     <header class="header" id="header"></header>
     <!-- end header -->
-
+    <div class="profile-wrap">
+      <div class="container">
+        <div class="idCard">
+          <div class="basic-info-wrap">
+            <div class="img">
+              <img src="../images/profile pic2.svg" alt="">
+            </div>
+            <div class="data-wrap">
+              <p class="name" id="accName">khatuba el lhaluba</p>
+            </div>
+          </div>
+          <div class="text-wrap">
+            <div class="data-wrap">
+              <span>email :</span>
+              <p class="email" id="accEmail">khatuba.got@sauce.com</p>
+            </div>
+            <div class="data-wrap">
+              <span>semester :</span>
+              <p class="sem" id="accSem">semester 6</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <script type="module" src="../js/profilePage.js"></script>
   <script type="module" src="../js/navbar.js"></script>
 </body>
 
 <footer>
-  <!-- css files -->
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/profilePage.css" />
-  <!-- normalize-file -->
-  <link rel="stylesheet" href="../css/normalize.css" />
   <!-- google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
