@@ -9,10 +9,12 @@ containerDiv.classList.add("container");
 const logoDiv = document.createElement("div");
 logoDiv.classList.add("logo");
 const logoLink = document.createElement("a");
+
 if ('/client/index.html' === location.pathname)
   logoLink.href = "index.html";
 else
   logoLink.href = "../index.html";
+
 const logoText = document.createElement("h4");
 logoText.textContent = "resource ";
 const spanElement = document.createElement("span");
