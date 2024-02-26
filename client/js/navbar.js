@@ -67,12 +67,16 @@ navDiv.appendChild(ulElement);
 containerDiv.appendChild(navDiv);
 
 // Create avatar
-const avatarDiv = document.createElement("div");
-avatarDiv.classList.add("avatar");
+const avatar = document.createElement("a");
+if ('/client/index.html' === location.pathname)
+  avatar.href = "html/profilePage.html";
+else
+  avatar.href = "../html/profilePage.html";
+avatar.classList.add("avatar");
 const iElement = document.createElement("i");
 iElement.classList.add("fa-regular", "fa-user");
-avatarDiv.appendChild(iElement);
-containerDiv.appendChild(avatarDiv);
+avatar.appendChild(iElement);
+containerDiv.appendChild(avatar);
 
 // Create logout link
 const logoutLink = document.createElement("a");
@@ -141,7 +145,6 @@ hamburgerMenu.addEventListener("click", () => {
 
 // Logout functionality
 let logoutButton = document.getElementById("logout");
-console.log(logoutButton);
 logoutButton.addEventListener("click", () => {
   localStorage.clear();
   window.location.href = "/client/html/login.html";
