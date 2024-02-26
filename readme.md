@@ -7,7 +7,7 @@ university companion application designed to **enhance student experience** by c
 
 
 # Screenshots
-![Desktop2024 02 14-18 58 34 02-ezgif com-video-to-gif-converter](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/13ad54e2-754b-4c60-9c7a-41ddf1aab49e)
+![home page](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/ff069093-cbac-4ee4-b62c-537144b19d3c)
 ![location 1](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/05f02777-12df-4ea6-85e6-9d86de70475c)
 ![location 2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/d4e357e2-b80d-4f5c-87c7-f06995e9d5e0)
 ![TA Directory](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/6256c24a-b87d-4f5e-bd74-4275bfd13046)
@@ -146,4 +146,9 @@ Port: 5003
 
 # Contribution 👀
 
-You are very welcome to contribute to this repo. Just create the your Pull Request, I will review it & your updates will be merged ASAP insha'Allah.
+1. **Assign Yourself a Task**: Head over to our [Trello board](https://trello.com/invite/b/ezMbfDl0/ATTId2130ade5328a5ca8751d4e40f69ac0e033F1DCF/student-guide) and assign yourself a task that you'd like to work on.
+
+2. **Create a Pull Request**: Once you've chosen a task and made your changes, create a Pull Request (PR) in this repository.
+
+3. **Review Process**: Your PR will be reviewed promptly.
+4. **Merge**: After review, your updates will be merged into the project as soon as possible, insha'Allah.
