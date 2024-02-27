@@ -237,11 +237,10 @@ exports.getUser = async (req, res) => {
 
 exports.logoutUser = async (req, res) => {
   console.log("Logged out");
-  res.clearCookie("authcookie");
-  res.clearCookie("refreshToken"); // Clear both the access and refresh tokens
+  res.clearCookie("authcookie", { path: '/' }); // Delete the "authcookie" cookie
+  res.clearCookie("refreshToken", { path: '/' }); // Delete the "refreshToken" cookie
   res.json({ message: "Logout successful" });
 };
-
 exports.updateUserPoints = async (req, res) => {
   let { userEmail, points } = req.body;
   userEmail = userEmail.toString();
