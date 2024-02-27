@@ -134,7 +134,7 @@ exports.signupUser = async (req, res) => {
     );
     console.log("Sign up done");
     // here
- 
+
     console.log("OTP sent");
     res.status(200).json({ message: "User created" });
   } catch (err) {
@@ -230,7 +230,7 @@ exports.getUser = async (req, res) => {
     email: user.email,
     userName: user.userName,
     isAdmin: user.isAdmin,
-  });
+  }); 
 };
 
 exports.logoutUser = async (req, res) => {

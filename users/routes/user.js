@@ -21,7 +21,7 @@ router.post("/sendOTP", limiter, sendOTP);
 router.post("/forgetPassword", limiter, forgetPassword);
 router.put("/verifyOTP", limiter, verifyOTP);
 router.use(verifyToken);
-router.post("/logout", logoutUser);
+router.get("/logout", logoutUser);
 router.get("/", getUser);
 
 module.exports = router;
