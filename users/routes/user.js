@@ -20,8 +20,8 @@ router.put("/updatePoints", updateUserPoints);
 router.post("/sendOTP", limiter, sendOTP);
 router.post("/forgetPassword", limiter, forgetPassword);
 router.put("/verifyOTP", limiter, verifyOTP);
-router.use(verifyToken);
 router.get("/logout", logoutUser);
+router.use(verifyToken);
 router.get("/", getUser);
 
 module.exports = router;
