@@ -292,6 +292,20 @@ main .img-right {
   -webkit-animation: up-down 2s infinite ease-in-out;
   animation: up-down 2s infinite ease-in-out;
 }
+a {
+  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 400px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
 
 main .img-left {
   width: 400px;
