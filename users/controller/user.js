@@ -237,8 +237,24 @@ exports.getUser = async (req, res) => {
 
 exports.logoutUser = async (req, res) => {
   console.log("Logged out");
-  res.clearCookie("authcookie", { path: '/' }); // Delete the "authcookie" cookie
-  res.clearCookie("refreshToken", { path: '/' }); // Delete the "refreshToken" cookie
+  // res.clearCookie("authcookie", { path: '/' }); // Delete the "authcookie" cookie
+  // res.clearCookie("refreshToken", { path: '/' }); // Delete the "refreshToken" cookie
+  res.cookie("refreshToken", "lol", {
+    expires:new Date(Date.now() -1000 * 60 * 60 * 24 * 399),
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+    domain,
+    path: "/",
+  });
+  res.cookie("authcookie", "lol", {
+    expires:new Date(Date.now() -1000 * 60 * 60 * 24 * 399),
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+    domain,
+    path: "/",
+  });
   res.json({ message: "Logout successful" });
 };
 exports.updateUserPoints = async (req, res) => {
