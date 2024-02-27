@@ -18,6 +18,10 @@ main {
   margin: 0;
 }
 
+a {
+  color: white;
+}
+
 p {
   font-size: 14px;
   font-weight: 400;
@@ -91,6 +95,14 @@ button.ghost {
   background-color: transparent;
 }
 
+button.guest {
+  background-color: transparent;
+}
+
+button.guest a {
+  color: var(--third-color);
+}
+
 .button-wrap {
   display: flex;
   align-items: center;
@@ -100,7 +112,7 @@ button.ghost {
 }
 
 .button-wrap button:not(:last-child) {
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 input {
@@ -279,7 +291,7 @@ form {
 .wrapper.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
-#forgotPassword{
+#forgotPassword {
   cursor: pointer;
   text-transform: capitalize;
   background-color: var(--third-color);
@@ -291,20 +303,6 @@ main .img-right {
   right: 20px;
   -webkit-animation: up-down 2s infinite ease-in-out;
   animation: up-down 2s infinite ease-in-out;
-}
-a {
-  background-color: var(--secondary-color);
-  color: var(--secondary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  width: 400px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
 }
 
 main .img-left {

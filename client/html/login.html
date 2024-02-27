@@ -1,141 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login</title>
-    <!-- fav icon -->
-    <link rel="icon" type="image/x-icon" href="../images/fav.png" />
-    <!-- css files -->
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <!-- normalize-file -->
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- google icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-       <!-- Tostify  alerts-->
-       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-       
-  </head>
 
-  <body>
-    <main>
-      <section class="container">
-        <div class="wrapper">
-          <div class="signUp-box form-container">
-            <form class="signup-form">
-              <h1>create account</h1>
-              <input
-                type="text"
-                id="userName"
-                name="userName"
-                placeholder="Username"
-                required
-              />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>login</title>
+  <!-- fav icon -->
+  <link rel="icon" type="image/x-icon" href="../images/fav.png" />
+  <!-- css files -->
+  <link rel="stylesheet" href="../css/login.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- normalize-file -->
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- google icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Tostify  alerts-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="GIU Email"
-                required
-              />
+</head>
 
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"
-                required
-              />
+<body>
+  <main>
+    <section class="container">
+      <div class="wrapper">
+        <div class="signUp-box form-container">
+          <form class="signup-form">
+            <h1>create account</h1>
+            <input type="text" id="userName" name="userName" placeholder="Username" required />
 
-              <select name="semester" class="semseter" id="semester" required>
-                <option value="semester 1">semester 1</option>
-                <option value="semester 2">semester 2</option>
-                <option value="semester 3">semester 3</option>
-                <option value="semester 4">semester 4</option>
-                <option value="semester 5">semester 5</option>
-                <option value="semester 6">semester 6</option>
-                <option value="semester 7">semester 7</option>
-                <option value="semester 8">semester 8</option>
-              </select>
-              <button type="submit" id="signUpBtn">
-                <span class="loader" id="signUpLoader"></span
-                ><span id="signUpBtnTxt">Sign Up</span>
+            <input type="email" id="email" name="email" placeholder="GIU Email" required />
+
+            <input type="password" id="password" name="password" placeholder="Password" required />
+
+            <select name="semester" class="semseter" id="semester" required>
+              <option value="semester 1">semester 1</option>
+              <option value="semester 2">semester 2</option>
+              <option value="semester 3">semester 3</option>
+              <option value="semester 4">semester 4</option>
+              <option value="semester 5">semester 5</option>
+              <option value="semester 6">semester 6</option>
+              <option value="semester 7">semester 7</option>
+              <option value="semester 8">semester 8</option>
+            </select>
+            <button type="submit" id="signUpBtn">
+              <span class="loader" id="signUpLoader"></span><span id="signUpBtnTxt">Sign Up</span>
+            </button>
+            <span class="signIn-switch">already member</span>
+          </form>
+        </div>
+        <div class="signIn-box form-container">
+          <form class="login-form">
+            <h1>sign in</h1>
+            <input type="text" id="userName" name="userName" placeholder="user name" required />
+            <input type="password" id="password" name="password" placeholder="Password" required />
+            <div class="button-wrap">
+              <button type="submit" id="submitLogin">
+                <span class="loader" id="loginLoader"></span><span id="loginBtnTxt">Login</span>
               </button>
-              <span class="signIn-switch">already member</span>
-            </form>
-          </div>
-          <div class="signIn-box form-container">
-            <form class="login-form">
-              <h1>sign in</h1>
-              <input
-                type="text"
-                id="userName"
-                name="userName"
-                placeholder="user name"
-                required
-              />
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"
-                required
-              />
-              <div class="button-wrap">
-                <button type="submit" id="submitLogin">
-                  <span class="loader" id="loginLoader"></span
-                  ><span id="loginBtnTxt">Login</span>
-                </button>
-                <a href="../index.html" class="skip-login">Continue as guest</a>
-                <span class="signUp-switch">still don't have account?!</span>
-              </div>
               <button type="button" id="forget-password">Forgot Password</button>
+              <button class="guest"><a href="../index.html" class="skip-login">wanna take a tour?!</a></button>
+              <span class="signUp-switch">still don't have account?!</span>
+            </div>
 
-            </form>
-          </div>
-          <div class="overlay-container">
-            <div class="overlay">
-              <div class="overlay-panel overlay-left">
-                <h1 class="head-txt">Welcome Back!</h1>
-                <p>
-                  To keep connected with us please login with your personal info
-                </p>
-                <button class="ghost" id="signIn">Sign In</button>
-              </div>
-              <div class="overlay-panel overlay-right">
-                <h1 class="head-txt">Hello</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
-              </div>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1 class="head-txt">Welcome Back!</h1>
+              <p>
+                To keep connected with us please login with your personal info
+              </p>
+              <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1 class="head-txt">Hello</h1>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
             </div>
           </div>
         </div>
-        <img src="../images/hero.svg" alt="" class="img-right" />
-        <img src="../images/login-page.svg" alt="" class="img-left" />
-      </section>
-    </main>
-    <script type="module" src="../js/login.js"></script>
-    <script type="module" src="../js/signup.js"></script>
-  </body>
+      </div>
+      <img src="../images/hero.svg" alt="" class="img-right" />
+      <img src="../images/login-page.svg" alt="" class="img-left" />
+    </section>
+  </main>
+  <script type="module" src="../js/login.js"></script>
+  <script type="module" src="../js/signup.js"></script>
+</body>
+
 </html>
