@@ -64,6 +64,7 @@ navLinks.forEach((item) => {
   const aElement = document.createElement("a");
   aElement.href = item.link;
   aElement.textContent = item.name === "login" ? "logout" : item.name;
+  if(item.name === "login") aElement.id = "logout";
   liElement.appendChild(aElement);
   ulElement.appendChild(liElement);
 });
@@ -157,20 +158,32 @@ hamburgerMenu.addEventListener("click", () => {
     hamburgerMenu.classList.remove("active");
   }
 });
+import { clientLoginURL ,userURL } from "../utils/env.js";
 
 // Logout functionality
 let logoutButton = document.getElementById("logout");
-logoutButton.addEventListener("click", () => {
+logoutButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log("logout");
   localStorage.clear();
-  window.location.href = "/client/html/login.html";
+  fetch(userURL + "/logout", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials : "include"
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        window.location.href = clientLoginURL;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+ 
 });
 
-// Avatar and login logic
-import { clientLoginURL } from "../utils/env.js";
 if (localStorage.getItem("userName") == null) {
   window.location.href = clientLoginURL;
-} else {
-  let avatar = document.querySelector(".avatar i");
-  avatar.classList.add("show");
-  logoutButton.style.display = "none";
 }
