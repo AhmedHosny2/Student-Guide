@@ -41,6 +41,7 @@ resendOTPBtn.addEventListener("click", function () {
       tost("CHECK YOUR JUNK NOT YOUR INBOX !!!!", "error", 3000);
     });
 });
+resendOTPBtn.click();
 
 submitButton.addEventListener("click", function () {
   const OTP = OTPInput.value.trim();
@@ -58,7 +59,7 @@ submitButton.addEventListener("click", function () {
         throw new Error("Network response was not ok");
       }
       tost("Email verified successfully!", "success", 3000);
-      window.location.href = "../index.html";
+      window.location.href = "../html/login.html";
       return response.json();
     })
     .catch((error) => {
