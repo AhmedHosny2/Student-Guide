@@ -186,16 +186,15 @@ exports.loginUser = async (req, res) => {
 
     res.cookie("authcookie", token, {
       expires: newTime,
-      httpOnly: true,
+      httpOnly: false,
       sameSite: "none",
       secure: true,
       domain,
       path: "/",
     });
-    console.log(refreshToken);
     res.cookie("refreshToken", refreshToken, {
       expires: newTimeRefresh,
-      httpOnly: true,
+      httpOnly: false,
       sameSite: "none",
       secure: true,
       domain,
@@ -237,25 +236,30 @@ exports.getUser = async (req, res) => {
 
 exports.logoutUser = async (req, res) => {
   console.log("Logged out");
-  // res.clearCookie("authcookie", { path: '/' }); // Delete the "authcookie" cookie
-  // res.clearCookie("refreshToken", { path: '/' }); // Delete the "refreshToken" cookie
-  res.cookie("refreshToken", "lol", {
-    expires:new Date(Date.now() -1000 * 60 * 60 * 24 * 399),
-    httpOnly: true,
-    sameSite: "none",
-    secure: true,
-    domain,
-    path: "/",
-  });
-  res.cookie("authcookie", "lol", {
-    expires:new Date(Date.now() -1000 * 60 * 60 * 24 * 399),
-    httpOnly: true,
-    sameSite: "none",
-    secure: true,
-    domain,
-    path: "/",
-  });
+  // // res.clearCookie("authcookie", { path: '/' }); // Delete the "authcookie" cookie
+  // // res.clearCookie("refreshToken", { path: '/' }); // Delete the "refreshToken" cookie
+  // res.cookie("refreshToken", "lol", {
+  //   expires:new Date(Date.now() -1000 * 60 * 60 * 24 * 399),
+  //   // httpOnly: true,
+  //   sameSite: "none",
+  //   secure: true,
+  //   domain,
+  //   path: "/",
+  // });
+  // res.cookie("authcookie", "lol", {
+  //   expires:new Date(Date.now() -1000 * 60 * 60 * 24 * 399),
+  //   // httpOnly: true,
+  //   sameSite: "none",
+  //   secure: true,
+  //   domain,
+  //   path: "/",
+  // });
+  // // delete cookies
+  // res.clearCookie("authcookie", { path: "/" });
+  // res.clearCookie("refreshToken", { path: "/" });
+
   res.json({ message: "Logout successful" });
+  res.end();
 };
 exports.updateUserPoints = async (req, res) => {
   let { userEmail, points } = req.body;

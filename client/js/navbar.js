@@ -170,19 +170,11 @@ logoutButton.addEventListener("click", (event) => {
     return;
   }
   localStorage.clear();
-  fetch(userURL + "/logout", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  })
-    .then((res) => {
-      if (res.status === 200) {
-        window.location.href = clientLoginURL;
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  // delete cookies
+  document.cookie.split(";").forEach(function (c) {
+    document.cookie = c
+      .replace(/^ +/, "")
+      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+  });
+  window.location.href = clientLoginURL;
 });
