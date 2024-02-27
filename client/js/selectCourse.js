@@ -1,4 +1,6 @@
-import { getCourseURL, coursesURL } from "../utils/env.js";
+import { getCourseURL, coursesURL ,clientLoginURL} from "../utils/env.js";
+import { tost } from "./Toastify.js";
+
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
   2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
@@ -42,11 +44,9 @@ function displayCourses() {
 
       //add card images
       const cardImg = document.createElement("img");
-      if(course == "Pro tips ✨"){
+      if (course == "Pro tips ✨") {
         cardImg.src = "../images/pro_tips.svg";
-      }
-      else
-      cardImg.src = courseImages[index % courseImages.length];
+      } else cardImg.src = courseImages[index % courseImages.length];
       courseCard.appendChild(cardImg);
 
       courseCard.addEventListener("click", async function () {
@@ -66,6 +66,8 @@ function displayCourses() {
               if (!response.ok) {
                 loader.style.display = "none";
                 pageData.style.display = "grid";
+                tost("Login and verify your Email", "error", 3000);
+              
                 throw new Error("Network response was not ok");
               }
               return response.json();
@@ -82,6 +84,10 @@ function displayCourses() {
               window.location.href = getCourseURL;
             })
             .catch((error) => {
+              loader.style.display = "none";
+                pageData.style.display = "grid";
+                tost("Login and verify your Email", "error", 3000);
+            
               console.error("Fetch error:", error);
             });
         } catch (err) {

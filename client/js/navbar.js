@@ -1,5 +1,6 @@
 // Get the header element
 const header = document.getElementById("header");
+const userName = localStorage.getItem("userName");
 
 // Create container div
 const containerDiv = document.createElement("div");
@@ -10,10 +11,8 @@ const logoDiv = document.createElement("div");
 logoDiv.classList.add("logo");
 const logoLink = document.createElement("a");
 
-if ('/client/index.html' === location.pathname)
-  logoLink.href = "index.html";
-else
-  logoLink.href = "../index.html";
+if ("/client/index.html" === location.pathname) logoLink.href = "index.html";
+else logoLink.href = "../index.html";
 
 const logoText = document.createElement("h4");
 logoText.textContent = "resource ";
@@ -32,11 +31,10 @@ navDiv.setAttribute("data-visibility", "false");
 const ulElement = document.createElement("ul");
 ulElement.classList.add("links");
 
-
 //return the required links for each page
 let navLinks;
 
-if ('/client/index.html' === location.pathname) {
+if ("/client/index.html" === location.pathname) {
   navLinks = [
     { name: "location", link: "html/location.html" },
     { name: "TA directory", link: "html/TA-directory.html" },
@@ -45,7 +43,7 @@ if ('/client/index.html' === location.pathname) {
     { name: "grade clac", link: "html/gradesToPass.html" },
     { name: "GPA calc", link: "html/GPACalculator.html" },
     { name: "Key Links", link: "html/resource gateway.html" },
-    { name: "login", link: "html/login.html" },
+    { name: "logout", link: "html/login.html" },
   ];
 } else {
   navLinks = [
@@ -56,15 +54,20 @@ if ('/client/index.html' === location.pathname) {
     { name: "grade clac", link: "../html/gradesToPass.html" },
     { name: "GPA calc", link: "../html/GPACalculator.html" },
     { name: "Key Links", link: "../html/resource gateway.html" },
-    { name: "login", link: "../html/login.html" },
+    { name: "logout", link: "../html/login.html" },
   ];
 }
 navLinks.forEach((item) => {
   const liElement = document.createElement("li");
   const aElement = document.createElement("a");
   aElement.href = item.link;
-  aElement.textContent = item.name === "login" ? "logout" : item.name;
-  if(item.name === "login") aElement.id = "logout";
+  aElement.textContent = item.name;
+
+  if (item.name == "logout" && userName === null) {
+    aElement.textContent = "login";
+  }
+
+  if (item.name === "logout") aElement.id = "logout";
   liElement.appendChild(aElement);
   ulElement.appendChild(liElement);
 });
@@ -76,12 +79,11 @@ containerDiv.appendChild(navDiv);
 const avatar = document.createElement("a");
 const imgElement = document.createElement("img");
 
-if ('/client/index.html' === location.pathname) {
-  avatar.href = "html/profilePage.html";
+if ("/client/index.html" === location.pathname) {
+  avatar.href = userName ? "html/profilePage.html" : "html/login.html";
   imgElement.src = "images/profile pic2.svg";
-}
-else {
-  avatar.href = "../html/profilePage.html";
+} else {
+  avatar.href = userName ? "../html/profilePage.html" : "../html/login.html";
   imgElement.src = "../images/profile pic2.svg";
 }
 avatar.classList.add("avatar");
@@ -110,13 +112,12 @@ burgerMenuDiv.appendChild(spanTop);
 burgerMenuDiv.appendChild(spanMid);
 burgerMenuDiv.appendChild(spanBtm);
 containerDiv.appendChild(burgerMenuDiv);
-
 // Create mobile navigation
 const mobileNavDiv = document.createElement("div");
 mobileNavDiv.classList.add("mobile-nav");
 
-let mobileNavLinks
-if ('/client/index.html' === location.pathname)
+let mobileNavLinks;
+if ("/client/index.html" === location.pathname)
   mobileNavLinks = [
     { href: "index.html", iconUnicode: "\u{f015}" },
     { href: "html/location.html", iconUnicode: "\u{f3c5}" },
@@ -158,20 +159,23 @@ hamburgerMenu.addEventListener("click", () => {
     hamburgerMenu.classList.remove("active");
   }
 });
-import { clientLoginURL ,userURL } from "../utils/env.js";
+import { clientLoginURL, userURL } from "../utils/env.js";
 
 // Logout functionality
 let logoutButton = document.getElementById("logout");
 logoutButton.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log("logout");
+  if (logoutButton.textContent === "login") {
+    window.location.href = clientLoginURL;
+    return;
+  }
   localStorage.clear();
   fetch(userURL + "/logout", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-    credentials : "include"
+    credentials: "include",
   })
     .then((res) => {
       if (res.status === 200) {
@@ -181,9 +185,4 @@ logoutButton.addEventListener("click", (event) => {
     .catch((err) => {
       console.log(err);
     });
- 
 });
-
-if (localStorage.getItem("userName") == null) {
-  window.location.href = clientLoginURL;
-}

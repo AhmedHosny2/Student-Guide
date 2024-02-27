@@ -21,28 +21,28 @@ addButton.addEventListener("click", function () {
   const nameInput = document.createElement("input");
   nameInput.type = "text";
   nameInput.className = "nameInput";
-  nameInput.placeholder = "Name";
+  nameInput.placeholder = "Name ex midterm";
   divElement.appendChild(nameInput);
 
   // Create input element for Weight
   const weightInput = document.createElement("input");
   weightInput.type = "text";
   weightInput.className = "weightInput";
-  weightInput.placeholder = "Weight";
+  weightInput.placeholder = "Weight ex 30%";
   divElement.appendChild(weightInput);
 
   // Create input element for Exam Grade
   const examInput = document.createElement("input");
   examInput.type = "text";
   examInput.className = "examInput";
-  examInput.placeholder = "Exam Grade";
+  examInput.placeholder = "Exam Grade ex 100";
   divElement.appendChild(examInput);
 
   // Create input element for Your Grade
   const gradeInput = document.createElement("input");
   gradeInput.type = "text";
   gradeInput.className = "gradeInput";
-  gradeInput.placeholder = "Your Grade";
+  gradeInput.placeholder = "Your Grade ex 88";
   divElement.appendChild(gradeInput);
 
   // Create delete button

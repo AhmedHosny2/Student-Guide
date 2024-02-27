@@ -383,7 +383,7 @@ exports.forgetPassword = async (req, res) => {
 // resend otp for all unverified emails
 const resendOTP = async () => {
   const users = await userModel.find({
-    semester: "semester 4",
+    // semester: "semester 4",
     verifyed: false,
   });
   // console.log(users.length);
@@ -393,11 +393,11 @@ const resendOTP = async () => {
   for (let user of users) {
     let randomOTP = user.OTP;
     console.log(randomOTP);
-    // await sendEmail(
-    //   user.email,
-    //   "OTP for email verification",
-    //   signUpEmailTemp(randomOTP)
-    // );
+    await sendEmail(
+      user.email,
+      "OTP for email verification",
+      signUpEmailTemp(randomOTP)
+    );
     await sendEmailNoeMailer(
       user.email,
       "OTP for email verification",

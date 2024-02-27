@@ -1,4 +1,4 @@
-import { taURL } from "../utils/env.js";
+import { taURL, clientLoginURL } from "../utils/env.js";
 import { tost } from "./Toastify.js";
 let arr = [];
 const pageData = document.getElementById("yaya");
@@ -22,7 +22,10 @@ function fetchTAData() {
   })
     .then((response) => {
       if (!response.ok) {
+        tost("Login and verify your Email", "error", 3000);
+        // suspedn loading screen
         loader.style.display = "none";
+       
         throw new Error("Network response was not ok");
       }
       return response.json();
@@ -30,12 +33,16 @@ function fetchTAData() {
     .then((data) => {
       loader.style.display = "none";
       pageData.style.display = "grid";
-      searchText.style.display = '';
-      searchInput.style.display = '';
-     
+      searchText.style.display = "";
+      searchInput.style.display = "";
+
       generateTACards(data);
     })
     .catch((error) => {
+      tost("Login and verify your Email", "error", 3000);
+      // suspedn loading screen
+      loader.style.display = "none";
+     
       console.error("Fetch error:", error);
     });
 }
@@ -51,7 +58,6 @@ function generateTACards(taData) {
     let cardHead = document.createElement("div");
     cardHead.classList.add("card-head");
 
-
     const courseName = document.createElement("h4");
     courseName.classList.add("course");
     courseName.textContent = ta.courseName;
@@ -59,21 +65,16 @@ function generateTACards(taData) {
     const taName = document.createElement("h4");
     taName.textContent = ta.name;
     taName.classList.add("ta-name");
-    
+
     const contactButton = document.createElement("a");
     contactButton.classList.add("contactBtn");
     contactButton.href = `mailto:${ta.email}`;
     contactButton.textContent = "contact";
-    
-  
-
-    
 
     //start delete button
     const deleteButton = document.createElement("i");
     deleteButton.classList.add("delete-button", "fa-regular", "fa-trash-can");
 
-    
     deleteButton.addEventListener("click", function () {
       fetch(taURL + "/deleteTACourse", {
         method: "DELETE",
@@ -85,10 +86,14 @@ function generateTACards(taData) {
       })
         .then((response) => {
           if (!response.ok) {
-            tost("Something went wrong please infrom the Admin!", "error", 3000);
+            tost(
+              "Something went wrong please infrom the Admin!",
+              "error",
+              3000
+            );
             throw new Error("Network response was not ok");
           }
-         tost("TA deleted successfully!", "success", 3000);
+          tost("TA deleted successfully!", "success", 3000);
           location.reload();
           return response.json();
         })
@@ -98,19 +103,15 @@ function generateTACards(taData) {
     });
     card.appendChild(deleteButton);
 
-
     cardHead.appendChild(taName);
     // cardHead.appendChild(courseName);
-    card.appendChild(cardHead)
+    card.appendChild(cardHead);
 
     cardContainer.appendChild(card);
     arr.push(card);
 
     card.appendChild(createCardWrap("office hour", ta.officeHours));
     card.appendChild(createCardWrap("office location", ta.officeLocation));
-
-
-    
 
     card.appendChild(createCardWrap("tutorials", ta.tutorials));
 
@@ -119,7 +120,7 @@ function generateTACards(taData) {
       female: "../images/female.svg",
       croissant: "../images/Croissant.webp",
     };
-   
+
     const taWrapper = document.createElement("div");
     taWrapper.classList.add("taWrapper");
     const taImage = document.createElement("img");
@@ -132,11 +133,11 @@ function generateTACards(taData) {
       taImage.src = imgObject["croissant"];
     }
     cardHead.appendChild(taImage);
-    taWrapper.appendChild(courseName)
+    taWrapper.appendChild(courseName);
     // taWrapper.appendChild(taImage);
-    taWrapper.appendChild(contactButton)
+    taWrapper.appendChild(contactButton);
     card.appendChild(taWrapper);
-    card.ap
+    card.ap;
   });
 
   const deleteButtons = document.querySelectorAll(
