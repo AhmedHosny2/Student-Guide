@@ -207,6 +207,8 @@ exports.loginUser = async (req, res) => {
       userName: user.userName,
       email: user.email,
       isAdmin: user.isAdmin,
+      semester: user.semester,
+      isVerified : user.verifyed,
       // token,
     });
   } catch (err) {
@@ -273,7 +275,7 @@ exports.updateUserPoints = async (req, res) => {
 exports.sendOTP = async (req, res) => {
   console.log(req.body);
   let { OTPType, userEmail } = req.body;
-  OTPType = OTPType.toString();
+  OTPType = OTPType? OTPType.toString(): "emailVerification";
 
   if (OTPType === "forgetPassword") {
     let userName = req.body.userName.toLowerCase();

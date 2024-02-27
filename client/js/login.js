@@ -47,6 +47,8 @@ loginForm.addEventListener("submit", (e) => {
       }
       localStorage.setItem("isAdmin", data.isAdmin);
       localStorage.setItem("userName", data.userName);
+      localStorage.setItem("isVerified", data.isVerified);
+      localStorage.setItem("semester", data.semester);
       window.location.href = clientURL;
     })
     .catch((error) => {
