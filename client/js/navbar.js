@@ -186,3 +186,9 @@ logoutButton.addEventListener("click", (event) => {
       console.log(err);
     });
 });
+const semester = localStorage.getItem("semester");
+const isVerified = localStorage.getItem("isVerified");
+console.log(semester, isVerified);
+if (semester && !isVerified) {
+  window.location.href = clientLoginURL;
+}
