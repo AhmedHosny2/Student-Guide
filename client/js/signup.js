@@ -8,12 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
   tarole.style.display = "none";
 
   const emailField = document.getElementById("email");
-  const passwordField = document.getElementById("password");
 
-  passwordField.addEventListener("focus", () => {
+  emailField.addEventListener("input", () => {
     if (emailField.value.includes("@giu-uni.de")) {
       semesterSelection.style.display = "none";
       tarole.style.display = "block";
+    } else {
+      semesterSelection.style.display = "block";
+      tarole.style.display = "none";
     }
   });
 
