@@ -108,11 +108,11 @@ h1 {
   background-color: var(--third-color);
   color: white;
   border: 0;
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
   padding: 10px;
   cursor: pointer;
 }
