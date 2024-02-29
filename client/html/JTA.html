@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JTA Form</title>
+    <!-- fav icon -->
+    <link rel="icon" type="image/x-icon" href="../images/fav.png" />
+    <!-- css files -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/JTA.css" />
+    <!-- normalize-file -->
+    <link rel="stylesheet" href="../css/normalize.css" />
+  </head>
+
+  <body>
+    <!-- header Slot -->
+    <header class="header" id="header"></header>
+
+    <main>
+      <div class="JTA-wrap">
+        <div class="container">
+          <form id="JTA-form">
+            <div class="img box">
+              <img
+                src="../images/JTA.svg"
+                alt="Create a new TA account image"
+              />
+            </div>
+
+            <div class="box">
+              <h2>Apply for Junior TA (JTA)</h2>
+
+              <div class="form-group">
+                <label for="course">Select Course : </label>
+                <select id="course" name="course">
+                  <option value="" disabled selected>Select a course</option>
+                  <option value="1">Course 1</option>
+                  <option value="2">Course 2</option>
+                  <option value="3">Course 3</option>
+                  <option value="4">Course 4</option>
+                  <option value="5">Course 5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="semester">Select Semester : </label>
+                <select id="semester" name="semester">
+                  <option value="" disabled selected>Select a semester</option>
+                  <option value="1">Semester 1</option>
+                  <option value="2">Semester 2</option>
+                  <option value="3">Semester 3</option>
+                  <option value="4">Semester 4</option>
+                  <option value="5">Semester 5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="Slot">Select Slot : </label>
+                <select id="slot" name="Slot">
+                  <option value="" disabled selected>Select a Slot</option>
+                  <option value="1">Slot 1</option>
+                  <option value="2">Slot 2</option>
+                  <option value="3">Slot 3</option>
+                  <option value="4">Slot 4</option>
+                  <option value="5">Slot 5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="day">Select Day : </label>
+                <select id="day" name="day">
+                  <option value="" disabled selected>Select a day</option>
+                  <option value="1">Saturday</option>
+                  <option value="2">Sunday</option>
+                  <option value="3">Monday</option>
+                  <option value="4">Tuesday</option>
+                  <option value="5">Wednesday</option>
+                  <option value="6">Thursday</option>
+                </select>
+              </div>
+              <button type="submit" id="submit-button">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script type="module" src="../js/navbar.js"></script>
+  <footer>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- logo font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Tostify  alerts-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </footer>
+</html>
