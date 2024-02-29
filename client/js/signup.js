@@ -1,7 +1,21 @@
 import { userURL } from "../utils/env.js";
 import { tost } from "./Toastify.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.querySelector(".signup-form");
+  const tarole = document.getElementById("taRole");
+  const semesterSelection = document.getElementById("semester");
+  tarole.style.display = "none";
+
+  const emailField = document.getElementById("email");
+  const passwordField = document.getElementById("password");
+
+  passwordField.addEventListener("input", () => {
+    if (emailField.value.includes("@giu-uni.de")) {
+      semesterSelection.style.display = "none";
+      tarole.style.display = "block";
+    }
+  });
 
   signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -12,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
+
     if (!formDataObject.email.includes("giu-uni.de")) {
       tost("Email should be a GIU email", "error", 3000);
       return;
@@ -43,11 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
           signUpBtnTxt.style.display = "block";
           throw new Error("Network response was not ok");
         }
-       
+
         return response.json();
       })
       .then((data) => {
-        tost("Please verify your email! check inbox and junk emails it might take couple of mintues", "info", 5000);
+        tost(
+          "Please verify your email! check inbox and junk emails it might take couple of mintues",
+          "info",
+          5000
+        );
         localStorage.setItem("userEmail", formDataObject.email);
 
         setTimeout(() => {
@@ -61,4 +80,3 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
-
