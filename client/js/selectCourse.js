@@ -3,9 +3,9 @@ import { tost } from "./Toastify.js";
 
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
-  2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical"],
+  2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical","Pro tips ✨2"],
   3: ["CPP", "OS", "DSA", "DB", "Math 3"],
-  4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4", "Pro tips ✨"],
+  4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4", "Pro tips ✨4"],
 };
 
 const courseImages = [
@@ -39,13 +39,15 @@ function displayCourses() {
 
       //create course paragraph
       const courseName = document.createElement("p");
+    
       courseName.textContent = course;
       courseCard.appendChild(courseName);
-
+      console.log(course);
       //add card images
       const cardImg = document.createElement("img");
-      if (course == "Pro tips ✨") {
+      if (course.slice(0, -1) ==="Pro tips ✨") {
         cardImg.src = "../images/pro_tips.svg";
+        courseName.textContent = course.slice(0, -1);
       } else cardImg.src = courseImages[index % courseImages.length];
       courseCard.appendChild(cardImg);
 
