@@ -4,11 +4,10 @@ let arr = [];
 const pageData = document.getElementById("yaya");
 const loader = document.getElementById("loader");
 let searchInput = document.querySelector("#searchBar");
-let searchText = document.querySelector(".search-text");
 
 // Hide the search bar tools
-searchInput.style.display = "none";
-searchText.style.display = "none";
+// searchInput.style.display = "none";
+// searchText.style.display = "none";
 
 function fetchTAData() {
   loader.style.display = "flex";
@@ -25,7 +24,7 @@ function fetchTAData() {
         tost("Login and verify your Email", "error", 3000);
         // suspedn loading screen
         loader.style.display = "none";
-       
+
         throw new Error("Network response was not ok");
       }
       return response.json();
@@ -33,7 +32,6 @@ function fetchTAData() {
     .then((data) => {
       loader.style.display = "none";
       pageData.style.display = "grid";
-      searchText.style.display = "";
       searchInput.style.display = "";
 
       generateTACards(data);
@@ -42,7 +40,7 @@ function fetchTAData() {
       tost("Login and verify your Email", "error", 3000);
       // suspedn loading screen
       loader.style.display = "none";
-     
+
       console.error("Fetch error:", error);
     });
 }
@@ -169,17 +167,22 @@ function createCardWrap(label, value) {
 
 fetchTAData();
 
+const switcher = document.getElementById("switcher");
+
 const searchBar = document.getElementById("searchBar");
 searchBar.addEventListener("input", (e) => {
   const searchValue = e.target.value.toLowerCase();
   arr.forEach((card) => {
-    const courseName = card.querySelector(".course").textContent.toLowerCase();
-    const isVisible = courseName.includes(searchValue);
+    let textContent;
+    if (switcher.checked) {
+      textContent = card.querySelector(".ta-name").textContent.toLowerCase();
+    } else {
+      textContent = card.querySelector(".course").textContent.toLowerCase();
+    }
+    const isVisible = textContent.includes(searchValue);
     card.classList.toggle("hide", !isVisible);
   });
 });
-
-// hide admin buttons
 
 const adminBtns = document.querySelector(
   ".taDirectory .container .admin-buttons"
