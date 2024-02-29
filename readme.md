@@ -3,16 +3,17 @@ Student Guide
 </h1>
 
 university companion application designed to **enhance student experience** by centralizing essential university information into a single, user-friendly platform. Our project aims to provide students with a professional tool for accessing critical university-related data and leveraging a range of functional features tailored to their academic needs.
-  
+
 
 
 # Screenshots
 ![home page](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/ff069093-cbac-4ee4-b62c-537144b19d3c)
 ![location 1](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/05f02777-12df-4ea6-85e6-9d86de70475c)
-![location 2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/d4e357e2-b80d-4f5c-87c7-f06995e9d5e0)
-![TA Directory](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/6256c24a-b87d-4f5e-bd74-4275bfd13046)
+![location 2](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/5c6078da-6115-4a91-8bf5-086e3c5f6a59)
+![TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/9bf9d668-a84a-4093-b997-7448fc260ea0)
 ![adding TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/4e9490f6-e044-4b5f-abc3-f70b43547e38)
-![add TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/95e6b024-8a3b-4ed5-9ef0-d6b0d5ea6b7a)
+![add TA](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/95e6b024-8a3b-4ed5-9ef0-d6b0d5ea6b7a)  
+![courses](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/20c68cee-9d63-4340-8cb0-e2870fc5207b)
 ![schedules](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/5a53dc9a-eae6-42ae-8ad4-53d4ebdd38ff)
 ![Grade Calc](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/cdf80fd3-d3fe-496a-9f29-64fb5520a07f)
 ![GPA calc](https://github.com/AhmedHosny2/Student-Guide/assets/98207790/12907d05-9c5a-495c-8b23-219cdae55805)
