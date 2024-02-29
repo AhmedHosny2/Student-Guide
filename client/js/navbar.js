@@ -40,10 +40,9 @@ if ("/client/index.html" === location.pathname) {
     { name: "TA directory", link: "html/TA-directory.html" },
     { name: "Courses", link: "html/selectCourse.html" },
     { name: "Schedules", link: "html/groupSchedule.html" },
-    { name: "grade clac", link: "html/gradesToPass.html" },
+    { name: "Grade Calc", link: "html/gradesToPass.html" },
     { name: "GPA calc", link: "html/GPACalculator.html" },
     { name: "Key Links", link: "html/resource gateway.html" },
-    { name: "logout", link: "html/login.html" },
   ];
 } else {
   navLinks = [
@@ -51,10 +50,9 @@ if ("/client/index.html" === location.pathname) {
     { name: "TA directory", link: "../html/TA-directory.html" },
     { name: "Courses", link: "../html/selectCourse.html" },
     { name: "Schedules", link: "../html/groupSchedule.html" },
-    { name: "grade clac", link: "../html/gradesToPass.html" },
+    { name: "Grade Calc", link: "../html/gradesToPass.html" },
     { name: "GPA calc", link: "../html/GPACalculator.html" },
     { name: "Key Links", link: "../html/resource gateway.html" },
-    { name: "logout", link: "../html/login.html" },
   ];
 }
 navLinks.forEach((item) => {
@@ -79,25 +77,38 @@ containerDiv.appendChild(navDiv);
 const avatar = document.createElement("a");
 const imgElement = document.createElement("img");
 
-if ("/client/index.html" === location.pathname) {
-  avatar.href = userName ? "html/profilePage.html" : "html/login.html";
-  imgElement.src = "images/profile pic2.svg";
-} else {
-  avatar.href = userName ? "../html/profilePage.html" : "../html/login.html";
-  imgElement.src = "../images/profile pic2.svg";
-}
+imgElement.src = "../images/profile pic2.svg";
 avatar.classList.add("avatar");
 
 avatar.appendChild(imgElement);
 containerDiv.appendChild(avatar);
+const avatarDropdown = document.createElement("div");
+avatarDropdown.classList.add("avatar-dropdown");
 
-// Create logout link
-// const logoutLink = document.createElement("a");
-// logoutLink.href = ""; // Add the correct href for logout
-// logoutLink.id = "logout"; // Set the id for easy identification
-// logoutLink.classList.add("logout"); // Add the logout class
-// logoutLink.textContent = "logout";
-// containerDiv.appendChild(logoutLink);
+const dropdownItems = [
+  { name: "Profile", link: "../html/profilePage.html" },
+  { name: "Apply for JTA", link: "../html/JTA.html" },
+  { name: "Logout", link: "../html/login.html" },
+];
+dropdownItems.forEach((item) => {
+  const aElement = document.createElement("a");
+  aElement.href = item.link;
+  aElement.textContent = item.name;
+  if (item.name == "logout" && userName === null) {
+    aElement.textContent = "login";
+  }
+  if (item.name === "logout") aElement.id = "logout";
+  avatarDropdown.appendChild(aElement);
+});
+avatarDropdown.style.display = "none";
+avatar.appendChild(avatarDropdown);
+
+avatar.addEventListener("click", (event) => {
+  if (avatarDropdown.style.display === "none") {
+    avatarDropdown.style.display = "block";
+  }
+  avatarDropdown.classList.toggle("show");
+});
 
 // Create burger menu
 const burgerMenuDiv = document.createElement("div");
@@ -161,6 +172,8 @@ hamburgerMenu.addEventListener("click", () => {
 });
 import { clientLoginURL, userURL } from "../utils/env.js";
 
+// Create avatar dropdown menu
+
 // Logout functionality
 let logoutButton = document.getElementById("logout");
 logoutButton.addEventListener("click", (event) => {
@@ -188,7 +201,6 @@ logoutButton.addEventListener("click", (event) => {
 });
 const semester = localStorage.getItem("semester");
 const isVerified = localStorage.getItem("isVerified");
-console.log(semester, isVerified);
 if (semester && !isVerified) {
   window.location.href = clientLoginURL;
 }

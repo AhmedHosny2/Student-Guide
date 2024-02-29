@@ -120,6 +120,39 @@ html {
     width: 1170px;
   }
 }
+/* start dropdown menu */
+.avatar-dropdown {
+  background: #f9f9f9; 
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+  padding: 7px 5px;
+  border-radius: 25px;
+  z-index: 101; 
+  position: absolute; 
+  display: block; 
+  opacity: 0;
+  visibility: hidden; 
+  transition: height 0.3s, opacity 0.3s, visibility 0.3s; 
+}
+
+.avatar-dropdown.show {
+  height: auto;
+  opacity: 1; 
+  visibility: visible; 
+}
+
+.avatar-dropdown a {
+  color: black; 
+  padding: 10px 15px;
+  text-decoration: none; 
+  display: block; 
+  border-radius: 20px;
+}
+
+.avatar-dropdown a:hover {
+  transition: background 0.3s;  
+  background-color: #f1f1f1; 
+}
+/* end dropdown menu */
 
 /* start header */
 .header {
