@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailField = document.getElementById("email");
   const passwordField = document.getElementById("password");
 
-  passwordField.addEventListener("input", () => {
+  passwordField.addEventListener("focus", () => {
     if (emailField.value.includes("@giu-uni.de")) {
       semesterSelection.style.display = "none";
       tarole.style.display = "block";
