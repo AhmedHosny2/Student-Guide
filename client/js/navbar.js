@@ -87,11 +87,24 @@ containerDiv.appendChild(avatar);
 const avatarDropdown = document.createElement("div");
 avatarDropdown.classList.add("avatar-dropdown");
 
-const dropdownItems = [
-  { name: "Profile", link: "../html/profilePage.html" },
-  { name: "Apply for JTA", link: "../html/JTA.html" },
-  { name: "Logout", link: "../html/login.html" },
+var dropdownItems = [
+  { name: "Profile", link: "html/profilePage.html" },
+  { name: "Apply for JTA", link: "html/JTA.html" },
+  { name: "Logout", link: "html/login.html" },
 ];
+if ("/client/index.html" === location.pathname) {
+  var dropdownItems = [
+    { name: "Profile", link: "html/profilePage.html" },
+    { name: "Apply for JTA", link: "html/JTA.html" },
+    { name: "Logout", link: "html/login.html" },
+  ];
+} else {
+  var dropdownItems = [
+    { name: "Profile", link: "../html/profilePage.html" },
+    { name: "Apply for JTA", link: "../html/JTA.html" },
+    { name: "Logout", link: "../html/login.html" },
+  ];
+}
 dropdownItems.forEach((item) => {
   const aElement = document.createElement("a");
   aElement.href = item.link;
@@ -105,7 +118,7 @@ dropdownItems.forEach((item) => {
 avatarDropdown.style.display = "none";
 avatar.appendChild(avatarDropdown);
 
-avatar.addEventListener("click", (event) => {
+avatar.addEventListener("click", () => {
   if (avatarDropdown.style.display === "none") {
     avatarDropdown.style.display = "block";
   }
@@ -177,32 +190,32 @@ import { clientLoginURL, userURL } from "../utils/env.js";
 // Create avatar dropdown menu
 
 // Logout functionality
-let logoutButton = document.getElementById("logout");
-logoutButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  if (logoutButton.textContent === "login") {
-    window.location.href = clientLoginURL;
-    return;
-  }
-  localStorage.clear();
-  fetch(userURL + "/logout", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  })
-    .then((res) => {
-      if (res.status === 200) {
-        window.location.href = clientLoginURL;
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-const semester = localStorage.getItem("semester");
-const isVerified = localStorage.getItem("isVerified");
-if (semester && !isVerified) {
-  window.location.href = clientLoginURL;
-}
+// let logoutButton = document.getElementById("logout");
+// logoutButton.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   if (logoutButton.textContent === "login") {
+//     window.location.href = clientLoginURL;
+//     return;
+//   }
+//   localStorage.clear();
+//   fetch(userURL + "/logout", {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     credentials: "include",
+//   })
+//     .then((res) => {
+//       if (res.status === 200) {
+//         window.location.href = clientLoginURL;
+//       }
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
+// const semester = localStorage.getItem("semester");
+// const isVerified = localStorage.getItem("isVerified");
+// if (semester && !isVerified) {
+//   window.location.href = clientLoginURL;
+// }
