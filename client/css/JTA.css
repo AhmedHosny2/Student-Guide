@@ -1,4 +1,3 @@
-
 .JTA-wrap .container {
   min-height: calc(100vh - 65px);
   display: grid;
@@ -19,10 +18,9 @@
   text-align: center;
   text-transform: capitalize;
 }
-.JTA-wrap .container form #course,
+
 .JTA-wrap .container form #semester,
-.JTA-wrap .container form #slot,
-.JTA-wrap .container form #day {
+.JTA-wrap .container form #dayDropdown {
   border: 0;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -32,6 +30,7 @@
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   padding: 10px;
+
   background-color: white;
   color: gray;
 }
@@ -47,7 +46,49 @@
   padding: 10px;
   cursor: pointer;
 }
+.JTA-wrap .container form .box label {
+  margin: 5px 0 15px 0;
+}
+.JTA-wrap .container form .box #course {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 5px;
+  margin: 20px 0;
+  background-color: white;
+  color: gray;
+}
+.JTA-wrap .container form .box #slot .card {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 50px;
+  width: fit-content;
+  padding: 10px;;
+  justify-content: space-between;
+  gap: 5px;
+  cursor: pointer;
+  color: #576cbc;
+  font-size: clamp(0.5rem, 5vw, 1rem);
+  margin: 6px 0;
+ 
+}
+.JTA-wrap .container form .box #course .card {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 50px;
+  width: fit-content;
+  padding: 10px;;
+  justify-content: space-between;
+  gap: 5px;
+  cursor: pointer;
+  color: #576cbc;
+  font-size: clamp(0.5rem, 5vw, 1rem);
+  margin: 6px 0;
+ 
+}
 
+.JTA-wrap .container form .box #course .card:hover {
+  background-color: #f0f0f0;
+}
 .JTA-wrap .container form .img {
   border-radius: 1.25rem 0 0 1.25rem;
   -webkit-border-radius: 1.25rem 0 0 1.25rem;
@@ -95,6 +136,12 @@
   padding: 60px;
 }
 
+@media screen and (max-width: 767px) {
+  .JTA-wrap .container form .box {
+    padding: 20px;
+  }
+  
+}
 .JTA-wrap .container form .box input:focus {
   outline: 0;
 }
