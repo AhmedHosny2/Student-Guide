@@ -114,6 +114,8 @@ exports.signupUser = async (req, res) => {
     const randomOTP = generateOTP();
 
     user.OTP = randomOTP;
+    if (email.slice(-11) === "@giu-uni.de") user.isAdmin = true;
+    
     await user.save();
     // send welcome email
     await sendEmail(
@@ -208,7 +210,7 @@ exports.loginUser = async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       semester: user.semester,
-      isVerified : user.verifyed,
+      isVerified: user.verifyed,
       // token,
     });
   } catch (err) {
@@ -232,13 +234,13 @@ exports.getUser = async (req, res) => {
     email: user.email,
     userName: user.userName,
     isAdmin: user.isAdmin,
-  }); 
+  });
 };
 
 exports.logoutUser = async (req, res) => {
   console.log("Logged out");
-  res.clearCookie("authcookie", { path: '/' }); // Delete the "authcookie" cookie
-  res.clearCookie("refreshToken", { path: '/' }); // Delete the "refreshToken" cookie
+  res.clearCookie("authcookie", { path: "/" }); // Delete the "authcookie" cookie
+  res.clearCookie("refreshToken", { path: "/" }); // Delete the "refreshToken" cookie
   res.json({ message: "Logout successful" });
 };
 exports.updateUserPoints = async (req, res) => {
@@ -274,7 +276,7 @@ exports.updateUserPoints = async (req, res) => {
 exports.sendOTP = async (req, res) => {
   console.log(req.body);
   let { OTPType, userEmail } = req.body;
-  OTPType = OTPType? OTPType.toString(): "emailVerification";
+  OTPType = OTPType ? OTPType.toString() : "emailVerification";
 
   if (OTPType === "forgetPassword") {
     let userName = req.body.userName.toLowerCase();

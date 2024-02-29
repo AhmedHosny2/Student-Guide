@@ -1,9 +1,16 @@
-import { getCourseURL, coursesURL ,clientLoginURL} from "../utils/env.js";
+import { getCourseURL, coursesURL, clientLoginURL } from "../utils/env.js";
 import { tost } from "./Toastify.js";
 
 const courses = {
   1: ["Math 1", "Physics", "Technical Foundation", "CS1"],
-  2: ["Math2 ", "OOP", "Network", "Micro Computer", "Theoretical","Pro tips ✨2"],
+  2: [
+    "Math2 ",
+    "OOP",
+    "Network",
+    "Micro Computer",
+    "Theoretical",
+    "Pro tips ✨2",
+  ],
   3: ["CPP", "OS", "DSA", "DB", "Math 3"],
   4: ["SE", "DS", "IT", "Distributed", "Media", "Math 4", "Pro tips ✨4"],
 };
@@ -39,13 +46,13 @@ function displayCourses() {
 
       //create course paragraph
       const courseName = document.createElement("p");
-    
+
       courseName.textContent = course;
       courseCard.appendChild(courseName);
       console.log(course);
       //add card images
       const cardImg = document.createElement("img");
-      if (course.slice(0, -1) ==="Pro tips ✨") {
+      if (course.slice(0, -1) === "Pro tips ✨") {
         cardImg.src = "../images/pro_tips.svg";
         courseName.textContent = course.slice(0, -1);
       } else cardImg.src = courseImages[index % courseImages.length];
@@ -69,7 +76,7 @@ function displayCourses() {
                 loader.style.display = "none";
                 pageData.style.display = "grid";
                 tost("Login and verify your Email", "error", 3000);
-              
+
                 throw new Error("Network response was not ok");
               }
               return response.json();
@@ -87,9 +94,9 @@ function displayCourses() {
             })
             .catch((error) => {
               loader.style.display = "none";
-                pageData.style.display = "grid";
-                tost("Login and verify your Email", "error", 3000);
-            
+              pageData.style.display = "grid";
+              tost("Login and verify your Email", "error", 3000);
+
               console.error("Fetch error:", error);
             });
         } catch (err) {
