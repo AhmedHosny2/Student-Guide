@@ -77,7 +77,9 @@ containerDiv.appendChild(navDiv);
 const avatar = document.createElement("a");
 const imgElement = document.createElement("img");
 
-imgElement.src = "../images/profile pic2.svg";
+if ("/client/index.html" === location.pathname) {
+  imgElement.src = "images/profile pic2.svg";
+} else imgElement.src = "../images/profile pic2.svg";
 avatar.classList.add("avatar");
 
 avatar.appendChild(imgElement);
