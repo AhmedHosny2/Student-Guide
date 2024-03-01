@@ -106,8 +106,7 @@
 .JTA-wrap .container form #semester,
 .JTA-wrap .container form #dayDropdown {
   border: 0;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -139,8 +138,7 @@
   color: gray;
 }
 .JTA-wrap .container form .box #slot .card {
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 50px;
   width: max-content;
@@ -153,8 +151,7 @@
   margin-left: 10px;
 }
 .JTA-wrap .container form .box #course .card {
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 50px;
   width: max-content;
@@ -195,8 +192,7 @@
 }
 .JTA-wrap .container form .box input {
   border: 0;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -221,6 +217,10 @@
 @media screen and (max-width: 767px) {
   .JTA-wrap .container form .box {
     padding: 20px;
+  }
+  .JTA-wrap .container #JTA-form  {
+    padding-bottom: 1rem;
+    margin: 0.5rem 0.5rem 6rem 0.5rem;
   }
 }
 .JTA-wrap .container form .box input:focus {
