@@ -9,11 +9,10 @@ const {
   verifyOTP,
   sendOTP,
   forgetPassword,
-  addJTA
+  addJTA,
+  getJTA,
 } = require("../controller/user");
-const {
-  verifyToken,
-} = require("../middleware/auth");
+const { verifyToken } = require("../middleware/auth");
 const { limiter } = require("../utils/rateLimiter.js");
 router.post("/signup", limiter, signupUser);
 router.post("/login", limiter, loginUser);
@@ -25,5 +24,5 @@ router.get("/logout", logoutUser);
 router.use(verifyToken);
 router.get("/", getUser);
 router.post("/addJTA", addJTA);
-
+router.get("/getJTA", getJTA);
 module.exports = router;

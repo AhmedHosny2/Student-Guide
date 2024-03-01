@@ -442,3 +442,8 @@ exports.addJTA = async (req, res) => {
   const jta = await JTAmodel.create({ Id, courseName, semester, days, email });
   res.status(200).json({ message: "JTA added" });
 };
+exports.getJTA = async (req, res) => {
+  const JTAs = await JTAmodel.find();
+  res.status(200).json(JTAs);
+}
+
