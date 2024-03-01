@@ -30,40 +30,43 @@ const sendEmail = async (to, subject, text) => {
       console.error(error);
     });
 };
-
 const generateOTP = () => {
   // Generate a random 6-digit number
   const otp = crypto.randomInt(100000, 999999);
   return otp;
 };
-const sendEmailNoeMailer = (to, subject, text) => {
-  // Create a transporter object using SMTP transport
-  let transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "the.guide.student@gmail.com",
-      pass,
-    },
-  });
+// const sendEmailNoeMailer = (to, subject, text) => {
+//   // Create a transporter object using SMTP transport
+//   let transporter = nodemailer.createTransport({
+//     host: "smtp.gmail.com",
+//     secure: true,
+//   auth: {
+//     type: "OAuth2",
+//     user: "the.guide.student@gmail.com",
+//     clientId: process.env.GOOGLE_CLIENT_ID,
+//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//     refreshToken: process.env.REFRESH_TOKEN,                           
+//   }
+//   });
 
-  // Setup email data with unicode symbols
-  let mailOptions = {
-    from: "the.guide.student@gmail.com",
-    to,
-    subject,
-    text,
-    html: `<b>${text}</b>`,
-  };
+//   // Setup email data with unicode symbols
+//   let mailOptions = {
+//     from: "the.guide.student@gmail.com",
+//     to,
+//     subject,
+//     text,
+//     html: `<b>${text}</b>`,
+//   };
 
-  // Send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log("Message sent: %s", info.messageId);
-  });
-};
-
+//   // Send mail with defined transport object
+//   transporter.sendMail(mailOptions, (error, info) => {
+//     if (error) {
+//       return console.log(error);
+//     }
+//     console.log("Message sent: %s", info.messageId);
+//   });
+// };
+// sendEmailNoeMailer("ahmed.yehia4431@gmail.com" , "test", "test email")
 // Refresh token function
 const generateRefreshToken = (user, expiresAt, isrefresh) => {
   console.log(user);
@@ -125,17 +128,17 @@ exports.signupUser = async (req, res) => {
       "OTP for email verification",
       `Your OTP is ${randomOTP}`
     );
-    await sendEmailNoeMailer(
-      email,
-      "OTP for email verification",
-      `Your OTP is ${randomOTP}`
-    );
+    // await sendEmailNoeMailer(
+    //   email,
+    //   "OTP for email verification",
+    //   `Your OTP is ${randomOTP}`
+    // );
     sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
-    sendEmailNoeMailer(
-      email,
-      "Welcome  mail and OTP",
-      signUpEmailTemp(randomOTP)
-    );
+    // sendEmailNoeMailer(
+    //   email,
+    //   "Welcome  mail and OTP",
+    //   signUpEmailTemp(randomOTP)
+    // );
     console.log("Sign up done");
     // here
 
@@ -294,11 +297,11 @@ exports.sendOTP = async (req, res) => {
       "OTP for forget Password",
       `Your OTP is ${randomOTP}`
     );
-    await sendEmailNoeMailer(
-      user.email,
-      "OTP for forget Password",
-      `Your OTP is ${randomOTP}`
-    );
+    // await sendEmailNoeMailer(
+    //   user.email,
+    //   "OTP for forget Password",
+    //   `Your OTP is ${randomOTP}`
+    // );
     res.status(200).json({ message: "OTP sent" });
     return;
   }
@@ -328,11 +331,11 @@ exports.sendOTP = async (req, res) => {
     "OTP for email verification",
     `Your OTP is ${randomOTP}`
   );
-  await sendEmailNoeMailer(
-    email,
-    "OTP for email verification",
-    `Your OTP is ${randomOTP}`
-  );
+  // await sendEmailNoeMailer(
+  //   email,
+  //   "OTP for email verification",
+  //   `Your OTP is ${randomOTP}`
+  // );
   user.OTP = randomOTP;
   await user.save();
   res.status(200).json({ message: "OTP sent" });
@@ -401,11 +404,11 @@ const resendOTP = async () => {
       "OTP for email verification",
       signUpEmailTemp(randomOTP)
     );
-    await sendEmailNoeMailer(
-      user.email,
-      "OTP for email verification",
-      `Your OTP is ${randomOTP}`
-    );
+    // await sendEmailNoeMailer(
+    //   user.email,
+    //   "OTP for email verification",
+    //   `Your OTP is ${randomOTP}`
+    // );
   }
 };
 // resendOTP();
@@ -419,11 +422,11 @@ const resendOTPToUser = async (userName) => {
     "OTP for email verification",
     signUpEmailTemp(randomOTP)
   );
-  await sendEmailNoeMailer(
-    user.email,
-    "OTP for email verification",
-    signUpEmailTemp(randomOTP)
-  );
+  // await sendEmailNoeMailer(
+  //   user.email,
+  //   "OTP for email verification",
+  //   signUpEmailTemp(randomOTP)
+  // );
   user.OTP = randomOTP;
   await user.save();
 };
