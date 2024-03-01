@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+let sanitized = require("mongo-sanitize");
 const { userModel } = require("../model/user");
 const { JTAmodel } = require("../model/user");
 const crypto = require("crypto");
@@ -432,6 +433,11 @@ const resendOTPToUser = async (userName) => {
 exports.addJTA = async (req, res) => {
   let { Id, courseName, semester, days } = req.body;
   // sanitize the input
+  Id = sanitized(Id);
+  courseName = sanitized(courseName);
+  semester = sanitized(semester);
+  days = sanitized(days);
+
   console.log(days);
   Id = Id.toString();
   const email = getCookies(req).email;
