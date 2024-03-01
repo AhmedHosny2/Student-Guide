@@ -434,16 +434,12 @@ exports.addJTA = async (req, res) => {
   // sanitize the input
   console.log(days);
   Id = Id.toString();
-  courseName = courseName;
-  semester = semester;
-
   const email = getCookies(req).email;
-  const user = await userModel.find({ email });
-  const jta = await JTAmodel.create({ Id, courseName, semester, days, email });
+  await userModel.find({ email });
+  await JTAmodel.create({ Id, courseName, semester, days, email });
   res.status(200).json({ message: "JTA added" });
 };
 exports.getJTA = async (req, res) => {
   const JTAs = await JTAmodel.find();
   res.status(200).json(JTAs);
-}
-
+};
