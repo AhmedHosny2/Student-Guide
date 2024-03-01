@@ -15,13 +15,18 @@ const courses = {
   2: ["Math2 ", "OOP ", "Network ", "Computer Organisation ", "Theoretical "],
   4: ["SE ", "DS ", "IT ", "Distributed ", "Media ", "Math 4 "],
 };
+
 const slots = {
-  1: ["First :8:30-10:00 "],
-  2: ["Second :10:15-11:45 "],
-  3: ["Third: 12:00-1:30 "],
-  4: ["Fourth: 1:45-3:15 "],
-  5: ["Fifth: 3:45-5:15 "],
+  Saturday: ["First ", "Second ", "Third ", "Fourth ", "Fifth "],
+  Sunday: ["First ", "Second ", "Third ", "Fourth ", "Fifth "],
+  Monday: ["First ", "Second ", "Third ", "Fourth ", "Fifth "],
+  Tuesday: ["First ", "Second ", "Third ", "Fourth ", "Fifth "],
+  Wednesday: ["First ", "Second ", "Third ", "Fourth ", "Fifth "],
+  Thursday: ["First ", "Second ", "Third ", "Fourth ", "Fifth "],
 };
+
+// Create an object to store the selected slots for each day
+const selectedSlots = {};
 
 semesterDropdown.addEventListener("change", (event) => {
   while (courseDropdown.firstChild) {
@@ -43,8 +48,8 @@ semesterDropdown.addEventListener("change", (event) => {
     checkbox.type = "checkbox";
     checkbox.name = "course";
     checkbox.value = course;
-    checkbox.id = `course-${course}`; // Add an id to the checkbox
-    checkbox.style.display = "none"; // Hide the checkbox
+    checkbox.id = `course-${course}`;
+    checkbox.style.display = "none";
 
     const label = document.createElement("label");
     label.htmlFor = `course-${course}`;
@@ -66,53 +71,72 @@ semesterDropdown.addEventListener("change", (event) => {
       icon.style.display = checkbox.checked ? "inline" : "none";
       dayLabel.style.display = "";
       dayDropdown.style.display = "";
-
-      dayDropdown.addEventListener("change", () => {
-        while (slotDropdown.firstChild) {
-          slotDropdown.removeChild(slotDropdown.firstChild);
-        }
-
-        slotLabel.style.display = "block";
-
-        const selectedDays = Array.from(dayDropdown.selectedOptions).map(
-          (option) => option.value
-        );
-
-        Object.values(slots)
-          .flat()
-          .forEach((slot) => {
-            const slotCheckbox = document.createElement("input");
-            slotCheckbox.type = "checkbox";
-            slotCheckbox.name = "slot";
-            slotCheckbox.value = slot;
-            slotCheckbox.id = `slot-${slot}`; // Add an id to the checkbox
-            slotCheckbox.style.display = "none"; // Hide the checkbox
-
-            const slotLabel = document.createElement("label");
-            slotLabel.htmlFor = `slot-${slot}`; // Associate the label with the checkbox
-            slotLabel.appendChild(document.createTextNode(slot));
-
-            const slotIcon = document.createElement("i");
-            slotIcon.className = "fa-solid fa-check fa-bounce fa-sm";
-            slotIcon.style.color = "#0b2447";
-            slotIcon.style.display = "none";
-
-            const slotCard = document.createElement("div");
-            slotCard.className = "card";
-            slotCard.appendChild(slotCheckbox);
-            slotCard.appendChild(slotLabel);
-            slotCard.appendChild(slotIcon);
-
-            slotCard.addEventListener("click", () => {
-              slotCheckbox.checked = !slotCheckbox.checked;
-              slotIcon.style.display = slotCheckbox.checked ? "inline" : "none";
-            });
-
-            slotDropdown.appendChild(slotCard);
-          });
-      });
     });
 
     courseDropdown.appendChild(card);
+  });
+
+  dayDropdown.addEventListener("change", () => {
+    while (slotDropdown.firstChild) {
+      slotDropdown.removeChild(slotDropdown.firstChild);
+    }
+
+    slotLabel.style.display = "block";
+
+    const selectedDays = Array.from(dayDropdown.selectedOptions).map(
+      (option) => option.value
+    );
+
+    selectedDays.forEach((day) => {
+      slots[day].forEach((slot) => {
+        const slotCheckbox = document.createElement("input");
+        slotCheckbox.type = "checkbox";
+        slotCheckbox.name = "slot";
+        slotCheckbox.value = slot;
+        slotCheckbox.id = `slot-${day}-${slot}`;
+        slotCheckbox.style.display = "none";
+
+        const slotLabel = document.createElement("label");
+        slotLabel.htmlFor = `slot-${day}-${slot}`;
+        slotLabel.appendChild(document.createTextNode(slot));
+
+        const slotIcon = document.createElement("i");
+        slotIcon.className = "fa-solid fa-check fa-bounce fa-sm";
+        slotIcon.style.color = "#0b2447";
+        slotIcon.style.display = "none";
+
+        const slotCard = document.createElement("div");
+        slotCard.className = "card";
+        slotCard.appendChild(slotCheckbox);
+        slotCard.appendChild(slotLabel);
+        slotCard.appendChild(slotIcon);
+
+        if (selectedSlots[day] && selectedSlots[day].includes(slot)) {
+          slotCheckbox.checked = true;
+          slotIcon.style.display = "inline";
+        }
+
+        slotCard.addEventListener("click", () => {
+          slotCheckbox.checked = !slotCheckbox.checked;
+          slotIcon.style.display = slotCheckbox.checked ? "inline" : "none";
+
+          // Update the selected slots for the day
+          if (!selectedSlots[day]) {
+            selectedSlots[day] = [];
+          }
+
+          if (slotCheckbox.checked) {
+            selectedSlots[day].push(slot);
+          } else {
+            const index = selectedSlots[day].indexOf(slot);
+            if (index > -1) {
+              selectedSlots[day].splice(index, 1);
+            }
+          }
+        });
+
+        slotDropdown.appendChild(slotCard);
+      });
+    });
   });
 });
