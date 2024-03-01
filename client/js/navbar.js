@@ -35,27 +35,15 @@ ulElement.classList.add("links");
 //return the required links for each page
 let navLinks;
 
-if ("/client/index.html" === location.pathname) {
-  navLinks = [
-    { name: "location", link: "html/location.html" },
-    { name: "TA directory", link: "html/TA-directory.html" },
-    { name: "Courses", link: "html/selectCourse.html" },
-    { name: "Schedules", link: "html/groupSchedule.html" },
-    { name: "Grade Calc", link: "html/gradesToPass.html" },
-    { name: "GPA calc", link: "html/GPACalculator.html" },
-    { name: "Key Links", link: "html/resource gateway.html" },
-  ];
-} else {
-  navLinks = [
-    { name: "location", link: "../html/location.html" },
-    { name: "TA directory", link: "../html/TA-directory.html" },
-    { name: "Courses", link: "../html/selectCourse.html" },
-    { name: "Schedules", link: "../html/groupSchedule.html" },
-    { name: "Grade Calc", link: "../html/gradesToPass.html" },
-    { name: "GPA calc", link: "../html/GPACalculator.html" },
-    { name: "Key Links", link: "../html/resource gateway.html" },
-  ];
-}
+navLinks = [
+  { name: "location", link: "../../client/html/location.html" },
+  { name: "TA directory", link: "../../client/html/TA-directory.html" },
+  { name: "Courses", link: "../../client/html/selectCourse.html" },
+  { name: "Schedules", link: "../../client/html/groupSchedule.html" },
+  { name: "Grade Calc", link: "../../client/html/gradesToPass.html" },
+  { name: "GPA calc", link: "../../client/html/GPACalculator.html" },
+  { name: "Key Links", link: "../../client/html/resource gateway.html" },
+];
 navLinks.forEach((item) => {
   const liElement = document.createElement("li");
   const aElement = document.createElement("a");
@@ -89,17 +77,13 @@ const avatarDropdown = document.createElement("div");
 avatarDropdown.classList.add("avatar-dropdown");
 
 let dropdownItems = [
-  { name: "Profile", link: "html/profilePage.html" },
-  { name: "Apply for JTA", link: "html/JTA.html" },
-  { name: "Logout", link: "html/login.html" },
+  { name: "Profile", link: "../../client/html/profilePage.html" },
+  { name: "Apply for JTA", link: "../../client/html/JTA.html" },
+  { name: "Logout", link: "../../client/html/login.html" },
+  // { name: "Apply for JTA", link: "html/JTA.html" },
+  // { name: "Logout", link: "html/login.html" },
 ];
-if ("/client/index.html" !== location.pathname) {
-  dropdownItems = [
-    { name: "Profile", link: "../html/profilePage.html" },
-    { name: "Apply for JTA", link: "../html/JTA.html" },
-    { name: "Logout", link: "../html/login.html" },
-  ];
-}
+
 dropdownItems.forEach((item) => {
   const aElement = document.createElement("a");
   aElement.href = item.link;
@@ -113,23 +97,20 @@ dropdownItems.forEach((item) => {
       window.location.href = clientLoginURL;
       localStorage.clear();
     });
-  }
-  else if (item.name === "Profile" || item.name === "Apply for JTA") {
-
+  } else if (item.name === "Profile" || item.name === "Apply for JTA") {
     if (userName === null) {
       aElement.addEventListener("click", (event) => {
         event.preventDefault();
         window.location.href = clientLoginURL;
-      }
-      );
+      });
     }
   }
   if (isAdmin && item.name === "Apply for JTA") {
-    aElement.href =  location.pathname === "/client/index.html" ? "html/JTARequests.html" : "./JTARequests.html";
-    
-    aElement.textContent = "JTA requests"
+    aElement.href = "../../client/html/JTARequests.html";
+
+    aElement.textContent = "JTA requests";
   }
- 
+
   avatarDropdown.appendChild(aElement);
 });
 avatarDropdown.style.display = "none";
@@ -160,20 +141,12 @@ const mobileNavDiv = document.createElement("div");
 mobileNavDiv.classList.add("mobile-nav");
 
 let mobileNavLinks;
-if ("/client/index.html" === location.pathname)
-  mobileNavLinks = [
-    { href: "index.html", iconUnicode: "\u{f015}" },
-    { href: "html/location.html", iconUnicode: "\u{f3c5}" },
-    { href: "html/TA-directory.html", iconUnicode: "\u{f5fc}" },
-    { href: "html/selectCourse.html", iconUnicode: "\u{f5da}" },
-  ];
-else
-  mobileNavLinks = [
-    { href: "../index.html", iconUnicode: "\u{f015}" },
-    { href: "../html/location.html", iconUnicode: "\u{f3c5}" },
-    { href: "../html/TA-directory.html", iconUnicode: "\u{f5fc}" },
-    { href: "../html/selectCourse.html", iconUnicode: "\u{f5da}" },
-  ];
+mobileNavLinks = [
+  { href: ".././../client/index.html", iconUnicode: "\u{f015}" },
+  { href: "../../client/html/location.html", iconUnicode: "\u{f3c5}" },
+  { href: "../../client/html/TA-directory.html", iconUnicode: "\u{f5fc}" },
+  { href: "../../client/html/selectCourse.html", iconUnicode: "\u{f5da}" },
+];
 mobileNavLinks.forEach((link) => {
   const aElement = document.createElement("a");
   aElement.href = link.href;
@@ -210,7 +183,7 @@ if (semester && !isVerified) {
   window.location.href = clientLoginURL;
 }
 
-if(location.pathname === "/client/html/JTARequests.html" && !isAdmin){
-// prevent data from being displayed
+if (location.pathname === "/client/html/JTARequests.html" && !isAdmin) {
+  // prevent data from being displayed
   window.location.href = clientLoginURL;
 }
