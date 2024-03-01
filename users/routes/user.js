@@ -8,7 +8,8 @@ const {
   updateUserPoints,
   verifyOTP,
   sendOTP,
-  forgetPassword
+  forgetPassword,
+  addJTA
 } = require("../controller/user");
 const {
   verifyToken,
@@ -23,5 +24,6 @@ router.put("/verifyOTP", limiter, verifyOTP);
 router.get("/logout", logoutUser);
 router.use(verifyToken);
 router.get("/", getUser);
+router.post("/addJTA", addJTA);
 
 module.exports = router;

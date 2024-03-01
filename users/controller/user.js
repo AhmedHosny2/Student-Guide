@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const userModel = require("../model/user");
+const { userModel } = require("../model/user");
+const { JTAmodel } = require("../model/user");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 const getCookies = require("../utils/cookies").getEntriesFromCookie;
@@ -115,7 +116,7 @@ exports.signupUser = async (req, res) => {
 
     user.OTP = randomOTP;
     if (email.slice(-11) === "@giu-uni.de") user.isAdmin = true;
-    
+
     await user.save();
     // send welcome email
     await sendEmail(
@@ -427,3 +428,17 @@ const resendOTPToUser = async (userName) => {
 };
 
 // resendOTPToUser("y")
+// JTA
+exports.addJTA = async (req, res) => {
+  let { Id, courseName, semester, days } = req.body;
+  // sanitize the input
+  console.log(days);
+  Id = Id.toString();
+  courseName = courseName.toString();
+  semester = semester.toString();
+
+  const email = getCookies(req).email;
+  const user = await userModel.find({ email });
+  const jta = await JTAmodel.create({ Id, courseName, semester, days, email });
+  res.status(200).json({ message: "JTA added" });
+};

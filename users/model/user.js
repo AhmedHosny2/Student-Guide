@@ -26,18 +26,17 @@ const userSchema = new Schema(
     },
     isAdmin: {
       type: Boolean,
-      default:false,
+      default: false,
     },
-    verifyed:{
+    verifyed: {
       type: Boolean,
-      default:false,
+      default: false,
     },
     OTP: {
       type: String,
     },
     forgetPasswordOTP: {
       type: String,
-
     },
     forgetPasswordTime: {
       type: Date,
@@ -46,11 +45,39 @@ const userSchema = new Schema(
       type: Number,
       default: 0,
     },
-    
+
     token: { type: String },
   },
   {
     strict: true,
   }
 );
-module.exports = mongoose.model("user", userSchema);
+const JTASchema = new Schema({
+  Id: {
+    type: String,
+    required: true,
+  },
+  courseName: {
+    type: String,
+    required: true,
+  },
+  semester: {
+    type: String,
+    required: true,
+  },
+  Date: { type: Date, default: Date.now },
+  days: {
+    required: true,
+    type: Array,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+});
+module.exports = {
+  userModel: mongoose.model("user", userSchema),
+   JTAmodel: mongoose.model("JTA", JTASchema),
+};
+
+
