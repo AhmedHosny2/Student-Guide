@@ -3,6 +3,10 @@
   display: grid;
   place-content: center;
 }
+.JTA-wrap .container form .form-group {
+  display: grid;
+  gap: 10px;
+}
 .JTA-wrap .container form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -140,3 +140,8 @@ semesterDropdown.addEventListener("change", (event) => {
     });
   });
 });
+document.getElementById("studentId").addEventListener("input", function () {
+  if (this.value.length > 7) {
+    this.value = this.value.slice(0, 7);
+  }
+});
