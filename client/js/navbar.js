@@ -100,20 +100,43 @@ if ("/client/index.html" === location.pathname) {
   ];
 } else {
   var dropdownItems = [
-    { name: "Profile", link: "../html/profilePage.html" },
+    { name: "View profile", link: "../html/profilePage.html" },
     { name: "Apply for JTA", link: "../html/JTA.html" },
     { name: "Logout", link: "../html/login.html" },
   ];
 }
-dropdownItems.forEach((item) => {
+dropdownItems.forEach((item, index) => {
   const aElement = document.createElement("a");
   aElement.href = item.link;
   aElement.textContent = item.name;
+
+  if (item.name === "View profile") {
+    const iElement = document.createElement("i");
+    iElement.classList.add("fa-regular", "fa-user");
+    aElement.prepend(iElement);
+  } else if (item.name === "Apply for JTA") {
+    const iElement = document.createElement("i");
+    iElement.classList.add("fa-solid", "fa-envelope-open");
+    aElement.prepend(iElement);
+  } else if (item.name === "Logout") {
+    const iElement = document.createElement("i");
+    iElement.classList.add("fa-solid", "fa-arrow-right-from-bracket");
+    aElement.prepend(iElement);
+  }
+
   if (item.name == "logout" && userName === null) {
     aElement.textContent = "login";
   }
+
   if (item.name === "logout") aElement.id = "logout";
+
   avatarDropdown.appendChild(aElement);
+
+  // Add a thin line before the "Logout" item
+  if (index === dropdownItems.length - 2) {
+    const hrElement = document.createElement("hr");
+    avatarDropdown.appendChild(hrElement);
+  }
 });
 avatarDropdown.style.display = "none";
 avatar.appendChild(avatarDropdown);

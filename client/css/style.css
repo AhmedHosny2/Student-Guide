@@ -122,35 +122,43 @@ html {
 }
 /* start dropdown menu */
 .avatar-dropdown {
-  background: #f9f9f9; 
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+  background: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 7px 5px;
   border-radius: 25px;
-  z-index: 101; 
-  position: absolute; 
-  display: block; 
+  z-index: 101;
+  position: absolute;
+  display: block;
   opacity: 0;
-  visibility: hidden; 
-  transition: height 0.3s, opacity 0.3s, visibility 0.3s; 
+  visibility: hidden;
+  transition: height 0.3s, opacity 0.3s, visibility 0.3s;
 }
 
 .avatar-dropdown.show {
   height: auto;
-  opacity: 1; 
-  visibility: visible; 
+  opacity: 1;
+  visibility: visible;
 }
-
+hr{
+  width: 80%;
+  border: 1px solid #f1f1f1;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  
+}
 .avatar-dropdown a {
-  color: black; 
-  padding: 10px 15px;
-  text-decoration: none; 
-  display: block; 
+  color: black;
+  padding: 10px 30px 10px 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  gap: 13px;
   border-radius: 20px;
 }
 
 .avatar-dropdown a:hover {
-  transition: background 0.3s;  
-  background-color: #f1f1f1; 
+  transition: background 0.3s;
+  background-color: #f1f1f1;
 }
 /* end dropdown menu */
 
@@ -160,8 +168,7 @@ html {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
@@ -421,8 +428,7 @@ html {
     font-size: 25px;
     background-color: var(--content-color);
     border-bottom: 5px solid var(--fourth-color);
-    box-shadow:
-      rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   }
 
