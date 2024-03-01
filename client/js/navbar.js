@@ -92,14 +92,8 @@ let dropdownItems = [
   { name: "Apply for JTA", link: "html/JTA.html" },
   { name: "Logout", link: "html/login.html" },
 ];
-if ("/client/index.html" === location.pathname) {
-   dropdownItems = [
-    { name: "Profile", link: "html/profilePage.html" },
-    { name: "Apply for JTA", link: "html/JTA.html" },
-    { name: "Logout", link: "html/login.html" },
-  ];
-} else {
-   dropdownItems = [
+if ("/client/index.html" !== location.pathname) {
+  dropdownItems = [
     { name: "Profile", link: "../html/profilePage.html" },
     { name: "Apply for JTA", link: "../html/JTA.html" },
     { name: "Logout", link: "../html/login.html" },
@@ -112,17 +106,30 @@ dropdownItems.forEach((item) => {
   if (item.name == "Logout" && userName === null) {
     aElement.textContent = "login";
   }
-  if (item.name === "Logout"){
-   
+  if (item.name === "Logout") {
     aElement.addEventListener("click", (event) => {
       event.preventDefault();
-        window.location.href = clientLoginURL;
-        localStorage.clear();
-
-
-      });
-
+      window.location.href = clientLoginURL;
+      localStorage.clear();
+    });
   }
+  else if (item.name === "Profile" || item.name === "Apply for JTA") {
+
+    if (userName === null) {
+      aElement.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.href = clientLoginURL;
+      }
+      );
+    }
+  }
+  const isAdmin = localStorage.getItem("isAdmin");
+  if (isAdmin && item.name === "Apply for JTA") {
+    aElement.href =  location.pathname === "/client/index.html" ? "html/JTARequests.html" : "./JTARequests.html";
+    
+    aElement.textContent = "JTA requests"
+  }
+ 
   avatarDropdown.appendChild(aElement);
 });
 avatarDropdown.style.display = "none";
@@ -211,7 +218,6 @@ import { clientLoginURL, userURL } from "../utils/env.js";
 
 //   window.location.href = clientLoginURL;
 // });
-
 
 const semester = localStorage.getItem("semester");
 const isVerified = localStorage.getItem("isVerified");
