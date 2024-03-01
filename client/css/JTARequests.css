@@ -20,18 +20,17 @@ table {
   margin: 20px;
 }
 .container .JTARequests .JTARequests-header .JTARequests-header-title {
-  font-size: clamp(2rem, 2vw, 5rem);
+  font-size: clamp(1.4rem, 2vw, 5rem);
   color: var(--third-color);
 }
-.container .JTARequests .JTARequests-header .JTARequests-header-search {
-  font-size: clamp(0.5rem, 2vw, 1rem);
-}
+
 .container .JTARequests .JTARequests-header .JTARequests-header-search input {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
   font-size: 16px;
+  font-size: clamp(0.7rem, 2vw, 1rem);
 }
 .container .JTARequests .JTARequests-content {
   margin: 20px;
@@ -39,11 +38,11 @@ table {
 }
 thead {
   background-color: #e9edf3;
-  font-size: clamp(0.5rem, 2vw, 1rem);
   color: rgb(100, 100, 100);
 }
 thead th {
   padding-top: 13px;
+  font-size: clamp(0.85rem, 2vw, 1rem);
   padding-bottom: 13px;
 }
 tr td:first-child {
@@ -65,7 +64,7 @@ th:first-child {
 }
 .JTARequests-content-table-table-btn {
   padding: 5px;
-  font-size: clamp(0.4rem, 2vw, 0.9rem);
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -110,6 +109,7 @@ td {
   padding: 10px;
   text-align: center;
   word-break: break-all;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
 }
 tr {
   transition: all 0.25s ease-in-out;
