@@ -49,7 +49,7 @@ loginForm.addEventListener("submit", (e) => {
       localStorage.setItem("userName", data.userName);
       localStorage.setItem("isVerified", data.isVerified);
       localStorage.setItem("semester", data.semester);
-      window.location.href = clientURL;
+      window.location.href = clientURL+"index.html";
     })
     .catch((error) => {
       console.error("Fetch error:", error);

@@ -132,10 +132,9 @@ function generateTACards(taData) {
     }
     cardHead.appendChild(taImage);
     taWrapper.appendChild(courseName);
-    // taWrapper.appendChild(taImage);
     taWrapper.appendChild(contactButton);
     card.appendChild(taWrapper);
-    card.ap;
+  
   });
 
   const deleteButtons = document.querySelectorAll(
