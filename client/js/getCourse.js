@@ -25,6 +25,9 @@ editBtn.addEventListener("click", () => {
   // Set the src attribute to the CKEditor script URL
   ckeditorScript.src = "https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"; // replace
   ckeditorScript.type = "text/javascript";
+  script.integrity =
+    "sha512-g+ANYpPSUKcvl16qW21wLjfIrqU2wCKIcQneFAlBJWKmBB4KM98j0tBPGiCgVHJgqzEPiLq+yaZHObRVi87vjw==";
+  script.crossOrigin = "anonymous";
   // Define a function to be called after the script is loaded
   ckeditorScript.onload = function () {
     // CKEditor script has been loaded, now create the CKEditor instance with custom configuration
@@ -99,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
     contentDisplay.innerHTML = editorContent;
   }
 
-
   const updateCourse = async () => {
     const courseName = localStorage.getItem("courseName");
     const newContent = myEditor.getData();
@@ -124,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        
         // Handle the response data from the API (e.g., show a success message)
       })
       .catch((error) => {
@@ -146,7 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // update the value in the DB
   });
 });
-
 
 //add person
 const addPerson = document.querySelector(".button-wrap .add-person");
