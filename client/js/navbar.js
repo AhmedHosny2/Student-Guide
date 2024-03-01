@@ -87,19 +87,19 @@ containerDiv.appendChild(avatar);
 const avatarDropdown = document.createElement("div");
 avatarDropdown.classList.add("avatar-dropdown");
 
-var dropdownItems = [
+let dropdownItems = [
   { name: "Profile", link: "html/profilePage.html" },
   { name: "Apply for JTA", link: "html/JTA.html" },
   { name: "Logout", link: "html/login.html" },
 ];
 if ("/client/index.html" === location.pathname) {
-  var dropdownItems = [
+   dropdownItems = [
     { name: "Profile", link: "html/profilePage.html" },
     { name: "Apply for JTA", link: "html/JTA.html" },
     { name: "Logout", link: "html/login.html" },
   ];
 } else {
-  var dropdownItems = [
+   dropdownItems = [
     { name: "Profile", link: "../html/profilePage.html" },
     { name: "Apply for JTA", link: "../html/JTA.html" },
     { name: "Logout", link: "../html/login.html" },
@@ -109,10 +109,20 @@ dropdownItems.forEach((item) => {
   const aElement = document.createElement("a");
   aElement.href = item.link;
   aElement.textContent = item.name;
-  if (item.name == "logout" && userName === null) {
+  if (item.name == "Logout" && userName === null) {
     aElement.textContent = "login";
   }
-  if (item.name === "logout") aElement.id = "logout";
+  if (item.name === "Logout"){
+   
+    aElement.addEventListener("click", (event) => {
+      event.preventDefault();
+        window.location.href = clientLoginURL;
+        localStorage.clear();
+
+
+      });
+
+  }
   avatarDropdown.appendChild(aElement);
 });
 avatarDropdown.style.display = "none";
@@ -198,24 +208,13 @@ import { clientLoginURL, userURL } from "../utils/env.js";
 //     return;
 //   }
 //   localStorage.clear();
-//   fetch(userURL + "/logout", {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     credentials: "include",
-//   })
-//     .then((res) => {
-//       if (res.status === 200) {
-//         window.location.href = clientLoginURL;
-//       }
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
-// const semester = localStorage.getItem("semester");
-// const isVerified = localStorage.getItem("isVerified");
-// if (semester && !isVerified) {
+
 //   window.location.href = clientLoginURL;
-// }
+// });
+
+
+const semester = localStorage.getItem("semester");
+const isVerified = localStorage.getItem("isVerified");
+if (semester && !isVerified) {
+  window.location.href = clientLoginURL;
+}
