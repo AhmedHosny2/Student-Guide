@@ -25,9 +25,9 @@ editBtn.addEventListener("click", () => {
   // Set the src attribute to the CKEditor script URL
   ckeditorScript.src = "https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"; // replace
   ckeditorScript.type = "text/javascript";
-  script.integrity =
+  ckeditorScript.integrity =
     "sha512-g+ANYpPSUKcvl16qW21wLjfIrqU2wCKIcQneFAlBJWKmBB4KM98j0tBPGiCgVHJgqzEPiLq+yaZHObRVi87vjw==";
-  script.crossOrigin = "anonymous";
+    ckeditorScript.crossOrigin = "anonymous";
   // Define a function to be called after the script is loaded
   ckeditorScript.onload = function () {
     // CKEditor script has been loaded, now create the CKEditor instance with custom configuration
