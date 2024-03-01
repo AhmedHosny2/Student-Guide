@@ -13,6 +13,7 @@ const logoLink = document.createElement("a");
 
 if ("/client/index.html" === location.pathname) logoLink.href = "index.html";
 else logoLink.href = "../index.html";
+const isAdmin = localStorage.getItem("isAdmin");
 
 const logoText = document.createElement("h4");
 logoText.textContent = "resource ";
@@ -123,7 +124,6 @@ dropdownItems.forEach((item) => {
       );
     }
   }
-  const isAdmin = localStorage.getItem("isAdmin");
   if (isAdmin && item.name === "Apply for JTA") {
     aElement.href =  location.pathname === "/client/index.html" ? "html/JTARequests.html" : "./JTARequests.html";
     
@@ -202,25 +202,15 @@ hamburgerMenu.addEventListener("click", () => {
     hamburgerMenu.classList.remove("active");
   }
 });
-import { clientLoginURL, userURL } from "../utils/env.js";
-
-// Create avatar dropdown menu
-
-// Logout functionality
-// let logoutButton = document.getElementById("logout");
-// logoutButton.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   if (logoutButton.textContent === "login") {
-//     window.location.href = clientLoginURL;
-//     return;
-//   }
-//   localStorage.clear();
-
-//   window.location.href = clientLoginURL;
-// });
+import { clientLoginURL } from "../utils/env.js";
 
 const semester = localStorage.getItem("semester");
 const isVerified = localStorage.getItem("isVerified");
 if (semester && !isVerified) {
+  window.location.href = clientLoginURL;
+}
+
+if(location.pathname === "/client/html/JTARequests.html" && !isAdmin){
+// prevent data from being displayed
   window.location.href = clientLoginURL;
 }

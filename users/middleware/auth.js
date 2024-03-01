@@ -15,6 +15,7 @@ module.exports.verifyRole = async (req, res, next) => {
     return res.status(403).send("A token is required for authentication");
   }
   if (!authcookie.isAdmin) {
+    console.log("role not verfied");
     return res.status(401).send("Invalid Token you are not admin");
   }
   console.log("role verfied");
