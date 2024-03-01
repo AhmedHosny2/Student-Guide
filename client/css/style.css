@@ -123,7 +123,8 @@ html {
 /* start dropdown menu */
 .avatar-dropdown {
   background: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   padding: 7px 5px;
   border-radius: 25px;
   z-index: 101;
@@ -139,12 +140,15 @@ html {
   opacity: 1;
   visibility: visible;
 }
-hr{
+hr {
   width: 80%;
   border: 1px solid #f1f1f1;
   margin: 0 auto;
   margin-bottom: 10px;
-  
+}
+i {
+  color: #3d3d3d;
+  font-size: 17px;
 }
 .avatar-dropdown a {
   color: black;

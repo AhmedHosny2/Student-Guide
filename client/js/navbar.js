@@ -88,15 +88,17 @@ containerDiv.appendChild(avatar);
 const avatarDropdown = document.createElement("div");
 avatarDropdown.classList.add("avatar-dropdown");
 
-let dropdownItems = [
-  { name: "Profile", link: "html/profilePage.html" },
+var dropdownItems = [
+  { name: "View profile", link: "html/profilePage.html" },
   { name: "Apply for JTA", link: "html/JTA.html" },
+  { name: "Feedback", link: "html/login.html" },
   { name: "Logout", link: "html/login.html" },
 ];
 if ("/client/index.html" !== location.pathname) {
   dropdownItems = [
-    { name: "Profile", link: "../html/profilePage.html" },
+    { name: "View profile", link: "../html/profilePage.html" },
     { name: "Apply for JTA", link: "../html/JTA.html" },
+    { name: "Feedback", link: "html/login.html" },
     { name: "Logout", link: "../html/login.html" },
   ];
 }
@@ -117,8 +119,12 @@ dropdownItems.forEach((item, index) => {
     const iElement = document.createElement("i");
     iElement.classList.add("fa-solid", "fa-arrow-right-from-bracket");
     aElement.prepend(iElement);
+  } else if (item.name === "Feedback") {
+    const iElement = document.createElement("i");
+    iElement.classList.add("fa-regular", "fa-pen-to-square");
+    aElement.prepend(iElement);
   }
-  
+
   if (item.name == "Logout" && userName === null) {
     aElement.textContent = "login";
   }
@@ -143,6 +149,7 @@ dropdownItems.forEach((item, index) => {
         : "./JTARequests.html";
 
     aElement.textContent = "JTA requests";
+    console.log(isAdmin);
   }
 
   avatarDropdown.appendChild(aElement);
