@@ -1,3 +1,5 @@
+import { userURL, clientLoginURL } from "../utils/env.js";
+import { tost } from "./Toastify.js";
 const semesterDropdown = document.getElementById("semester");
 const courseDropdown = document.getElementById("course");
 const dayDropdown = document.getElementById("dayDropdown");
@@ -143,5 +145,49 @@ semesterDropdown.addEventListener("change", (event) => {
 document.getElementById("studentId").addEventListener("input", function () {
   if (this.value.length > 7) {
     this.value = this.value.slice(0, 7);
+  }
+});
+const loader = document.getElementById("loader");
+const pageData = document.getElementById("pageData");
+loader.style.display = "none";
+
+const submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", function () {
+  fetchJTAData();
+
+  function fetchJTAData() {
+    loader.style.display = "flex";
+    pageData.style.display = "none";
+
+    fetch(userURL + "/addJTA", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        Id: document.getElementById("studentId").value,
+        semester: Array.from(semesterDropdown.selectedOptions).map(
+          (option) => option.value
+        ),
+        courseName: Array.from(
+          courseDropdown.querySelectorAll("input:checked")
+        ).map((input) => input.value),
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          tost("Something went wrong please infrom the Admin!", "error", 3000);
+          loader.style.display = "none";
+          throw new Error("Network response was not ok");
+        }
+        loader.style.display = "none";
+        tost("JTA Requested Successfully!", "success", 3000);
+        location.reload();
+        return response.json();
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
   }
 });

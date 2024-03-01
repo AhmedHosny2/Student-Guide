@@ -434,8 +434,8 @@ exports.addJTA = async (req, res) => {
   // sanitize the input
   console.log(days);
   Id = Id.toString();
-  courseName = courseName.toString();
-  semester = semester.toString();
+  courseName = courseName;
+  semester = semester;
 
   const email = getCookies(req).email;
   const user = await userModel.find({ email });

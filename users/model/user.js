@@ -58,11 +58,11 @@ const JTASchema = new Schema({
     required: true,
   },
   courseName: {
-    type: String,
+    type: Array,
     required: true,
   },
   semester: {
-    type: String,
+    type: Array,
     required: true,
   },
   Date: { type: Date, default: Date.now },

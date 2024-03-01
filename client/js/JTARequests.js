@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   tbody.innerHTML = "";
 
 
+
   data.forEach((item) => {
     const row = document.createElement("tr");
 

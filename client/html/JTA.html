@@ -16,9 +16,13 @@
   <body>
     <!-- header Slot -->
     <header class="header" id="header"></header>
-
+    <div class="container" id="loader">
+      <div class="loader-wrapper" >
+        <span class="loader">Load&nbsp;ng</span>
+      </div>
+    </div>
     <main>
-      <div class="JTA-wrap">
+      <div class="JTA-wrap" id="pageData">
         <div class="container">
           <form id="JTA-form">
             <div class="img box">
@@ -72,8 +76,8 @@
                     />
                   </div>
                 </div>
-                <button type="submit" id="submit-button">Submit</button>
               </div>
+              <button type="submit" id="submit-button">Submit</button>
             </div>
           </form>
         </div>
