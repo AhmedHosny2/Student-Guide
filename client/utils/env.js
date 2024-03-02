@@ -5,7 +5,7 @@ export const coursesURL = `https://student-guide-course.ahmed-yehia.me/course`;
 export const taURL = `https://ta.ahmed-yehia.me/TADirectory`;
 export const userURL = "https://student-guide-users.ahmed-yehia.me/user";
 export const clientLoginURL = "https://guide.ahmed-yehia.me/html/login.html";
-export const clientURL = "https://guide.ahmed-yehia.me";
+export const clientURL = "https://guide.ahmed-yehia.me/";
 export const getCourseURL = "https://guide.ahmed-yehia.me/html/getCourse.html";
 
 // for local version
