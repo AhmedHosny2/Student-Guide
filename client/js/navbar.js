@@ -197,14 +197,14 @@ if ("/client/index.html" === location.pathname)
   mobileNavLinks = [
     { href: "index.html", iconUnicode: "\u{f015}" },
     { href: "html/groupSchedule.html", iconUnicode: "\u{f073}" },
-    { href: "html/TA-directory.html", iconUnicode: "\u{f5fc}" },
+    { href: "html/TA-directory.html", iconUnicode: "\u{f51c}" },
     { href: "html/selectCourse.html", iconUnicode: "\u{f5da}" },
   ];
 else
   mobileNavLinks = [
     { href: "../index.html", iconUnicode: "\u{f015}" },
     { href: "../html/groupSchedule.html", iconUnicode: "\u{f073}" },
-    { href: "../html/TA-directory.html", iconUnicode: "\u{f5fc}" },
+    { href: "../html/TA-directory.html", iconUnicode: "\u{f51c}" },
     { href: "../html/selectCourse.html", iconUnicode: "\u{f5da}" },
   ];
 mobileNavLinks.forEach((link) => {
