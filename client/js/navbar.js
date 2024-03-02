@@ -134,7 +134,7 @@ dropdownItems.forEach((item, index) => {
       window.location.href = clientLoginURL;
       localStorage.clear();
     });
-  } else if (item.name === "Profile" || item.name === "Apply for JTA") {
+  } else if (item.name === "View profile" || item.name === "Apply for JTA") {
     if (userName === null) {
       aElement.addEventListener("click", (event) => {
         event.preventDefault();
