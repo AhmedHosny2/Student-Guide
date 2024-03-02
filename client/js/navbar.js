@@ -242,3 +242,13 @@ if (location.pathname === "/client/html/JTARequests.html" && !isAdmin) {
   // prevent data from being displayed
   window.location.href = clientLoginURL;
 }
+
+if (location.pathname === "/client/html/JTA.html" && !userName) {
+  // prevent data from being displayed
+  window.location.href = clientLoginURL;
+}
+
+if (location.pathname === "/client/html/profilePage.html" && !userName) {
+  // prevent data from being displayed
+  window.location.href = clientLoginURL;
+}
