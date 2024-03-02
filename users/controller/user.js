@@ -35,39 +35,7 @@ const generateOTP = () => {
   const otp = crypto.randomInt(100000, 999999);
   return otp;
 };
-// const sendEmailNoeMailer = (to, subject, text) => {
-//   // Create a transporter object using SMTP transport
-//   let transporter = nodemailer.createTransport({
-//     host: "smtp.gmail.com",
-//     secure: true,
-//   auth: {
-//     type: "OAuth2",
-//     user: "the.guide.student@gmail.com",
-//     clientId: process.env.GOOGLE_CLIENT_ID,
-//     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//     refreshToken: process.env.REFRESH_TOKEN,                           
-//   }
-//   });
 
-//   // Setup email data with unicode symbols
-//   let mailOptions = {
-//     from: "the.guide.student@gmail.com",
-//     to,
-//     subject,
-//     text,
-//     html: `<b>${text}</b>`,
-//   };
-
-//   // Send mail with defined transport object
-//   transporter.sendMail(mailOptions, (error, info) => {
-//     if (error) {
-//       return console.log(error);
-//     }
-//     console.log("Message sent: %s", info.messageId);
-//   });
-// };
-// sendEmailNoeMailer("ahmed.yehia4431@gmail.com" , "test", "test email")
-// Refresh token function
 const generateRefreshToken = (user, expiresAt, isrefresh) => {
   console.log(user);
   const { email, isAdmin } = user;
@@ -127,21 +95,9 @@ exports.signupUser = async (req, res) => {
       email,
       "OTP for email verification",
       `Your OTP is ${randomOTP}`
-    );
-    // await sendEmailNoeMailer(
-    //   email,
-    //   "OTP for email verification",
-    //   `Your OTP is ${randomOTP}`
-    // );
+    );   
     sendEmail(email, "Welcome  mail and OTP", signUpEmailTemp(randomOTP));
-    // sendEmailNoeMailer(
-    //   email,
-    //   "Welcome  mail and OTP",
-    //   signUpEmailTemp(randomOTP)
-    // );
     console.log("Sign up done");
-    // here
-
     console.log("OTP sent");
     res.status(200).json({ message: "User created" });
   } catch (err) {
@@ -183,8 +139,7 @@ exports.loginUser = async (req, res) => {
     const fiveHoursInMilliseconds = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
     const newTime = new Date(Date.now() + fiveHoursInMilliseconds);
 
-    // const domains = [".ahmed-yehia.me", "localhost"];
-    // const domain = ".ahmed-yehia.me";
+    
     const newTimeRefresh = new Date(Date.now() + 1000 * 60 * 60 * 24 * 399);
 
     // Set cookies for each domain
@@ -297,11 +252,7 @@ exports.sendOTP = async (req, res) => {
       "OTP for forget Password",
       `Your OTP is ${randomOTP}`
     );
-    // await sendEmailNoeMailer(
-    //   user.email,
-    //   "OTP for forget Password",
-    //   `Your OTP is ${randomOTP}`
-    // );
+    
     res.status(200).json({ message: "OTP sent" });
     return;
   }
@@ -331,11 +282,7 @@ exports.sendOTP = async (req, res) => {
     "OTP for email verification",
     `Your OTP is ${randomOTP}`
   );
-  // await sendEmailNoeMailer(
-  //   email,
-  //   "OTP for email verification",
-  //   `Your OTP is ${randomOTP}`
-  // );
+  
   user.OTP = randomOTP;
   await user.save();
   res.status(200).json({ message: "OTP sent" });
@@ -392,10 +339,7 @@ const resendOTP = async () => {
     // semester: "semester 4",
     verifyed: false,
   });
-  // console.log(users.length);
-  // for(let user of users){
-  //   console.log(user.OTP);
-  // }
+
   for (let user of users) {
     let randomOTP = user.OTP;
     console.log(randomOTP);
@@ -404,11 +348,7 @@ const resendOTP = async () => {
       "OTP for email verification",
       signUpEmailTemp(randomOTP)
     );
-    // await sendEmailNoeMailer(
-    //   user.email,
-    //   "OTP for email verification",
-    //   `Your OTP is ${randomOTP}`
-    // );
+
   }
 };
 // resendOTP();
@@ -422,11 +362,6 @@ const resendOTPToUser = async (userName) => {
     "OTP for email verification",
     signUpEmailTemp(randomOTP)
   );
-  // await sendEmailNoeMailer(
-  //   user.email,
-  //   "OTP for email verification",
-  //   signUpEmailTemp(randomOTP)
-  // );
   user.OTP = randomOTP;
   await user.save();
 };

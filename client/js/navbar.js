@@ -88,17 +88,23 @@ containerDiv.appendChild(avatar);
 const avatarDropdown = document.createElement("div");
 avatarDropdown.classList.add("avatar-dropdown");
 
-var dropdownItems = [
+let dropdownItems = [
   { name: "View profile", link: "html/profilePage.html" },
   { name: "Apply for JTA", link: "html/JTA.html" },
-  { name: "Feedback", link: "html/login.html" },
+  {
+    name: "Feedback",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSdDtAs4eoyWzjABwTlLppcLFuJNBoziim2a4ooIYU7xXcyVTg/viewform",
+  },
   { name: "Logout", link: "html/login.html" },
 ];
 if ("/client/index.html" !== location.pathname) {
   dropdownItems = [
     { name: "View profile", link: "../html/profilePage.html" },
     { name: "Apply for JTA", link: "../html/JTA.html" },
-    { name: "Feedback", link: "html/login.html" },
+    {
+      name: "Feedback",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSdDtAs4eoyWzjABwTlLppcLFuJNBoziim2a4ooIYU7xXcyVTg/viewform",
+    },
     { name: "Logout", link: "../html/login.html" },
   ];
 }
@@ -149,7 +155,6 @@ dropdownItems.forEach((item, index) => {
         : "./JTARequests.html";
 
     aElement.textContent = "JTA requests";
-
   }
 
   avatarDropdown.appendChild(aElement);
@@ -243,10 +248,11 @@ if (location.pathname === "/client/html/JTARequests.html" && !isAdmin) {
   window.location.href = clientLoginURL;
 }
 
-if ((location.pathname === "/client/html/JTA.html" || location.pathname === "/client/html/profilePage.html" )&& !userName) {
+if (
+  (location.pathname === "/client/html/JTA.html" ||
+    location.pathname === "/client/html/profilePage.html") &&
+  !userName
+) {
   // prevent data from being displayed
   window.location.href = clientLoginURL;
 }
-
-
-
