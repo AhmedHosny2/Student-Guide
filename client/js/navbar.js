@@ -196,14 +196,14 @@ let mobileNavLinks;
 if ("/client/index.html" === location.pathname)
   mobileNavLinks = [
     { href: "index.html", iconUnicode: "\u{f015}" },
-    { href: "html/location.html", iconUnicode: "\u{f3c5}" },
+    { href: "html/groupSchedule.html", iconUnicode: "\u{f073}" },
     { href: "html/TA-directory.html", iconUnicode: "\u{f5fc}" },
     { href: "html/selectCourse.html", iconUnicode: "\u{f5da}" },
   ];
 else
   mobileNavLinks = [
     { href: "../index.html", iconUnicode: "\u{f015}" },
-    { href: "../html/location.html", iconUnicode: "\u{f3c5}" },
+    { href: "../html/groupSchedule.html", iconUnicode: "\u{f073}" },
     { href: "../html/TA-directory.html", iconUnicode: "\u{f5fc}" },
     { href: "../html/selectCourse.html", iconUnicode: "\u{f5da}" },
   ];
