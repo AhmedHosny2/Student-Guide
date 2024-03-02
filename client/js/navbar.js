@@ -149,7 +149,7 @@ dropdownItems.forEach((item, index) => {
         : "./JTARequests.html";
 
     aElement.textContent = "JTA requests";
-    console.log(isAdmin);
+
   }
 
   avatarDropdown.appendChild(aElement);
@@ -243,12 +243,10 @@ if (location.pathname === "/client/html/JTARequests.html" && !isAdmin) {
   window.location.href = clientLoginURL;
 }
 
-if (location.pathname === "/client/html/JTA.html" && !userName) {
+if ((location.pathname === "/client/html/JTA.html" || location.pathname === "/client/html/profilePage.html" )&& !userName) {
   // prevent data from being displayed
   window.location.href = clientLoginURL;
 }
 
-if (location.pathname === "/client/html/profilePage.html" && !userName) {
-  // prevent data from being displayed
-  window.location.href = clientLoginURL;
-}
+
+
