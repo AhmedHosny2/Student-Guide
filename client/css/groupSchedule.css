@@ -60,12 +60,12 @@
   }
 }
 
-.location .container .txt .description p {
-  color: #585f63;
-  font-size: 1.1em;
+.location .table-wrapper table tbody p {
   line-height: 1.8em;
   text-transform: capitalize;
-  font-weight: 500;
+  border: 1px solid #dcdcdc;
+  padding: 8px;
+  border-radius: 20px;
 }
 
 .location .container .txt .description p span {
@@ -78,8 +78,7 @@
 /* start table */
 .location .container .tableSelect {
   border: 0;
-  box-shadow:
-    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -114,8 +113,7 @@
 
 .location .table-wrapper table tbody td {
   padding: 20px;
-  box-shadow:
-    rgb(204, 219, 232) 3px 3px 6px 0px inset,
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 .location .table-wrapper table tbody td strong {
