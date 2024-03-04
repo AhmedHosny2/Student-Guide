@@ -8,7 +8,7 @@
 }
 
 .profile-wrap .container .idCard {
-  padding: 2rem;
+  padding: 4rem;
   -webkit-border-radius: 1.25rem;
   -moz-border-radius: 1.25rem;
   -ms-border-radius: 1.25rem;
@@ -21,17 +21,79 @@
   -moz-transition: 0.15s;
   -ms-transition: 0.15s;
   -o-transition: 0.15s;
-  cursor: pointer;
-  max-width: 580px;
+  max-width: 700px;
+  position: relative;
+  display: grid;
+  gap: 15px;
+  margin: 0 1rem 3rem 1rem;
+}
+.modal {
+  display: none;
+  place-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  transition: backdrop-filter 0.5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.card {
+  background-color: #fefefe;
+  margin: 4rem;
+  padding: 3rem;
+  height: 300px;
+  width: 300px;
+  border: dashed 1px #888;
+  border-radius: 15px;
+  transition: background 0.3s;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
   position: relative;
 }
+.card:hover {
+  background-color: #f3f3f3;
+}
+.modal .card p {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  align-content: center;
+}
+.modal .card i {
+  color: white;
+  margin-right:5px;
+}
+input[type="file"] {
+  display: none;
+}
+.modal .card label {
+  background-color: var(--third-color);
+  color: white;
+  padding: 7px;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  user-select: none;
+}
 
-.profile-wrap .container .idCard.verified::after {
-  content: "verfied";
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 10px;
+.profile-wrap .container .idCard .profile-title.verified::after {
+  content: "Verfied";
+  position: relative;
+  float: right;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   background-color: #54be63;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -39,25 +101,38 @@
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   color: white;
+  padding: 1rem;
+  top: -8px;
+  right: -20px;
 }
 
-.profile-wrap .container .idCard::after {
-  content: "verifiy your account";
+.profile-wrap .container .idCard .profile-title::after {
+  content: "Click to verifiy your account";
   background-color: #e06c75;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 10px;
+  position: relative;
+  float: right;
   border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   color: white;
+  padding: 1rem;
+  top: -8px;
+  right: -20px;
+  cursor: pointer;
 }
-
-.profile-wrap .container .idCard:hover {
-  box-shadow: 13px 13px 0px 3px var(--main-color);
+.profile-wrap .container .idCard .title {
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  color: var(--third-color);
+  font-weight: 700;
+  position: relative;
+  float: left;
+}
+.profile-wrap .container .idCard #title {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 .profile-wrap .container .idCard .basic-info-wrap {
@@ -72,10 +147,41 @@
     flex-direction: column;
     margin-bottom: 20px;
   }
+  .profile-wrap .container .idCard {
+    padding: 1rem;
+    gap: 5px;
+    margin-bottom: 3rem;
+    top: -70px;
+  }
+  .profile-wrap .container .idCard .basic-info-wrap .img #editBtn {
+    width: 100%;
+  }
 }
 
 .profile-wrap .container .idCard .basic-info-wrap .img {
   width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  bottom: -30px;
+  gap: 10px;
+}
+.profile-wrap .container .idCard .basic-info-wrap .img #editBtn {
+  background-color: var(--third-color);
+  color: white;
+  border: 0;
+  border-radius: 50px;
+  width: 60%;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+  margin: 10px;
 }
 
 .profile-wrap .container .idCard .basic-info-wrap img {
@@ -85,14 +191,77 @@
 .profile-wrap .container .idCard .basic-info-wrap .data-wrap p {
   width: max-content;
   padding: 0;
-  font-size: 30px;
+
+  font-size: clamp(1.1rem, 7vw, 2.5rem);
   color: var(--third-color);
-  font-style: italic;
 }
 
-.profile-wrap .container .idCard:hover .basic-info-wrap .data-wrap p {
-  color: var(--fourth-color);
-  border-bottom: 1px solid var(--fourth-color);
+.profile-wrap .container .idCard hr {
+  width: 90%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 0.2rem 1rem;
+}
+.profile-wrap .container .idCard .form-group label {
+  font-size: clamp(1rem, 3.5vw, 1.4rem);
+  color: var(--third-color);
+  font-weight: 600;
+  margin: 5px 0 15px 0;
+}
+.profile-wrap .container .idCard .form-group input {
+  margin: 5px 0 15px 0;
+  color: #979797;
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  padding: 13px;
+}
+.profile-wrap .container .idCard .form-group input:focus {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  color: #333333;
+}
+.form-group {
+  display: grid;
+  gap: 10px;
+  margin: 20px 10px 20px 10px;
+}
+/* #saveBtn {
+  background-color: var(--third-color);
+  color: white;
+  border: 0;
+  border-radius: 50px;
+  width: 30%;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 20px;
+  position: relative;
+}
+#saveBtn:disabled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: not-allowed;
+  background-color: var(--third-color);
+  opacity: 0.5;
+  border-radius: 50px;
+} */
+
+form input::placeholder {
+  text-transform: capitalize;
 }
 
 .profile-wrap .container .text-wrap .data-wrap:not(:last-child) {
