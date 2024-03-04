@@ -162,7 +162,13 @@ i {
 
 .avatar-dropdown a:hover {
   transition: background 0.3s;
+  transition: color 0.3s;
   background-color: #f1f1f1;
+  transition: all color 0.3s;
+}
+
+.avatar-dropdown a:last-child:hover {
+  color: rgb(229, 0, 0);
 }
 /* end dropdown menu */
 
