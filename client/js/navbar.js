@@ -155,6 +155,9 @@ dropdownItems.forEach((item, index) => {
         : "./JTARequests.html";
 
     aElement.textContent = "JTA requests";
+    const iElement = document.createElement("i");
+    iElement.classList.add("fa-regular", "fa-bell");
+    aElement.prepend(iElement);
   }
 
   avatarDropdown.appendChild(aElement);
