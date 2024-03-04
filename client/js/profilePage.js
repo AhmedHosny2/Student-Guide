@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
   uploadBtn.id = "file";
   uploadBtn.className = "upload-btn";
 
-  icon.className = "fa-solid fa-arrow-up-from-bracket"; // Corrected class name
+  icon.className = "fa-solid fa-arrow-up-from-bracket";
   uploadText.appendChild(icon);
 
-  const textNode = document.createTextNode("Upload File"); // Create a text node
-  uploadText.appendChild(textNode); // Append the text node to the label
+  const textNode = document.createTextNode("Upload File");
+  uploadText.appendChild(textNode);
 
   uploadText.htmlFor = "file";
   uploadText.className = "upload-text";
