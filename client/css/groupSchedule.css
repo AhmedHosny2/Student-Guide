@@ -64,8 +64,9 @@
   line-height: 1.8em;
   text-transform: capitalize;
   border: 1px solid #dcdcdc;
-  padding: 8px;
+  padding: 6px;
   border-radius: 20px;
+  text-align: center; 
 }
 
 .location .container .txt .description p span {
