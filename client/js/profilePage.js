@@ -60,7 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const userName = document.getElementById("accName");
   const emailInput = document.getElementById("accEmail");
+  emailInput.disabled = true;
   const semesterInput = document.getElementById("accSem");
+  semesterInput.disabled = true;
 
   userName.innerHTML =
     "Welcome " +
