@@ -1,0 +1,277 @@
+hr {
+  margin: 50px 0;
+}
+/* start sections */
+.major {
+  margin: 0 0 100px;
+}
+
+.major .container .wrap ul li {
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.major .container .txt h2 {
+  color: var(--third-color);
+  position: relative;
+  padding: 30px 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.major .container .txt h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: var(--fourth-color);
+}
+
+.major .container .txt h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: var(--fourth-color);
+}
+
+.major .container .txt .description {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .major .container .txt .description {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.major .container .txt .description p {
+  color: #585f63;
+  font-size: 1.1em;
+  line-height: 1.8em;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.major .container .txt .description p span {
+  color: var(--third-color);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.major .container .txt .description img {
+  width: 20%;
+}
+
+@media (max-width: 767px) {
+  .major .container .txt .description img {
+    width: 50%;
+  }
+}
+
+.major .container h1 {
+  text-align: center;
+  text-transform: capitalize;
+  background-color: var(--fourth-color);
+  padding: 20px 0;
+  color: var(--main-color);
+}
+.major .container .wrap h2 {
+  color: var(--third-color);
+  text-transform: capitalize;
+  font-size: 42px;
+  margin: 50px 0;
+}
+.major .container .wrap ul li {
+  font-size: 20px;
+  font-weight: 400;
+  color: #242424;
+}
+
+.major .container .wrap ul li h4 {
+  color: var(--secondary-color);
+  font-size: 25px;
+}
+
+.major .container .wrap ul li p {
+  line-height: 1.5;
+  font-size: 20px;
+  font-weight: 400;
+  color: #242424;
+}
+
+.major .container .semester-content h4 {
+  font-size: 25px;
+  text-transform: capitalize;
+  text-align: center;
+  position: relative;
+}
+
+.major .container .semester-content table {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.major .container .semester-content table tr th {
+  background-color: var(--fourth-color);
+  padding: 10px;
+  color: var(--secondary-color);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.major .container .semester-content table tr td {
+  padding: 10px;
+  color: #242424;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.56;
+}
+
+.major .container .semester-content table tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+.major .container .elective-course .text h2 {
+  margin-bottom: 0;
+}
+
+.major .container .elective-course .text p {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.major .container .elective-course ol li {
+  line-height: 1.8;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.major .container .elective-course ol li span {
+  color: #e06c75;
+  font-weight: 700;
+}
+.major .container .tip {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 20px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  font-size: 20px;
+  display: flex;
+  color: #242424;
+}
+
+.major .container .tip span {
+  color: #e17218;
+}
+.major .container .tip a {
+  color: #242424;
+}
+
+.major .container .advisorRec h4 {
+  font-size: 32px;
+  color: var(--secondary-color);
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .major .container .advisorRec h4 {
+    font-size: 25px;
+  }
+}
+
+.major .container .advisorRec ul {
+  padding: 0;
+  margin: 0;
+  margin-top: 50px;
+}
+
+.major .container .advisorRec li {
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 20px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.major .container .students h2 {
+  font-size: 32px;
+  color: var(--third-color);
+}
+
+.major .container .students .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.major .container .students .content .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.major .container .students .content .box img {
+  width: 20%;
+}
+
+.major .container .students .content .box a {
+  color: var(--third-color);
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.major .container .students .content .box a span {
+  color: #e06c75;
+  font-weight: 700;
+}
+
+.major .container .community h2 {
+  margin-bottom: 0;
+}
+
+.major .container .community p {
+  font-size: 20px;
+  font-weight: 400;
+}
+/* end sections */
+/* start IT */
+.major .container .IT .elective ul li {
+  line-height: 1.8;
+}
+
+.major .container .IT .elective ul li:nth-child(even) span {
+  background-color: var(--third-color);
+  color: white;
+  padding: 5px;
+}
+
+.major .container .IT .elective ul li:nth-child(odd) span {
+  background-color: var(--fourth-color);
+  padding: 5px;
+}
+/* end IT */

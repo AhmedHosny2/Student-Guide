@@ -9,7 +9,7 @@ let searchInput = document.querySelector("#searchBar");
 // searchInput.style.display = "none";
 // searchText.style.display = "none";
 
-function fetchTAData() {
+function  fetchTAData() {
   loader.style.display = "flex";
   pageData.style.display = "none";
   fetch(taURL + "/getTaCourses", {
