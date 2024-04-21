@@ -233,6 +233,7 @@ main {
 .veeIntro .container .wrap h2 {
   font-weight: 400;
   color: #585f63;
+  font-size: 20px;
 }
 
 .veeIntro .container .wrap .vee {
