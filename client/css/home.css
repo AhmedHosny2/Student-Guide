@@ -222,6 +222,69 @@ main {
   margin: 60px 0;
 }
 
+.veeIntro .container .wrap {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.veeIntro .container .wrap h2 {
+  font-weight: 400;
+  color: #585f63;
+}
+
+.veeIntro .container .wrap .vee {
+  width: 250px;
+}
+
+.veeIntro .container .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.veeIntro .container .content .box {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1.25rem;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+  -ms-border-radius: 1.25rem;
+  -o-border-radius: 1.25rem;
+  padding: 20px;
+  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  transition: 0.15s;
+  border: 1px solid;
+  align-items: flex-end;
+}
+
+.veeIntro .container .content .box:hover {
+  box-shadow: 13px 13px 0px 3px var(--main-color);
+}
+
+.veeIntro .container .content .box img {
+  width: 100%;
+}
+
+.veeIntro .container .content .box a {
+  color: white;
+  font-weight: 700;
+  border-radius: 40px;
+  background: #576cbc;
+  padding: 15px 15px;
+  margin: 0 0.5rem 1rem 0;
+  border: 0px;
+  cursor: pointer;
+  box-shadow: 3px 20px 15px 5px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-transform: capitalize;
+  width: max-content;
+}
+
 .section-global {
   display: flex;
   align-items: center;
