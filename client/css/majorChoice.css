@@ -1,4 +1,4 @@
-hr {
+.divisor {
   margin: 50px 0;
 }
 /* start sections */
@@ -172,15 +172,15 @@ hr {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   font-size: 20px;
-  display: flex;
   color: #242424;
+  line-height: 1.5;
 }
 
 .major .container .tip span {
   color: #e17218;
 }
 .major .container .tip a {
-  color: #242424;
+  color: #e06c75;
 }
 
 .major .container .advisorRec h4 {
@@ -274,4 +274,10 @@ hr {
   background-color: var(--fourth-color);
   padding: 5px;
 }
+
+.major .container .wrap .details p {
+  line-height: 1.8;
+  font-weight: 500;
+}
+
 /* end IT */
