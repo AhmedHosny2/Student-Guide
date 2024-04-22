@@ -6,6 +6,41 @@
   margin: 0 0 100px;
 }
 
+.major .container {
+  position: relative;
+}
+
+.major .container .starLink {
+  position: fixed;
+  bottom: calc(65px + 50px);
+  right: 4em;
+  border: 0;
+  background-color: transparent;
+  transform: skewX(335deg);
+  -webkit-transform: skewX(335deg);
+  -moz-transform: skewX(335deg);
+  -ms-transform: skewX(335deg);
+  -o-transform: skewX(335deg);
+}
+
+.major .container .starLink a {
+  color: orange;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border: 1px solid;
+  box-shadow: 7px 7px 0px 3px var(--secondary-color);
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+.major .container .starLink a:hover {
+  box-shadow: 13px 13px 0px 3px var(--main-color);
+}
+
 .major .container .wrap ul li {
   margin-bottom: 20px;
   font-size: 25px;
@@ -281,3 +316,9 @@
 }
 
 /* end IT */
+/* start animation */
+@keyframes smallToBig {
+  1% {
+  }
+}
+/* end animation */
