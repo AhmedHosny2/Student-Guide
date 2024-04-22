@@ -43,7 +43,7 @@ if ("/client/index.html" === location.pathname) {
     { name: "Schedules", link: "html/groupSchedule.html" },
     { name: "Grade Calc", link: "html/gradesToPass.html" },
     { name: "GPA calc", link: "html/GPACalculator.html" },
-    { name: "Key Links", link: "html/resource gateway.html" },
+    { name: "Miscellaneous", link: "html/resource gateway.html" },
   ];
 } else {
   navLinks = [
@@ -53,7 +53,7 @@ if ("/client/index.html" === location.pathname) {
     { name: "Schedules", link: "../html/groupSchedule.html" },
     { name: "Grade Calc", link: "../html/gradesToPass.html" },
     { name: "GPA calc", link: "../html/GPACalculator.html" },
-    { name: "Key Links", link: "../html/resource gateway.html" },
+    { name: "Miscellaneous", link: "../html/resource gateway.html" },
   ];
 }
 navLinks.forEach((item) => {

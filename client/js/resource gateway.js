@@ -5,6 +5,12 @@ const loader = document.getElementById("test");
 loader.style.display = "flex";
 
 const cardsData = {
+  "Choose Your Major": [
+    "../html/majorSelection.html",
+    "Even if you settled on a major, Due to courses, intuition, family, friends, likes & dislikes, I would advise you to read about all three majors, just in case maybe something could click",
+    "chooseMajor",
+    "Open",
+  ],
   "CMS Downloader": [
     "https://github.com/AhmedAshrafAZ/cms-downloader",
     "Automate Your Downloads Effortlessly! Fetch, Create Folders, and Download All Your CMS Content with Ease!",
