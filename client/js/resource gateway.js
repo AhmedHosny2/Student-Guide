@@ -47,6 +47,12 @@ const cardsData = {
     "giuWIR",
     "Open",
   ],
+  "Internships and Roadmaps":[
+    "https://github.com/FahdSeddik/CUFE-CCE25",
+    "A dedicated repo for internships and great learning roadmaps!",
+    "acmClub", // Used the ACM Club ref for the image
+    "Open",
+  ]
 };
 
 Object.entries(cardsData).forEach(([key, value]) => {
