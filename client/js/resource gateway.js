@@ -23,6 +23,12 @@ const cardsData = {
     "acmClub",
     "Join",
   ],
+  "Internships and Roadmaps":[
+    "https://github.com/FahdSeddik/CUFE-CCE25",
+    "A dedicated repo for internships and great learning roadmaps!",
+    "acmClub", // Used the ACM Club ref for the image
+    "Open",
+  ],
   "GIU Calendar": [
     "https://drive.google.com/file/d/1PwTV77dy07mzuBjtGLd32Bqzrz0DNygr/view?usp=sharing",
     "Unlock Your Potential: Academic Semester Calendar Unveiled!",
@@ -47,12 +53,7 @@ const cardsData = {
     "giuWIR",
     "Open",
   ],
-  "Internships and Roadmaps":[
-    "https://github.com/FahdSeddik/CUFE-CCE25",
-    "A dedicated repo for internships and great learning roadmaps!",
-    "acmClub", // Used the ACM Club ref for the image
-    "Open",
-  ]
+
 };
 
 Object.entries(cardsData).forEach(([key, value]) => {
