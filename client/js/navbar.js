@@ -16,9 +16,9 @@ else logoLink.href = "../index.html";
 const isAdmin = localStorage.getItem("isAdmin");
 
 const logoText = document.createElement("h4");
-logoText.textContent = "resource ";
+logoText.textContent = "student ";
 const spanElement = document.createElement("span");
-spanElement.textContent = "hub";
+spanElement.textContent = "guide";
 logoText.appendChild(spanElement);
 logoLink.appendChild(logoText);
 logoDiv.appendChild(logoLink);
