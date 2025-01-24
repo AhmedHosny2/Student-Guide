@@ -1,7 +1,9 @@
 node_modules
-.env
 package-lock.json
 client/utils/env.js
 BackUpAt*
 client/utils/env.js
 .DS_Store
+courses/.env
+TADirectory/.env
+users/.env
